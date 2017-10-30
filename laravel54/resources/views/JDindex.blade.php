@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>不是所有的页面都叫京东</title>
+    <title>欢迎访问爱尚乐购！</title>
     <link rel="stylesheet" href="css/base.css"/>
     <link rel="stylesheet" href="css/index.css"/>
     <link rel="shortcut icon" href="favicon.ico" />
@@ -43,7 +43,7 @@
             <ul>
                 <li>
                     <a href="javascript:;" id="login">你好，请登录</a> &nbsp;&nbsp;
-                    <a href="#" class="col-red">免费注册</a>
+                    <a href="zhuce" class="col-red">免费注册</a>
                 </li>
                 <li class="line"></li>
                 <li>我的订单</li>

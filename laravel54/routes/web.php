@@ -14,5 +14,8 @@
 Route::get('/', function () {
     return view('JDindex');
 });
+//Route::get('/zhuce', function () {
+//    return view('zhuce');
+//});
 
 Route::get('/zhuce','Auth\RegisterController@zhuce');

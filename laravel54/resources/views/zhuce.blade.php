@@ -34,7 +34,7 @@
 <div id="form-header" class="header">
     <div class="logo-con w clearfix">
         <div class="logo-title">欢迎注册</div>
-        <div class="have-account">已有账号？ <a href="https://passport.jd.com/new/login.aspx">请登录</a></div>
+        <div class="have-account">已有账号？ <a href="login">请登录</a></div>
     </div>
 
 </div>
@@ -42,7 +42,7 @@
 
     <div class="main clearfix" id="form-main">
         <div class="reg-form fl">
-            <form action="" id="register-form" method="post" novalidate="novalidate">
+            <form action="register" id="register-form" method="post" novalidate="novalidate">
                 <input name="new" value="new_person_reg" type="hidden">
                 <input id="localmisc" name="localmisc" value="" type="hidden">
                 <input name="regType" id="regType" value="person" type="hidden">
@@ -66,7 +66,7 @@
 
                 <div class="form-item form-item-account" id="form-item-account">
                     <label>用　户　名</label>
-                    <txt style="position: absolute; z-index: 2; line-height: 46px; margin-left: 20px; margin-top: 1px; font-size: 14px; font-family: &quot;Microsoft YaHei&quot;,&quot;Hiragino Sans GB&quot;; color: rgb(204, 204, 204); display: inline;">您的账户名和登录名</txt><input id="form-account" name="regName" class="field" autocomplete="off" maxlength="20" placeholder=" " default="&lt;i class=&quot;i-def&quot;&gt;&lt;/i&gt;支持中文、字母、数字、“-”“_”的组合，4-20个字符" type="text">
+                    <txt style="position: absolute; z-index: 2; line-height: 46px; margin-left: 20px; margin-top: 1px; font-size: 14px; font-family: &quot;Microsoft YaHei&quot;,&quot;Hiragino Sans GB&quot;; color: rgb(204, 204, 204); display: inline;">您的账户名和登录名</txt><input id="form-account" name="Name" class="field" autocomplete="off" maxlength="20" placeholder=" " default="&lt;i class=&quot;i-def&quot;&gt;&lt;/i&gt;支持中文、字母、数字、“-”“_”的组合，4-20个字符" type="text">
                     <i class="i-status"></i>
                 </div>
                 <div class="input-tip">
@@ -75,7 +75,7 @@
                 <div class="form-item">
                     <label>设 置 密 码</label>
 
-                    <txt style="position: absolute; z-index: 2; line-height: 46px; margin-left: 20px; margin-top: 1px; font-size: 14px; font-family: &quot;Microsoft YaHei&quot;,&quot;Hiragino Sans GB&quot;; color: rgb(204, 204, 204); display: inline;">建议至少使用两种字符组合</txt><input name="pwd" id="form-pwd" class="field" maxlength="20" placeholder=" " default="&lt;i class=i-def&gt;&lt;/i&gt;建议使用字母、数字和符号两种及以上的组合，6-20个字符" type="password">
+                    <txt style="position: absolute; z-index: 2; line-height: 46px; margin-left: 20px; margin-top: 1px; font-size: 14px; font-family: &quot;Microsoft YaHei&quot;,&quot;Hiragino Sans GB&quot;; color: rgb(204, 204, 204); display: inline;">建议至少使用两种字符组合</txt><input name="password" id="form-pwd" class="field" maxlength="20" placeholder=" " default="&lt;i class=i-def&gt;&lt;/i&gt;建议使用字母、数字和符号两种及以上的组合，6-20个字符" type="password">
                     <i class="i-status"></i>
                     <div class="capslock-tip tips">大写已开启<b class="arrow"></b><b class="arrow-inner"></b></div><div class="capslock-tip tips">大写已开启<b class="arrow"></b><b class="arrow-inner"></b></div></div>
                 <div class="input-tip">
@@ -84,7 +84,7 @@
                 <div class="form-item">
                     <label>确 认 密 码</label>
 
-                    <txt style="position: absolute; z-index: 2; line-height: 46px; margin-left: 20px; margin-top: 1px; font-size: 14px; font-family: &quot;Microsoft YaHei&quot;,&quot;Hiragino Sans GB&quot;; color: rgb(204, 204, 204); display: inline;">请再次输入密码</txt><input name="pwdRepeat" id="form-equalTopwd" class="field" placeholder=" " maxlength="20" default="&lt;i class=&quot;i-def&quot;&gt;&lt;/i&gt;请再次输入密码" type="password">
+                    <txt style="position: absolute; z-index: 2; line-height: 46px; margin-left: 20px; margin-top: 1px; font-size: 14px; font-family: &quot;Microsoft YaHei&quot;,&quot;Hiragino Sans GB&quot;; color: rgb(204, 204, 204); display: inline;">请再次输入密码</txt><input name="password_confirmation" id="form-equalTopwd" class="field" placeholder=" " maxlength="20" default="&lt;i class=&quot;i-def&quot;&gt;&lt;/i&gt;请再次输入密码" type="password">
                     <i class="i-status"></i>
                     <div class="capslock-tip tips">大写已开启<b class="arrow"></b><b class="arrow-inner"></b></div><div class="capslock-tip tips">大写已开启<b class="arrow"></b><b class="arrow-inner"></b></div></div>
                 <div class="input-tip">

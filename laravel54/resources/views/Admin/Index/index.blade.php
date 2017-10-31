@@ -80,9 +80,9 @@
     <h2><span class="icon-cube"></span>商品管理</h2>
     <ul>
         <li><a href="/goods/show" target="right"><span class="icon-caret-right"></span>商品信息</a></li>
-        <li><a href="/brand/show" target="right"><span class="icon-caret-right"></span>商品分类</a></li>
+        <li><a href="/cate/show" target="right"><span class="icon-caret-right"></span>商品分类</a></li>
         {{--<li><a href="Cate-1.html" target="right"><span class="icon-caret-right"></span>店铺商品分类</a></li>--}}
-        <li><a href="/cate/show" target="right"><span class="icon-caret-right"></span>商品品牌</a></li>
+        <li><a href="/brand/show" target="right"><span class="icon-caret-right"></span>商品品牌</a></li>
         <li><a href="/goods/pinglun" target="right"><span class="icon-caret-right"></span>用户评论</a></li>
         {{--<li><a href="ddgl-list-7.html" target="right"><span class="icon-caret-right"></span>商家品牌</a></li>--}}
         {{--<li><a href="ddgl-list-8.html" target="right"><span class="icon-caret-right"></span>商家类型</a></li>--}}

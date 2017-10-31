@@ -6,25 +6,25 @@
     <link rel="stylesheet" href="css/base.css"/>
     <link rel="stylesheet" href="css/index.css"/>
     <link rel="shortcut icon" href="favicon.ico" />
-    <script type="text/javascript">
-        window.onload = function(){
-             //事件源:  登录
-            var login = document.getElementById("login");
-            var mask = document.getElementById("mask");
-            var box = document.getElementById("box");
-            login.onclick = function(){
-               // 当我们点击登录，会弹出灰色的大盒子和白色的小盒子
-                mask.style.display = "block";
-                box.style.display = "block";
-            }
-           // 事件源 span x
-            var close_all = document.getElementById("close_all");
-            close_all.onclick = function(){
-                mask.style.display = 'none';
-                box.style.display = "none";
-            }
-        }
-    </script>
+    {{--<script type="text/javascript">--}}
+        {{--window.onload = function(){--}}
+             {{--//事件源:  登录--}}
+            {{--var login = document.getElementById("login");--}}
+            {{--var mask = document.getElementById("mask");--}}
+            {{--var box = document.getElementById("box");--}}
+            {{--login.onclick = function(){--}}
+               {{--// 当我们点击登录，会弹出灰色的大盒子和白色的小盒子--}}
+                {{--mask.style.display = "block";--}}
+                {{--box.style.display = "block";--}}
+            {{--}--}}
+           {{--// 事件源 span x--}}
+            {{--var close_all = document.getElementById("close_all");--}}
+            {{--close_all.onclick = function(){--}}
+                {{--mask.style.display = 'none';--}}
+                {{--box.style.display = "none";--}}
+            {{--}--}}
+        {{--}--}}
+    {{--</script>--}}
 </head>
 <body>
 <!--京东的头部导航开始-->
@@ -42,11 +42,11 @@
         <div class="fr">
             <ul>
                 <li>
-                    <a href="javascript:;" id="login">你好，请登录</a> &nbsp;&nbsp;
+                    <a href="login" id="login">你好，请登录</a> &nbsp;&nbsp;
                     <a href="zhuce" class="col-red">免费注册</a>
                 </li>
                 <li class="line"></li>
-                <li>我的订单</li>
+                <li><a href="dingdan">我的订单</a></li>
                 <li class="line"></li>
                 <li class="fore">我的京东
                     <i><s>◇</s></i>
@@ -105,17 +105,13 @@
 
 <div class="w clearfix">
     <div class="logo">
-        <a href="http://www.jd.com" target="_blank" class="jd-a" title="叮咚">京东</a>
-        <div class="db11">
-            <a href="#"><img src="images/dong.gif" alt=""/></a>
-        </div>
     </div>
     <div class="search">
         <input type="text" name="" id="" value="图书开抢"/>
         <button>搜索</button>
     </div>
     <div class="car">
-        <a href="#">俺的购物车</a>
+        <a href="cart">我的购物车</a>
         <span class="icon1"></span>
         <span class="icon2">></span>
         <span class="icon3">8</span>
@@ -223,7 +219,6 @@
         </div>
     </div>
 </div>
-
 <!--
 大banner
 -->

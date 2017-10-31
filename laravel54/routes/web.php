@@ -21,3 +21,9 @@ Route::get('/', function () {
 Route::get('/zhuce','Auth\RegisterController@zhuce');//注册页面展示
 Route::get('/login','Auth\LoginController@showLoginForm');//登录页面展示
 Route::post('/login','Auth\LoginController@Login');//检测用户登录
+
+//购物车路由
+Route::get('/cart','CartController@show');//注册页面展示
+
+//订单路由
+Route::get('/dingdan','IndentController@show');//注册页面展示

@@ -308,7 +308,7 @@ class ComposerStaticInit7b20e4d61e2f88170fbbc44c70d38a1f
         'CreateAccessTable' => __DIR__ . '/../..' . '/database/migrations/2017_10_31_122541_create_access_table.php',
         'CreateAdminTable' => __DIR__ . '/../..' . '/database/migrations/2017_10_31_125054_create_admin_table.php',
         'CreateNodeTable' => __DIR__ . '/../..' . '/database/migrations/2017_10_31_123546_create_node_table.php',
-        'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
+        //'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreateRoleTable' => __DIR__ . '/../..' . '/database/migrations/2017_10_31_124318_create_role_table.php',
         'CreateRoleUserTable' => __DIR__ . '/../..' . '/database/migrations/2017_10_31_124757_create_role_user_table.php',
 

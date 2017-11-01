@@ -281,7 +281,7 @@ class ComposerStaticInit7b20e4d61e2f88170fbbc44c70d38a1f
     );
 
     public static $classMap = array (
-<<<<<<< Updated upstream
+
         'AddToBrand' => __DIR__ . '/../..' . '/database/migrations/2017_10_31_114613_add_to_brand.php',
         'AddToCart' => __DIR__ . '/../..' . '/database/migrations/2017_10_31_115620_add_to_cart.php',
         'AddToCates' => __DIR__ . '/../..' . '/database/migrations/2017_10_31_113604_add_to_cates.php',
@@ -304,14 +304,14 @@ class ComposerStaticInit7b20e4d61e2f88170fbbc44c70d38a1f
         'CreateGoodsTable' => __DIR__ . '/../..' . '/database/migrations/2017_10_31_111311_create_goods_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2017_10_31_111406_create_users_table.php',
-=======
+
         'CreateAccessTable' => __DIR__ . '/../..' . '/database/migrations/2017_10_31_122541_create_access_table.php',
         'CreateAdminTable' => __DIR__ . '/../..' . '/database/migrations/2017_10_31_125054_create_admin_table.php',
         'CreateNodeTable' => __DIR__ . '/../..' . '/database/migrations/2017_10_31_123546_create_node_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreateRoleTable' => __DIR__ . '/../..' . '/database/migrations/2017_10_31_124318_create_role_table.php',
         'CreateRoleUserTable' => __DIR__ . '/../..' . '/database/migrations/2017_10_31_124757_create_role_user_table.php',
->>>>>>> Stashed changes
+
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
         'File_Iterator_Facade' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Facade.php',

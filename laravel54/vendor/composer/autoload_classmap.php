@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+<<<<<<< Updated upstream
     'AddToBrand' => $baseDir . '/database/migrations/2017_10_31_114613_add_to_brand.php',
     'AddToCart' => $baseDir . '/database/migrations/2017_10_31_115620_add_to_cart.php',
     'AddToCates' => $baseDir . '/database/migrations/2017_10_31_113604_add_to_cates.php',
@@ -28,6 +29,14 @@ return array(
     'CreateGoodsTable' => $baseDir . '/database/migrations/2017_10_31_111311_create_goods_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2017_10_31_111406_create_users_table.php',
+=======
+    'CreateAccessTable' => $baseDir . '/database/migrations/2017_10_31_122541_create_access_table.php',
+    'CreateAdminTable' => $baseDir . '/database/migrations/2017_10_31_125054_create_admin_table.php',
+    'CreateNodeTable' => $baseDir . '/database/migrations/2017_10_31_123546_create_node_table.php',
+    'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
+    'CreateRoleTable' => $baseDir . '/database/migrations/2017_10_31_124318_create_role_table.php',
+    'CreateRoleUserTable' => $baseDir . '/database/migrations/2017_10_31_124757_create_role_user_table.php',
+>>>>>>> Stashed changes
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/src/Iterator.php',
     'File_Iterator_Facade' => $vendorDir . '/phpunit/php-file-iterator/src/Facade.php',

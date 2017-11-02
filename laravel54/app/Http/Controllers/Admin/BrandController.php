@@ -17,7 +17,7 @@ class BrandController extends BaseController{
     }
 
     /**
-     * 添加品牌
+     * 添加品牌//
      */
     public function add(){
         return view('Admin.brand.add');

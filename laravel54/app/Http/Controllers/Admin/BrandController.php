@@ -1,36 +1,62 @@
 <?php
 namespace App\Http\Controllers\Admin;
-
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-
-class BrandController extends BaseController
-{
-
+use Illuminate\Http\Request;
+use App\Brand;
+use DB;
+class BrandController extends BaseController{
     /**
-     * 商品分类展示
+     * 品牌展示
      */
-    public function show()
-    {
-        return view('Admin.brand.brand');
+    public function show(){
+        $list=Brand::show();
+        return view('Admin.brand.show',['brand'=>$list]);
     }
 
     /**
-     * 商品分类添加
+     * 添加品牌
      */
-    public function add()
-    {
+    public function add(){
         return view('Admin.brand.add');
     }
     
-    /**
-     * 商品分类珊瑚
-     */
-    public function delete()
-    {
-        return view('Admin.brand.delete');
+    public function addPost(){
+        $res=Brand::addPost();
+        if($res){
+            return redirect('/brand/show');
+        }else{
+            return "添加失败!";
+        }
+    }
+    
+    public function delete($ids){
+//        $ids = explode(',',$ids);
+//        $res = Brand::whereIn('id',$ids)->update(['status'=>0]);
+        $res=Brand::del($ids);
+        if($res){
+            return array("res"=>"ok");
+        }else{
+            return array('res'=>"no");
+        }
     }
 
+    /**
+     * 修改品牌
+     */
+    public function update(Request $r,$id){
+        if (empty($_POST)) {
+            $row = Brand::edit($id);
+            return view('Admin.brand.update', array('row' => $row));
+        } else {
+            $row=Brand::editDo($id);
+            if($row){
+                return redirect('/brand/show');
+            }else{
+                return "没有数据被修改";
+            }
+        }
+    }
 }

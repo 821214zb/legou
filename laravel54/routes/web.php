@@ -38,6 +38,7 @@ Route::get('/index/info',function(){
     return view('Admin/Index/info');
 });
 
+
 /**
  *用户信息路由
  */
@@ -55,19 +56,21 @@ Route::match(['get','post'],'/goods/update/{id}','Admin\GoodsController@update')
 Route::get('/goods/delete/{id}','Admin\GoodsController@delete');                 //商品数据删除
 
 /**
- * 商品分类路由（注意：分类无修改操作）
+ * 商品品牌路由（注意：分类无修改操作）
  */
-Route::get('/brand/show','Admin\BrandController@show');               //商品分类展示
-Route::match(['get','post'],'/brand/add','Admin\BrandController@add');//商品分类添加
-Route::get('/brand/delete/{id}','Admin\BrandController@delete');      //商品分类删除
+Route::get('/brand/show','Admin\BrandController@show');               //商品品牌展示
+Route::match(['get','post'],'/brand/add','Admin\BrandController@add');//展示表单
+Route::post('/brand/addPost','Admin\BrandController@addPost');//商品品牌添加
+Route::match(['get','post'],'/brand/delete/{id}','Admin\BrandController@delete');      //商品品牌删除
+Route::match(['get','post'],'/brand/update/{id}','Admin\BrandController@update');//修改商品品牌
 
 /**
- * 商品品牌路由
+ * 商品分类路由
  */
-Route::get('/cate/show','Admin\CateController@show');                          //商品列表展示
-Route::match(['get','post'],'/Cate/add','Admin\CateController@add');           //商品数据添加
-Route::match(['get','post'],'/Cate/update/{id}','Admin\CateController@update');//商品数据修改
-Route::get('/cate/delete/{id}','Admin\CateController@delete');                 //商品数据删除
+Route::get('/cate/show','Admin\CateController@show');                          //分类列表展示
+Route::match(['get','post'],'/Cate/add','Admin\CateController@add');           //分类数据添加
+Route::match(['get','post'],'/Cate/update/{id}','Admin\CateController@update');//分类数据修改
+Route::get('/cate/delete/{id}','Admin\CateController@delete');                 //分类数据删除
 
 
 /**

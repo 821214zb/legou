@@ -99,6 +99,13 @@
         {{--<li><a href="ddgl-list-15.html" target="right"><span class="icon-caret-right"></span>降价通知日志</a></li>--}}
         {{--<li><a href="ddgl-list-16.html" target="right"><span class="icon-caret-right"></span>商品降价通知</a></li>--}}
     </ul>
+    <h2><span class="icon-flash (alias)"></span>品牌管理</h2>
+    <ul>
+        <li><a href="/brand/show" target="right"><span class="icon-caret-right"></span>品牌列表</a></li>
+        <li><a href="/brand/add" target="right"><span class="icon-caret-right"></span>添加品牌</a></li>
+    </ul>
+
+
     <h2><span class="icon-flash (alias)"></span>促销管理</h2>
     <ul>
         <li><a href="ddgl-list-17.html" target="right"><span class="icon-caret-right"></span>夺宝奇兵</a></li>

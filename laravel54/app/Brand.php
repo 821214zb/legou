@@ -12,7 +12,7 @@ class Brand extends Model{
      * 品牌列表
      */
     static function show(){
-        $list=DB::table('brands')->paginate(5);
+        $list=DB::table('brands')->where(['status'=>3])->paginate(5);
         return $list;
     }
     /**

@@ -25,6 +25,7 @@ class BrandController extends BaseController{
     
     public function addPost(){
         $res=Brand::addPost();
+        var_dump($res);
         if($res){
             return redirect('/brand/show');
         }else{

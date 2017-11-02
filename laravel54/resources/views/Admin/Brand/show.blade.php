@@ -100,21 +100,25 @@
                         type:"get",
                         url:"delete/"+ids,
                         dataType:'json',
-                       success(){
+                        success(){
                            window.location.reload("Admin/brand/show");
-                       }
+                        }
                     })
                }
            }
        })
-        function getData(){
-            var keyword=$('#keyword').val();
-            $.ajax({
-                type:"get",
-                url:'/Brand/show',
-                data:{'keyword':keyword}
-            })
-        }
+    });
 
-    })
+    function getData(p){
+        var keyword=$('#keyword').val();
+        $.ajax({
+            type:"post",
+            url:'search',
+            data:{'keyword':keyword},
+            dataType:'json',
+            success:function(data){
+
+            }
+        })
+    }
 </script>

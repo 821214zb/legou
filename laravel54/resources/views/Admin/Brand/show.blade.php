@@ -29,11 +29,10 @@
             <a href="/brand/add" class="button bg-yellow button-small"><span class="icon-plus"></span>添加品牌</a>
         </div>
         <div class="padding border-bottom">
-            <ul class="search" style="padding-left:10px;">
-                <li>
-                    关键字：<input type="text" placeholder=""  class="input" style="width:250px; line-height:17px;display:inline-block" id="keyword"/>
-                    <a href="javascript:void(0)" class="button border-main icon-search" onclick="getData(1)" > 查询</a></li>
-            </ul>
+            <form action="/brand/show" method="get">
+                关键字：<input type="text" name="keyword" />
+                <input type="submit" value="搜索" />
+            </form>
         </div>
         <table class="table table-hover text-center">
             <tr>
@@ -46,9 +45,9 @@
             </tr>
             @foreach($brand as $v)
                 <tr>
-                    <td><input type="checkbox" value="{{$v->id}}" id="check{{$v->id}}" name="check">{{$v->id}}</td>
+                    <td><input class="input" type="checkbox" value="{{$v->id}}" id="check{{$v->id}}" name="check">{{$v->id}}</td>
                     <td>{{$v->brand_name}}</td>
-                    <td>{{$v->brand_sort}}</td>
+                    <td><input class="input1" type="text" name="sort" value="{{$v->brand_sort}}"></td>
                     <td>
                         @if($v->status == 3 ) <img src="/images/brand/ok.gif" alt="正常" height="20" border="0" width="20" />
                             @elseif($v->status == 0 )<img src="/images/brand/del.gif" alt="删除" height="20" border="0" width="20" />
@@ -60,17 +59,16 @@
                     <td>{{$v->brand_text}}</td>
                     <td>
                         <a href="/brand/update/{{$v->id}}">修改</a>
-                        <a href="/brand/delete/{{$v->id}}"><font color="red">删除</font></a>
                     </td>
                 </tr>
             @endforeach
             <tr>
-                <td colspan="9" style="text-align:left;padding-left:20px;"><a href="javascript:void(0)" class="button border-red" style="padding:5px 15px;" id="del"> 批量删除</a></td>
+                <td colspan="9" style="text-align:left;padding-left:20px;"><a href="javascript:void(0)" class="button border-red" style="padding:5px 15px;" id="del">提交</a></td>
         </table>
     </div>
     <div id="delete"></div>
 <div class="page">
-    {!!$brand->render()!!}
+    {!!$brand->appends(['keyword'=>$keyword])->render()!!}
 </div>
 </body>
 </html>
@@ -89,11 +87,22 @@
         });
         //删除
        $("#del").click(function(){
+           //获取删除数据的ID
            var ids="";
            $("input[name='check']:checked").each(function(){
                ids +=','+$(this).attr('value');
            });
            ids = ids.substr(1);
+           //获取排序的ID
+           var id = "";
+           $(".input").each(function(){
+               id += $(this).val()+",";
+           });
+           //获取排序值
+           var sort = "";
+           $(".input1").each(function(){
+               sort+=$(this).val()+",";
+           });
            if(ids!=""){
                if(confirm('确定要删除吗？')){
                     $.ajax({
@@ -105,20 +114,18 @@
                         }
                     })
                }
+           }else{
+               $.ajax({
+                   type:"post",
+                   url:"sort",
+                   data:{"id":id,"sort":sort},
+                   headers: { 'X-CSRF-TOKEN' : '{{ csrf_token() }}' },
+                   success:function(ok){
+                       window.location.reload("Admin/brand/show");
+                   }
+               })
            }
        })
     });
 
-    function getData(p){
-        var keyword=$('#keyword').val();
-        $.ajax({
-            type:"post",
-            url:'search',
-            data:{'keyword':keyword},
-            dataType:'json',
-            success:function(data){
-
-            }
-        })
-    }
 </script>

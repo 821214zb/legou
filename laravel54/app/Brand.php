@@ -5,16 +5,23 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use DB;
 class Brand extends Model{
-    protected $primaryKey='uid';
-    public $timestamps=false;
-
     /**
      * 品牌列表
      */
-    static function show(){
-        $list=DB::table('brands')->where(['status'=>3])->paginate(5);
-        return $list;
+    static function show($keyword=""){
+//        var_dump($_GET);
+//        if($_GET){
+//            $keyword=$_GET['keyword']?$_GET['keyword']:"";
+//            $list=DB::table('brands')->where('brand_name','like','%'.$keyword.'%')->paginate(6);
+//        }else{
+//            $list=DB::table('brands')->where(['status'=>3])->paginate(6);
+//        }
+//        return view('/brand/show',['brands'=>$list,'keyword'=>$keyword]);
+
+//        $list=DB::table('brands')->where(['status'=>3])->paginate(5);
+//        return $list;
     }
+    
     /**
      * 添加品牌
      */

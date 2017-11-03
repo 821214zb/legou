@@ -16,7 +16,7 @@
 .slider {
     width: 730px;
     height: 453px;
-    background-color: pink;
+    /*background-color: rgba(213, 203, 206, 0.94);*/
     margin: 12px 0 0  220px;
     float: left;
     position: relative;

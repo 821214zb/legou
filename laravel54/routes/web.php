@@ -3,11 +3,25 @@
 //前台路由==============================================================================================
 
 /**
- * 京东首页面
+ * 爱尚首页面
  */
-Route::get('/', function () {
-    return view('JDindex');
-});
+Route::get('/', 'JDController@show');
+
+/**
+ * 爱尚首页分类页面展示（副导航）
+ */
+Route::get('/cate', 'JDController@cate_left');
+
+/**
+ * 爱尚首页分类页面展示（导航详情）
+ */
+Route::get('/cate/{id}', 'JDController@cate');
+
+/**
+ * 首页轮播图
+ */
+Route::get('/lunbo', 'JDController@lunbo');
+
 
 /**
  * 用户注册登录路由
@@ -64,10 +78,11 @@ Route::get('/brand/delete/{id}','Admin\BrandController@delete');      //商品�
 /**
  * 商品分类路由
  */
-Route::get('/cate/show/{id}','Admin\CateController@show');                          //商品列表展示
+Route::get('/cate/show/{id}','Admin\CateController@show');                     //商品列表展示
 Route::match(['get','post'],'/cate/add','Admin\CateController@add');           //商品数据添加
 Route::match(['get','post'],'/cate/update/{id}','Admin\CateController@update');//商品数据修改
 Route::get('/cate/delete/{id}','Admin\CateController@delete');                 //商品数据删除
+Route::get('/cate/status/{id}/{status}','Admin\CateController@cate_status');   //商品数据状态修改
 Route::get('/cate/cate_data/level/{level}','Admin\CateController@cate_data');  //获取商品分类数据
 
 

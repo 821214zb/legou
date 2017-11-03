@@ -7,7 +7,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 //use Intervention\Image\ImageManagerStatic as Image;
-use Intervention\Image\ImageManager;
+//use Intervention\Image\ImageManager;
 use DB;
 use App\Good;
 

@@ -74,6 +74,7 @@
             <th>分类名称</th>
             <th>分类排序</th>
             <th>分类等级</th>
+            <th>分类状态</th>
             <th width="310">操作</th>
         </tr>
         @foreach($data as $k)
@@ -83,7 +84,20 @@
             <td><a href="{{$k->id}}">{{$k->cate_title}}</a></td>
             <td>{{$k->cate_sort}}</td>
             <td>{{$k->cate_level}}</td>
-            <td><div class="button-group"><a class="button border-green" href="cate-2.html"><span class="icon-exchange"></span>转移</a> <a class="button border-main" href="cateedit-1.html"><span class="icon-edit"></span> 编辑</a> <a class="button border-red" href="delete"><span class="icon-trash-o"></span> 删除</a> </div></td>
+            <td> @if($k->status == 3 ) <img src="/images/brand/ok.gif" alt="禁用" height="20" border="0" width="20" />
+                @elseif($k->status == 0 )<img src="/images/brand/del.gif" alt="删除" height="20" border="0" width="20" />
+                @elseif($k->status == 1)<img src="/images/brand/locked.gif" alt="禁用" height="20" border="0" width="20" />
+                @else<img src="/images/brand/locked.gif" alt="恢复" height="20" border="0" width="20" />
+                @endif</td>
+            <td><div class="button-group">
+                    @if($k->status == 3 )
+                    <a class="button border-red" href="/cate/status/{{$k->id}}/3"><span class="icon-trash-o"></span> 禁用</a>
+                    @elseif($k->status == 1 )
+                    <a class="button border-red" href="/cate/status/{{$k->id}}/1"><span class="icon-trash-o"></span> 正常</a>
+                    @elseif($k->status == 0 )
+                    <a class="button border-red" href="/cate/status/{{$k->id}}/0"><span class="icon-trash-o"></span> 恢复</a>
+                    @endif
+                </div></td>
         </tr>
         @endforeach
     </table>

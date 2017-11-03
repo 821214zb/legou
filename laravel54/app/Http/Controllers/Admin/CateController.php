@@ -25,9 +25,9 @@ class CateController extends BaseController
         //查询分页数据
         $cate_title = @$_GET['cate_title'] ? $_GET['cate_title'] : "";
         if($cate_title !== ""){
-            $data = DB::table('cates')->where('cate_title','like','%'.$cate_title.'%')->where('cate_pid',$cate_pid)->where('status',3)->orderby('id','desc')->paginate(5);
+            $data = DB::table('cates')->where('cate_title','like','%'.$cate_title.'%')->where('cate_pid',$cate_pid)->orderby('id','desc')->paginate(5);
         }else{
-            $data = DB::table('cates')->where('cate_pid',$cate_pid)->where('status',3)->paginate(5);
+            $data = DB::table('cates')->where('cate_pid',$cate_pid)->paginate(5);
         }
         //var_dump(good::toSql());
         return view('Admin.Cate.Cate',['data'=>$data,'cate_title'=>$cate_title]);
@@ -96,6 +96,26 @@ class CateController extends BaseController
             echo json_encode('数据删除失败！');
         }else{
             echo json_encode('数据删除成功！');
+        }
+    }
+
+    /**
+     * 商品分类删除
+     */
+    public function cate_status($id,$status)
+    {
+       if($status == 0){
+           $statuss = 1;
+       }elseif ($status == 1){
+           $statuss = 3;
+       }elseif($status == 3){
+           $statuss = 1;
+       }
+        $res = Cate::where('id',$id)->update(['status'=>$statuss]);
+        if(!$res){
+            return redirect('cate/show/0');
+        }else{
+            return redirect('cate/show/0');
         }
     }
 

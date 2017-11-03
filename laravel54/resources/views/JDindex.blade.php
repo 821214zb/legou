@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="css/base.css"/>
     <link rel="stylesheet" href="css/index.css"/>
     <link rel="shortcut icon" href="favicon.ico" />
+    <script type="text/javascript" src="http://www.aslegou.com/Admin/js/jquery-3.2.1.js"></script>
     {{--<script type="text/javascript">--}}
         {{--window.onload = function(){--}}
              {{--//事件源:  登录--}}
@@ -130,258 +131,293 @@
 </div>
 
 <!--nav 部分开始-->
+<!--左侧联动控制右侧分类显示-->
+<script>
+    $(function(){
+        $.ajax({
+            url:'/cate',
+            type:'get',
+            dataType:'json',
+            success:function(data){
+                $('#cate').html(data);
+            },
+            error:function(){
+                alert('error');
+            }
+        });
 
-<div class="jd-nav">
-    <div class="w">
-        <div class="dropdown">
-            <div class="dt">
-                <a href="#">全部商品分类</a>
-            </div>
-            <div class="dd">
-                <div class="items">
-                    <h3>家用电器</h3>
-                    <span>></span>
-                </div>
-                <div class="items">
-                    <h3>手机、数码、京东通信</h3>
-                    <span>></span>
-                </div>
-                <div class="items">
-                    <h3>家用电器</h3>
-                    <span>></span>
-                </div>
-                <div class="items">
-                    <h3>手机、数码、京东通信</h3>
-                    <span>></span>
-                </div>
-                <div class="items">
-                    <h3>家用电器</h3>
-                    <span>></span>
-                </div>
-                <div class="items">
-                    <h3>手机、数码、京东通信</h3>
-                    <span>></span>
-                </div>
-                <div class="items">
-                    <h3>家用电器</h3>
-                    <span>></span>
-                </div>
-                <div class="items">
-                    <h3>手机、数码、京东通信</h3>
-                    <span>></span>
-                </div>
-                <div class="items">
-                    <h3>家用电器</h3>
-                    <span>></span>
-                </div>
-                <div class="items">
-                    <h3>手机、数码、京东通信</h3>
-                    <span>></span>
-                </div>
-                <div class="items">
-                    <h3>家用电器</h3>
-                    <span>></span>
-                </div>
-                <div class="items">
-                    <h3>手机、数码、京东通信</h3>
-                    <span>></span>
-                </div>
-                <div class="items">
-                    <h3>家用电器</h3>
-                    <span>></span>
-                </div>
-                <div class="items">
-                    <h3>手机、数码、京东通信</h3>
-                    <span>></span>
-                </div>
-                <div class="items">
-                    <h3>手机、数码、京东通信</h3>
-                    <span>></span>
-                </div>
+        $(".dd").on('mouseenter','label',function(){
+           $(this).parent().addClass('red'). siblings().removeClass('red') ;
+            var id = $(this).attr('id');
+            $.ajax({
+                url:'/cate/'+id,
+                type:'get',
+                dataType:'json',
+                success:function(data){
+                    $('#slide').html(data);
+                },
+                error:function(){
+                    alert('error');
+                }
+            })
+        });
 
+        $('#div').mouseleave(function(){
+            $.ajax({
+                url:'/lunbo',
+                type:'get',
+                dataType:'json',
+                success:function(data){
+                    $('#slide').html(data);
+                },
+                error:function(){
+                    alert('error');
+                }
+            })
+        })
+    })
+</script>
+<script type="text/javascript">
+    window.onload=function(){
+        var wrap=document.getElementById('wrap'),
+                pic=document.getElementById('pic').getElementsByTagName("li"),
+                list=document.getElementById('list').getElementsByTagName('li'),
+                index=0,
+                timer=null;
+
+        // 定义并调用自动播放函数
+        timer = setInterval(autoPlay, 2000);
+        // 鼠标划过整个容器时停止自动播放
+        wrap.onmouseover = function () {
+            clearInterval(timer);
+        };
+
+        // 鼠标离开整个容器时继续播放至下一张
+        wrap.onmouseout = function () {
+            timer = setInterval(autoPlay, 2000);
+        };
+        // 遍历所有数字导航实现划过切换至对应的图片
+        for (var i = 0; i < list.length; i++) {
+            list[i].onmouseover = function () {
+                clearInterval(timer);
+                index = this.innerText - 1;
+                changePic(index);
+            };
+        };
+        function autoPlay () {
+            if (++index >= pic.length) index = 0;
+            changePic(index);
+        }
+        // 定义图片切换函数
+        function changePic (curIndex) {
+            for (var i = 0; i < pic.length; ++i) {
+                pic[i].style.display = "none";
+                list[i].className = "";
+            }
+            pic[curIndex].style.display = "block";
+            list[curIndex].className = "on";
+        }
+    };
+</script>
+<div id='cate_div'>
+    <div class="jd-nav">
+        <div class="w">
+            <div class="dropdown" id="dd">
+                <div class="dt">
+                    <a>全部商品分类</a>
+                </div>
+                <div class="dd" id="cate">
+
+                </div>
             </div>
-        </div>
-        <div class="navitems">
-            <ul>
-                <li><a href="#">服装城</a></li>
-                <li><a href="#">美妆馆</a></li>
-                <li><a href="#">超市</a></li>
-                <li><a href="#">全球购</a></li>
-                <li><a href="#">闪购</a></li>
-                <li class="new"><a href="#">团购</a></li>
-                <li><a href="#">拍卖</a></li>
-                <li><a href="#">金融</a></li>
-                <li><a href="#">智能</a></li>
-            </ul>
-        </div>
-        <div class="bike">
-            <a href="#"></a>
+            <div class="navitems">
+                <ul>
+                    <li><a href="#">服装城</a></li>
+                    <li><a href="#">美妆馆</a></li>
+                    <li><a href="#">超市</a></li>
+                    <li><a href="#">全球购</a></li>
+                    <li><a href="#">闪购</a></li>
+                    <li class="new"><a href="#">团购</a></li>
+                    <li><a href="#">拍卖</a></li>
+                    <li><a href="#">金融</a></li>
+                    <li><a href="#">智能</a></li>
+                </ul>
+            </div>
+            <div class="bike">
+                <a href="#"></a>
+            </div>
         </div>
     </div>
-</div>
 <!--
-大banner
+大banner 轮播图
 -->
 
-<div class="banner604">
-    <a href="#">
-    </a>
-</div>
-<div class="w main clearfix">
-    <div class="slider" id="slide">
-        <a href="#"><img src="images/11.jpg" alt="" id="pic"/></a>
-        <ul class="circle"> <!-- 小圆点-->
-            <li id="li01">1</li>
-            <li id="li02">2</li>
-            <li>3</li>
-            <li>4</li>
-            <li>5</li>
-            <li class="current">6</li>
-        </ul>
-
-        <div class="arrow" id="arr">   <!--左右两个三角-->
-            <a href="javascript:;" class="arrow-l"><</a>
-            <a href="javascript:;" class="arrow-r">></a>
-        </div>
+    <div class="banner604">
+        <a href="#">
+        </a>
     </div>
-    <script>
-         var arr = document.getElementById("arr");   //两个 三角
-         var slide = document.getElementById("slide");  // 轮播图的盒子
-         slide.onmouseover = function(){
-             arr.style.display = "block";  // 显示三角
-         }
-         slide.onmouseout = function(){
-             arr.style.display = "none";  // 显示三角
-         }
-
-         var li02 = document.getElementById("li02");
-         var li01 = document.getElementById("li01");
-         var pic = document.getElementById("pic");
-         li02.onmouseover = function(){
-             pic.src = "images/22.jpg";
-         }
-         li01.onmouseover = function(){
-             pic.src = "images/11.jpg";
-         }
-    </script>
-    <div class="news">
-        <div class="jd-news">
-            <div class="dt">
-                <h3>京东快报</h3>
-                <a href="#">更多></a>
-            </div>
-            <div class="dd">
-                <ul>
-                    <li><a href="#"><span>[特惠]</span>1元秒杀</a></li>
-                    <li><a href="#"><span>[公告]</span>母婴类APP【京东宝宝】上线</a></li>
-                    <li><a href="#"><span>[特惠]</span>美的品牌日 APP嗨购大放“价”</a></li>
-                    <li><a href="#"><span>[公告]</span>京东深入蒙牛生产基地进行质检</a></li>
-                    <li><a href="#"><span>[特惠]</span>白条购家电 24期免息！</a></li>
+    <div class="w main clearfix" id="div">
+        <!-- 轮播图-->
+        <div class="slider" id="slide">
+            <div id="dd">
+                <ul id="pic"> <!-- 小圆点-->
+                <li><a href="#"><img src="images/11.jpg" alt="" id="pic"/></a></li>
+               </ul>
+                <ul class="circle"> <!-- 小圆点-->
+                    <ol id="list">
+                    <li class="on">1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    </ol>
                 </ul>
-
+                <div class="arrow" id="arr">   <!--左右两个三角-->
+                    <a href="javascript:;" class="arrow-l"><</a>
+                    <a href="javascript:;" class="arrow-r">></a>
+                </div>
             </div>
         </div>
-        <div class="lifeservi">
-            <div class="dt">
-                <h3>生活服务</h3>
+        <!-- 轮播图-->
+        <script>
+             var arr = document.getElementById("arr");   //两个 三角
+             var slide = document.getElementById("slide");  // 轮播图的盒子
+             slide.onmouseover = function(){
+                 arr.style.display = "block";  // 显示三角
+             }
+             slide.onmouseout = function(){
+                 arr.style.display = "none";  // 显示三角
+             }
+
+             var li02 = document.getElementById("li02");
+             var li01 = document.getElementById("li01");
+             var pic = document.getElementById("pic");
+             li02.onmouseover = function(){
+                 pic.src = "images/22.jpg";
+             }
+             li01.onmouseover = function(){
+                 pic.src = "images/11.jpg";
+             }
+        </script>
+        <div class="news">
+            <div class="jd-news">
+                <div class="dt">
+                    <h3>京东快报</h3>
+                    <a href="#">更多></a>
+                </div>
+                <div class="dd">
+                    <ul>
+                        <li><a href="#"><span>[特惠]</span>1元秒杀</a></li>
+                        <li><a href="#"><span>[公告]</span>母婴类APP【京东宝宝】上线</a></li>
+                        <li><a href="#"><span>[特惠]</span>美的品牌日 APP嗨购大放“价”</a></li>
+                        <li><a href="#"><span>[公告]</span>京东深入蒙牛生产基地进行质检</a></li>
+                        <li><a href="#"><span>[特惠]</span>白条购家电 24期免息！</a></li>
+                    </ul>
+
+                </div>
             </div>
-            <div class="dd">
+            <div class="lifeservi">
+                <div class="dt">
+                    <h3>生活服务</h3>
+                </div>
+                <div class="dd">
+                    <ul>
+                        <li class="lifeservi-icon1">
+                            <a href="#">
+                                <i></i>
+                                <span>话费</span>
+                            </a>
+                        </li>
+                        <li class="lifeservi-icon2">
+                            <a href="#">
+                                <i></i>
+                                <span>话费</span>
+                            </a>
+                        </li>
+                        <li class="lifeservi-icon1">
+                            <a href="#">
+                                <i></i>
+                                <span>话费</span>
+                            </a>
+                        </li>
+                        <li class="lifeservi-icon1">
+                            <a href="#" class="song">
+                                <i></i>
+                                <span>话费</span>
+                            </a>
+                        </li>
+                        <li class="lifeservi-icon1">
+                            <a href="#">
+                                <i></i>
+                                <span>话费</span>
+                            </a>
+                        </li>
+                        <li class="lifeservi-icon1">
+                            <a href="#">
+                                <i></i>
+                                <span>话费</span>
+                            </a>
+                        </li>
+                        <li class="lifeservi-icon1">
+                            <a href="#">
+                                <i></i>
+                                <span>话费</span>
+                            </a>
+                        </li>
+                        <li class="lifeservi-icon1">
+                            <a href="#">
+                                <i></i>
+                                <span>话费</span>
+                            </a>
+                        </li>
+                        <li class="lifeservi-icon1">
+                            <a href="#">
+                                <i></i>
+                                <span>话费</span>
+                            </a>
+                        </li>
+                        <li class="lifeservi-icon1">
+                            <a href="#">
+                                <i></i>
+                                <span>话费</span>
+                            </a>
+                        </li>
+                        <li class="lifeservi-icon1">
+                            <a href="#">
+                                <i></i>
+                                <span>话费</span>
+                            </a>
+                        </li>
+                        <li class="lifeservi-icon1">
+                            <a href="#">
+                                <i></i>
+                                <span>话费</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div>
+</div>
+    <!--双11 的某个活动-->
+    <div class="w todays clearfix">
+        <div class="night">
+            <div class="night-l fl">
+                <img src="images/night.jpg" alt=""/>
+            </div>
+            <div class="night-r">
                 <ul>
-                    <li class="lifeservi-icon1">
-                        <a href="#">
-                            <i></i>
-                            <span>话费</span>
-                        </a>
-                    </li>
-                    <li class="lifeservi-icon2">
-                        <a href="#">
-                            <i></i>
-                            <span>话费</span>
-                        </a>
-                    </li>
-                    <li class="lifeservi-icon1">
-                        <a href="#">
-                            <i></i>
-                            <span>话费</span>
-                        </a>
-                    </li>
-                    <li class="lifeservi-icon1">
-                        <a href="#" class="song">
-                            <i></i>
-                            <span>话费</span>
-                        </a>
-                    </li>
-                    <li class="lifeservi-icon1">
-                        <a href="#">
-                            <i></i>
-                            <span>话费</span>
-                        </a>
-                    </li>
-                    <li class="lifeservi-icon1">
-                        <a href="#">
-                            <i></i>
-                            <span>话费</span>
-                        </a>
-                    </li>
-                    <li class="lifeservi-icon1">
-                        <a href="#">
-                            <i></i>
-                            <span>话费</span>
-                        </a>
-                    </li>
-                    <li class="lifeservi-icon1">
-                        <a href="#">
-                            <i></i>
-                            <span>话费</span>
-                        </a>
-                    </li>
-                    <li class="lifeservi-icon1">
-                        <a href="#">
-                            <i></i>
-                            <span>话费</span>
-                        </a>
-                    </li>
-                    <li class="lifeservi-icon1">
-                        <a href="#">
-                            <i></i>
-                            <span>话费</span>
-                        </a>
-                    </li>
-                    <li class="lifeservi-icon1">
-                        <a href="#">
-                            <i></i>
-                            <span>话费</span>
-                        </a>
-                    </li>
-                    <li class="lifeservi-icon1">
-                        <a href="#">
-                            <i></i>
-                            <span>话费</span>
-                        </a>
-                    </li>
+                    <li><a href="#"><img src="images/1.jpg" alt=""/></a></li>
+                    <li><a href="#"><img src="images/2.jpg" alt=""/></a></li>
+                    <li><a href="#"><img src="images/3.jpg" alt=""/></a></li>
+                    <li><a href="#"><img src="images/4.jpg" alt=""/></a></li>
                 </ul>
             </div>
         </div>
     </div>
-
-</div>
-
-<!--双11 的某个活动-->
-<div class="w todays clearfix">
-    <div class="night">
-        <div class="night-l fl">
-            <img src="images/night.jpg" alt=""/>
-        </div>
-        <div class="night-r">
-            <ul>
-                <li><a href="#"><img src="images/1.jpg" alt=""/></a></li>
-                <li><a href="#"><img src="images/2.jpg" alt=""/></a></li>
-                <li><a href="#"><img src="images/3.jpg" alt=""/></a></li>
-                <li><a href="#"><img src="images/4.jpg" alt=""/></a></li>
-            </ul>
-        </div>
-    </div>
-</div>
 
 <!--页面底部开始-->
 <div class="jd-footer">

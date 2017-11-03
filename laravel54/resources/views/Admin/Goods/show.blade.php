@@ -19,7 +19,7 @@
     <div class="panel admin-panel">
         <div class="panel-head"><strong class="icon-reorder"> 商品列表</strong> <a href="" style="float:right; display:none;">添加字段</a></div>
         <div class="border-b border-bno clearfix">
-            <a href="add-product.html" class="button bg-yellow button-small"><span class="icon-plus"></span>添加新商品</a>
+            <a href="add" class="button bg-yellow button-small"><span class="icon-plus"></span>添加新商品</a>
         </div>
         <div class="padding border-bottom">
             <ul class="search" style="padding-left:10px;">
@@ -88,40 +88,53 @@
         <table class="table table-hover text-center">
             <tr>
                 <th width="100" style="text-align:left; padding-left:20px;">编号</th>
-                <th>产品名称</th>
-                <th>商家名称</th>
-                <th>货号</th>
-                <th>上架</th>
-                <th>精品</th>
-                <th>新品</th>
-                <th>热销</th>
-                <th>审核状态</th>
+                <th>商品名称</th>
+                <th>商品数量</th>
+                <th>现价</th>
+                <th>原价</th>
+                <th>商品排序</th>
+                <th>上线时间</th>
+                <th>下线时间</th>
+                <th>缩列图</th>
+                <th>商品描述</th>
+                <th>商品状态</th>
                 <th width="310">操作</th>
             </tr>
-            <volist name="list" id="vo">
+            @foreach($goods as $v)
                 <tr>
                     <td style="text-align:left; padding-left:20px;"><input type="checkbox" name="id[]" value="" />
-                        111111</td>
-                    <td>香蕉牛奶暗牧系酸奶五谷道场汤达人奥利奥北京小面</td>
-                    <td>ZARA旗舰店</td>
-                    <td>ESC20101010</td>
-                    <td>是</td>
-                    <td>是</td>
-                    <td>否</td>
-                    <td>否</td>
-                    <td>无需审核</td>
+                        {{$v->id}}</td>
+                    <td>{{$v->goods_name}}</td>
+                    <td>{{$v->goods_count}}</td>
+                    <td>{{$v->new_price}}</td>
+                    <td>{{$v->old_price}}</td>
+                    <td>{{$v->goods_sort}}</td>
+                    <td>{{date('Y-m-d H:i:s',$v->up_time)}}</td>
+                    <td>{{date('Y-m-d H:i:s',$v->down_time)}}</td>
+                    <td><img src="<?php echo "/".$v->goods_img; ?>" width="70" height="70"></td>
+                    <td>{{$v->goods_text}}</td>
+                    <td>
+                        @if($v->status == 0)
+                            已删除
+                        @elseif($v->status == 1)
+                            禁用
+                        @elseif($v->status == 2)
+                            恢复
+                        @elseif($v->status == 3)
+                            正常
+                        @endif
+                    </td>
                     <td><div class="button-group"><a class="button border-yellow" href="add-product.html"><span class="icon-edit (alias)"></span>编辑</a><a class="button border-main" href=""><span class="icon-eye"></span> 查看</a> <a class="button border-red" href="javascript:void(0)" onclick="return del(1,1,1)"><span class="icon-trash-o"></span> 删除</a> </div></td>
                 </tr>
-
+            @endforeach
                 <tr>
                     <td style="text-align:left; padding:19px 0;padding-left:20px;"><input type="checkbox" id="checkall"/>
                         全选 </td>
                     <td colspan="10" style="text-align:left;padding-left:20px;"><a href="javascript:void(0)" class="button border-red icon-trash-o" style="padding:5px 15px;" onclick="DelSelect()"> 批量删除</a>
                 </tr>
-                <tr>
-                    <td colspan="10"><div class="pagelist"> <a href="">上一页</a> <span class="current">1</span><a href="">2</a><a href="">3</a><a href="">下一页</a><a href="">尾页</a> </div></td>
-                </tr>
         </table>
+        <div class="pagelist">  {{ $goods->links() }}</div>
+
     </div>
 </form>
 

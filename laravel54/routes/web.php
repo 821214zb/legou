@@ -26,9 +26,12 @@ Route::get('/lunbo', 'JDController@lunbo');
 /**
  * 用户注册登录路由
  */
-Route::get('/zhuce','Auth\RegisterController@zhuce');//注册页面展示
+Route::match(['post','get'],'/zhuce','Auth\RegisterController@zhuce');//注册页面展示
 Route::get('/login','Auth\LoginController@showLoginForm');//登录页面展示
 Route::post('/login','Auth\LoginController@Login');//检测用户登录
+Route::any('/logout','Auth\LoginController@Logout');//检测用户登录
+//生成验证码
+Route::any('/zhuce/{tmp}', 'Auth\RegisterController@captcha');
 
 /**
  * 购物车路由
@@ -103,3 +106,7 @@ Route::get('/deal/select','Admin\DealController@select');
  * 合并订单
  */
 Route::get('/deal/hb','Admin\DealController@hb');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

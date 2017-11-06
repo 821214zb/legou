@@ -1,7 +1,7 @@
 <?php
 
 namespace Illuminate\Foundation\Auth;
-
+use Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -27,8 +27,7 @@ trait AuthenticatesUsers
      */
     public function login(Request $request)
     {
-        $this->validateLogin($request);
-
+        //$this->validateLogin($request);
         // If the class is using the ThrottlesLogins trait, we can automatically throttle
         // the login attempts for this application. We'll key this by the username and
         // the IP address of the client making these requests into this application.
@@ -41,7 +40,6 @@ trait AuthenticatesUsers
         if ($this->attemptLogin($request)) {
             return $this->sendLoginResponse($request);
         }
-
         // If the login attempt was unsuccessful we will increment the number of attempts
         // to login and redirect the user back to the login form. Of course, when this
         // user surpasses their maximum number of attempts they will get locked out.
@@ -72,6 +70,7 @@ trait AuthenticatesUsers
      */
     protected function attemptLogin(Request $request)
     {
+
         return $this->guard()->attempt(
             $this->credentials($request), $request->has('remember')
         );
@@ -96,6 +95,7 @@ trait AuthenticatesUsers
      */
     protected function sendLoginResponse(Request $request)
     {
+        
         $request->session()->regenerate();
 
         $this->clearLoginAttempts($request);
@@ -154,8 +154,6 @@ trait AuthenticatesUsers
     public function logout(Request $request)
     {
         $this->guard()->logout();
-
-        $request->session()->invalidate();
 
         return redirect('/');
     }

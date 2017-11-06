@@ -618,6 +618,7 @@ if (! function_exists('redirect')) {
      */
     function redirect($to = null, $status = 302, $headers = [], $secure = null)
     {
+        //echo $to;die;
         if (is_null($to)) {
             return app('redirect');
         }

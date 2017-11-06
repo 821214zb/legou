@@ -3,7 +3,7 @@
     <meta http-equiv="content-type" content="text/html; charset=GBK">
     <meta charset="GBK">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <title>京东-欢迎登录</title>
+    <title>爱尚乐购-欢迎登录</title>
     <link rel="icon" href="https://www.jd.com/favicon.ico">
     <link type="text/css" rel="stylesheet" href="css/denglu/a.css" source="widget">
     <link type="text/css" rel="stylesheet" href="css/denglu/tinyscrollbar-170524.css">
@@ -48,14 +48,7 @@
                     <div class="mc">
                         <div class="form">
                             <form id="formlogin" method="post"  action="login">
-                                <input id="sa_token" name="sa_token" value="B68C442BE645754F33277E701208059080DD726A94A73F76DEC3053A838549C06EB7D3797CE1C5BBE7C2B2EF9CA7D467C3C76FF0A28885EE64B432120BA9B13D348C69B7D2A54084AD0AF9F604987E3F9CB76AFCD77DAB30E17AE1D01558FACA5BAFF22889CE2C2A2D0C416403929CD46AB1ADB45EA304CE678E9F42F11C07B0E95BF462443B3BC99256BBCDD2B70D9846ED464D991515012C5C51D07B72C3FD0E477BEA7DF46D50577C6482A2CA31857C2A7F78E5BF561845A37BE10EF6086123BA97FEE1F4723A7BDB54435534757BFD6F2730D85A55BE619B4769069553843257AF82A16DE64E4679AC40B0DC1D72144347C5AC8C8EA5DC05DFD093AFE2A2C17E7B5E8D09BE2391125107147A09B44B460299D497CC3ACD01DAA293A947D837FA9A573EB477A29D0BAEFFF17C1AF6C98AF6058B646CC2C0577F056CC9FBEDFCFA5202AFF4CB45714ED35E23D7CFC24252178EC171EBC4B64CF1766CB6BDFBC2677B760CBE89826D5D9F37AB9A32E8F36647950D933E289AAFADD5A946C6F98BA987C61E1EC7A51BA2A62F9082B874D05F7C6FEF80B99E55814EAAE396DD63D420C769F06DF9C2204916B2991511E499921DA91B091F3704BA06A3D3C7D5D7D22652021067EA7ABA97531FDD607127E36085574E77E964225097BFD6A4E006A0FE021AD1E292E755F3C24A20D0C9B9320805D9B093206697201F7DD177ABE7260691937E9D4D38F551D7EB9D74BED2BEFBAC677CC9EA9A0115E50A5CE45C9F1DB1F36C54CFD39D79805A23657490059E17A6EAF488E6D3113BA45298E5A69361C77FD9DF8AE81E6386B81C31BF6A853BA8F448114CC915C1C8B2FD626322689C7680897E249A04E9222B8B01A8C1FECD48665D9956D55DD19AE812ACF512E6B9234131C24CF3F42D80D718B57B8F34E509C3B2D5C0B88D471101D256E94C953FA42E354F6588ACAFBBFC7E4FBCCB1532A2F6FDECDE4E9F84F5A453921DD3BE" type="hidden">
-                                <input id="uuid" name="uuid" value="27f559af-cbbb-485b-99f8-8e7404b36191" type="hidden">
-                                <input name="eid" id="eid" value="Z55FRJHFBZKMUPMZDFWYN3O5NREELS365FZV6R4KB27BO2P7T7WDZLTL2EKVJY77XCSYRS2JSXAEITO3T4Y2MBKKME" class="hide" type="hidden">
-                                <input name="fp" id="sessionId" value="cf04150d9defb97248a363a0cbf28433" class="hide" type="hidden">
                                 <input name="_token" id="token" value="{{csrf_token()}}" class="hide" type="hidden">
-                                <input name="loginType" id="loginType" value="c" class="hide" type="hidden">
-                                <input name="pubKey" id="pubKey" value="MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDC7kw8r6tq43pwApYvkJ5laljaN9BZb21TAIfT/vexbobzH7Q8SUdP5uDPXEBKzOjx2L28y7Xs1d9v3tdPfKI2LR7PAzWBmDMn8riHrDDNpUpJnlAGUqJG9ooPn8j7YNpcxCa1iybOlc2kEhmJn5uwoanQq+CA6agNkqly2H4j6wIDAQAB" class="hide" type="hidden">
-                                <input name="dwJPLWZQwU" value="BBWqw" type="hidden">
                                 <div class="item item-fore1">
                                     <label for="loginname" class="login-label name-label"></label>
                                     <input id="loginname" class="itxt" name="name" tabindex="1" autocomplete="off" placeholder="邮箱/用户名/已验证手机" type="text">
@@ -142,7 +135,7 @@
                         </li>
                         <li class="extra-r">
                             <div>
-                                <div class="regist-link"><a href="https://reg.jd.com/reg/person?ReturnUrl=http%3A%2F%2Fwww.jd.com" clstag="pageclick|keycount|201607144|8" target="_blank"><b></b>立即注册</a></div>
+                                <div class="regist-link"><a href="/zhuce" clstag="pageclick|keycount|201607144|8"><b></b>立即注册</a></div>
                             </div>
                         </li>
                     </ul>

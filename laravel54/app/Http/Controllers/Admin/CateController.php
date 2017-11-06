@@ -174,4 +174,26 @@ class CateController extends BaseController
         echo json_encode($p_cate_data);
     }
 
+    /**
+     * 商品分类排序
+     *
+     */
+    public function sort($ids,$sort)
+    {
+        //将字符串转化为数组
+        $a = 0;
+        $ids   = explode(',',$ids);
+        $sorts = explode(',',$sort);
+        $id_sort = array_combine($ids,$sorts);
+        foreach ($id_sort as $k=>$v){
+            cate::where('id',$k)->update(['cate_sort'=>$v]);
+            $a++;
+        }
+        if($a > 0){
+            echo json_encode('分类排序成功！');
+        }else{
+            echo json_encode('分类排序失败！');
+        }
+    }
+
 }

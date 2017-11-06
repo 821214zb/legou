@@ -24,7 +24,11 @@
         <li><a href="info.html" target="right"><span class="icon-caret-right"></span>网站设置</a></li>
         <li><a href="pass.html" target="right"><span class="icon-caret-right"></span>修改密码</a></li>
         <li><a href="page.html" target="right"><span class="icon-caret-right"></span>单页管理</a></li>
+<<<<<<< Updated upstream
         <li><a href="/lunbo" target="right"><span class="icon-caret-right"></span>首页轮播</a></li>
+=======
+        <li><a href="/lunbo/show" target="right"><span class="icon-caret-right"></span>首页轮播</a></li>
+>>>>>>> Stashed changes
         <li><a href="book.html" target="right"><span class="icon-caret-right"></span>留言管理</a></li>
         <li><a href="column.html" target="right"><span class="icon-caret-right"></span>栏目管理</a></li>
     </ul>

@@ -74,9 +74,12 @@ Route::get('/goods/delete/{id}','Admin\GoodsController@delete');                
 /**
  * 商品品牌路由（注意：分类无修改操作）
  */
-Route::get('/brand/show','Admin\BrandController@show');               //商品分类展示
-Route::match(['get','post'],'/brand/add','Admin\BrandController@add');//商品分类添加
-Route::get('/brand/delete/{id}','Admin\BrandController@delete');      //商品分类删除
+Route::get('/brand/show','Admin\BrandController@show');               //商品品牌展示
+Route::match(['get','post'],'/brand/add','Admin\BrandController@add');//展示表单
+Route::post('/brand/addPost','Admin\BrandController@addPost');//商品品牌添加
+Route::match(['get','post'],'/brand/delete/{id}','Admin\BrandController@delete');      //商品品牌删除
+Route::match(['get','post'],'/brand/update/{id}','Admin\BrandController@update');//修改商品品牌
+Route::post('/brand/sort','Admin\BrandController@sort');//排序
 
 /**
  * 商品分类路由
@@ -88,6 +91,15 @@ Route::get('/cate/delete/{id}','Admin\CateController@delete');                 /
 Route::get('/cate/status/{id}/{status}','Admin\CateController@cate_status');   //商品数据状态修改
 Route::get('/cate/cate_data/level/{level}','Admin\CateController@cate_data');  //获取商品分类数据
 
+/**
+ * 轮播图路由
+ */
+Route::match(['get','post'],'/lunbo/add','Admin\LunboController@add');//展示表单
+Route::post('/lunbo/addPost','Admin\LunboController@addPost');//添加轮播图
+Route::get('/lunbo/show','Admin\LunboController@show');//轮播图列表
+Route::match(['get','post'],'/lunbo/update/{id}','Admin\lunboController@update');//修改轮播图
+Route::match(['get','post'],'/lunbo/delete/{id}','Admin\LunboController@delete');//删除轮播图
+Route::post('/lunbo/sort','Admin\LunboController@sort');//排序
 
 /**
  * 用户评论

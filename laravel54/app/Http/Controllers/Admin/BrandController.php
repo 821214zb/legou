@@ -11,13 +11,18 @@ class BrandController extends BaseController{
     /**
      * 品牌展示
      */
-    public function show(){
-        $list=Brand::show();
-        return view('Admin.brand.show',['brand'=>$list]);
+    public function show($keyword=""){
+        if($_GET){
+            $keyword=$_GET['keyword']?$_GET['keyword']:"";
+            $list=DB::table('brands')->where('brand_name','like','%'.$keyword.'%')->where(['status'=>3])->orderBy('brand_sort', 'desc')->paginate(6);
+        }else{
+            $list=DB::table('brands')->where(['status'=>3])->orderBy('brand_sort', 'desc')->paginate(6);
+        }
+        return view('Admin.brand.show',['brand'=>$list,'keyword'=>$keyword]);
     }
 
     /**
-     * 添加品牌//
+     * 添加品牌
      */
     public function add(){
         return view('Admin.brand.add');
@@ -25,14 +30,16 @@ class BrandController extends BaseController{
     
     public function addPost(){
         $res=Brand::addPost();
-        var_dump($res);
         if($res){
             return redirect('/brand/show');
         }else{
             return "添加失败!";
         }
     }
-    
+
+    /**
+     * 删除
+     */
     public function delete($ids){
 //        $ids = explode(',',$ids);
 //        $res = Brand::whereIn('id',$ids)->update(['status'=>0]);
@@ -58,6 +65,29 @@ class BrandController extends BaseController{
             }else{
                 return "没有数据被修改";
             }
+        }
+    }
+    
+    /**
+     * 排序
+     */
+    public function sort(){
+        $sort_id=trim($_POST["id"],",");
+        $sort=trim($_POST["sort"],",");
+        $id_arr=explode(",",$sort_id);
+        $sort_arr=explode(",",$sort);
+        $arr=array();
+        for($i=0; $i<count($id_arr); $i++){
+            $arr[$id_arr[$i]]=$sort_arr[$i];
+        }
+        foreach($arr as $k=>$v){
+            $data['brand_sort']=$v;
+            $res=DB::table('brands')->where('id',$k)->update($data);
+        }
+        if($res){
+            return array("res"=>"ok");
+        }else{
+            return array('res'=>"no");
         }
     }
 }

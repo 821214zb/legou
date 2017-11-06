@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Cate;
+use Session;
 class JDController extends Controller
 {
     /**
@@ -11,6 +12,26 @@ class JDController extends Controller
      */
     public function show(){
         return view('JDindex');
+    }
+
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+//    public function __construct()
+//    {
+//        $this->middleware('auth');
+//    }
+
+    /*
+     * 首页左侧分类数据的展示
+     */
+    public function header(){
+        //查询商品分类用于前台页面展示
+        $cate=Cate::get_left_Cate();
+        return json_encode($cate);
     }
 
     /*

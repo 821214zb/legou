@@ -7,31 +7,26 @@
     <link rel="stylesheet" href="css/index.css"/>
     <link rel="shortcut icon" href="favicon.ico" />
     <script type="text/javascript" src="http://www.aslegou.com/Admin/js/jquery-3.2.1.js"></script>
-    {{--<script type="text/javascript">--}}
-        {{--window.onload = function(){--}}
-             {{--//事件源:  登录--}}
-            {{--var login = document.getElementById("login");--}}
-            {{--var mask = document.getElementById("mask");--}}
-            {{--var box = document.getElementById("box");--}}
-            {{--login.onclick = function(){--}}
-               {{--// 当我们点击登录，会弹出灰色的大盒子和白色的小盒子--}}
-                {{--mask.style.display = "block";--}}
-                {{--box.style.display = "block";--}}
-            {{--}--}}
-           {{--// 事件源 span x--}}
-            {{--var close_all = document.getElementById("close_all");--}}
-            {{--close_all.onclick = function(){--}}
-                {{--mask.style.display = 'none';--}}
-                {{--box.style.display = "none";--}}
-            {{--}--}}
-        {{--}--}}
-    {{--</script>--}}
 </head>
+<style>
+    .topbanner{
+        height:60px; ;
+    }
+    .login{
+        background-color: white;
+    }
+</style>
 <body>
 <!--京东的头部导航开始-->
 <div id="mask"></div>
 <div id="box">
     <span id="close_all">×</span>
+</div>
+<div class="topbanner" id="top_banner">
+    <div class="w tp">
+        <img src="images/topbanner.jpg" alt="" style="height:60px"/>
+        <a href="javascript:;" class="close-banner" id="jd_close"></a>
+    </div>
 </div>
 <div class="shortcut">
     <div class="w">
@@ -43,8 +38,38 @@
         <div class="fr">
             <ul>
                 <li>
-                    <a href="login" id="login">你好，请登录</a> &nbsp;&nbsp;
-                    <a href="zhuce" class="col-red">免费注册</a>
+                    @if (Auth::guest())
+                        <a href="login" id="login">你好，请登录</a> &nbsp;&nbsp;
+                        <a href="zhuce" class="col-red">免费注册</a>
+                        @else
+                        <div class="login2">
+                        <div id="login" style="position:relative;width: 115px;border: 1px solid lightgrey;border-bottom: none;"><a >欢迎您！{{ Auth::user()->name }}
+                                <img src="images/pl1.jpg" width="30px" style="position: absolute;top:8px; filter:alpha(Opacity=80);-moz-opacity:0.4;opacity: 0.4;">
+                                <div class='login1' style="border: 1px solid lightgrey;border-top: none; width:210px;height:120px; top: 30px;position: absolute; background-color: white;display:none;">
+                                    <div style="float: left">
+                                        <img class="J_upic_img" src="images/11.png" width="50" height="50">
+                                        <img src="images/pl1.jpg" width="38px" >
+                                    </div>
+                                    <div style="float: right">
+                                        <a href="{{ route('logout') }}"
+                                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            退出
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </div>
+                                    <div class="u-msg">
+                                        <a href="//plus.jd.com" target="_blank">试用PLUS会员领免运费券&gt;</a>
+                                    </div>
+
+                                </div>
+                        </a>
+                        </div>
+                        </div>
+                    @endif
                 </li>
                 <li class="line"></li>
                 <li><a href="dingdan">我的订单</a></li>
@@ -84,13 +109,19 @@
 </div>
 <!--京东头部导航结束-->
 <!--京东的topbanner部分-->
-<div class="topbanner" id="top_banner">
-    <div class="w tp">
-        <img src="images/topbanner.jpg" alt=""/>
-        <a href="javascript:;" class="close-banner" id="jd_close"></a>
-    </div>
-</div>
+<script src="/js/jquery-3.2.1.min.js"></script>
 <script>
+    $(document).ready(function(){
+        $(".login2").mouseenter(function(){
+            $("#login").addClass("login");
+            $(".login1").show("fast");
+        });
+        $(".login2").mouseleave(function(){
+            $("#login").removeClass("login");
+            $(".login1").hide("fast");
+        });
+
+    });
     /*事件源： a
     事件  点击
     事件处理程序   topbanner 这个隐藏的意思*/

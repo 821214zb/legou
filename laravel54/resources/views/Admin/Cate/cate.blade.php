@@ -26,10 +26,14 @@
 
             //删除/批量删除
             $('#del').click(function(){
-                var ids = '';
+                var ids   = '';
+                var level = '';
+                var name  = '';
                 $('.inputs').each(function(){
                     if(this.checked){
                         ids+= ","+$(this).attr("ids");
+                        level= $(this).attr("level");
+                        name+= $(this).attr("name");
                     }
                 });
                 ids = ids.substr(1);
@@ -40,11 +44,47 @@
                 var r= confirm('确定要批量删除图片吗！');
                 if(r == true){
                     $.ajax({
-                        url:"/cate/delete/"+ids,
+                        url:"/cate/delete/"+ids+'/'+level+'/'+name,
                         type: "get",
                         dataType:'json',
                         success: function(data){
                             alert(data);
+                        },
+                        error:function(){
+                            alert('error');
+                        }
+                    })
+                }
+            });
+
+            //批量排序
+            $('#sort').click(function(){
+                var ids   = '';
+                var sorts = '';
+                $('.inputs').each(function(){
+                    if(this.checked){
+                        ids+= ","+$(this).attr("ids");
+                    }
+                });
+                $('.sort').each(function(){
+                    sorts+= ","+$(this).val();
+                });
+
+                ids = ids.substr(1);
+                sorts = sorts.substr(1);
+                if(ids == ""){
+                    alert('请选择要排序的图片！');
+                    return false;
+                }
+                var r= confirm('确定要排序吗！');
+                if(r == true){
+                    $.ajax({
+                        url:"/cate/sort/"+ids+'/'+sorts,
+                        type: "get",
+                        dataType:'json',
+                        success: function(data){
+                            alert(data);
+                            window.location.reload("Admin/cate/show/0");
                         },
                         error:function(){
                             alert('error');
@@ -63,7 +103,8 @@
             <input type="text" placeholder=""  name="cate_title" class="input" style="width:250px; line-height:17px;display:inline-block" />
             <button type="submit" class="button border-main icon-search"> 查询</button>
             <a class="button border-yellow" href="/cate/add"><span class="icon-plus-square-o"></span> 添加分类</a>
-            <a class="button border-yellow" id="del" href="javascript:void(0)"><span class="icon-plus-square-o"></span>删除</a>
+            <a class="button border-yellow" id="del" href="javascript:void(0)"><span class="icon-plus-square-o"></span>批量删除</a>
+            <a class="button border-yellow" id="sort" href="javascript:void(0)"><span class="icon-plus-square-o"></span>批量排序</a>
         </form>
 
     </div>
@@ -79,23 +120,26 @@
         </tr>
         @foreach($data as $k)
         <tr>
-            <td><input type="checkbox" class="inputs" ids="{{$k->id}}"></td>
+            <td><input type="checkbox" class="inputs" ids="{{$k->id}}" level="{{$k->cate_level}}" name="{{$k->cate_name}}" sort="{{$k->cate_sort}}"></td>
             <td><span class="icon-plus-square padding-right text-main zhankai"></span>{{$k->id}}</td>
             <td><a href="{{$k->id}}">{{$k->cate_title}}</a></td>
-            <td>{{$k->cate_sort}}</td>
+            <td><input type="text"  class="sort" value="{{$k->cate_sort}}" ids="{{$k->id}}"></td>
             <td>{{$k->cate_level}}</td>
             <td> @if($k->status == 3 ) <img src="/images/brand/ok.gif" alt="禁用" height="20" border="0" width="20" />
                 @elseif($k->status == 0 )<img src="/images/brand/del.gif" alt="删除" height="20" border="0" width="20" />
                 @elseif($k->status == 1)<img src="/images/brand/locked.gif" alt="禁用" height="20" border="0" width="20" />
+                @elseif($k->status == 2)<img src="/images/brand/locked.gif" alt="禁用" height="20" border="0" width="20" />
                 @else<img src="/images/brand/locked.gif" alt="恢复" height="20" border="0" width="20" />
                 @endif</td>
             <td><div class="button-group">
                     @if($k->status == 3 )
                     <a class="button border-red" href="/cate/status/{{$k->id}}/3"><span class="icon-trash-o"></span> 禁用</a>
                     @elseif($k->status == 1 )
-                    <a class="button border-red" href="/cate/status/{{$k->id}}/1"><span class="icon-trash-o"></span> 正常</a>
+                    <a class="button border-red" href="/cate/status/{{$k->id}}/1"><span class="icon-trash-o"></span> 删除</a>
                     @elseif($k->status == 0 )
                     <a class="button border-red" href="/cate/status/{{$k->id}}/0"><span class="icon-trash-o"></span> 恢复</a>
+                    @elseif($k->status == 2 )
+                    <a class="button border-red" href="/cate/status/{{$k->id}}/2"><span class="icon-trash-o"></span> 正常</a>
                     @endif
                 </div></td>
         </tr>

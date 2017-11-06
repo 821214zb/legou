@@ -36,10 +36,11 @@ class CateController extends BaseController
 
     
     /**
-     * 商品分类添加8
+     * 商品分类添加
      */
-    public function add(Request $req)
-    {
+    public function add(Request $req){
+
+        $path = '';
         if($_POST){
             $cate_level = $req->cate_level;
             $cate_pid   = $req->cate_pid;
@@ -60,22 +61,30 @@ class CateController extends BaseController
                 $date['cate_url']= './html/'.$file['cate_name'].'/'.$cate_name;                  //将第二级分类目录存储用于缓存文件存储路径
 
             }else if($cate_level == 3){
-                $data  = Cate::where('i d',$cate_pid)->select('cate_name','cate_pid')->first();    //获取等级是2文件夹名字和pid
+                $data  = Cate::where('id',$cate_pid)->select('cate_name','cate_pid')->first();    //获取等级是2文件夹名字和pid
                 $file1 = Cate::where('id',$data['cate_pid'])->select('cate_name')->first();
                 $path = './html/'.$file1['cate_name'].'/'.$data['cate_name'].'/'.$cate_name;
                 if(!is_dir($path)){
                     mkdir($path,0777,true);
                 }
-                $date['cate_url']= $path;      //将第三级分类目录存储用于缓存文件存储路径
+
             }
+            $date['cate_url']= $path;
             $date['cate_name']  = $cate_name;
             $date['cate_title'] = $req->cate_title;
             $date['cate_level'] = $cate_level;
-            $date['cate_pid']    = $cate_pid;
-            $date['cate_sort']   = $req->cate_sort;
+            $date['cate_pid']   = $cate_pid;
+            $date['cate_sort']  = $req->cate_sort;
+            $date['dev_status'] = $req->radio;
             $res = Cate::insertGetId($date);
+
             if($res){
-                return redirect('cate/show');
+                if($req->checkbox){
+                    foreach ($req->checkbox as $k=>$v){
+                        DB::table('cate_posid')->insertGetId(['cate_id'=>$res,'posid_id'=>$v]);
+                    }
+                }
+                return redirect('cate/show/0');
             }else{
                 return redirect('cate/add');
             }
@@ -87,11 +96,44 @@ class CateController extends BaseController
     /**
      * 商品分类删除
      */
-    public function delete($ids)
+    public function delete($ids,$level,$name)
     {
         //将字符串转化为数组
-        $ids = explode(',',$ids);
-        $res = Cate::whereIn('id',$ids)->update(['status'=>0]);
+        $ids   = explode(',',$ids);
+        $names = explode(',',$name);
+        $id_name = array_combine($ids,$names);
+        //删除缓存文件
+        foreach ($id_name as $k=>$v){
+            if(file_exists('./html/'.$v.$k.'.html')){
+                unlink('./html/'.$v.$k.'.html');
+            }
+        }
+        $res = '';
+        //判断当前分类等级
+        if($level == 1){
+            //查询等级是2的分类id
+            $level2_ids = Cate::whereIn('cate_pid',$ids)->select('id')->get();
+            $level2_data = json_decode(json_encode($level2_ids),true);
+           foreach ($level2_data as $k=>$v){
+               $level2_id[$k] = $v['id'];
+           }
+            $res = Cate::whereIn('cate_pid', $level2_id)->update(['status'=>0]);
+            if($res){
+                $res = Cate::whereIn('id',$level2_id)->update(['status'=>0]);
+                if($res){
+                    $res = Cate::whereIn('id',$ids)->update(['status'=>0]);
+                }
+            }
+        }elseif ($level == 2){
+            //先删除等级是3的分类
+            $res = Cate::whereIn('cate_pid',$ids)->update(['status'=>0]);
+            if($res){
+                Cate::whereIn('id',$ids)->update(['status'=>0]);
+            }
+        }else{
+            $res = Cate::whereIn('id',$ids)->update(['status'=>0]);
+        }
+
         if(!$res){
             echo json_encode('数据删除失败！');
         }else{
@@ -100,16 +142,18 @@ class CateController extends BaseController
     }
 
     /**
-     * 商品分类删除
+     * 商品分类状态修稿
      */
     public function cate_status($id,$status)
     {
        if($status == 0){
-           $statuss = 1;
+           $statuss = 2;
        }elseif ($status == 1){
-           $statuss = 3;
+           $statuss = 0;
        }elseif($status == 3){
            $statuss = 1;
+       }else{
+           $statuss = 3;
        }
         $res = Cate::where('id',$id)->update(['status'=>$statuss]);
         if(!$res){
@@ -128,6 +172,28 @@ class CateController extends BaseController
         $p_level = $level - 1;
         $p_cate_data = DB::table('cates')->where('cate_level', '=', $p_level)->select('cate_title', 'id')->get();
         echo json_encode($p_cate_data);
+    }
+
+    /**
+     * 商品分类排序
+     *
+     */
+    public function sort($ids,$sort)
+    {
+        //将字符串转化为数组
+        $a = 0;
+        $ids   = explode(',',$ids);
+        $sorts = explode(',',$sort);
+        $id_sort = array_combine($ids,$sorts);
+        foreach ($id_sort as $k=>$v){
+            cate::where('id',$k)->update(['cate_sort'=>$v]);
+            $a++;
+        }
+        if($a > 0){
+            echo json_encode('分类排序成功！');
+        }else{
+            echo json_encode('分类排序失败！');
+        }
     }
 
 }

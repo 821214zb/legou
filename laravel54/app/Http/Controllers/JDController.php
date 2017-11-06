@@ -46,9 +46,9 @@ class JDController extends Controller
     /*
      * 首页右侧分类数据的展示
      */
-    public function cate($id){
+    public function cate($id,$cate_name){
         //查询商品分类用于前台页面展示
-        $cate=Cate::get_right_cate($id);
+        $cate=Cate::get_right_cate($id,$cate_name);
         echo json_encode($cate);
 
     }

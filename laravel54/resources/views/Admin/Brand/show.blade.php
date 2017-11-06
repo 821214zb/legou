@@ -100,7 +100,7 @@
                         type:"get",
                         url:"delete/"+ids,
                         dataType:'json',
-                        success(){
+                        success:function(data){
                            window.location.reload("Admin/brand/show");
                         }
                     })

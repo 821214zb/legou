@@ -84,6 +84,40 @@ class Cate extends Model
 
     }
 
+    /*
+     * 修改商品分类排序
+     *      
+     * */
+    public static function getSort($ids,$sort){
+        //将字符串转化为数组
+        $a = 0;
+        $ids   = explode(',',$ids);
+        $sorts = explode(',',$sort);
+        $id_sort = array_combine($ids,$sorts);
+        foreach ($id_sort as $k=>$v){
+            cate::where('id',$k)->update(['cate_sort'=>$v]);
+            $a++;
+        }
+       return $a;
+    }
+    /*
+     * 修改商品分类状态
+     *      
+     * */
+    public static function getStatus($id,$status){
+
+        if($status == 0){
+            $statuss = 2;
+        }elseif ($status == 1){
+            $statuss = 0;
+        }elseif($status == 3){
+            $statuss = 1;
+        }else{
+            $statuss = 3;
+        }
+        return $res = Cate::where('id',$id)->update(['status'=>$statuss]);
+    }
+    
 
 
 }

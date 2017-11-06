@@ -146,16 +146,7 @@ class CateController extends BaseController
      */
     public function cate_status($id,$status)
     {
-       if($status == 0){
-           $statuss = 2;
-       }elseif ($status == 1){
-           $statuss = 0;
-       }elseif($status == 3){
-           $statuss = 1;
-       }else{
-           $statuss = 3;
-       }
-        $res = Cate::where('id',$id)->update(['status'=>$statuss]);
+       $res = cate::getStatus($id,$status);
         if(!$res){
             return redirect('cate/show/0');
         }else{
@@ -164,7 +155,7 @@ class CateController extends BaseController
     }
 
     /**
-     * 获取商品分类信息//
+     * 获取商品分类信息
      */
     public function cate_data($level)
     {
@@ -180,16 +171,9 @@ class CateController extends BaseController
      */
     public function sort($ids,$sort)
     {
-        //将字符串转化为数组
-        $a = 0;
-        $ids   = explode(',',$ids);
-        $sorts = explode(',',$sort);
-        $id_sort = array_combine($ids,$sorts);
-        foreach ($id_sort as $k=>$v){
-            cate::where('id',$k)->update(['cate_sort'=>$v]);
-            $a++;
-        }
-        if($a > 0){
+        $res = cate::getSort($ids,$sort);
+
+        if($res > 0){
             echo json_encode('分类排序成功！');
         }else{
             echo json_encode('分类排序失败！');

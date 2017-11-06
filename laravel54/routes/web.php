@@ -99,6 +99,8 @@ Route::match(['get','post'],'/lunbo/update/{id}','Admin\lunboController@update')
 Route::match(['get','post'],'/lunbo/delete/{id}','Admin\LunboController@delete');//删除轮播图
 Route::post('/lunbo/sort','Admin\LunboController@sort');//排序
 
+
+
 /**
  * 用户评论
  */

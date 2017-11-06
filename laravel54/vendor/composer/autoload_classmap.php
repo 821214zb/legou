@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddPriceToCateCloth' => $baseDir . '/database/migrations/2017_11_03_151832_add_price_to_cate_cloth.php',
     'AddToBrand' => $baseDir . '/database/migrations/2017_10_31_114613_add_to_brand.php',
     'AddToCart' => $baseDir . '/database/migrations/2017_10_31_115620_add_to_cart.php',
     'AddToCates' => $baseDir . '/database/migrations/2017_10_31_113604_add_to_cates.php',
@@ -27,12 +28,14 @@ return array(
     'CreateCateUseraddr' => $baseDir . '/database/migrations/2017_10_31_135109_create_cate_useraddr.php',
     'CreateCatesBrand' => $baseDir . '/database/migrations/2017_10_31_114544_create_cates_brand.php',
     'CreateCatesTable' => $baseDir . '/database/migrations/2017_10_31_113415_create_cates_table.php',
+    'CreateClothTable' => $baseDir . '/database/migrations/2017_11_03_151812_create_cloth_table.php',
     'CreateGoodsTable' => $baseDir . '/database/migrations/2017_10_31_111311_create_goods_table.php',
     'CreateNodeTable' => $baseDir . '/database/migrations/2017_10_31_123546_create_node_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreatePropertyTable' => $baseDir . '/database/migrations/2017_11_01_061717_create_property_table.php',
     'CreateRoleTable' => $baseDir . '/database/migrations/2017_10_31_124318_create_role_table.php',
     'CreateRoleUserTable' => $baseDir . '/database/migrations/2017_10_31_124757_create_role_user_table.php',
+    'CreateShoesTable' => $baseDir . '/database/migrations/2017_11_03_153016_create_shoes_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2017_10_31_111406_create_users_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/src/Iterator.php',

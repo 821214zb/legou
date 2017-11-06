@@ -26,10 +26,14 @@
 
             //删除/批量删除
             $('#del').click(function(){
-                var ids = '';
+                var ids   = '';
+                var level = '';
+                var name  = '';
                 $('.inputs').each(function(){
                     if(this.checked){
                         ids+= ","+$(this).attr("ids");
+                        level= $(this).attr("level");
+                        name+= $(this).attr("name");
                     }
                 });
                 ids = ids.substr(1);
@@ -40,7 +44,7 @@
                 var r= confirm('确定要批量删除图片吗！');
                 if(r == true){
                     $.ajax({
-                        url:"/cate/delete/"+ids,
+                        url:"/cate/delete/"+ids+'/'+level+'/'+name,
                         type: "get",
                         dataType:'json',
                         success: function(data){
@@ -79,7 +83,7 @@
         </tr>
         @foreach($data as $k)
         <tr>
-            <td><input type="checkbox" class="inputs" ids="{{$k->id}}"></td>
+            <td><input type="checkbox" class="inputs" ids="{{$k->id}}" level="{{$k->cate_level}}" name="{{$k->cate_name}}"></td>
             <td><span class="icon-plus-square padding-right text-main zhankai"></span>{{$k->id}}</td>
             <td><a href="{{$k->id}}">{{$k->cate_title}}</a></td>
             <td>{{$k->cate_sort}}</td>
@@ -87,15 +91,18 @@
             <td> @if($k->status == 3 ) <img src="/images/brand/ok.gif" alt="禁用" height="20" border="0" width="20" />
                 @elseif($k->status == 0 )<img src="/images/brand/del.gif" alt="删除" height="20" border="0" width="20" />
                 @elseif($k->status == 1)<img src="/images/brand/locked.gif" alt="禁用" height="20" border="0" width="20" />
+                @elseif($k->status == 2)<img src="/images/brand/locked.gif" alt="禁用" height="20" border="0" width="20" />
                 @else<img src="/images/brand/locked.gif" alt="恢复" height="20" border="0" width="20" />
                 @endif</td>
             <td><div class="button-group">
                     @if($k->status == 3 )
                     <a class="button border-red" href="/cate/status/{{$k->id}}/3"><span class="icon-trash-o"></span> 禁用</a>
                     @elseif($k->status == 1 )
-                    <a class="button border-red" href="/cate/status/{{$k->id}}/1"><span class="icon-trash-o"></span> 正常</a>
+                    <a class="button border-red" href="/cate/status/{{$k->id}}/1"><span class="icon-trash-o"></span> 删除</a>
                     @elseif($k->status == 0 )
                     <a class="button border-red" href="/cate/status/{{$k->id}}/0"><span class="icon-trash-o"></span> 恢复</a>
+                    @elseif($k->status == 2 )
+                    <a class="button border-red" href="/cate/status/{{$k->id}}/2"><span class="icon-trash-o"></span> 正常</a>
                     @endif
                 </div></td>
         </tr>

@@ -281,6 +281,7 @@ class ComposerStaticInit7b20e4d61e2f88170fbbc44c70d38a1f
     );
 
     public static $classMap = array (
+        'AddPriceToCateCloth' => __DIR__ . '/../..' . '/database/migrations/2017_11_03_151832_add_price_to_cate_cloth.php',
         'AddToBrand' => __DIR__ . '/../..' . '/database/migrations/2017_10_31_114613_add_to_brand.php',
         'AddToCart' => __DIR__ . '/../..' . '/database/migrations/2017_10_31_115620_add_to_cart.php',
         'AddToCates' => __DIR__ . '/../..' . '/database/migrations/2017_10_31_113604_add_to_cates.php',
@@ -302,12 +303,14 @@ class ComposerStaticInit7b20e4d61e2f88170fbbc44c70d38a1f
         'CreateCateUseraddr' => __DIR__ . '/../..' . '/database/migrations/2017_10_31_135109_create_cate_useraddr.php',
         'CreateCatesBrand' => __DIR__ . '/../..' . '/database/migrations/2017_10_31_114544_create_cates_brand.php',
         'CreateCatesTable' => __DIR__ . '/../..' . '/database/migrations/2017_10_31_113415_create_cates_table.php',
+        'CreateClothTable' => __DIR__ . '/../..' . '/database/migrations/2017_11_03_151812_create_cloth_table.php',
         'CreateGoodsTable' => __DIR__ . '/../..' . '/database/migrations/2017_10_31_111311_create_goods_table.php',
         'CreateNodeTable' => __DIR__ . '/../..' . '/database/migrations/2017_10_31_123546_create_node_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreatePropertyTable' => __DIR__ . '/../..' . '/database/migrations/2017_11_01_061717_create_property_table.php',
         'CreateRoleTable' => __DIR__ . '/../..' . '/database/migrations/2017_10_31_124318_create_role_table.php',
         'CreateRoleUserTable' => __DIR__ . '/../..' . '/database/migrations/2017_10_31_124757_create_role_user_table.php',
+        'CreateShoesTable' => __DIR__ . '/../..' . '/database/migrations/2017_11_03_153016_create_shoes_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2017_10_31_111406_create_users_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',

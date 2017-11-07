@@ -13,6 +13,9 @@
             var level = $(this).val();
             if(level == 1){
                 $('#select').html("<option value='0'>--请选择--</option>");
+                $('#goods_style').show();
+            }else {
+                $('#goods_style').hide();
             }
             $.ajax({
                 url:'cate_data/level/'+level,
@@ -33,13 +36,41 @@
     })
 
 </script>
+<script>
+    $(function(){
+        //添加选项框
+        $('#a').click(function(){
+            $('#div').append('<span>风格选项/序号：<input type="text" placeholder="请输入选项" name="style[]"><input type="text" placeholder="请输入序号" name="sort[]"><span class="span">-</span><br/></span>');
+            $('#bu').show().addClass('block');
+        });
+        //删除选项框
+        $('#div').on('click','.span',function(){
+            if($('#div').children('span').length == 1){
+                alert('亲，请手下留情不能再删了！'); return false;
+            }
+            $(this).parent().remove();
+        });
+        //确定选框
+        $('#bu').click(function(){
+            $('.span').remove();
+            $('#bu').hide();
+            $('#bu2').show();
+        });
+    })
+</script>
+    <style>
+        .block{
+            display: block;
+            border:1px;
+        }
+    </style>
 </head>
 <body>
 <div>
     <div>
         <strong><span></span> 添加商品分类信息</strong>
         <a style="float: right;font-size: 14px;font-weight: bold;" href="/cate/show/0">返回分类列表</a></div><br/>
-    <div>
+    <div style="margin-left: 400px;">
         <form method="post" action="add" >
             <div>
                 <div>
@@ -50,7 +81,7 @@
                            placeholder="请输入分类名字" required="required"/>
                     <div></div>
                 </div>
-            </div>
+            </div><br>
             <div>
                 <div>
                     <label>分类标题：</label>
@@ -60,7 +91,7 @@
                            placeholder="请输入分类标题" required="required"/>
                     <div></div>
                 </div>
-            </div>
+            </div><br>
             <div>
                 <div>
                     <label>分类等级：</label>
@@ -74,7 +105,7 @@
                     </select>
                     <div></div>
                 </div>
-            </div>
+            </div><br>
             <div id="id">
                 <div>
                     <label>父级：</label>
@@ -88,7 +119,7 @@
                     </select>
                     <div ></div>
                 </div>
-            </div>
+            </div><br>
             <div >
                 <div >
                     <label>分类状态：</label>
@@ -101,7 +132,7 @@
                     </select>
                     <div ></div>
                 </div>
-            </div>
+            </div><br>
             <div >
                 <div >
                     <label>分类排序：</label>
@@ -111,13 +142,46 @@
                     <div ></div>
                 </div>
             </div>
-            <div >
+            <div ><br>
+            <div style="display: none;" id="goods_style">
+                <div>
+                    <div>
+                        <label>分类风格：</label><a id="a" href="#">添加商品style</a>
+                    </div>
+                </div><br>
+                <div id="div">
+                </div>
+                    <a id="bu" style="display: none;" href="###">保存选框</a><br>
+                <div>
+            </div>
+
+            </div>
+            <div>
+                <div>
+                    <label>是否添加到推荐位：</label>
+                </div>
+                <div>
+                    是：<input type="radio" name="radio" value="1">
+                    否：<input type="radio" name="radio" value="0">
+                    <div></div>
+                </div><br>
+                <div>
+                    <label>设置为首页推荐：</label>
+                </div>
+                <div>
+                    精品：<input type="checkbox" name="checkbox[]" value="1">
+                    新品：<input type="checkbox" name="checkbox[]" value="2">
+                    热销：<input type="checkbox" name="checkbox[]" value="3">
+                    特价：<input type="checkbox" name="checkbox[]" value="4">
+                    <div></div>
+                </div>
+            </div><br>
                 <div >
                     <label></label>
                 </div><br>
                 <div >
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
-                    <button type="submit"> 提交</button>
+                    <input type="submit" value="提交">
                 </div>
             </div>
         </form>

@@ -9,7 +9,11 @@ class Lunbo extends Model{
      * 轮播图列表
      */
     static function show(){
+<<<<<<< HEAD
         $list=DB::table('lunbos')->where(['img_status'=>3])->orderBy('img_sort', 'desc')->paginate(2);
+=======
+        $list=DB::table('lunbos')->where(['img_status'=>3])->orderBy('img_sort', 'asc')->paginate(3);
+>>>>>>> f72cf3ae50a5de8a391406b3128a6c359d7599c7
         return $list;
     }
     

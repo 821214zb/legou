@@ -23,6 +23,7 @@ class AddToUseraddr extends Migration
             $table->string('region');
             $table->string('address');
             //
+           
         });
     }
 

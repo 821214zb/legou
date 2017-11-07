@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <module version="4">
   <component name="NewModuleRootManager">
     <orderEntry type="sourceFolder" forTests="false" />
 =======
+=======
+>>>>>>> f72cf3ae50a5de8a391406b3128a6c359d7599c7
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$" />
@@ -19,6 +22,9 @@
         </SOURCES>
       </library>
     </orderEntry>
+<<<<<<< HEAD
 >>>>>>> Stashed changes
+=======
+>>>>>>> f72cf3ae50a5de8a391406b3128a6c359d7599c7
   </component>
 </module>

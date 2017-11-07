@@ -15,7 +15,7 @@ Route::get('/cate', 'JDController@cate_left');
 /**
  * 爱尚首页分类页面展示（导航详情）
  */
-Route::get('/cate/{id}', 'JDController@cate');
+Route::get('/dev_cate/{id}/{cate_name}', 'JDController@cate');
 
 /**
  * 首页轮播图
@@ -87,12 +87,17 @@ Route::post('/brand/sort','Admin\BrandController@sort');//排序
 Route::get('/cate/show/{id}','Admin\CateController@show');                     //商品列表展示
 Route::match(['get','post'],'/cate/add','Admin\CateController@add');           //商品数据添加
 Route::match(['get','post'],'/cate/update/{id}','Admin\CateController@update');//商品数据修改
-Route::get('/cate/delete/{id}','Admin\CateController@delete');                 //商品数据删除
+Route::get('/cate/delete/{id}/{level}/{name}','Admin\CateController@delete');  //商品数据删除
+Route::get('/cate/sort/{id}/{sort}','Admin\CateController@sort');              //商品数据排序
 Route::get('/cate/status/{id}/{status}','Admin\CateController@cate_status');   //商品数据状态修改
 Route::get('/cate/cate_data/level/{level}','Admin\CateController@cate_data');  //获取商品分类数据
 
 /**
+<<<<<<< HEAD
  * 轮播图路由
+=======
+ * 轮播图分类路由
+>>>>>>> f72cf3ae50a5de8a391406b3128a6c359d7599c7
  */
 Route::match(['get','post'],'/lunbo/add','Admin\LunboController@add');//展示表单
 Route::post('/lunbo/addPost','Admin\LunboController@addPost');//添加轮播图

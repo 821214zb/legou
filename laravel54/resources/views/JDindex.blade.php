@@ -43,10 +43,19 @@
                         <a href="zhuce" class="col-red">免费注册</a>
                         @else
                         <div class="login2">
+<<<<<<< HEAD
                         <div id="login" style="position:relative;width: 85px;"><a >欢迎您！{{ Auth::user()->name }}
                                 <div class='login1' style="border: 1px solid lightgrey;border-top: none; width:200px;height:120px; top: 28px;position: absolute; background-color: white;display:none;">
                                     <div style="float: left">
                                         <img class="J_upic_img" src="//passport.jd.com/new/misc/skin/df/i/no-img_mid_.jpg" width="60" height="60">
+=======
+                        <div id="login" style="position:relative;width: 115px;border: 1px solid lightgrey;border-bottom: none;"><a >欢迎您！{{ Auth::user()->name }}
+                                <img src="images/pl1.jpg" width="30px" style="position: absolute;top:8px; filter:alpha(Opacity=80);-moz-opacity:0.4;opacity: 0.4;">
+                                <div class='login1' style="border: 1px solid lightgrey;border-top: none; width:210px;height:120px; top: 30px;position: absolute; background-color: white;display:none;">
+                                    <div style="float: left">
+                                        <img class="J_upic_img" src="images/11.png" width="50" height="50">
+                                        <img src="images/pl1.jpg" width="38px" >
+>>>>>>> f72cf3ae50a5de8a391406b3128a6c359d7599c7
                                     </div>
                                     <div style="float: right">
                                         <a href="{{ route('logout') }}"
@@ -162,6 +171,7 @@
 <!--nav 部分开始-->
 <!--左侧联动控制右侧分类显示-->
 <script>
+    //获取首页附导航展示
     $(function(){
         $.ajax({
             url:'/cate',
@@ -174,12 +184,13 @@
                 alert('error');
             }
         });
-
+        //获取中间分类展示并覆盖掉轮播图效果
         $(".dd").on('mouseenter','label',function(){
            $(this).parent().addClass('red'). siblings().removeClass('red') ;
             var id = $(this).attr('id');
+            var cate_name = $(this).attr('name');
             $.ajax({
-                url:'/cate/'+id,
+                url:'/dev_cate/'+id+'/'+cate_name,
                 type:'get',
                 dataType:'json',
                 success:function(data){
@@ -190,7 +201,7 @@
                 }
             })
         });
-
+        //获取中间轮播图
         $('#div').mouseleave(function(){
             $.ajax({
                 url:'/lunbo',
@@ -207,46 +218,7 @@
     })
 </script>
 <script type="text/javascript">
-    window.onload=function(){
-        var wrap=document.getElementById('wrap'),
-                pic=document.getElementById('pic').getElementsByTagName("li"),
-                list=document.getElementById('list').getElementsByTagName('li'),
-                index=0,
-                timer=null;
 
-        // 定义并调用自动播放函数
-        timer = setInterval(autoPlay, 2000);
-        // 鼠标划过整个容器时停止自动播放
-        wrap.onmouseover = function () {
-            clearInterval(timer);
-        };
-
-        // 鼠标离开整个容器时继续播放至下一张
-        wrap.onmouseout = function () {
-            timer = setInterval(autoPlay, 2000);
-        };
-        // 遍历所有数字导航实现划过切换至对应的图片
-        for (var i = 0; i < list.length; i++) {
-            list[i].onmouseover = function () {
-                clearInterval(timer);
-                index = this.innerText - 1;
-                changePic(index);
-            };
-        };
-        function autoPlay () {
-            if (++index >= pic.length) index = 0;
-            changePic(index);
-        }
-        // 定义图片切换函数
-        function changePic (curIndex) {
-            for (var i = 0; i < pic.length; ++i) {
-                pic[i].style.display = "none";
-                list[i].className = "";
-            }
-            pic[curIndex].style.display = "block";
-            list[curIndex].className = "on";
-        }
-    };
 </script>
 <div id='cate_div'>
     <div class="jd-nav">
@@ -280,7 +252,6 @@
 <!--
 大banner 轮播图
 -->
-
     <div class="banner604">
         <a href="#">
         </a>
@@ -290,7 +261,7 @@
         <div class="slider" id="slide">
             <div id="dd">
                 <ul id="pic"> <!-- 小圆点-->
-                <li><a href="#"><img src="images/11.jpg" alt="" id="pic"/></a></li>
+                    <li><a href="#"><img src="images/11.jpg" alt="" id="pic"/></a></li>
                </ul>
                 <ul class="circle"> <!-- 小圆点-->
                     <ol id="list">
@@ -342,7 +313,6 @@
                         <li><a href="#"><span>[公告]</span>京东深入蒙牛生产基地进行质检</a></li>
                         <li><a href="#"><span>[特惠]</span>白条购家电 24期免息！</a></li>
                     </ul>
-
                 </div>
             </div>
             <div class="lifeservi">
@@ -427,10 +397,8 @@
                 </div>
             </div>
         </div>
-
     </div>
     <div>
-</div>
     <!--双11 的某个活动-->
     <div class="w todays clearfix">
         <div class="night">
@@ -549,6 +517,8 @@
             <a href="#"><img src="images/mess5.png" alt=""/></a>
         </div>
     </div>
+</div>
+</div>
 </div>
 </body>
 </html>

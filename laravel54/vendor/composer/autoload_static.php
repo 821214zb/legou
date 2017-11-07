@@ -286,6 +286,7 @@ class ComposerStaticInit7b20e4d61e2f88170fbbc44c70d38a1f
     );
 
     public static $classMap = array (
+        'AddPriceToCateCloth' => __DIR__ . '/../..' . '/database/migrations/2017_11_03_151832_add_price_to_cate_cloth.php',
         'AddToBrand' => __DIR__ . '/../..' . '/database/migrations/2017_10_31_114613_add_to_brand.php',
         'AddToCart' => __DIR__ . '/../..' . '/database/migrations/2017_10_31_115620_add_to_cart.php',
         'AddToCates' => __DIR__ . '/../..' . '/database/migrations/2017_10_31_113604_add_to_cates.php',
@@ -296,8 +297,10 @@ class ComposerStaticInit7b20e4d61e2f88170fbbc44c70d38a1f
         'AddToPosid' => __DIR__ . '/../..' . '/database/migrations/2017_10_31_121224_add_to_posid.php',
         'AddToUseraddr' => __DIR__ . '/../..' . '/database/migrations/2017_10_31_135142_add_to_useraddr.php',
         'AddToUsers' => __DIR__ . '/../..' . '/database/migrations/2017_10_31_111500_add_to_users.php',
+
         'App\\Brand' => __DIR__ . '/../..' . '/app/Brand.php',
         'App\\Cate' => __DIR__ . '/../..' . '/app/Cate.php',
+
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Admin\\BrandController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/BrandController.php',
@@ -305,6 +308,7 @@ class ComposerStaticInit7b20e4d61e2f88170fbbc44c70d38a1f
         'App\\Http\\Controllers\\Admin\\DealController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/DealController.php',
         'App\\Http\\Controllers\\Admin\\GoodsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/GoodsController.php',
         'App\\Http\\Controllers\\Admin\\IndexController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/IndexController.php',
+
         'App\\Http\\Controllers\\Admin\\LunboController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/LunboController.php',
         'App\\Http\\Controllers\\Admin\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/UserController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
@@ -329,6 +333,7 @@ class ComposerStaticInit7b20e4d61e2f88170fbbc44c70d38a1f
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonInterval' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
         'Carbon\\Exceptions\\InvalidDateException' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
+
         'CreateAccessTable' => __DIR__ . '/../..' . '/database/migrations/2017_10_31_122541_create_access_table.php',
         'CreateAdminTable' => __DIR__ . '/../..' . '/database/migrations/2017_10_31_125054_create_admin_table.php',
         'CreateCateCart' => __DIR__ . '/../..' . '/database/migrations/2017_10_31_115446_create_cate_cart.php',
@@ -340,13 +345,18 @@ class ComposerStaticInit7b20e4d61e2f88170fbbc44c70d38a1f
         'CreateCateUseraddr' => __DIR__ . '/../..' . '/database/migrations/2017_10_31_135109_create_cate_useraddr.php',
         'CreateCatesBrand' => __DIR__ . '/../..' . '/database/migrations/2017_10_31_114544_create_cates_brand.php',
         'CreateCatesTable' => __DIR__ . '/../..' . '/database/migrations/2017_10_31_113415_create_cates_table.php',
+        'CreateClothTable' => __DIR__ . '/../..' . '/database/migrations/2017_11_03_151812_create_cloth_table.php',
         'CreateGoodsTable' => __DIR__ . '/../..' . '/database/migrations/2017_10_31_111311_create_goods_table.php',
         'CreateNodeTable' => __DIR__ . '/../..' . '/database/migrations/2017_10_31_123546_create_node_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
+
         'CreatePropertyTable' => __DIR__ . '/../..' . '/database/migrations/2017_11_01_061717_create_property_table.php',
         'CreateRoleTable' => __DIR__ . '/../..' . '/database/migrations/2017_10_31_124318_create_role_table.php',
         'CreateRoleUserTable' => __DIR__ . '/../..' . '/database/migrations/2017_10_31_124757_create_role_user_table.php',
+        'CreateShoesTable' => __DIR__ . '/../..' . '/database/migrations/2017_11_03_153016_create_shoes_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2017_10_31_111406_create_users_table.php',
+
+
         'Cron\\AbstractField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
         'Cron\\CronExpression' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/CronExpression.php',
         'Cron\\DayOfMonthField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/DayOfMonthField.php',
@@ -357,6 +367,7 @@ class ComposerStaticInit7b20e4d61e2f88170fbbc44c70d38a1f
         'Cron\\MinutesField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/MinutesField.php',
         'Cron\\MonthField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/MonthField.php',
         'Cron\\YearField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/YearField.php',
+
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'DeepCopy\\DeepCopy' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/DeepCopy.php',
         'DeepCopy\\Exception\\CloneException' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Exception/CloneException.php',
@@ -1602,6 +1613,7 @@ class ComposerStaticInit7b20e4d61e2f88170fbbc44c70d38a1f
         'Illuminate\\View\\ViewFinderInterface' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewFinderInterface.php',
         'Illuminate\\View\\ViewName' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewName.php',
         'Illuminate\\View\\ViewServiceProvider' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewServiceProvider.php',
+
         'Intervention\\Image\\AbstractColor' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/AbstractColor.php',
         'Intervention\\Image\\AbstractDecoder' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/AbstractDecoder.php',
         'Intervention\\Image\\AbstractDriver' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/AbstractDriver.php',
@@ -1718,6 +1730,7 @@ class ComposerStaticInit7b20e4d61e2f88170fbbc44c70d38a1f
         'Intervention\\Image\\Point' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Point.php',
         'Intervention\\Image\\Response' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Response.php',
         'Intervention\\Image\\Size' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Size.php',
+
         'JakubOnderka\\PhpConsoleColor\\ConsoleColor' => __DIR__ . '/..' . '/jakub-onderka/php-console-color/src/JakubOnderka/PhpConsoleColor/ConsoleColor.php',
         'JakubOnderka\\PhpConsoleColor\\InvalidStyleException' => __DIR__ . '/..' . '/jakub-onderka/php-console-color/src/JakubOnderka/PhpConsoleColor/InvalidStyleException.php',
         'JakubOnderka\\PhpConsoleHighlighter\\Highlighter' => __DIR__ . '/..' . '/jakub-onderka/php-console-highlighter/src/JakubOnderka/PhpConsoleHighlighter/Highlighter.php',

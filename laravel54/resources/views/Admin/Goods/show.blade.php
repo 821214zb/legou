@@ -15,7 +15,8 @@
     <script src="/Admin/js/layer/layer.js"></script>
 </head>
 <body>
-<form method="post" action="" id="listform">
+<form method="post" action="show" id="listform">
+    {{ csrf_field() }}
     <div class="panel admin-panel">
         <div class="panel-head"><strong class="icon-reorder"> 商品列表</strong> <a href="" style="float:right; display:none;">添加字段</a></div>
         <div class="border-b border-bno clearfix">
@@ -26,28 +27,28 @@
                 <!--<li> <a class="button border-main icon-plus-square-o" href="add.html"> 发布文章</a> </li>-->
                 <if condition="$iscid eq 1">
                     <li>
-                        <select name="cid" class="input" style="width:150px; line-height:17px;" onchange="changesearch()">
+                        <select name="cate_id" class="input" style="width:150px; line-height:17px;" onchange="changesearch()">
                             <option value="">所有分类</option>
-                            <option value="">衣服</option>
-                            <option value="">食品</option>
-                            <option value="">电子</option>
-                            <option value="">旅游</option>
+                            <?php foreach ($cateList as $v){?>
+                            <option value="<?php echo $v["id"]; ?>" style="width:150px; line-height:17px;"><?php echo $v["s"];?><?php echo $v["cate_title"];?></option>
+                            <?php } ?>
                         </select>
                     </li>
                 </if>
                 <if condition="$iscid eq 1">
                     <li>
-                        <select name="cid" class="input" style="width:100px; line-height:17px;" onchange="changesearch()">
+                        <select name="brand_id" class="input" style="width:100px; line-height:17px;" onchange="changesearch()">
                             <option value="">所有品牌</option>
-                            <option value="">自营品牌</option>
-                            <option value="">商家品牌</option>
+                            @foreach($cate as $v)
+                                <option value="{{$v->id}}">{{$v->brand_name}}</option>
+                            @endforeach
                         </select>
                     </li>
                 </if>
                 <if condition="$iscid eq 1">
                     <li>
                         <select name="cid" class="input" style="width:100px; line-height:17px;" onchange="changesearch()">
-                            <option value="">精品</option>
+                            <option value="">推荐位</option>
                             <option value="">特价</option>
                             <option value="">热销</option>
                         </select>
@@ -56,7 +57,7 @@
                 <if condition="$iscid eq 1">
                     <li>
                         <select name="cid" class="input" style="width:100px; line-height:17px;" onchange="changesearch()">
-                            <option value="">全部</option>
+                            <option value="">供货商</option>
                             <option value="">供货商</option>
                             <option value="">供货商</option>
                         </select>
@@ -64,32 +65,24 @@
                 </if>
                 <if condition="$iscid eq 1">
                     <li>
-                        <select name="cid" class="input" style="width:100px; line-height:17px;" onchange="changesearch()">
-                            <option value="">全部</option>
-                            <option value="">上架</option>
-                            <option value="">下架</option>
-                        </select>
-                    </li>
-                </if>
-                <if condition="$iscid eq 1">
-                    <li>
-                        <select name="cid" class="input" style="width:100px; line-height:17px;" onchange="changesearch()">
-                            <option value="">全部</option>
-                            <option value="">审核</option>
-                            <option value="">未审核</option>
+                        <select name="status" class="input" style="width:100px; line-height:17px;" onchange="changesearch()">
+                            <option value="">商品状态</option>
+                            <option value="3">上架</option>
+                            <option value="0">下架</option>
+                            <option value="1">禁用</option>
                         </select>
                     </li>
                 </if>
                 <li>
                     <input type="text" placeholder=""  class="input" style="width:250px; line-height:17px;display:inline-block" />
-                    <a href="javascript:void(0)" class="button border-main icon-search" onclick="changesearch()" > 查询</a></li>
+                    <input class="button border-main icon-search" type="submit" value="查询" >
             </ul>
         </div>
         <table class="table table-hover text-center">
             <tr>
                 <th width="100" style="text-align:left; padding-left:20px;">编号</th>
                 <th>商品名称</th>
-                <th>商品数量</th>
+                <th>库存</th>
                 <th>现价</th>
                 <th>原价</th>
                 <th>商品排序</th>
@@ -102,7 +95,7 @@
             </tr>
             @foreach($goods as $v)
                 <tr>
-                    <td style="text-align:left; padding-left:20px;"><input type="checkbox" name="id[]" value="" />
+                    <td style="text-align:left; padding-left:20px;"><input type="checkbox" name="check" value="{{$v->id}}" id="check{{$v->id}}"/>
                         {{$v->id}}</td>
                     <td>{{$v->goods_name}}</td>
                     <td>{{$v->goods_count}}</td>
@@ -111,46 +104,64 @@
                     <td>{{$v->goods_sort}}</td>
                     <td>{{date('Y-m-d H:i:s',$v->up_time)}}</td>
                     <td>{{date('Y-m-d H:i:s',$v->down_time)}}</td>
-                    <td><img src="<?php echo "/".$v->goods_img; ?>" width="70" height="70"></td>
+                    <td><img src="{{"/".$v->goods_img}}" width="70" height="70"></td>
                     <td>{{$v->goods_text}}</td>
                     <td>
                         @if($v->status == 0)
-                            已删除
+                            下架
                         @elseif($v->status == 1)
                             禁用
-                        @elseif($v->status == 2)
-                            恢复
                         @elseif($v->status == 3)
-                            正常
+                            上架
                         @endif
                     </td>
-                    <td><div class="button-group"><a class="button border-yellow" href="add-product.html"><span class="icon-edit (alias)"></span>编辑</a><a class="button border-main" href=""><span class="icon-eye"></span> 查看</a> <a class="button border-red" href="javascript:void(0)" onclick="return del(1,1,1)"><span class="icon-trash-o"></span> 删除</a> </div></td>
+                    <td><div class="button-group"><a class="button border-yellow" href="update/{{$v->id}}"><span class="icon-edit (alias)"></span>编辑</a><a class="button border-main" href=""><span class="icon-eye"></span> 查看</a></div></td>
                 </tr>
             @endforeach
                 <tr>
                     <td style="text-align:left; padding:19px 0;padding-left:20px;"><input type="checkbox" id="checkall"/>
                         全选 </td>
-                    <td colspan="10" style="text-align:left;padding-left:20px;"><a href="javascript:void(0)" class="button border-red icon-trash-o" style="padding:5px 15px;" onclick="DelSelect()"> 批量删除</a>
+                    <td colspan="10" style="text-align:left;padding-left:20px;"><a href="javascript:void(0)" class="button border-red icon-trash-o" style="padding:5px 15px;" onclick="DelSelect()" id="del" >删除</a>
                 </tr>
         </table>
         <div class="pagelist">  {{ $goods->links() }}</div>
 
     </div>
 </form>
-
+<script  type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
+//删除
+$(document).ready(function(){
+    $("#del").click(function(){
+        var ids = "";
+        $("input[name='check']:checked").each(function(){
+            ids += $(this).attr('value')+',';
+        });
+        if(ids != ""){
+            if(confirm('确定要删除吗？')){
+                $.ajax({
+                    type:"get",
+                    url:"delete/"+ids,
+                    dataType:'json',
+                    success(){
+                        window.location.reload("Admin/goods/show");
+                    }
+                })
+            }
+        }else{
+            alert("请选择您要删除的内容!");
+            return false;
+        }
+    });
+});
+
+
 
     //搜索
     function changesearch(){
 
     }
 
-    //单个删除
-    function del(id,mid,iscid){
-        if(confirm("您确定要删除吗?")){
-
-        }
-    }
 
     //全选
     $("#checkall").click(function(){
@@ -163,25 +174,6 @@
             }
         });
     })
-
-    //批量删除
-    function DelSelect(){
-        var Checkbox=false;
-        $("input[name='id[]']").each(function(){
-            if (this.checked==true) {
-                Checkbox=true;
-            }
-        });
-        if (Checkbox){
-            var t=confirm("您确认要删除选中的内容吗？");
-            if (t==false) return false;
-            $("#listform").submit();
-        }
-        else{
-            alert("请选择您要删除的内容!");
-            return false;
-        }
-    }
 
 </script>
 </body>

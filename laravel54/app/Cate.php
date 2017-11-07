@@ -23,7 +23,7 @@ class Cate extends Model
                     <label id='".$k['id']."' name='".$k['cate_name']."'>";
             foreach ($data2 as $kk=>$v){
                 if($k['id'] == $v['cate_pid']){
-                    $str .= "<a  style='color:white;margin-left: 3px;' href='/cate_goods' target='_blank'>".$v['cate_title']."</a>/";
+                    $str .= "<a  style='color:white;margin-left: 3px;' href='/cate_index' target='_blank'>".$v['cate_title']."</a>/";
                 }
             }
             $str = rtrim($str,'/');
@@ -70,7 +70,7 @@ class Cate extends Model
                         if(!is_dir($path.'/'.$v['cate_name'].'/'.$vv['cate_name'])){
                             mkdir($path.'/'.$v['cate_name'].'/'.$vv['cate_name'],0777,true);
                         }
-                        $str.= "<font size='3px'><a style='margin:3px;' href='/cate/goods/".$vv['id']."'>".$vv['cate_title']."</a></font>&nbsp;&nbsp;&nbsp;&nbsp;";
+                        $str.= "<font size='3px'><a target='_blank' style='margin:3px;' href='/cate_goods/".$vv['id']."' >".$vv['cate_title']."</a></font>&nbsp;&nbsp;&nbsp;&nbsp;";
                     }
                 }
                 $str.="<br><br>";

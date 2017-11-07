@@ -71,6 +71,7 @@ class Cate extends Model
                             mkdir($path.'/'.$v['cate_name'].'/'.$vv['cate_name'],0777,true);
                         }
                         $str.= "<font size='3px'><a target='_blank' style='margin:3px;' href='/cate_goods/".$vv['id']."'>".$vv['cate_title']."</a></font>&nbsp;&nbsp;&nbsp;&nbsp;";
+
                     }
                 }
                 $str.="<br><br>";

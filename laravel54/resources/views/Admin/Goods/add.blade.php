@@ -16,9 +16,16 @@
     <script type="text/javascript" src="/Admin/jeDate/jedate.js"></script>
     <script language="javascript" type="text/javascript" src="/time/WdatePicker.js"></script>
 </head>
+<style type="text/css">
+    .div_li{border: grey solid 1px;width: 200px;height: 40px;float: left;text-align: center;line-height: 40px;}
+    .ul{border: lightcyan solid 1px;width: 1120px;height: 40px;background-color: lightcyan;}
+</style>
 <body>
 <div class="panel admin-panel">
-    <div class="panel-head"><strong class="icon-reorder">添加新商品</strong></div>
+    <ul class="ul">
+        <li><div class="div_li"><a href="" class="icon-reorder">商品通用信息</a></div></li>
+        <li><div class="div_li"><a href="addTwo" class="icon-reorder">商品属性信息</a></div></li>
+    </ul>
     <div class="tab-box">
         <div class="tab">
     <div class="tab-panel" id="tab-b">
@@ -30,45 +37,60 @@
                         <label>商品名称：</label>
                     </div>
                     <div class="field">
-                        <input type="text" class="input" name="goods_name" />
+                        <input type="text" class="input" name="goods_name" placeholder=" &nbsp;请填写商品信息"  />
                     </div>
                 </div>
+                <ul class="search" style="padding-left:10px;">
                 <div class="form-group">
                     <div class="label">
                         <label>一级分类：</label>
                     </div>
-                    <select name="pid1" id="cate" onchange="category(1)">
-                        <option value="">--请选择--</option>
-                       @foreach($cate as $v)
-                            <option value="{{$v->id}}">{{$v->cate_title}}</option>
-                       @endforeach
-                    </select>
+                    <li>
+                        <select name="pid1" id="cate" class="input" style="width:100px; line-height:17px;" onchange="category(1)">
+                            <option value="">--请选择--</option>
+                           @foreach($cate as $v)
+                                <option value="{{$v->id}}">{{$v->cate_title}}</option>
+                           @endforeach
+                        </select>
+                    </li>
+
+                    <div class="label">
                     <label>二级分类：</label>
-                    <select name="pid2" id="name2" onchange="category(2)">
-                        <option value=""></option>
+                    </div>
+                    <li>
+                    <select name="pid2" id="name2" class="input" style="width:100px; line-height:17px;" onchange="category(2)">
+                        <option value="">--请选择--</option>
                     </select>
+                    </li>
+                    <div class="label">
                     <label>三级分类：</label>
-                    <select name="pid3" id=name3 >
-                        <option value=""></option>
+                    </div>
+                    <li>
+                    <select name="pid3" id=name3  class="input" style="width:100px; line-height:17px;" >
+                        <option value="">--请选择--</option>
                     </select>
+                    </li>
                 </div>
                 <div class="form-group">
                     <div class="label">
                         <label>品牌名称：</label>
                     </div>
-                    <select name="brand_id" id="brand_id">
-                        <option value="">--请选择--</option>
+                    <li>
+                    <select name="brand_id" id="brand_id" class="input" style="width:100px; line-height:17px;" >
+                        <option value="" >--请选择--</option>
                         @foreach($row as $v)
                             <option value="{{$v->id}}">{{$v->brand_name}}</option>
                         @endforeach
                     </select>
+                    </li>
                 </div>
+                    </ul>
                 <div class="form-group">
                     <div class="label">
-                        <label>商品数量：</label>
+                        <label>库存：</label>
                     </div>
                     <div class="field field-tsa">
-                        <input type="text" class="input" name="goods_count" />
+                        <input type="text" class="input" name="goods_count" placeholder=" &nbsp;请填写商品库存信息" />
                     </div>
                 </div>
                 <div class="form-group">
@@ -76,7 +98,7 @@
                         <label>商品现价：</label>
                     </div>
                     <div class="field field-tsa">
-                        <input type="text" class="input" name="new_price" />
+                        <input type="text" class="input" name="new_price" placeholder=" &nbsp;请填写商品现价" />
                     </div>
                 </div>
                 <div class="form-group">
@@ -84,23 +106,28 @@
                         <label>商品原价：</label>
                     </div>
                     <div class="field field-tsa">
-                        <input type="text" class="input" name="old_price" />
+                        <input type="text" class="input" name="old_price" placeholder=" &nbsp;请填写商品原价" />
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="label">
-                        <label>商品重量：</label>
+                        <label>商品风格：</label>
                     </div>
                     <div class="field field-tsa">
-                        <input type="text" class="input" name="weight" />
+                        <input type="text" class="input" name="style" placeholder=" &nbsp;请填写商品风格" />
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="label">
-                        <label>商品规格：</label>
+                        <label>邮费：</label>
                     </div>
                     <div class="field field-tsa">
-                        <input type="text" class="input" name="size" />
+                        <select name="status" class="input" style="width:100px; line-height:17px;">
+                            <option value="">--请选择--</option>
+                            <option value="0">8</option>
+                            <option value="1">10</option>
+                            <option value="3">包邮</option>
+                        </select>
                     </div>
                 </div>
                 <div class="form-group">
@@ -108,7 +135,7 @@
                         <label>商品排序：</label>
                     </div>
                     <div class="field field-tsa">
-                        <input type="text" class="input" name="sort" />
+                        <input type="text" class="input" name="sort" placeholder=" &nbsp;请给商品排序" />
                     </div>
                 </div>
                 <div class="form-group">
@@ -116,7 +143,7 @@
                         <label>上线时间：</label>
                     </div>
                     <div class="field field-tsa">
-                        <input type="text" class="input" name="up_time" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" />
+                        <input type="text" class="input" name="up_time" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" placeholder=" &nbsp;商品上线时间" />
                     </div>
                 </div>
                 <div class="form-group">
@@ -124,7 +151,15 @@
                         <label>下线时间：</label>
                     </div>
                     <div class="field field-tsa">
-                        <input type="text" class="input" name="end_time" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" />
+                        <input type="text" class="input" name="end_time" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" placeholder=" &nbsp;商品下线时间" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="label">
+                        <label>促销日期：</label>
+                    </div>
+                    <div class="field field-tsa">
+                        <input type="text" class="input" name="promotion date" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" placeholder=" &nbsp;商品促销时间" />
                     </div>
                 </div>
                 <div class="form-group">
@@ -138,10 +173,58 @@
                 </div>
                 <div class="form-group">
                     <div class="label">
-                        <label>商品颜色：</label>
+                        <label>供货商：</label>
                     </div>
                     <div class="field field-tsa">
-                        <input type="text" class="input" name="color" />
+                        <input type="text" class="input" name="supplier" placeholder=" &nbsp;请填写供货商" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="label">
+                        <label>商品积分：</label>
+                    </div>
+                    <div class="field field-tsa">
+                        <input type="text" class="input" name="integral" placeholder=" &nbsp;请填写商品积分" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="label">
+                        <label>积分购买金额：</label>
+                    </div>
+                    <div class="field field-tsa">
+                        <input type="text" class="input" name="integral_moeny" placeholder=" &nbsp;使用积分购买需要多少金额" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="label">
+                        <label>会员价格：</label>
+                    </div>
+                    <div class="field field-tsa">
+                        <input type="text" class="input" name="member_price" placeholder=" &nbsp;请填写商品会员价格" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="label">
+                        <label>优惠价格：</label>
+                    </div>
+                    <div class="field field-tsa">
+                        <input type="text" class="input" name="pre_price" placeholder=" &nbsp;商品优惠价格" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="label">
+                        <label>市场价格：</label>
+                    </div>
+                    <div class="field field-tsa">
+                        <input type="text" class="input" name="market_price" placeholder=" &nbsp;商品市场价格" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="label">
+                        <label>促销价格：</label>
+                    </div>
+                    <div class="field field-tsa">
+                        <input type="text" class="input" name="chuxiao" placeholder=" &nbsp;请填写商品促销价" />
                     </div>
                 </div>
                 <div class="form-group">
@@ -149,11 +232,10 @@
                         <label>状态：</label>
                     </div>
                     <div class="field field-tsa">
-                        <select name="status" >
+                        <select name="status" class="input" style="width:100px; line-height:17px;">
                             <option value="">--请选择--</option>
                             <option value="0">删除</option>
                             <option value="1">禁用</option>
-                            <option value="2">恢复</option>
                             <option value="3">正常</option>
                         </select>
                     </div>
@@ -163,12 +245,23 @@
                         <label>商品描述：</label>
                     </div>
                     <div>
-                        <textarea style="width:400px;height:200px;" name="goods_text" class="input" ></textarea>
+                        <textarea style="width:400px;height:200px;" name="goods_text" class="input" placeholder=" &nbsp;描述一下商品吧" ></textarea>
                     </div>
                 </div>
+                <div class="form-group">
+                    <div class="label">
+                        <label>推荐位：</label>
+                    </div>
+                    <div class="field field-tsa">
+                        @foreach($res as $v)
+                        <input type="checkbox" name="posid[]" value="{{$v->id}}" />{{$v->type}}
+                        @endforeach
+                    </div>
+                </div>
+
             <div class="text-center">
                 <div class="field">
-                    <input class="button bg-green" type="submit" value="确定" >
+                    <input class="button bg-green" type="submit" name='one' value="确认提交" />
                     <a class="button bg-red">重置</a>
                 </div>
             </div>
@@ -219,11 +312,12 @@
             }
         });
     }
-    $(document).ready(function(){
-        $("#brand_id").click()
-    });
-
-
+//    $(document).ready(function(){
+//        $("#but").click(function(){
+//            alert("请继续填写商品属性信息！");
+//            window.location.href="addTwo";
+//        });
+//    });
 </script>
 
 

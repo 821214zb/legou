@@ -23,7 +23,7 @@ class Cate extends Model
                     <label id='".$k['id']."' name='".$k['cate_name']."'>";
             foreach ($data2 as $kk=>$v){
                 if($k['id'] == $v['cate_pid']){
-                    $str .= "<a  style='color:white;margin-left: 3px;' href='###'>".$v['cate_title']."</a>/";
+                    $str .= "<a  style='color:white;margin-left: 3px;' href='/cate_goods' target='_blank'>".$v['cate_title']."</a>/";
                 }
             }
             $str = rtrim($str,'/');
@@ -117,7 +117,15 @@ class Cate extends Model
         }
         return $res = Cate::where('id',$id)->update(['status'=>$statuss]);
     }
-    
+
+    /*
+    * ajax获取商品分类信息
+    *      
+    * */
+    public static function getCate($level){
+        $p_level = $level - 1;
+        return $p_cate_data = DB::table('cates')->where('cate_level', '=', $p_level)->select('cate_title', 'id')->get();
+    }
 
 
 }

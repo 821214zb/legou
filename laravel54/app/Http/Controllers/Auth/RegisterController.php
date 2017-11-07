@@ -78,7 +78,7 @@ class RegisterController extends Controller
                     ],
                     'mobile' => [
                         'required',
-                        'regex:/^13\d{9}|15\d{9}|18\d{9}$/',
+                        'regex:/^13\d{9}|15\d{9}|18\d{9}|17\d{9}$/',
                     ],
 
                 ],

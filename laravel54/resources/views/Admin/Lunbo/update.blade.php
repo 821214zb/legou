@@ -28,7 +28,7 @@
                                     <label>轮播图名称：</label>
                                 </div>
                                 <div class="field">
-                                    <input type="text" class="input" name="img_name" value="{{$row->img_name}}"/>
+                                    <input type="text" class="input" name="img_name" value="{{$row->alt}}"/>
                                 </div>
                             </div>
                             <div class="form-group">

@@ -48,7 +48,7 @@
         @foreach($lunbo as $v)
             <tr>
                 <td><input class="input" type="checkbox" value="{{$v->id}}" id="check{{$v->id}}" name="check">{{$v->id}}</td>
-                <td>{{$v->img_name}}</td>
+                <td>{{$v->alt}}</td>
                 <td><input class="input1" type="text" name="sort" value="{{$v->img_sort}}"></td>
                 <td>
                     @if($v->img_status == 3 ) <img src="/images/lunbo/ok.gif" alt="正常" height="20" border="0" width="20" />

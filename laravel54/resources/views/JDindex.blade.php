@@ -8,6 +8,7 @@
     <link rel="shortcut icon" href="favicon.ico" />
     <script type="text/javascript" src="http://www.aslegou.com/Admin/js/jquery-3.2.1.js"></script>
 </head>
+
 <style>
     .topbanner{
         height:60px; ;
@@ -15,7 +16,11 @@
     .login{
         background-color: white;
     }
+    .red {
+        background-color: red;
+    }
 </style>
+
 <body>
 <!--京东的头部导航开始-->
 <div id="mask"></div>
@@ -173,28 +178,32 @@
 <script>
     //获取首页附导航展示
     $(function(){
+        //页面执行完毕加载首页左侧分类数据
         $.ajax({
-            url:'/cate',
+            url:'/cate_lunBo',
             type:'get',
             dataType:'json',
             success:function(data){
-                $('#cate').html(data);
+                $('#cate').html(data['cate']);
+
             },
             error:function(){
                 alert('error');
             }
         });
+
         //获取中间分类展示并覆盖掉轮播图效果
         $(".dd").on('mouseenter','label',function(){
            $(this).parent().addClass('red'). siblings().removeClass('red') ;
             var id = $(this).attr('id');
             var cate_name = $(this).attr('name');
+            $('#lunbo').hide(); $('#cat_div').show();
             $.ajax({
                 url:'/dev_cate/'+id+'/'+cate_name,
                 type:'get',
                 dataType:'json',
                 success:function(data){
-                    $('#slide').html(data);
+                    $('#cat_div').html(data);
                 },
                 error:function(){
                     alert('error');
@@ -203,17 +212,8 @@
         });
         //获取中间轮播图
         $('#div').mouseleave(function(){
-            $.ajax({
-                url:'/lunbo',
-                type:'get',
-                dataType:'json',
-                success:function(data){
-                    $('#slide').html(data);
-                },
-                error:function(){
-                    alert('error');
-                }
-            })
+            $('#lunbo').show();
+            $('#cat_div').hide();
         })
     })
 </script>
@@ -259,45 +259,89 @@
     <div class="w main clearfix" id="div">
         <!-- 轮播图-->
         <div class="slider" id="slide">
-            <div id="dd">
-                <ul id="pic"> <!-- 小圆点-->
-                    <li><a href="#"><img src="images/11.jpg" alt="" id="pic"/></a></li>
-               </ul>
-                <ul class="circle"> <!-- 小圆点-->
-                    <ol id="list">
-                    <li class="on">1</li>
-                    <li>2</li>
-                    <li>3</li>
-                    <li>4</li>
-                    <li>5</li>
-                    </ol>
+            <div id="lunbo">
+                <a href='#' id="aaa"><img src='./uploads/IWloI1y4.jpg' alt='' id='img'/></a>
+                <ul class="circle" id="ul">
+                    @foreach($list as $k=>$v)
+                        <li class='' src='{{$v->img}}' name="{{$k+1}}" id='li{{$k+1}}' href='{{$v->img_url}}'  alt='{{$v->alt}}'>{{$k+1}}</li>
+                    @endforeach
                 </ul>
                 <div class="arrow" id="arr">   <!--左右两个三角-->
                     <a href="javascript:;" class="arrow-l"><</a>
                     <a href="javascript:;" class="arrow-r">></a>
                 </div>
             </div>
+            <div id="cat_div" style="display:none"></div>
         </div>
-        <!-- 轮播图-->
         <script>
-             var arr = document.getElementById("arr");   //两个 三角
-             var slide = document.getElementById("slide");  // 轮播图的盒子
-             slide.onmouseover = function(){
-                 arr.style.display = "block";  // 显示三角
-             }
-             slide.onmouseout = function(){
-                 arr.style.display = "none";  // 显示三角
-             }
+            $(function() {
+                //定义全局变量
+                var n = 0;
+                var t = setInterval(scroll,2000);
 
-             var li02 = document.getElementById("li02");
-             var li01 = document.getElementById("li01");
-             var pic = document.getElementById("pic");
-             li02.onmouseover = function(){
-                 pic.src = "images/22.jpg";
-             }
-             li01.onmouseover = function(){
-                 pic.src = "images/11.jpg";
-             }
+                function scroll() {
+                    n++;
+                    if (n > 6) {
+                        n = 1;
+                    }
+                    //给大图赋值
+                    var src  = $('#li' + n).attr("src");
+                    var url  = $("#li" + n).attr("href");
+//            var target = $("#" + n).attr("target");
+                    var alt  = $("#li" + n).attr("alt");
+
+                    $("#img").attr({
+                        "src": "./" + src,
+                        "alt":alt
+                    });
+                    $("#aaa").attr({
+                        "href":url
+//                "target":target
+                    });
+
+                    $("li").each(function () {
+                        if ($(this).attr("id") == 'li'+n) {
+                            $(this).attr("style", 'background-color: red');
+                        } else {
+                            $(this).attr("style", 'background-color: none');
+                        }
+                    });
+                }
+                //图片停止函数;
+                $("#img").hover(function () {
+                    clearInterval(t);
+                }, function () {
+                    t = setInterval(scroll, 2000);
+                });
+
+                //随机切换图片
+                $("#slide").on('mousedown', 'li', function () {
+                    n   = $(this).attr('name');
+                    src = $(this).attr("src");
+                    url = $(this).attr("href");
+
+//            target = $("#" + n).attr("target");
+                  var alt = $(this).attr("alt");
+                    $("#img").attr({
+                        "src": "./" + src,
+                        "alt":alt
+                    });
+                    $("#aaa").attr({
+                        "href":url
+//                "target":target
+                    });
+                    $(this).attr("style",'background-color:red').siblings().attr("style",'background-color:none');
+                });
+                //判断大图片打开链接的方式
+            $('#img').click(function(){
+            var r = confirm('要在新页面打开此链接吗！');
+            if(r == true){
+                $(this).parent().attr("target",'_blank');
+            }else{
+                $(this).parent().attr("target",'_self');
+            }
+        });
+            });
         </script>
         <div class="news">
             <div class="jd-news">

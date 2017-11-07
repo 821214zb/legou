@@ -10,17 +10,19 @@ Route::get('/', 'JDController@show');
 /**
  * 爱尚首页分类页面展示（副导航）
  */
-Route::get('/cate', 'JDController@cate_left');
+Route::get('/cate_lunBo', 'JDController@cate_lunBo');
 
 /**
- * 爱尚首页分类页面展示（导航详情）
+ * 爱尚首页分类页面展示（中间分类详情）
  */
 Route::get('/dev_cate/{id}/{cate_name}', 'JDController@cate');
 
 /**
- * 首页轮播图
+ * 爱尚二级分类首页
  */
-Route::get('/lunbo', 'JDController@lunbo');
+Route::get('/cate_goods', 'JDController@er_index');
+
+
 
 
 /**

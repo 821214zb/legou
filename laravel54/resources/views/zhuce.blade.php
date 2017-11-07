@@ -94,7 +94,7 @@
                 <div class="item-phone-wrap">
                     <div class="form-item form-item-phone">
                         <label class="select-country" id="select-country" country_id="0086">中国 0086<a href="javascript:void(0)" tabindex="-1" class="arrow"></a></label>
-                        <input id="form-phone" name="mobile" class="field" placeholder=" " autocomplete="off" maxlength="11" type="text">
+                        <input id="form-phone" name="mobile" class="field" placeholder=" " autocomplete="off" maxlength="11" type="text" value="{{old('mobile')}}">
                     </div>
                     <div class="input-tip">
                     <span style="color:red;">

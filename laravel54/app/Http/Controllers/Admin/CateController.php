@@ -69,7 +69,7 @@ class CateController extends BaseController
                 }
 
             }
-            $date['cate_url']= $path;
+            $date['cate_url']   = $path;
             $date['cate_name']  = $cate_name;
             $date['cate_title'] = $req->cate_title;
             $date['cate_level'] = $cate_level;
@@ -79,6 +79,7 @@ class CateController extends BaseController
             $res = Cate::insertGetId($date);
 
             if($res){
+                //添加分类到推荐位数据表
                 if($req->checkbox){
                     foreach ($req->checkbox as $k=>$v){
                         DB::table('cate_posid')->insertGetId(['cate_id'=>$res,'posid_id'=>$v]);
@@ -142,11 +143,11 @@ class CateController extends BaseController
     }
 
     /**
-     * 商品分类状态修稿
+     * 商品分类状态修改
      */
     public function cate_status($id,$status)
     {
-       $res = cate::getStatus($id,$status);
+       $res = Cate::getStatus($id,$status);
         if(!$res){
             return redirect('cate/show/0');
         }else{
@@ -155,13 +156,11 @@ class CateController extends BaseController
     }
 
     /**
-     * 获取商品分类信息
+     * 通过父级id查询父级分类数据
      */
     public function cate_data($level)
     {
-        //同过父级id查询父级分类数据
-        $p_level = $level - 1;
-        $p_cate_data = DB::table('cates')->where('cate_level', '=', $p_level)->select('cate_title', 'id')->get();
+        $p_cate_data = Cate::getCate($level);
         echo json_encode($p_cate_data);
     }
 
@@ -171,7 +170,7 @@ class CateController extends BaseController
      */
     public function sort($ids,$sort)
     {
-        $res = cate::getSort($ids,$sort);
+        $res = Cate::getSort($ids,$sort);
 
         if($res > 0){
             echo json_encode('分类排序成功！');

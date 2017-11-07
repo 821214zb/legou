@@ -8,6 +8,11 @@
 Route::get('/', 'JDController@show');
 
 /**
+ * 我的爱尚
+ */
+Route::get('/user_index/{user_id}', 'JDController@user_index');
+
+/**
  * 爱尚首页分类页面展示（副导航）
  */
 Route::get('/cate_lunBo', 'JDController@cate_lunBo');

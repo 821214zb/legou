@@ -24,7 +24,7 @@ Route::get('/cate_index', 'JDController@er_index');
 
 /**
  * 展示前台商品列表
- * 爱尚商品列表展示
+ */
 Route::get('/cate_goods/{id}', 'JDController@goods_list');
 
 
@@ -101,7 +101,11 @@ Route::get('/cate/status/{id}/{status}','Admin\CateController@cate_status');   /
 Route::get('/cate/cate_data/level/{level}','Admin\CateController@cate_data');  //获取商品分类数据
 
 /**
+<<<<<<< HEAD
  * 轮播图路由
+=======
+ * 轮播图分类路由
+>>>>>>> f72cf3ae50a5de8a391406b3128a6c359d7599c7
  */
 Route::match(['get','post'],'/lunbo/add','Admin\LunboController@add');//展示表单
 Route::post('/lunbo/addPost','Admin\LunboController@addPost');//添加轮播图

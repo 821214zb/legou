@@ -65,13 +65,7 @@ class JDController extends Controller
        return view('flower',['id'=>$id]);
     }
     
-    /*
-     * 爱尚商品列表展示
-     */
-    public function goods_list($id){
 
-       return view('flower',['id'=>$id]);
-    }
 
 
 

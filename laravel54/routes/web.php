@@ -20,7 +20,12 @@ Route::get('/dev_cate/{id}/{cate_name}', 'JDController@cate');
 /**
  * 爱尚二级分类首页
  */
-Route::get('/cate_goods', 'JDController@er_index');
+Route::get('/cate_index', 'JDController@er_index');
+
+/**
+ * 展示前台商品列表
+ */
+Route::get('/cate_goods/{id}', 'JDController@goods_list');
 
 
 

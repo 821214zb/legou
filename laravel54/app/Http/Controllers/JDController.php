@@ -54,6 +54,15 @@ class JDController extends Controller
         
 
        return view('er_index');
+    } 
+    
+    /*
+     * 展示前台商品列表
+     */
+    public function goods_list($id){
+        
+
+       return view('flower',['id'=>$id]);
     }
 
 

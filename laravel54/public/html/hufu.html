@@ -1,0 +1,94 @@
+<div id="bel">
+    <label style="margin-left: 100px;">尺码：</label>
+    <input type="text"  name="size[]" />
+    <input type="button" value="+ 添加" id="btn2" ><br />
+</div><br />
+<div class="form-group">
+    <div class="label">
+        <label>重量：</label>
+    </div>
+    <div class="field field-tsa">
+        <input type="text" class="input" name="weight" />
+    </div>
+</div>
+<div id="label">
+    <label style="margin-left: 100px;">颜色：</label>
+    <input type="text" name="color[]" />
+    <input type="button" value="+ 添加" id="yanse" ><br />
+</div><br />
+<div class="form-group">
+    <div class="label">
+        <label>款式：</label>
+    </div>
+    <div class="field field-tsa">
+        <input type="text" class="input" name="style" />
+    </div>
+</div>
+<div class="form-group">
+    <div class="label">
+        <label>适合季节：</label>
+    </div>
+    <div class="field field-tsa">
+        <select name="season" class="input" style="width:100px; line-height:17px;">
+            <option value="">--请选择--</option>
+            <option value="四季">四季</option>
+            <option value="春季">春季</option>
+            <option value="夏季">夏季</option>
+            <option value="秋季">秋季</option>
+            <option value="冬季">冬季</option>
+        </select>
+    </div>
+</div>
+<div class="form-group">
+    <div class="label">
+        <label>适合人群：</label>
+    </div>
+    <div class="field field-tsa">
+        <select name="crowd" class="input" style="width:100px; line-height:17px;">
+            <option value="">--请选择--</option>
+            <option value="18-24周岁">18-24周岁</option>
+            <option value="25-29周岁">25-29周岁</option>
+            <option value="35-39周岁">35-39周岁</option>
+            <option value="40-49周岁">40-49周岁</option>
+            <option value="17周岁以下">17周岁以下</option>
+        </select>
+    </div>
+</div>
+<div class="form-group">
+    <div class="label">
+        <label>保质期：</label>
+    </div>
+    <div class="field field-tsa">
+        <input type="text" class="input" name="shelf_time" />
+    </div>
+</div>
+<div class="form-group">
+    <div class="label">
+        <label>产地：</label>
+    </div>
+    <div class="field field-tsa">
+        <input type="text" class="input" name="origin" />
+    </div>
+</div>
+<div class="form-group">
+    <div class="label">
+        <label>功效：</label>
+    </div>
+    <div class="field field-tsa">
+        <input type="text" class="input" name="efficacy" />
+    </div>
+</div>
+<script src="/js/jquery-3.2.1.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#btn2").click(function(){
+            $("#bel").append(" <span><input type='text' name='size[]' style='margin-left:143px;margin-top: 10px; '><input type='button' value='-' id='del'><br /></span>");
+        });
+        $("#yanse").click(function(){
+            $("#label").append(" <span><input type='text' name='color[]' style='margin-left:143px;margin-top: 10px; '><input type='button' value='-' id='del'><br /></span>");
+        });
+        $("div").on("click","#del",function () {
+            $(this).parent().remove();
+        });
+    });
+</script>

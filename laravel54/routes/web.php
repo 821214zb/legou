@@ -13,6 +13,11 @@ Route::get('/', 'JDController@show');
 Route::get('/user_index/{user_id}', 'JDController@user_index');
 
 /**
+ * 我的订单
+ */
+Route::get('/user_indent/{user_id}', 'JDController@user_indent');
+
+/**
  * 爱尚首页分类页面展示（副导航）
  */
 Route::get('/cate_lunBo', 'JDController@cate_lunBo');

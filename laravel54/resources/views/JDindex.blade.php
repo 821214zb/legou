@@ -76,7 +76,7 @@
                     @endif
                 </li>
                 <li class="line"></li>
-                <li><a href="dingdan">我的订单</a></li>
+                <li><a href="/user_indent/{{ Auth::user()->id }}" target="_blank">我的订单</a></li>
                 <li class="line"></li>
                 <li class="fore"><a href="/user_index/{{ Auth::user()->id }}" target="_blank">我的爱尚</a>
                     <i><s>◇</s></i>

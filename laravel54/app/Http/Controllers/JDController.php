@@ -23,6 +23,14 @@ class JDController extends Controller
        
         return view('myjd',['user_id'=>$user_id]);
     }
+    
+    /**
+     * 用户信息（我的订单）
+     */
+    public function user_indent($user_id){
+       
+        return view('mydd',['user_id'=>$user_id]);
+    }
 
 
     /**

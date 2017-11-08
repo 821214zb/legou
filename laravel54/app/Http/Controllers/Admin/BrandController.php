@@ -14,9 +14,9 @@ class BrandController extends BaseController{
     public function show($keyword=""){
         if($_GET){
             $keyword=$_GET['keyword']?$_GET['keyword']:"";
-            $list=DB::table('brands')->where('brand_name','like','%'.$keyword.'%')->where(['status'=>3])->orderBy('brand_sort', 'desc')->paginate(6);
+            $list=DB::table('brands')->where('brand_name','like','%'.$keyword.'%')->orderBy('brand_sort', 'desc')->paginate(6);
         }else{
-            $list=DB::table('brands')->where(['status'=>3])->orderBy('brand_sort', 'desc')->paginate(6);
+            $list=DB::table('brands')->orderBy('brand_sort', 'desc')->paginate(6);
         }
         return view('Admin.brand.show',['brand'=>$list,'keyword'=>$keyword]);
     }

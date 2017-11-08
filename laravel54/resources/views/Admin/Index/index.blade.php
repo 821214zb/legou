@@ -64,10 +64,11 @@
         <li><a href="ddgl-list-2.html" target="right"><span class="icon-caret-right"></span>退款管理</a></li>
         <li><a href="ddgl-list-49.html" target="right"><span class="icon-caret-right"></span>商品库存日志</a></li>
     </ul>
-    <h2><span class="icon-group (alias)"></span>管理员管理</h2>
+    <h2><span class="icon-group (alias)"></span>用户管理</h2>
     <ul>
         <li><a href="qxgl.html" target="right"><span class="icon-caret-right"></span>权限管理</a></li>
-        <li><a href="gly-list.html" target="right"><span class="icon-caret-right"></span>管理员列表</a></li>
+        <li><a href="/admin/show" target="right"><span class="icon-caret-right"></span>用户列表</a>
+        <li><a href="/role/show" target="right"><span class="icon-caret-right"></span>角色列表</a></li>
         <li><a href="person-info.html" target="right"><span class="icon-caret-right"></span>个人信息</a></li>
         <li><a href="qxgl-1.html" target="right"><span class="icon-caret-right"></span>管理员日志</a></li>
 

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html><head><script type="text/javascript" async="" src="js/shouyintai/wl.js"></script><script type="text/javascript" async="" src="js/shouyintai/psa-ag.js"></script>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>京东收银台-支付结果</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <link rel="icon" href="https://sp.jd.com/payment/2.0.0/css/i/ico.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="css/shouyintai/main.css">
+    <script type="text/javascript" src="js/shouyintai/jquery-1.js"></script>
+    <script type="text/javascript" src="js/shouyintai/base.js"></script>
+    <script type="text/javascript" src="js/shouyintai/avalon.js"></script>
+    <script type="text/javascript" src="js/shouyintai/lodash.js"></script>
+    <script type="text/javascript" src="js/shouyintai/common.js"></script>
+
+    <script type="text/javascript">
+        var projectKey = "UA-JR-JDCashier";//商城收银台
+        var pageKey = "pay_success";//支付结果页
+        var _jaq = _jaq || [];
+        _jaq.push(['_setAccount', projectKey]);
+        _jaq.push(pageKey);
+        (function () {
+            var ja = document.createElement('script');
+            ja.type = 'text/javascript';
+            ja.async = true;
+            ja.src = "//ag.jd.com/resource/psa-ag.js";
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ja, s);
+        })();
+    </script>
+</head>
+
+<body class="porm-result"><div class="shortcut"><div class="w"><a class="s-logo" href="https://www.jd.com/" target="_blank"><img alt="京东 收银台" src="images/shouyintai/jd-logo.png" width="170" height="28"></a><ul class="s-right"><li id="loginbar" class="s-item fore1"><a href="https://home.jd.com/" target="_blank" class="link-user">岁月留痕hh</a>&nbsp;&nbsp;<a href="https://passport.jd.com/uc/login?ltype=logout" class="link-logout">退出</a></li><li class="s-div">|</li><li class="s-item fore2"><a class="op-i-ext" href="https://order.jd.com/center/list.action">我的订单</a></li><li class="s-div">|</li><li class="s-item fore3"><a class="op-i-ext" target="_blank" href="https://help.jd.com/user/issue/list-173-224.html">支付帮助</a></li><!--<li class="s-div">|</li>--><!--<li class="s-item fore4">--><!--<a class="op-i-ext" target="_blank" href="//survadmin.jd.com/index.php?r=survey/index/sid/757632/lang/zh-Hans" >问题反馈</a>--><!--</li>--></ul><span class="clr"></span></div></div><!-- shortcut end --><script>
+    var successVar={
+        successDetailRequestSign:'89ced92c39d29a1ce5439f7f8e61cd51508693a429924d3c33d6b3473ef6d191a52f7aee1c8bb05357ca50b5b15f30730b0ef86e05635c3fafab1fa48c2c5eb439483ddb1228de0f96018eb342131d441191e59e211b5c28578195d943d7bde5dc64d22b07e511a16dbf9d3a565d73815b1d9bba6a48ff61709e1faa6dcf360c119dc00f551ad762707bb431ca2b4a977c0f633b466542f0b566edafefcbfe83f869bb73ae4091476ba853966e2d8b1a91637449a105c6764fd0ee57412024b3',
+        successResultJSONStr:'{"orderId":"64241556306","orderType":"0","toType":"10","amount":"2499.00","successDetailRequestSign":"89ced92c39d29a1ce5439f7f8e61cd51508693a429924d3c33d6b3473ef6d191a52f7aee1c8bb05357ca50b5b15f30730b0ef86e05635c3fafab1fa48c2c5eb439483ddb1228de0f96018eb342131d441191e59e211b5c28578195d943d7bde5dc64d22b07e511a16dbf9d3a565d73815b1d9bba6a48ff61709e1faa6dcf360c119dc00f551ad762707bb431ca2b4a977c0f633b466542f0b566edafefcbfe83f869bb73ae4091476ba853966e2d8b1a91637449a105c6764fd0ee57412024b3","needGotoRealName":false,"orderItemUrl":"http://order.jd.com/center/itemPage.action?orderid\u003d64241556306\u0026PassKey\u003d00344CFC16D1C79362CD171AF6F1DA70","success":true,"cashierId":"1","jsPath":"misc/release"}',
+        orderId:'64241556306',
+        orderType:'0',
+        toType:'10',
+        amount:'2499.00',
+        redirectOtherURL : ""
+    }
+</script><div class="main"><div class="w w-porm-result"><!--结果信息--><div class="porm-result-box porm-result-box-success"><div class="prb-info"><div class="prb-info-top clearfix"><div class="prb-info-left"><i class="prb-info-icon"></i><div class="prb-info-text"> 支付成功！<br>我们尽快为您处理</div><div class="prb-info-operate"><a href="http://order.jd.com/center/itemPage.action?orderid=64241556306&amp;PassKey=00344CFC16D1C79362CD171AF6F1DA70" psa="pcCashier_cgy_ckddzt">查看订单状态</a><b class="porm-result-division">|</b><a class="operate-link" id="jxgg" href="https://www.jd.com/" psa="pcCashier_cgy_jxgg">继续逛逛</a><b class="porm-result-division">|</b><a class="operate-link" id="jxgg" href="https://baitiao.jd.com/v3/ious/list" psa="pcCashier_cgy_ckbt" operate="baitiao">查看白条</a></div></div><div class="prb-info-right"><table class="prb-info-data"><tbody><tr><td><span class="ftx-02">订单号：64241556306</span><span>在线支付：289元</span><span>白条支付：2210元</span><span>还款日期：2017-11-23</span></td></tr></tbody></table></div></div><div class="prb-info-tips"><span class="prb-info-tips-text">重要提醒：不点击陌生链接、不泄露银行卡和验证码信息，谨防诈骗！</span></div></div><div class="prb-promtion"><a class="prb-promotion-item-wrap" clstag="jr|keycount|mallSuccess|qrcode" style="background-image: url(&quot;//img30.360buyimg.com/jr_courier/jfs/t11077/30/799509571/36497/70ca13ad/59f85848Na9c1eae9.png&quot;);"></a></div></div><!--结果信息 end--><!-- 成功页推荐楼层区域 --><div id="result-promotion"><div class="porm-box"><div class="porm-box-first clearfix"><div class="pbf-left"><div class="pbf-left-wrap pbf-left-enter"><a target="_blank" href="https://m.jr.jd.com/helppage/downApp/jrAppPromote.html" psa="pcCashier_cgy_lm2_hbw_jrapp"><img src="images/shouyintai/5934c3f3N68a45736.png"></a></div><div class="pbf-left-bg"></div><div class="pbf-left-content"><span class="pbf-left-content-1">让财富稳定增长</span><span class="pbf-left-content-2">让生活便捷有趣</span><div class="pbf-left-content-operate"><a class="pbf-left-content-button" target="_blank" href="https://m.jr.jd.com/helppage/downApp/jrAppPromote.html" psa="pcCashier_cgy_lm2_hbw_jrapp">下载金融APP</a></div></div></div><div class="pbf-right" style="background: rgba(0, 0, 0, 0) url(&quot;//img30.360buyimg.com/jr_courier/jfs/t11299/348/797654199/66631/3db18b93/59f85776N33004e22.jpg&quot;) no-repeat scroll 0% 0%;"><a class="pbf-right-1" target="_blank" href="https://jrdc.jd.com/dh/nc?keyStr=4hModGVxBN%2BMMUQTBk%2BFXfW%2F%2F2B7%2B9uRM57dw4PfvYUxSR17F6Yawyvbxm%2F22BfXDe4Exype6rryOLuXyz8p4uyE5a4d7esvBFMBq61dV2ArylTTHEM6dwWKwQDU3Zr%2BP7KDf6SLmsv7u9o4%2FDIK1Q%3D%3D&amp;to=http://sale.jd.com/act/LOGaU0xHykvu.html"></a><!--ms-for:($index, item) in @data.promotionList3--><a target="_blank" class="pbf-right-list pbf-right-2" href="https://jrdc.jd.com/dh/nc?keyStr=4hModGVxBN%2Fjd9f9gWEXABbjgLFv6eIRM57dw4PfvYUxSR17F6Yawyvbxm%2F22BfXDe4Exype6rryOLuXyz8p4uyE5a4d7esvKX1Ll0b0XkOb3tdqAksVVH%2BuK2pJ4ravpiovGkbHNrTMBnSr3Prd%2BM%2FrsndwumHG&amp;to=https://sale.jd.com/act/3OtKH06evEGFg2B5.html"><img src="images/shouyintai/59f6a08bN62da64e7.jpg"></a><!--for703170887352--><a target="_blank" class="pbf-right-list pbf-right-3" href="https://jrdc.jd.com/dh/nc?keyStr=4hModGVxBN%2BLlR3tmw6ChQa85zIJe5tkM57dw4PfvYUxSR17F6Yawyvbxm%2F22BfXDe4Exype6roNHgFReYusruyE5a4d7esvKX1Ll0b0XkOb3tdqAksVVKpjzkr4h35FB4zBXziDe9Ek%2BYrlGt3h2MT1d94bvgKP&amp;to=https://sale.jd.com/act/FciOehkX53fqAY.html"><img src="images/shouyintai/59f85594N0cf0d4ea.jpg"></a><!--for703170887352--><a target="_blank" class="pbf-right-list pbf-right-4" href="https://jrdc.jd.com/dh/nc?keyStr=4hModGVxBN%2BU41ZzElO2SLMGxiT4xhLIM57dw4PfvYUxSR17F6Yawyvbxm%2F22BfXDe4Exype6roNHgFReYusruyE5a4d7esvKX1Ll0b0XkOb3tdqAksVVC1vZVnqQm%2FwnPMAcpyLCq3Rey0zUhNZXlhIsMSUOGyN&amp;to=https://sale.jd.com/act/cVEN7tLhZPb1.html"><img src="images/shouyintai/59f85745N5b9822da.jpg"></a><!--for703170887352--><a target="_blank" class="pbf-right-list pbf-right-5" href="https://jrdc.jd.com/dh/nc?keyStr=4hModGVxBN8t1ptpaSYsTjX7HW59mV8NM57dw4PfvYUxSR17F6Yawyvbxm%2F22BfXDe4Exype6roNHgFReYusruyE5a4d7esvKX1Ll0b0XkOb3tdqAksVVKiSjZB4iJZOZdKjIFdmcECukxFajB5UaAZoqPnvHj3I&amp;to=https://sale.jd.com/act/HOa7tPKXky0MfzC.html"><img src="images/shouyintai/59f856c7N15f3ad95.png"></a><!--for703170887352--><a target="_blank" class="pbf-right-list pbf-right-6" href="https://jrdc.jd.com/dh/nc?keyStr=4hModGVxBN99RFDXhsxdsPey6IlQknJnM57dw4PfvYUxSR17F6Yawyvbxm%2F22BfXDe4Exype6roNHgFReYusruyE5a4d7esvKX1Ll0b0XkOb3tdqAksVVA3cNeKZ6kWpjcOKrMTfNtKw7tJV1FonZg%3D%3D&amp;to=https://sale.jd.com/act/8fDASnWwh6.html"><img src="images/shouyintai/59f6a0feNa59ef6e7.jpg"></a><!--for703170887352--><!--ms-for-end:--></div><div class="pbf-market"><div class="pbf-market-side"><a target="_blank" href="https://jrdc.jd.com/dh/nc?keyStr=4hModGVxBN%2BSAwWx0AJj8pqXDnUK5ctQM57dw4PfvYUxSR17F6Yawyvbxm%2F22BfXDe4Exype6ro4lv9V98%2FcS%2ByE5a4d7esv0zqLcImKB%2BhGGJmC1oObXD6q7wFRtUgMpnT0cClrFpGU4x7EWiN02w%3D%3D&amp;to=https://vip.jr.jd.com/creditMall/index"><img src="images/shouyintai/59f858a8N4e276c50.jpg" width="474" height="334"></a></div><ul class="pbf-market-list"><!--ms-for:($index, item) in @data.promotionList5--><li class="pbf-market-list-item-1"><a target="_blank" href="https://jrdc.jd.com/dh/nc?keyStr=4hModGVxBN%2BxKmmAbp0WV0jOnGg9pIQrM57dw4PfvYUxSR17F6Yawyvbxm%2F22BfXDe4Exype6ro4lv9V98%2FcS%2ByE5a4d7esvKX1Ll0b0XkOb3tdqAksVVH%2BuK2pJ4ravnIhTkB91QM6vOA52HcLbNg%3D%3D&amp;to=https://sale.jd.com/act/35IUkHOiNRu.html"><img src="images/shouyintai/59f85908Nabf49ff9.png" width="286" height="167"></a></li><!--for673519075975--><li class="pbf-market-list-item-2"><a target="_blank" href="https://jrdc.jd.com/dh/nc?keyStr=qIqWFuBhENx1b8WS2xFhHXN7QBCR7jPjS3UWsG0YPpJ%2Ftmu%2BrnjjzssfepZWSr3gB9jppsj51qOljK4pkCX9wfddTFYH798Pbr1FIEhhaXPxZHlZJHhuV5zGm7cCcsx3kgknsGr7ioVYSLDElDhsjQ%3D%3D&amp;to=https://vip.jr.jd.com/mission/list.html"><img src="images/shouyintai/59682461N4a5fc6da.png" width="286" height="167"></a></li><!--for673519075975--><li class="pbf-market-list-item-3"><a target="_blank" href="https://jrdc.jd.com/dh/nc?keyStr=qIqWFuBhENymnwlc8OFjah9JSTLHhmcvHdxogcQjtGQDvLV9tJrk5Vk7bn1DbxCoVyUDHvJcx3aqtPz%2FaMu0G%2BoAYZVvNnot%2FHCPK8MN4cnB5e0Cyt39IvFX%2BT9wLceg9p6bXsjxfHCYAw7FTqTlXwZoqPnvHj3I&amp;to=https://vip.jr.jd.com/exchange/exchangeGolds.html"><img src="images/shouyintai/59682493N8a8bd075.png" width="286" height="167"></a></li><!--for673519075975--><li class="pbf-market-list-item-4"><a target="_blank" href="https://jrdc.jd.com/dh/nc?keyStr=4hModGVxBN%2BzHEz2FNwuhz22jROK9Lxlc9zarQPQnmKYJeu9k9OcNSOHozfLJDQn8cSfAB%2FRmIkJlkZD8KXTmw9KRS845BDMuYOBiTlh1JwDDrKizCczDtfP%2Ffvvq76W2%2B9bkk5ISt%2BJdXkPjha4Z8%2FrsndwumHG&amp;to=https://sale.jd.com/act/hSWPV87iN0lK3GL.html"><img src="images/shouyintai/59f8598aNc2010e12.jpg" width="286" height="167"></a></li><!--for673519075975--><!--ms-for-end:--></ul></div></div></div></div><!-- 成功页推荐楼层区域 end --></div></div><!-- 广告位 --><div class="promotion"><div class="w"><div class="p-item"><script type="text/javascript">
+                jd_ad_client = 52;  //广告位id
+                jd_ad_width =  990;  //广告位宽度
+                jd_ad_height = 80; //广告位高度
+                jd_ad_type = 8; //广告类型，8为单幅广告
+                jd_ad_spread = 1; //1为站内广告
+                jd_ad_num = 1; //广告图片的数目
+            </script><script type="text/javascript" src="js/shouyintai/ssp.js"></script><div id="sspid51050172" style="overflow: hidden; margin: 0px auto;"><img id="tracker_bannerff26d8ff-6752-467a-9448-2ddd405e301d" src="images/shouyintai/np.gif" style="position: absolute; top: 0px; left: 0px;" width="0" border="0" height="0"><div id="jd_bannerff26d8ff-6752-467a-9448-2ddd405e301d" style="width: 990px; height: 80px; position: relative;"><a href="https://www.jd.com/" target="_blank" style="display:block;position:absolute; z-index:3;bottom:0;right:0px;width:46px;height:15px;background:url(//img30.360buyimg.com/da/jfs/t3241/238/1051553101/1490/ca5faa38/57c531e8N8763c68d.png);_background:none;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=corp, src=//img30.360buyimg.com/da/jfs/t3241/238/1051553101/1490/ca5faa38/57c531e8N8763c68d.png);"> </a><div style="position:absolute;top:0px;left:0px;width:990px;height:80px;"> <a href="http://ccc-x.jd.com/dsp/nc?ext=aHR0cHM6Ly9zYWxlLmpkLmNvbS9hY3QvNDJqWmd0UVMxUmliWS5odG1s&amp;log=07m-wm9veMF44uNFwBNk-iUpie7g7ROTQhujc-lTr-ZNNSqe-d8u7wuoSYMFnXqx-OtmV6z8sRy-IDvx1hivnWQtC1iBqo2VncrTBW7AxSWRo5imPp4R_xkoNE549zbA1D-Zj5RLxOiClnVLNjTT8XcDx0CLQQw3hBouKCSv2pGk3U-wEGVC3fkJv5O-6gud5ZS5ZBjR7eF-lWRSk6oPwMnF-A6xeUgd_mYWTlTRQHEI-nDJVeouqysTSOQPoZ3O1T6zf9kmhSXeOnyjMFxdQbxHVnkK3ziGdNNSJYzfSjNPXvQixiergk1jSrROIYjfdtsT7oh-LhHdFeRmCHH-0hikOpKWbnfVL_QtzzUEMYAIXDcnO4vsCmqRd0M9Vi9ZU8iW-6H87pOsBmcRDBjpAUaB6opCZP4jFfpplUtCw-Y&amp;v=404" target="_blank"><img src="images/shouyintai/59f04cc8Nddc2672a.jpg" width="990" border="0" height="80"></a></div></div></div></div><div class="p-item"><iframe scrolling="no" style="width:990px;height:80px;" marginheight="0" marginwidth="0" src="images/shouyintai/loadFa.htm" frameborder="0"></iframe></div></div></div><!-- 广告位 end --><script type="text/javascript" src="js/shouyintai/main-result.js"></script><script type="text/javascript">
+    asyncSuccessWait = {
+        timeArray: [1000, 1000, 2000, 3000, 4000],
+        count: 0,
+        setTimer: function () {
+            var flag = $("input[name='payResultDetailFlag']").val();
+            if (flag != "1") {
+                if (this.count < this.timeArray.length) {
+                    setTimeout("showPayDetail()", this.timeArray[this.count]);
+                }
+                this.count++;
+            }
+        }
+    }
+
+    function showPayDetail(){
+        $.ajax({
+            type: "get",
+            contentType: "application/json",
+            dataType:"json",
+            cache: false,
+            url: "/asyncSuccess/getVisibleData?successDetailSign="+successVar.successDetailRequestSign,
+            success: function (response) {
+                var span = "";
+                if (response !== undefined && response.paidChannelList && response.paidChannelList.length > 0) {
+                    $.each(response.paidChannelList, function (i, item) {
+                        span += "<span>" + item.channelName + "：" + item.paidAmount + "元</span>";
+                        if (typeof item.firstRepayDate !== 'undefined' && item.firstRepayDate) {
+                            span += "<span>还款日期：" + item.firstRepayDate + "</span>";
+                        }
+                    });
+
+                    $(".ftx-02").after(span);
+
+                    $(".prb-info-operate").append(response.operateHtml);
+
+                    $("input[name='payResultDetailFlag']").val("1");
+                } else {
+                    asyncSuccessWait.setTimer();
+                }
+            }
+        });
+    }
+
+
+    (function () {
+        asyncSuccessWait.count = 0;
+        asyncSuccessWait.setTimer();
+
+        var e=document.createElement('script');e.type='text/javascript';e.async=true;
+        e.src=('https:'==document.location.protocol?'https://cscssl':'http://csc')+'.jd.com/wl.js';
+        var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(e,s);
+    })();
+
+</script><div class="p-footer"><div class="pf-wrap w"><div class="pf-line"><span class="pf-l-copyright">Copyright © 2004-2017  京东JD.com 版权所有</span><img src="images/shouyintai/footer-auth.png" width="185" height="20"></div></div></div> <div id="pay_qrcode" class="ui-modal ui-modal-wrap" style="top: 171px; margin-left: -145px; display: none;">        <div class="pay_qrcode-modal">            <div class="ui-modal-inner" style="margin-top: 30px;">                <div class="qrcode-info">                    <img class="qrcode_img" src="images/shouyintai/5946717eN275756f9.png" alt="京东支付二维码">                    <p>微信扫码关注“京东支付”</p>                    <h3>10次抽<span class="color_red">4999</span>元红包机会</h3>                </div>                <div class="modal-content" style="top: 240px;">                    <div class="for-detail" style="">                        <a class="btn-detail" href="https://sale.jd.com/act/gJqypd8izwHvZl.html">查看活动详情</a>                    </div>                </div>            </div>        </div>        <a class="um-h-close close-qrcode"></a>    </div></body></html>

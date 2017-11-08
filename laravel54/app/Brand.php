@@ -54,7 +54,6 @@ class Brand extends Model{
         $row = DB::table('brands')->where('id', $id)->first();
         return $row;
     }
-
     static function editDo($id){
         $request=request();
         $res=DB::table('brands')->where('id',$id)->update(

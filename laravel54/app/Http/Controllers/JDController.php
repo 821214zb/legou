@@ -14,6 +14,8 @@ class JDController extends Controller
     public function show(){
         $list = Lunbo::home_Show();
         return view('JDindex',['list'=>$list]);
+//        $list=Lunbo::show();
+//        return view('JDindex',['lunbo'=>$list]);
     }
     
     /**

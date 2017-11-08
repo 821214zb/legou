@@ -121,6 +121,30 @@ Route::match(['get','post'],'/lunbo/delete/{id}','Admin\LunboController@delete')
 Route::post('/lunbo/sort','Admin\LunboController@sort');//排序
 
 /**
+ * 用户路由 
+ */
+Route::get('/admin/show','Admin\AdminController@show');//管理员列表
+Route::match(['get','post'],'/admin/add','Admin\AdminController@add');//展示表单
+Route::post('/admin/addPost','Admin\AdminController@addPost');//添加用户
+Route::match(['get','post'],'/admin/update/{id}','Admin\AdminController@update');//修改用户
+Route::match(['get','post'],'/admin/delete/{id}','Admin\AdminController@delete');//删除用户
+
+/**
+ * 角色路由
+ */
+Route::get("/role/show",'Admin\RoleController@show');//角色列表
+Route::match(['get','post'],'/role/add','Admin\RoleController@add');//展示表单
+Route::post("/role/addPost",'Admin\RoleController@addPost');//添加角色
+Route::match(['get','post'],'/role/update/{id}','Admin\RoleController@update');//修改角色
+Route::match(["get","post"],'/role/delete/{id}','Admin\RoleController@delete');//删除角色
+Route::match(["get","post"],'/role/uList/groupId/{id}','Admin\RoleController@uList');//用户列表
+Route::match(["get","post"],"/role/setUser",'Admin\RoleController@setUser');//给用户分配角色并保存
+Route::match(["get","post"],"/role/app/groupId/{id}",'Admin\RoleController@app');//应用授权
+Route::match(["get","post"],"/role/setApp",'Admin\RoleController@setApp');//保存应用授权
+Route::match(["get","post"],'/role/module/groupId/{id}','Admin\RoleController@module');//模块授权
+
+
+/**
  * 用户评论
  */
 Route::get('/goods/pinglun','Admin\GoodsController@pinglun');

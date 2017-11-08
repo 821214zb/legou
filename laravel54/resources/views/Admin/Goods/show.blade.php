@@ -24,7 +24,7 @@
         </div>
         <div class="padding border-bottom">
             <ul class="search" style="padding-left:10px;">
-                <!--<li> <a class="button border-main icon-plus-square-o" href="add.html"> 发布文章</a> </li>-->
+                <!--<li> <a class="button border-main icon-plus-square-o" href="add.blade.php"> 发布文章</a> </li>-->
                 <if condition="$iscid eq 1">
                     <li>
                         <select name="cate_id" class="input" style="width:150px; line-height:17px;" onchange="changesearch()">

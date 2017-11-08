@@ -8,13 +8,67 @@
     <link rel="stylesheet" type="text/css" href="css/base.css" media="all">
     <link type="text/css" rel="stylesheet" href="css/a.css">
     <link type="text/css" rel="stylesheet" href="css/a_002.css" source="widget">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link type="text/css" rel="stylesheet" href="css/foreign-number-layer-170524.css">
     <link type="text/css" rel="stylesheet" href="css/tinyscrollbar-170524.css">
     <script type="text/javascript" src="%E4%B8%AA%E4%BA%BA%E6%B3%A8%E5%86%8C_files/a_002"></script>
     <script type="text/javascript" src="%E4%B8%AA%E4%BA%BA%E6%B3%A8%E5%86%8C_files/a"></script>
     <script type="text/javascript" src="http://www.aslegou.com/js/underscore-min.js"></script>
-    <!--<script type="text/javascript" src="//misc.360buyimg.com/user/reg/1.0.0/js/jquery.tinyscrollbar.js"></script>-->
+    <script src="/js/jquery-3.2.1.min.js"></script>
     <script>
+        $(document).ready(function(){
+        $('#form-account').blur(function(){
+            if ((/^[^x00-xff]|\D{6,8}$/).test($("#form-account").val())){
+                $('.user_hint').html("✔").css({"color":"green","font-size":"200%"});
+                user_Boolean = true;
+            }else {
+                $('.user_hint').html("×").css({"color":"red","font-size":"200%"});
+                user_Boolean = false;
+            }
+        });
+        // password
+        $('#form-pwd').blur(function(){
+            if ((/^[0-9a-zA-Z]{4,15}$/).test($("#form-pwd").val())){
+                $('.password_hint').html("✔").css({"color":"green","font-size":"200%"});
+                password_Boolean = true;
+            }else {
+                $('.password_hint').html("×").css({"color":"red","font-size":"200%"});
+                password_Boolean = false;
+            }
+        });
+        // password_confirm
+        $('#form-equalTopwd').blur(function(){
+            if (($("#form-pwd").val())==($("#form-equalTopwd").val()) && ($("#form-equalTopwd").val()) != "" ){
+                $('.confirm_hint').html("✔").css({"color":"green","font-size":"200%"});
+                varconfirm_Boolean = true;
+            }else {
+                $('.confirm_hint').html("×").css({"color":"red","font-size":"200%"});
+                varconfirm_Boolean = false;
+            }
+        });
+        // Email
+        $('#form-email').blur(function(){
+            if ((/^[a-z\d]+(\.[a-z\d]+)*@([\da-z](-[\da-z])?)+(\.{1,2}[a-z]+)+$/).test($("#form-email").val())){
+                $('.email_hint').html("✔").css({"color":"green","font-size":"200%"});
+                emaile_Boolean = true;
+            }else {
+                $('.email_hint').html("×").css({"color":"red","font-size":"200%"});
+                emaile_Boolean = false;
+            }
+        });
+        // Mobile
+        $('#form-phone').blur(function(){
+            if ((/^1[34578]\d{9}$/).test($("#form-phone").val())){
+                $('.mobile_hint').html("✔").css({"color":"green","font-size":"200%"});
+                Mobile_Boolean = true;
+            }else {
+                $('.mobile_hint').html("×").css({"color":"red","font-size":"200%"});
+                Mobile_Boolean = false;
+            }
+        });
+
+        });
         seajs.off('load')
         seajs.off('fetch')
         seajs.data.charset = 'gb2312'
@@ -46,7 +100,8 @@
                     {{ csrf_field() }}
                 <div class="form-item form-item-account" id="form-item-account">
                     <label>用　户　名</label>
-                    <input id="form-account" name="name" class="field" autocomplete="off" maxlength="20" type="text"  value="{{old('name')}}">
+                    <input id="form-account" name="name" class="field" autocomplete="off" maxlength="20" type="text"  value="{{old('name')}}" placeholder="5-16位的中文、字母、数字" >
+                    <span class="user_hint" style="margin-left: 45px;"></span>
                 </div>
                 <div class="input-tip">
                     <span style="color:red;">
@@ -55,12 +110,11 @@
                         @endif
                     </span>
                 </div>
-                <div class="form-item">
+                <div class="form-item form-item-account" id="form-item-account">
                     <label>设 置 密 码</label>
-                    <input name="password" id="form-pwd" class="field" maxlength="20" type="password"
-                           value="{{old('password')}}"
-                    >
-                    <div class="capslock-tip tips">大写已开启<b class="arrow"></b><b class="arrow-inner"></b></div><div class="capslock-tip tips">大写已开启<b class="arrow"></b><b class="arrow-inner"></b></div></div>
+                    <input name="password" id="form-pwd" class="field" maxlength="20" type="password" placeholder="5-16位的数字字母" value="{{old('password')}}">
+                    <span class="password_hint" style="margin-left: 25px;"></span>
+                </div>
                 <div class="input-tip">
                     <span style="color:red;">
                         @if($errors->has('password'))
@@ -68,11 +122,12 @@
                         @endif
                     </span>
                 </div>
-                <div class="form-item">
+                <div class="form-item form-item-account" id="form-item-account">
                     <label>确 认 密 码</label>
 
-                    <input name="password_confirmation" id="form-equalTopwd" class="field" placeholder=" " maxlength="20"  type="password">
-                    <div class="capslock-tip tips">大写已开启<b class="arrow"></b><b class="arrow-inner"></b></div><div class="capslock-tip tips">大写已开启<b class="arrow"></b><b class="arrow-inner"></b></div></div>
+                    <input name="password_confirmation" id="form-equalTopwd" class="field" placeholder=" 确认密码" maxlength="20"  type="password">
+                    <span class="confirm_hint" style="margin-left: 25px;"></span>
+                </div>
                 <div class="input-tip">
                      <span style="color:red;">
                         @if($errors->has('password'))
@@ -82,7 +137,7 @@
                 </div>
                 <div class="form-item form-item-account" id="form-item-account">
                     <label>邮　　　箱</label>
-                    <input id="form-account" name="email" class="field" autocomplete="off" maxlength="20" type="text" value="{{old('email')}}">
+                    <input id="form-email" name="email" class="field" autocomplete="off" maxlength="20" type="text" value="{{old('email')}}" placeholder="**@**.(com|cn|edn|gov)"> <span class="email_hint" style="margin-left: 45px;"></span>
                 </div>
                 <div class="input-tip">
                     <span style="color:red;">
@@ -94,7 +149,7 @@
                 <div class="item-phone-wrap">
                     <div class="form-item form-item-phone">
                         <label class="select-country" id="select-country" country_id="0086">中国 0086<a href="javascript:void(0)" tabindex="-1" class="arrow"></a></label>
-                        <input id="form-phone" name="mobile" class="field" placeholder=" " autocomplete="off" maxlength="11" type="text" value="{{old('mobile')}}">
+                        <input id="form-phone" name="mobile" class="field" placeholder="请输入11位手机号" autocomplete="off" value="{{old('mobile')}}"maxlength="11" type="text" ><span class="mobile_hint" style="margin-left: 45px;"></span>
                     </div>
                     <div class="input-tip">
                     <span style="color:red;">
@@ -165,7 +220,8 @@
         Copyright&#169;2004-2016&nbsp;&nbsp;京东JD.com&nbsp;版权所有
     </div>
 </div>
-
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script src="/js/JavaScript.js"></script>
 <script type="text/javascript">
     var localmisc = $('#localmisc')
     if (1 == localmisc.val()) {

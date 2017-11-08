@@ -15,6 +15,7 @@
     }
     .login{
         background-color: white;
+        border: 1px solid lightgrey;border-bottom: none;
     }
     .red {
         background-color: red;
@@ -60,18 +61,37 @@
                                                      document.getElementById('logout-form').submit();">
                                             退出
                                         </a>
+                            <div id="login" style="position:relative;width: 115px;margin-left: 5px;">
+                                <a >欢迎您！{{ Auth::user()->name }}
+                                    <img src="images/pl1.jpg" width="30px" style="position: absolute;top:8px; filter:alpha(Opacity=80);-moz-opacity:0.4;opacity: 0.4;">
+                                    <div class='login1' style="border: 1px solid lightgrey;border-top: none; width:235px;height:160px;top:27px;left:-1px;position: absolute; background-color: white;display:none;">
+                                        <div style="border-bottom:1px solid lightgrey;height:80px;">
+                                            <div style="float: left;margin:11px 0px 0px 15px;">
+                                                <img class="J_upic_img" src="images/11.png" width="57" height="57">
+                                            </div>
+                                            <div style="width:145px;height:50px;float: right;margin:10px 8px 0px 8px;">
+                                                <img src="images/pl1.jpg" width="38px;height:15px;" style="filter:alpha(Opacity=80);-moz-opacity:0.4;opacity: 0.4;">
+                                                <div style="float: right;font-size: 13px">
+                                                    <a href="{{ route('logout') }}"
+                                                       onclick="event.preventDefault();
+                                                                 document.getElementById('logout-form').submit();">
+                                                        退出
+                                                    </a>
 
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </div>
-                                    <div class="u-msg">
-                                        <a href="//plus.jd.com" target="_blank">试用PLUS会员领免运费券&gt;</a>
-                                    </div>
+                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                        {{ csrf_field() }}
+                                                    </form>
+                                                </div>
+                                                <div style="font-size: 11px;margin-bottom: 10px;">
+                                                    <a href="//plus.jd.com" target="_blank">试用PLUS会员领免运费券&gt;</a>
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                </div>
-                        </a>
-                        </div>
+
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     @endif
                 </li>
@@ -118,11 +138,11 @@
     $(document).ready(function(){
         $(".login2").mouseenter(function(){
             $("#login").addClass("login");
-            $(".login1").show("fast");
+            $(".login1").slideDown("fast");
         });
         $(".login2").mouseleave(function(){
             $("#login").removeClass("login");
-            $(".login1").hide("fast");
+            $(".login1").slideUp("fast");
         });
 
     });
@@ -219,11 +239,11 @@
                 <div class="dt">
                     <a>全部商品分类</a>
                 </div>
-                <div class="dd" id="cate">
+                <div class="dd" id="cate" >
 
                 </div>
             </div>
-            <div class="navitems">
+            <div class="navitems" >
                 <ul>
                     <li><a href="#">服装城</a></li>
                     <li><a href="#">美妆馆</a></li>

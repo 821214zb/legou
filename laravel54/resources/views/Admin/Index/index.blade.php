@@ -66,7 +66,7 @@
     </ul>
     <h2><span class="icon-group (alias)"></span>管理员管理</h2>
     <ul>
-        <li><a href="qxgl.html" target="right"><span class="icon-caret-right"></span>权限管理</a></li>
+        <li><a href="/node/index/0" target="right"><span class="icon-caret-right"></span>权限管理</a></li>
         <li><a href="gly-list.html" target="right"><span class="icon-caret-right"></span>管理员列表</a></li>
         <li><a href="person-info.html" target="right"><span class="icon-caret-right"></span>个人信息</a></li>
         <li><a href="qxgl-1.html" target="right"><span class="icon-caret-right"></span>管理员日志</a></li>

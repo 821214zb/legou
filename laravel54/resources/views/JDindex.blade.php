@@ -76,9 +76,9 @@
                     @endif
                 </li>
                 <li class="line"></li>
-                <li><a href="/user_indent/{{ Auth::user()->id }}" target="_blank">我的订单</a></li>
+                <li><a   @if (Auth::guest()) href="login"  @else href="/user_indent/{{ Auth::user()->id }}" @endif  target="_blank">我的订单</a></li>
                 <li class="line"></li>
-                <li class="fore"><a href="/user_index/{{ Auth::user()->id }}" target="_blank">我的爱尚</a>
+                <li class="fore"><a  @if (Auth::guest()) href="login"  @else href="/user_indenx/{{ Auth::user()->id }}" @endif  target="_blank">我的爱尚</a>
                     <i><s>◇</s></i>
                 </li>
                 <li class="line"></li>

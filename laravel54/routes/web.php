@@ -8,6 +8,16 @@
 Route::get('/', 'JDController@show');
 
 /**
+ * 我的爱尚
+ */
+Route::get('/user_index/{user_id}', 'JDController@user_index');
+
+/**
+ * 我的订单
+ */
+Route::get('/user_indent/{user_id}', 'JDController@user_indent');
+
+/**
  * 爱尚首页分类页面展示（副导航）
  */
 Route::get('/cate_lunBo', 'JDController@cate_lunBo');
@@ -20,7 +30,12 @@ Route::get('/dev_cate/{id}/{cate_name}', 'JDController@cate');
 /**
  * 爱尚二级分类首页
  */
-Route::get('/cate_goods', 'JDController@er_index');
+Route::get('/cate_index', 'JDController@er_index');
+
+/**
+ * 展示前台商品列表
+ */
+Route::get('/cate_goods/{id}', 'JDController@goods_list');
 
 
 
@@ -70,10 +85,9 @@ Route::get('/user/delete/{id}','Admin\UserController@delete');                 /
  */
 Route::get('/goods/show','Admin\GoodsController@show');                          //商品列表展示
 Route::match(['get','post'],'/goods/add','Admin\GoodsController@add');           //商品数据添加
-Route::match(['get','post'],'/goods/update/{id}','Admin\GoodsController@update');//商品数据修改
+Route::match(['get','post'],'/goods/update/{gid}','Admin\GoodsController@update');//商品数据修改
 Route::get('/goods/delete/{id}','Admin\GoodsController@delete');                 //商品数据删除
 Route::match(['get','post'],'/goods/addTwo','Admin\GoodsController@addTwo');
-
 
 /**
  * 商品品牌路由（注意：分类无修改操作）

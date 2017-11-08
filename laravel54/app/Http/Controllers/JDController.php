@@ -15,6 +15,22 @@ class JDController extends Controller
         $list = Lunbo::home_Show();
         return view('JDindex',['list'=>$list]);
     }
+    
+    /**
+     * 用户信息（我的爱尚）
+     */
+    public function user_index($user_id){
+       
+        return view('myjd',['user_id'=>$user_id]);
+    }
+    
+    /**
+     * 用户信息（我的订单）
+     */
+    public function user_indent($user_id){
+       
+        return view('mydd',['user_id'=>$user_id]);
+    }
 
 
     /**
@@ -54,7 +70,18 @@ class JDController extends Controller
         
 
        return view('er_index');
+    } 
+    
+    /*
+     * 展示前台商品列表
+     */
+    public function goods_list($id){
+        
+
+       return view('flower',['id'=>$id]);
     }
+    
+   
 
 
 

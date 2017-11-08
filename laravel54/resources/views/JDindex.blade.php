@@ -48,19 +48,11 @@
                         <a href="zhuce" class="col-red">免费注册</a>
                         @else
                         <div class="login2">
-<<<<<<< HEAD
+
                         <div id="login" style="position:relative;width: 85px;"><a >欢迎您！{{ Auth::user()->name }}
                                 <div class='login1' style="border: 1px solid lightgrey;border-top: none; width:200px;height:120px; top: 28px;position: absolute; background-color: white;display:none;">
                                     <div style="float: left">
                                         <img class="J_upic_img" src="//passport.jd.com/new/misc/skin/df/i/no-img_mid_.jpg" width="60" height="60">
-=======
-                        <div id="login" style="position:relative;width: 115px;border: 1px solid lightgrey;border-bottom: none;"><a >欢迎您！{{ Auth::user()->name }}
-                                <img src="images/pl1.jpg" width="30px" style="position: absolute;top:8px; filter:alpha(Opacity=80);-moz-opacity:0.4;opacity: 0.4;">
-                                <div class='login1' style="border: 1px solid lightgrey;border-top: none; width:210px;height:120px; top: 30px;position: absolute; background-color: white;display:none;">
-                                    <div style="float: left">
-                                        <img class="J_upic_img" src="images/11.png" width="50" height="50">
-                                        <img src="images/pl1.jpg" width="38px" >
->>>>>>> f72cf3ae50a5de8a391406b3128a6c359d7599c7
                                     </div>
                                     <div style="float: right">
                                         <a href="{{ route('logout') }}"
@@ -84,24 +76,24 @@
                     @endif
                 </li>
                 <li class="line"></li>
-                <li><a href="dingdan">我的订单</a></li>
+                <li><a   @if (Auth::guest()) href="login"  @else href="/user_indent/{{ Auth::user()->id }}" @endif  target="_blank">我的订单</a></li>
                 <li class="line"></li>
-                <li class="fore">我的京东
+                <li class="fore"><a  @if (Auth::guest()) href="login"  @else href="/user_indenx/{{ Auth::user()->id }}" @endif  target="_blank">我的爱尚</a>
                     <i><s>◇</s></i>
                 </li>
                 <li class="line"></li>
-                <li>京东会员</li>
+                <li>爱尚会员</li>
                 <li class="line"></li>
                 <li>企业采购</li>
                 <li class="line"></li>
                 <li class="fore tel-jd">
                     <em class="tel"></em>
-                    手机京东
+                    手机爱尚
                     <i><s>◇</s></i>
                 </li>
                 <li class="line"></li>
                 <li class="fore">
-                    关注京东
+                    关注爱尚
                     <i><s>◇</s></i>
                 </li>
                 <li class="line"></li>

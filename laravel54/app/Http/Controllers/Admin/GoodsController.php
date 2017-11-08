@@ -25,7 +25,7 @@ class GoodsController extends BaseController{
         }
         $cateList = getTreeData($sellers,0);
         //搜索品牌
-        $cate = $goods->category();
+        $cate = $goods->brand();
 
         if($_POST){
             //var_dump($_POST);
@@ -187,7 +187,8 @@ class GoodsController extends BaseController{
         $res = DB::table('posids')->get();
         //分类表查询
         $data = DB::table('cates')->where('cate_pid','0')->select('id','cate_pid','cate_title')->get();
-        $row = $goods->category();
+        //品牌查询
+        $row = $goods->brand();
         //分类联动
         if(!empty($_GET['pid'])){
             $id = $_GET['pid'];
@@ -202,9 +203,32 @@ class GoodsController extends BaseController{
     /**
      * 商品修改
      */
-    public function update(){
-        return view('Admin.goods.update');
+    public function update($gid){
+        $req = request();
+        $goods = new \App\Good();
+        if($_POST){
+
+        }else{
+            //商品查询
+            $goodsInfo = DB::table('goods')->where('id',$gid)->first();
+            //推荐位查询
+            $res = DB::table('posids')->get();
+            //分类表查询
+            $data = DB::table('cates')->where('cate_pid','0')->select('id','cate_pid','cate_title')->get();
+            //品牌查询
+            $row = $goods->brand();
+            //分类联动
+            if(!empty($_GET['pid'])){
+                $id = $_GET['pid'];
+                $res = DB::table('cates')->where('cate_pid',$id)->select('id','cate_pid','cate_title')->get();
+                echo json_encode($res);
+            }else{
+                return view('Admin.goods.update',['cate'=>$data,'row'=>$row,'res'=>$res,'goodsInfo'=>$goodsInfo]);
+            }
+        }
+       
     }
+    
     /**
      * 删除商品
      */

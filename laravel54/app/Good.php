@@ -227,8 +227,8 @@ class Good extends Model{
         }
     }
     
-    //分类表
-    public function category(){
+    //品牌表
+    public function brand(){
         $rows = DB::table('brands')->select('id','brand_name')->get();
         return $rows;
     }

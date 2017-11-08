@@ -159,7 +159,7 @@
                         <label>促销日期：</label>
                     </div>
                     <div class="field field-tsa">
-                        <input type="text" class="input" name="promotion date" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" placeholder=" &nbsp;商品促销时间" />
+                        <input type="text" class="input" name="promotion_date" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" placeholder=" &nbsp;商品促销时间" />
                     </div>
                 </div>
                 <div class="form-group">

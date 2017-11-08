@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="renderer" content="webkit">
-    <title>修改品牌</title>
+    <title>添加商品</title>
     <link rel="stylesheet" href="/Admin/css/pintuer.css">
     <link rel="stylesheet" href="/Admin/css/admin.css">
     <link rel="stylesheet" href="/Admin/js/umeditor/themes/default/css/umeditor.css">
@@ -14,118 +14,305 @@
     <script src="/Admin/js/jquery.js"></script>
     <script src="/Admin/js/pintuer.js"></script>
     <script type="text/javascript" src="/Admin/jeDate/jedate.js"></script>
+    <script language="javascript" type="text/javascript" src="/time/WdatePicker.js"></script>
 </head>
+<style type="text/css">
+    .div_li{border: grey solid 1px;width: 200px;height: 40px;float: left;text-align: center;line-height: 40px;}
+    .ul{border: lightcyan solid 1px;width: 1120px;height: 40px;background-color: lightcyan;}
+</style>
 <body>
-<div class="panel admin-panel margin-top">
-    <div class="panel-head" id="add"><strong><span class="icon-pencil-square-o"></span> 修改品牌</strong></div>
-    <div class="body-content">
-        <form method="post" class="form-x">
-            {{csrf_field()}}
-            <div class="form-group">
-                <div class="label">
-                    <label>品牌名称：</label>
-                </div>
-                <div class="field">
-                    <input type="text" class="input" name="brand_name" value="" />
-                    <div class="tips"></div>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="label">
-                    <label>品牌排序：</label>
-                </div>
-                <div class="field">
-                    <input type="text" class="input" name="brand_sort" value=""/>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="label">
-                    <label>状态：</label>
-                </div>
-                <div class="field">
-                    <select name="status">
-                        <option value="-1">请选择</option>
-                        <option value="0">删除</option>
-                        <option value="1">禁用</option>
-                        <option value="2">恢复</option>
-                        <option value="3">正常</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="label">
-                    <label>备注：</label>
-                </div>
-                <div class="field">
-                    <textarea  class="input" name="brand_text" rows="4" cols="20"></textarea>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="text-center">
-                    <div class="field">
-                        <input type="submit" value="修改" />
-                        <input type="reset" value="重置" />
-                    </div>
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
+<div class="panel admin-panel">
+    <ul class="ul">
+        <li><div class="div_li"><a href="" class="icon-reorder">商品通用信息</a></div></li>
+        <li><div class="div_li"><a href="addTwo" class="icon-reorder">商品属性信息</a></div></li>
+    </ul>
+    <div class="tab-box">
+        <div class="tab">
+            <div class="tab-panel" id="tab-b">
+                <div class="common-info">
+                    <form class="form-x" action="add" method="post" enctype="multipart/form-data">
+                        {{ csrf_field() }}
+                        <div class="form-group">
+                            <div class="label">
+                                <label>商品名称：</label>
+                            </div>
+                            <div class="field">
+                                <input type="text" class="input" name="goods_name" value='{{$goodsInfo->goods_name}}'/>
+                            </div>
+                        </div>
+                        <ul class="search" style="padding-left:10px;">
+                            <div class="form-group">
+                                <div class="label">
+                                    <label>一级分类：</label>
+                                </div>
+                                <li>
+                                    <select name="pid1" id="cate" class="input" style="width:100px; line-height:17px;" onchange="category(1)">
+                                        <option value="">--请选择--</option>
+                                        @foreach($cate as $v)
+                                            <option value="{{$v->id}}">{{$v->cate_title}}</option>
+                                        @endforeach
+                                    </select>
+                                </li>
 
-<script type="text/javascript">
-    $(function(){
-        $(":radio").click(function(){
-            if($(this).val()=="默认"){
-                $(this).parent().children("p").text("使用系统默认的价格模式,统一使用一样的价格");
-            }else if($(this).val()=="仓库"){
-                $(this).parent().children("p").text("使用仓库的价格模式,根据不同仓库调取不同价格");
-            }else{
-                $(this).parent().children("p").text("使用地区的价格模式,根据不同地区调取不同价格");
-            }
-        });
-    });
-</script>
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" charset="utf-8" src="js/umeditor/umeditor.config.js"></script>
-<script type="text/javascript" charset="utf-8" src="js/umeditor/umeditor.min.js"></script>
-<script type="text/javascript" charset="utf-8" src="js/umeditor/lang/zh-cn/zh-cn.js"></script>
-<script type="text/javascript">
-    var umMonth = UM.getEditor('editor-year');
-    $('select').select();
-</script>
-<script type="text/javascript">
-    //jeDate.skin('gray');
-    jeDate({
-        dateCell:"#dateinfo",
-        format:"YYYY-MM-DD hh:mm:ss",
-        isinitVal:true,
-        isTime:true, //isClear:false,
-        minDate:"2017-01-08 00:00:00",
-    })
-    jeDate({
-        dateCell:"#dateinfoa",
-        format:"YYYY-MM-DD hh:mm:ss",
-        isinitVal:true,
-        isTime:true, //isClear:false,
-        minDate:"2017-01-08 00:00:00",
-    })
-    jeDate({
-        dateCell:"#dateinfob",
-        format:"YYYY-MM-DD hh:mm:ss",
-        isinitVal:true,
-        isTime:true, //isClear:false,
-        minDate:"2017-01-08 00:00:00",
-    })
-    jeDate({
-        dateCell:"#dateinfoc",
-        format:"YYYY-MM-DD hh:mm:ss",
-        isinitVal:true,
-        isTime:true, //isClear:false,
-        minDate:"2017-01-08 00:00:00",
-    })
-</script>
+                                <div class="label">
+                                    <label>二级分类：</label>
+                                </div>
+                                <li>
+                                    <select name="pid2" id="name2" class="input" style="width:100px; line-height:17px;" onchange="category(2)">
+                                        <option value="">--请选择--</option>
+                                    </select>
+                                </li>
+                                <div class="label">
+                                    <label>三级分类：</label>
+                                </div>
+                                <li>
+                                    <select name="pid3" id=name3  class="input" style="width:100px; line-height:17px;" >
+                                        <option value="">--请选择--</option>
+                                    </select>
+                                </li>
+                            </div>
+                            <div class="form-group">
+                                <div class="label">
+                                    <label>品牌名称：</label>
+                                </div>
+                                <li>
+                                    <select name="brand_id" id="brand_id" class="input" style="width:100px; line-height:17px;" >
+                                        <option value="" >--请选择--</option>
+                                        @foreach($row as $v)
+                                            <option value="{{$v->id}}">{{$v->brand_name}}</option>
+                                        @endforeach
+                                    </select>
+                                </li>
+                            </div>
+                        </ul>
+                        <div class="form-group">
+                            <div class="label">
+                                <label>库存：</label>
+                            </div>
+                            <div class="field field-tsa">
+                                <input type="text" class="input" name="goods_count" value='{{$goodsInfo->goods_count}}' />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="label">
+                                <label>商品现价：</label>
+                            </div>
+                            <div class="field field-tsa">
+                                <input type="text" class="input" name="new_price" value='{{$goodsInfo->new_price}}' />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="label">
+                                <label>商品原价：</label>
+                            </div>
+                            <div class="field field-tsa">
+                                <input type="text" class="input" name="old_price" value='{{$goodsInfo->old_price}}' />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="label">
+                                <label>商品风格：</label>
+                            </div>
+                            <div class="field field-tsa">
+                                <input type="text" class="input" name="style" value='{{$goodsInfo->style}}' />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="label">
+                                <label>邮费：</label>
+                            </div>
+                            <div class="field field-tsa">
+                                <select name="status" class="input" style="width:100px; line-height:17px;">
+                                    <option value="">--请选择--</option>
+                                    <option value="0">8</option>
+                                    <option value="1">10</option>
+                                    <option value="3">包邮</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="label">
+                                <label>商品排序：</label>
+                            </div>
+                            <div class="field field-tsa">
+                                <input type="text" class="input" name="sort" value='{{$goodsInfo->goods_sort}}' />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="label">
+                                <label>上线时间：</label>
+                            </div>
+                            <div class="field field-tsa">
+                                <input type="text" class="input" name="up_time" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" value='{{date("y-m-d h:i:s",$goodsInfo->up_time)}}' />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="label">
+                                <label>下线时间：</label>
+                            </div>
+                            <div class="field field-tsa">
+                                <input type="text" class="input" name="end_time" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" value='{{date("y-m-d h:i:s",$goodsInfo->down_time)}}' />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="label">
+                                <label>促销日期：</label>
+                            </div>
+                            <div class="field field-tsa">
+                                <input type="text" class="input" name="promotion_date" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" value='{{date("y-m-d h:i:s",$goodsInfo->promotion_date)}}' />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="label">
+                                <label>上传图片：</label>
+                            </div>
+                            <div class="field field-tsa">
+                                <img src="{{"/".$goodsInfo->goods_img}}" width="80" height="80" id="img_a">
+                                <input type="file" name="img" id="img_b" onchange="up_img()" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="label">
+                                <label>供货商：</label>
+                            </div>
+                            <div class="field field-tsa">
+                                <input type="text" class="input" name="supplier" placeholder=" &nbsp;请填写供货商" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="label">
+                                <label>商品积分：</label>
+                            </div>
+                            <div class="field field-tsa">
+                                <input type="text" class="input" name="integral" placeholder=" &nbsp;请填写商品积分" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="label">
+                                <label>积分购买金额：</label>
+                            </div>
+                            <div class="field field-tsa">
+                                <input type="text" class="input" name="integral_moeny" placeholder=" &nbsp;使用积分购买需要多少金额" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="label">
+                                <label>会员价格：</label>
+                            </div>
+                            <div class="field field-tsa">
+                                <input type="text" class="input" name="member_price" placeholder=" &nbsp;请填写商品会员价格" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="label">
+                                <label>优惠价格：</label>
+                            </div>
+                            <div class="field field-tsa">
+                                <input type="text" class="input" name="pre_price" placeholder=" &nbsp;商品优惠价格" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="label">
+                                <label>市场价格：</label>
+                            </div>
+                            <div class="field field-tsa">
+                                <input type="text" class="input" name="market_price" placeholder=" &nbsp;商品市场价格" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="label">
+                                <label>促销价格：</label>
+                            </div>
+                            <div class="field field-tsa">
+                                <input type="text" class="input" name="chuxiao" placeholder=" &nbsp;请填写商品促销价" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="label">
+                                <label>状态：</label>
+                            </div>
+                            <div class="field field-tsa">
+                                <select name="status" class="input" style="width:100px; line-height:17px;">
+                                    <option value="">--请选择--</option>
+                                    <option value="0">删除</option>
+                                    <option value="1">禁用</option>
+                                    <option value="3">正常</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="label">
+                                <label>商品描述：</label>
+                            </div>
+                            <div>
+                                <textarea style="width:400px;height:200px;" name="goods_text" class="input" placeholder=" &nbsp;描述一下商品吧" ></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="label">
+                                <label>推荐位：</label>
+                            </div>
+                            <div class="field field-tsa">
+                                @foreach($res as $v)
+                                    <input type="checkbox" name="posid[]" value="{{$v->id}}" />{{$v->type}}
+                                @endforeach
+                            </div>
+                        </div>
+
+                        <div class="text-center">
+                            <div class="field">
+                                <input class="button bg-green" type="submit" name='one' value="确认提交" />
+                                <a class="button bg-red">重置</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
 </body>
 </html>
+<script type="text/javascript">
+    function up_img(){
+        //利用files获得被上传附件（图片）信息
+        var img_b = document.getElementById('img_b').files[0];
+        document.getElementById('img_a').src = window.URL.createObjectURL(img_b);
+    }
+</script>
+<script  type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
+<script  type="text/javascript">
+    /*
+     * 分类联动
+     * */
+    function category(pid){
+        var  id = "";
+        if(pid == 1){
+            id = $("#cate").val();
+        }
+        if(pid == 2){
+            id = $("#name2").val();
+        }
+        $.ajax({
+            url:'add',
+            type:'get',
+            data:{"pid":id},
+            dataType:'json',
+            success:function(json){
+                var $str = '';
+                for(var i = 0; i<json.length; i++){
+                    $str = $str+"<option value='"+json[i].id+"' >"+json[i].cate_title+"</option>";
+                }
+                if(pid == 1){
+                    var $str1="<option value=''>请选择</option>"+$str;
+                    $("#name2").html($str1);
+                }
+                if(pid == 2){
+                    var $str2="<option value=''>请选择</option>"+$str;
+                    $("#name3").html($str2);
+                }
+            }
+        });
+    }
+</script>
 
 
 

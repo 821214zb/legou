@@ -20,7 +20,7 @@
         <div class="panel-head"><strong class="icon-reorder"> 商品回收站</strong> <a href="" style="float:right; display:none;">添加字段</a></div>
         <div class="padding border-bottom">
             <ul class="search" style="padding-left:10px;">
-                <!--<li> <a class="button border-main icon-plus-square-o" href="add.html"> 发布文章</a> </li>-->
+                <!--<li> <a class="button border-main icon-plus-square-o" href="add.blade.php"> 发布文章</a> </li>-->
                 <if condition="$iscid eq 1">
                     <li>
                         <select name="cid" class="input" style="width:150px; line-height:17px;" onchange="changesearch()">

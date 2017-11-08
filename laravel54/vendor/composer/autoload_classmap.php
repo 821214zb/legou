@@ -17,11 +17,8 @@ return array(
     'AddToPosid' => $baseDir . '/database/migrations/2017_10_31_121224_add_to_posid.php',
     'AddToUseraddr' => $baseDir . '/database/migrations/2017_10_31_135142_add_to_useraddr.php',
     'AddToUsers' => $baseDir . '/database/migrations/2017_10_31_111500_add_to_users.php',
-<<<<<<< HEAD
     'App\\Brand' => $baseDir . '/app/Brand.php',
     'App\\Cate' => $baseDir . '/app/Cate.php',
-=======
->>>>>>> f72cf3ae50a5de8a391406b3128a6c359d7599c7
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\Admin\\BrandController' => $baseDir . '/app/Http/Controllers/Admin/BrandController.php',
@@ -29,10 +26,7 @@ return array(
     'App\\Http\\Controllers\\Admin\\DealController' => $baseDir . '/app/Http/Controllers/Admin/DealController.php',
     'App\\Http\\Controllers\\Admin\\GoodsController' => $baseDir . '/app/Http/Controllers/Admin/GoodsController.php',
     'App\\Http\\Controllers\\Admin\\IndexController' => $baseDir . '/app/Http/Controllers/Admin/IndexController.php',
-<<<<<<< HEAD
     'App\\Http\\Controllers\\Admin\\LunboController' => $baseDir . '/app/Http/Controllers/Admin/LunboController.php',
-=======
->>>>>>> f72cf3ae50a5de8a391406b3128a6c359d7599c7
     'App\\Http\\Controllers\\Admin\\UserController' => $baseDir . '/app/Http/Controllers/Admin/UserController.php',
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
     'App\\Http\\Controllers\\Auth\\LoginController' => $baseDir . '/app/Http/Controllers/Auth/LoginController.php',
@@ -1331,7 +1325,6 @@ return array(
     'Illuminate\\View\\ViewFinderInterface' => $vendorDir . '/laravel/framework/src/Illuminate/View/ViewFinderInterface.php',
     'Illuminate\\View\\ViewName' => $vendorDir . '/laravel/framework/src/Illuminate/View/ViewName.php',
     'Illuminate\\View\\ViewServiceProvider' => $vendorDir . '/laravel/framework/src/Illuminate/View/ViewServiceProvider.php',
-<<<<<<< HEAD
     'Intervention\\Image\\AbstractColor' => $vendorDir . '/intervention/image/src/Intervention/Image/AbstractColor.php',
     'Intervention\\Image\\AbstractDecoder' => $vendorDir . '/intervention/image/src/Intervention/Image/AbstractDecoder.php',
     'Intervention\\Image\\AbstractDriver' => $vendorDir . '/intervention/image/src/Intervention/Image/AbstractDriver.php',
@@ -1448,8 +1441,6 @@ return array(
     'Intervention\\Image\\Point' => $vendorDir . '/intervention/image/src/Intervention/Image/Point.php',
     'Intervention\\Image\\Response' => $vendorDir . '/intervention/image/src/Intervention/Image/Response.php',
     'Intervention\\Image\\Size' => $vendorDir . '/intervention/image/src/Intervention/Image/Size.php',
-=======
->>>>>>> f72cf3ae50a5de8a391406b3128a6c359d7599c7
     'JakubOnderka\\PhpConsoleColor\\ConsoleColor' => $vendorDir . '/jakub-onderka/php-console-color/src/JakubOnderka/PhpConsoleColor/ConsoleColor.php',
     'JakubOnderka\\PhpConsoleColor\\InvalidStyleException' => $vendorDir . '/jakub-onderka/php-console-color/src/JakubOnderka/PhpConsoleColor/InvalidStyleException.php',
     'JakubOnderka\\PhpConsoleHighlighter\\Highlighter' => $vendorDir . '/jakub-onderka/php-console-highlighter/src/JakubOnderka/PhpConsoleHighlighter/Highlighter.php',

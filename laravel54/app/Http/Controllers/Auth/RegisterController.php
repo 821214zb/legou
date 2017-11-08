@@ -62,10 +62,11 @@ class RegisterController extends Controller
                     'name' => [
                         'required',
                         'regex:/^[^x00-xff]|\D{6,8}$/',
+                        'unique:users',
                     ],
                     'password' => [
                         'required',
-                        'regex:/^[0-9]{3,6}$/',
+                        'regex:/^[0-9a-zA-Z]{4,15}$/',
                         'confirmed',
                     ],
                     'password_confirmation' => [
@@ -73,10 +74,12 @@ class RegisterController extends Controller
                         'regex:/^[0-9]{3,6}$/',
                     ],
                     'email' => [
+                        'unique:users',
                         'required',
                         'regex:/^\w+@\w+(\.)(com|cn|edn|gov)$/',
                     ],
                     'mobile' => [
+                        'unique:users',
                         'required',
                         'regex:/^13\d{9}|15\d{9}|18\d{9}|17\d{9}$/',
                     ],
@@ -85,13 +88,16 @@ class RegisterController extends Controller
                 [
                     'name.required' => '用户名不能为空！',
                     'name.regex' => '用户名格式不对，应汉字或6到8位字母！',
+                    'name.unique'=>'该用户名已经存在',
+                    'email.unique'=>'该邮箱已被注册',
+                    'mobile.unique'=>'该手机号码已被注册',
                     'password.required' => '密码不能为空！',
-                    'password.regex' => '密码必须是3-6位的数字',
+                    'password.regex' => '密码必须是由5-16位的数字、字母组成',
                     'password.confirmed' => '两次密码不一致,请重试',
                     'email.required' => '邮箱不能为空！',
                     'email.regex' => '邮箱格式不对 应***@***.(com|cn|edn|gov)！',
                     'mobile.required' => '手机不能为空！',
-                    'mobile.regex' => '手机格式不对 应13，15，18开头的11位数字！',
+                    'mobile.regex' => '手机格式不对 应13，15，18，17开头的11位数字！',
                 ]
             );
             $code = $request->code;
@@ -99,13 +105,8 @@ class RegisterController extends Controller
             if (Session::get('milkcaptcha') != $code) {
                 echo "<script>alert('验证码输入不正确');location.href='/zhuce'</script>";
             } else {
-                $name = $request->name;
-                $users = User::where('name','=',$name)->first();
-                if($users){
-                    echo "<script>alert('用户名已存在');location.href='/zhuce'</script>";
-                }
                 $password = md5($request["password"]);
-                $data = DB::table('users')->insert(['name' => $name, 'password' => Hash::make($password), 'email' => $request["email"], 'mobile' => $request["mobile"]]);
+                $data = DB::table('users')->insert(['name' =>$request->name, 'password' => Hash::make($password), 'email' => $request["email"], 'mobile' => $request["mobile"]]);
                 if ($data) {
                     echo "<script>alert('恭喜您注册成功');location.href='/login'</script>";
                 } else {

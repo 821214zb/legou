@@ -165,3 +165,14 @@ Route::get('/deal/hb','Admin\DealController@hb');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+/**
+ * 权限管理
+ */
+Route::any('/node/index/{id}', 'Admin\NodeController@index');
+Route::any('/node/add', 'Admin\NodeController@add');
+Route::any('/node/update/{id}', 'Admin\NodeController@update');
+Route::any('/node/getList/{level}', 'Admin\NodeController@getList');
+Route::any('/node/status/{id}/{status}', 'Admin\NodeController@status');
+Route::get('/node/sort/{id}/{sort}','Admin\NodeController@sort'); 
+Route::get('/node/del/{id}','Admin\NodeController@del'); 

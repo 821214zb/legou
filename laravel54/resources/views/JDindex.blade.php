@@ -49,18 +49,6 @@
                         <a href="zhuce" class="col-red">免费注册</a>
                         @else
                         <div class="login2">
-
-                        <div id="login" style="position:relative;width: 85px;"><a >欢迎您！{{ Auth::user()->name }}
-                                <div class='login1' style="border: 1px solid lightgrey;border-top: none; width:200px;height:120px; top: 28px;position: absolute; background-color: white;display:none;">
-                                    <div style="float: left">
-                                        <img class="J_upic_img" src="//passport.jd.com/new/misc/skin/df/i/no-img_mid_.jpg" width="60" height="60">
-                                    </div>
-                                    <div style="float: right">
-                                        <a href="{{ route('logout') }}"
-                                           onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            退出
-                                        </a>
                             <div id="login" style="position:relative;width: 115px;margin-left: 5px;">
                                 <a >欢迎您！{{ Auth::user()->name }}
                                     <img src="images/pl1.jpg" width="30px" style="position: absolute;top:8px; filter:alpha(Opacity=80);-moz-opacity:0.4;opacity: 0.4;">

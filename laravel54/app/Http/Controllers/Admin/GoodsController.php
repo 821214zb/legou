@@ -52,8 +52,8 @@ class GoodsController extends BaseController{
                     $filePath = $file->move('uploads',$fileName);
                     $goodsId = $goods->goodsAdd($filePath);
                     //添加推荐位
-                    if(!empty($_POST['posid'])){
-                        $sid = $_POST['posid'];
+                    if(!empty($_POST['Posid'])){
+                        $sid = $_POST['Posid'];
                         foreach ($sid as $v){
                             DB::table("goods_posids")->insert(['goods_id'=>$goodsId,'posids_id'=>$v]);
                         }

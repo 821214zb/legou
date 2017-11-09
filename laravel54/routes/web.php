@@ -121,6 +121,7 @@ Route::match(['get','post'],'/lunbo/delete/{id}','Admin\LunboController@delete')
 Route::post('/lunbo/sort','Admin\LunboController@sort');//排序
 
 /**
+
  * 用户路由 
  */
 Route::get('/admin/show','Admin\AdminController@show');//管理员列表
@@ -142,6 +143,25 @@ Route::match(["get","post"],"/role/setUser",'Admin\RoleController@setUser');//�
 Route::match(["get","post"],"/role/app/groupId/{id}",'Admin\RoleController@app');//应用授权
 Route::match(["get","post"],"/role/setApp",'Admin\RoleController@setApp');//保存应用授权
 Route::match(["get","post"],'/role/module/groupId/{id}','Admin\RoleController@module');//模块授权
+
+/*
+ * 店铺管理路由
+ */
+Route::any('/shop','Admin\ShopController@show');              //店铺展示
+Route::any('/shop/add','Admin\ShopController@add');           //添加店铺
+Route::get('/shop/delete/{id}','Admin\ShopController@delete');//删除店铺
+Route::any('/shop/update/{id}','Admin\ShopController@update');//修改店铺
+Route::any('/shop/check/{status}/{id}','Admin\ShopController@check');//审核店铺
+
+/*
+ * 推荐为管理路由
+ */
+Route::any('/posid','Admin\PosidController@show');              //店铺展示
+
+
+
+
+
 
 
 /**

@@ -24,6 +24,7 @@
         <li><a href="info.html" target="right"><span class="icon-caret-right"></span>网站设置</a></li>
         <li><a href="pass.html" target="right"><span class="icon-caret-right"></span>修改密码</a></li>
         <li><a href="page.html" target="right"><span class="icon-caret-right"></span>单页管理</a></li>
+        <li><a href="/posid" target="right"><span class="icon-caret-right"></span>推荐位管理</a></li>
         <li><a href="/lunbo/show" target="right"><span class="icon-caret-right"></span>首页轮播</a></li>
         <li><a href="book.html" target="right"><span class="icon-caret-right"></span>留言管理</a></li>
         <li><a href="column.html" target="right"><span class="icon-caret-right"></span>栏目管理</a></li>
@@ -76,8 +77,8 @@
     </ul>
     <h2><span class="icon-laptop"></span>店铺管理</h2>
     <ul>
-        <li><a href="ddgl-list-3.html" target="right"><span class="icon-caret-right"></span>店铺列表</a></li>
-        <li><a href="ddgl-list-4.html" target="right"><span class="icon-caret-right"></span>店铺审核</a></li>
+        <li><a href="/shop" target="right"><span class="icon-caret-right"></span>店铺列表</a></li>
+        <li><a href="/shop/check/3/0" target="right"><span class="icon-caret-right"></span>店铺审核</a></li>
     </ul>
     <h2><span class="icon-cube"></span>商品管理</h2>
     <ul>

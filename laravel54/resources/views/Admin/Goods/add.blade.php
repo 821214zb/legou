@@ -84,6 +84,20 @@
                     </select>
                     </li>
                 </div>
+                    <div class="form-group">
+                        <div class="label">
+                            <label>店铺名称：</label>
+                        </div>
+                        <li>
+                            <select name="shop_id" id="brand_id" class="input" style="width:100px; line-height:17px;" >
+                                <option value="" >--请选择--</option>
+                                @foreach($shop as $v)
+                                    <option value="{{$v->shop_id}}">{{$v->name}}</option>
+                                @endforeach
+                            </select>
+                        </li>
+                    </div>
+
                     </ul>
                 <div class="form-group">
                     <div class="label">
@@ -122,7 +136,7 @@
                         <label>邮费：</label>
                     </div>
                     <div class="field field-tsa">
-                        <select name="status" class="input" style="width:100px; line-height:17px;">
+                        <select name="Postage" class="input" style="width:100px; line-height:17px;">
                             <option value="">--请选择--</option>
                             <option value="0">8</option>
                             <option value="1">10</option>

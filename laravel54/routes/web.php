@@ -101,7 +101,8 @@ Route::get('/goods/show','Admin\GoodsController@show');                         
 Route::match(['get','post'],'/goods/add','Admin\GoodsController@add');           //商品数据添加
 Route::match(['get','post'],'/goods/update/{gid}','Admin\GoodsController@update');//商品数据修改
 Route::get('/goods/delete/{id}','Admin\GoodsController@delete');                 //商品数据删除
-Route::match(['get','post'],'/goods/addTwo','Admin\GoodsController@addTwo');
+Route::match(['get','post'],'/goods/addTwo','Admin\GoodsController@addTwo');     //商品属性添加
+Route::match(['get','post'],'/goods/updateTwo/{gid}','Admin\GoodsController@updateTwo');//商品属性修改
 
 /**
  * 商品品牌路由（注意：分类无修改操作）

@@ -23,14 +23,14 @@
 <body>
 <div class="panel admin-panel">
     <ul class="ul">
-        <li><div class="div_li"><a href="" class="icon-reorder">商品通用信息</a></div></li>
-        <li><div class="div_li"><a href="addTwo" class="icon-reorder">商品属性信息</a></div></li>
+        <li><div class="div_li"><a href="" class="icon-reorder">修改商品通用信息</a></div></li>
+        <li><div class="div_li"><a href="/goods/updateTwo/{{$goodsInfo->id}}" class="icon-reorder">修改商品属性信息</a></div></li>
     </ul>
     <div class="tab-box">
         <div class="tab">
             <div class="tab-panel" id="tab-b">
                 <div class="common-info">
-                    <form class="form-x" action="add" method="post" enctype="multipart/form-data">
+                    <form class="form-x" action="updateTwo" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="form-group">
                             <div class="label">
@@ -49,7 +49,13 @@
                                     <select name="pid1" id="cate" class="input" style="width:100px; line-height:17px;" onchange="category(1)">
                                         <option value="">--请选择--</option>
                                         @foreach($cate as $v)
-                                            <option value="{{$v->id}}">{{$v->cate_title}}</option>
+                                            <option value="{{$v->id}}"
+                                                @foreach($cateTwo as $vv)
+                                                @if($v->id == $vv->cate_pid)
+                                                selected
+                                                @endif
+                                                @endforeach
+                                            >{{$v->cate_title}}</option>
                                         @endforeach
                                     </select>
                                 </li>
@@ -60,6 +66,15 @@
                                 <li>
                                     <select name="pid2" id="name2" class="input" style="width:100px; line-height:17px;" onchange="category(2)">
                                         <option value="">--请选择--</option>
+                                        @foreach($cateTwo as $v)
+                                            <option value="{{$v->id}}"
+                                                @foreach($cateThree as $vv)
+                                                    @if($v->id == $vv->cate_pid)
+                                                    selected
+                                                    @endif
+                                                @endforeach
+                                            >{{$v->cate_title}}</option>
+                                        @endforeach
                                     </select>
                                 </li>
                                 <div class="label">
@@ -68,6 +83,13 @@
                                 <li>
                                     <select name="pid3" id=name3  class="input" style="width:100px; line-height:17px;" >
                                         <option value="">--请选择--</option>
+                                        @foreach($cateThree as $v)
+                                            <option value="{{$v->id}}"
+                                                @if($goodsInfo->goods_category == $v->id)
+                                                selected
+                                                @endif
+                                            >{{$v->cate_title}}</option>
+                                        @endforeach
                                     </select>
                                 </li>
                             </div>
@@ -79,7 +101,11 @@
                                     <select name="brand_id" id="brand_id" class="input" style="width:100px; line-height:17px;" >
                                         <option value="" >--请选择--</option>
                                         @foreach($row as $v)
-                                            <option value="{{$v->id}}">{{$v->brand_name}}</option>
+                                            <option value="{{$v->id}}"
+                                            @if($goodsInfo->goods_brand == $v->id)
+                                                selected
+                                            @endif
+                                            >{{$v->brand_name}}</option>
                                         @endforeach
                                     </select>
                                 </li>
@@ -122,11 +148,23 @@
                                 <label>邮费：</label>
                             </div>
                             <div class="field field-tsa">
-                                <select name="status" class="input" style="width:100px; line-height:17px;">
+                                <select name="Postage" class="input" style="width:100px; line-height:17px;">
                                     <option value="">--请选择--</option>
-                                    <option value="0">8</option>
-                                    <option value="1">10</option>
-                                    <option value="3">包邮</option>
+                                    <option value="0"
+                                        @if($goodsInfo->Postage == 0)
+                                        selected
+                                        @endif
+                                    >8</option>
+                                    <option value="1"
+                                        @if($goodsInfo->Postage == 1)
+                                        selected
+                                        @endif
+                                    >10</option>
+                                    <option value="3"
+                                        @if($goodsInfo->Postage == 2)
+                                        selected
+                                        @endif
+                                    >包邮</option>
                                 </select>
                             </div>
                         </div>
@@ -176,7 +214,7 @@
                                 <label>供货商：</label>
                             </div>
                             <div class="field field-tsa">
-                                <input type="text" class="input" name="supplier" placeholder=" &nbsp;请填写供货商" />
+                                <input type="text" class="input" name="supplier" value='{{$goodsInfo->supplier}}' />
                             </div>
                         </div>
                         <div class="form-group">
@@ -184,7 +222,7 @@
                                 <label>商品积分：</label>
                             </div>
                             <div class="field field-tsa">
-                                <input type="text" class="input" name="integral" placeholder=" &nbsp;请填写商品积分" />
+                                <input type="text" class="input" name="integral" value='{{$goodsInfo->integral}}' />
                             </div>
                         </div>
                         <div class="form-group">
@@ -192,7 +230,7 @@
                                 <label>积分购买金额：</label>
                             </div>
                             <div class="field field-tsa">
-                                <input type="text" class="input" name="integral_moeny" placeholder=" &nbsp;使用积分购买需要多少金额" />
+                                <input type="text" class="input" name="integral_moeny" value='{{$goodsInfo->integral_moeny}}' />
                             </div>
                         </div>
                         <div class="form-group">
@@ -200,7 +238,7 @@
                                 <label>会员价格：</label>
                             </div>
                             <div class="field field-tsa">
-                                <input type="text" class="input" name="member_price" placeholder=" &nbsp;请填写商品会员价格" />
+                                <input type="text" class="input" name="member_price" value='{{$goodsInfo->Member_price}}' />
                             </div>
                         </div>
                         <div class="form-group">
@@ -208,7 +246,7 @@
                                 <label>优惠价格：</label>
                             </div>
                             <div class="field field-tsa">
-                                <input type="text" class="input" name="pre_price" placeholder=" &nbsp;商品优惠价格" />
+                                <input type="text" class="input" name="pre_price" value='{{$goodsInfo->preferential_price}}' />
                             </div>
                         </div>
                         <div class="form-group">
@@ -216,7 +254,7 @@
                                 <label>市场价格：</label>
                             </div>
                             <div class="field field-tsa">
-                                <input type="text" class="input" name="market_price" placeholder=" &nbsp;商品市场价格" />
+                                <input type="text" class="input" name="market_price" value='{{$goodsInfo->market_price}}' />
                             </div>
                         </div>
                         <div class="form-group">
@@ -224,7 +262,7 @@
                                 <label>促销价格：</label>
                             </div>
                             <div class="field field-tsa">
-                                <input type="text" class="input" name="chuxiao" placeholder=" &nbsp;请填写商品促销价" />
+                                <input type="text" class="input" name="chuxiao" value='{{$goodsInfo->Promotional_Pricing}}' />
                             </div>
                         </div>
                         <div class="form-group">
@@ -234,9 +272,21 @@
                             <div class="field field-tsa">
                                 <select name="status" class="input" style="width:100px; line-height:17px;">
                                     <option value="">--请选择--</option>
-                                    <option value="0">删除</option>
-                                    <option value="1">禁用</option>
-                                    <option value="3">正常</option>
+                                    <option value="0"
+                                        @if($goodsInfo->status == 0)
+                                        selected
+                                        @endif
+                                    >删除</option>
+                                    <option value="1"
+                                        @if($goodsInfo->status == 1)
+                                        selected
+                                        @endif
+                                    >禁用</option>
+                                    <option value="3"
+                                        @if($goodsInfo->status == 3)
+                                        selected
+                                        @endif
+                                    >正常</option>
                                 </select>
                             </div>
                         </div>
@@ -245,7 +295,7 @@
                                 <label>商品描述：</label>
                             </div>
                             <div>
-                                <textarea style="width:400px;height:200px;" name="goods_text" class="input" placeholder=" &nbsp;描述一下商品吧" ></textarea>
+                                <textarea style="width:400px;height:200px;" name="goods_text" class="input" placeholder=" &nbsp;描述一下商品吧" >{{$goodsInfo->goods_text}}</textarea>
                             </div>
                         </div>
                         <div class="form-group">
@@ -253,8 +303,14 @@
                                 <label>推荐位：</label>
                             </div>
                             <div class="field field-tsa">
-                                @foreach($res as $v)
-                                    <input type="checkbox" name="posid[]" value="{{$v->id}}" />{{$v->type}}
+                                @foreach($res as $k=>$v)
+                                    <input type="checkbox" name="posid[]" value="{{$k}}"
+                                      @foreach($g_p as $kk=>$vv)
+                                          @if($k == $kk)
+                                              checked
+                                          @endif
+                                      @endforeach
+                                    />{{$v}}
                                 @endforeach
                             </div>
                         </div>

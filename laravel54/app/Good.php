@@ -34,6 +34,8 @@ class Good extends Model{
                 'status'        => $req->status,
                 'style'         => $req->style,
                 'goods_text'    => $req->goods_text,
+                'Postage'       => $req->Postage,
+                'shop_id'       => $req->shop_id,
                 'goods_img'     => $filePath,
             ]
         );

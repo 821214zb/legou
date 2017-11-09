@@ -76,6 +76,7 @@ class GoodsController extends BaseController{
                         foreach ($color as $v) {
                             $data = DB::table('cate_box')->insert(['color' => $v, 'goods_id' => $goods_id]);
                         }
+                        DB::table('goods')->where('id',$goods_id)->update(['cate_id'=>$status]);
                         if ($data) {
                             return redirect('goods/show');
                         }
@@ -96,6 +97,7 @@ class GoodsController extends BaseController{
                         foreach ($screen_size as $v) {
                             $data = DB::table('cate_jiadian')->insert(['screen_size' => $v, 'goods_id' => $goods_id]);
                         }
+                        DB::table('goods')->where('id',$goods_id)->update(['cate_id'=>$status]);
                         if ($data) {
                             return redirect('goods/show');
                         }
@@ -112,6 +114,7 @@ class GoodsController extends BaseController{
                         foreach ($color as $v) {
                             $data = DB::table('cate_cloth')->insert(['color' => $v, 'goods_id' => $goods_id]);
                         }
+                        DB::table('goods')->where('id',$goods_id)->update(['cate_id'=>$status]);
                         if ($data) {
                             return redirect('goods/show');
                         }
@@ -128,6 +131,7 @@ class GoodsController extends BaseController{
                         foreach ($color as $v) {
                             $data = DB::table('cate_shoes')->insert(['color' => $v, 'goods_id' => $goods_id]);
                         }
+                        DB::table('goods')->where('id',$goods_id)->update(['cate_id'=>$status]);
                         if ($data) {
                             return redirect('goods/show');
                         }
@@ -144,6 +148,7 @@ class GoodsController extends BaseController{
                         foreach ($color as $v) {
                             $data = DB::table('cate_hufu')->insert(['color' => $v, 'goods_id' => $goods_id]);
                         }
+                        DB::table('goods')->where('id',$goods_id)->update(['cate_id'=>$status]);
                         if ($data) {
                             return redirect('goods/show');
                         }
@@ -160,6 +165,7 @@ class GoodsController extends BaseController{
                         foreach ($color as $v) {
                             $data = DB::table('cate_shuma')->insert(['color' => $v, 'goods_id' => $goods_id]);
                         }
+                        DB::table('goods')->where('id',$goods_id)->update(['cate_id'=>$status]);
                         if ($data) {
                             return redirect('goods/show');
                         }
@@ -176,6 +182,7 @@ class GoodsController extends BaseController{
                         foreach ($color as $v) {
                             $data = DB::table('cate_food')->insert(['color' => $v, 'goods_id' => $goods_id]);
                         }
+                        DB::table('goods')->where('id',$goods_id)->update(['cate_id'=>$status]);
                         if ($data) {
                             return redirect('goods/show');
                         }
@@ -183,6 +190,8 @@ class GoodsController extends BaseController{
                 }
             }
         }
+        //查询店铺
+        $shop = DB::table('shops')->get();
         //推荐位查询
         $res = DB::table('posids')->get();
         //分类表查询
@@ -195,7 +204,7 @@ class GoodsController extends BaseController{
             $res = DB::table('cates')->where('cate_pid',$id)->select('id','cate_pid','cate_title')->get();
             echo json_encode($res);
         }else{
-            return view('Admin.goods.add',['cate'=>$data,'row'=>$row,'res'=>$res]);
+            return view('Admin.goods.add',['cate'=>$data,'row'=>$row,'res'=>$res,'shop'=>$shop]);
         }
     }
 
@@ -209,10 +218,28 @@ class GoodsController extends BaseController{
         if($_POST){
 
         }else{
+            //分类默认选中
+            $cateThree = DB::table('cates')->where('cate_level','3')->select('id','cate_pid','cate_title')->get();
+
+            $cateTwo = DB::table('cates')->where('cate_level','2')->select('id','cate_pid','cate_title')->get();
+            //var_dump($cateTwo);
+
+            $cateOne = DB::table('cates')->where('cate_level','1')->select('id','cate_pid','cate_title')->get();
             //商品查询
             $goodsInfo = DB::table('goods')->where('id',$gid)->first();
+//            var_dump($goodsInfo);
+            //默认选中
+            $g_p = DB::table('goods_posids')->where('goods_id',$gid)->get();
+            $arrGp = array();
+            foreach($g_p as $k=>$v){
+                $arrGp[$v->posids_id] = $v->posids_id;
+            }
             //推荐位查询
             $res = DB::table('posids')->get();
+            $arrPosids = array();
+            foreach($res as $k=>$v){
+                $arrPosids[$v->id] = $v->type;
+            }
             //分类表查询
             $data = DB::table('cates')->where('cate_pid','0')->select('id','cate_pid','cate_title')->get();
             //品牌查询
@@ -223,12 +250,71 @@ class GoodsController extends BaseController{
                 $res = DB::table('cates')->where('cate_pid',$id)->select('id','cate_pid','cate_title')->get();
                 echo json_encode($res);
             }else{
-                return view('Admin.goods.update',['cate'=>$data,'row'=>$row,'res'=>$res,'goodsInfo'=>$goodsInfo]);
+                return view('Admin.goods.update',['cate'=>$data,'row'=>$row,'res'=>$arrPosids,'goodsInfo'=>$goodsInfo,'g_p'=>$arrGp,'cateThree'=>$cateThree,'cateTwo'=>$cateTwo,'cateOne'=>$cateOne]);
             }
         }
-       
     }
-    
+
+    /*
+     * 商品属性修改
+     * */
+    public function updateTwo($gid){
+        //商品查询
+        $goodsInfo = DB::table('goods')->where('id',$gid)->first();
+        $cate_id = $goodsInfo->cate_id;
+        $data = array();
+        if($cate_id == 1){
+            $box1 = DB::table('cate_box')->where('goods_id',$gid)->get();
+            $box = json_decode(json_encode($box1),true);
+//            dump($box);
+            $array=array();
+            foreach ($box as $k => $v){
+//                echo $k;
+                foreach ($v as $v1){
+                    $array[$v["goods_id"]]=$v1;
+                }
+                dump($v);
+            }
+//            dump($array);
+
+
+
+//            $array = array();
+//            foreach ($box as $k=>$v){
+//                $arrData = array_filter($v);
+//                var_dump($arrData);
+//                $array[] = $arrData;
+//                var_dump($array);
+//            }
+
+            die;
+//           //var_dump($box);die;
+//            $box_arr = "";
+//            for($i=0 ; $i<count($box[0]) ; $i++){
+//                for($j=0 ; $j<count($box) ; $j++){
+//                    $box_arr[$i][$j] = $box[$j][$i];
+//                }
+//            }
+//            var_dump($box_arr);die;
+            return view('Admin.goods.up_box',['goodsInfo'=>$goodsInfo,'arrData'=>$arrData]);
+        }elseif ($cate_id == 2){
+            return view('Admin.goods.up_jiadian',['goodsInfo'=>$goodsInfo]);
+        }elseif ($cate_id == 3){
+            return view('Admin.goods.up_cloth',['goodsInfo'=>$goodsInfo]);
+        }elseif ($cate_id == 4){
+            return view('Admin.goods.up_shoes',['goodsInfo'=>$goodsInfo]);
+        }elseif ($cate_id == 5){
+            return view('Admin.goods.up_hufu',['goodsInfo'=>$goodsInfo]);
+        }elseif ($cate_id == 6){
+            return view('Admin.goods.up_shuma',['goodsInfo'=>$goodsInfo]);
+        }elseif ($cate_id == 7){
+            return view('Admin.goods.up_food',['goodsInfo'=>$goodsInfo]);
+        }
+
+
+    }
+
+
     /**
      * 删除商品
      */

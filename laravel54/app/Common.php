@@ -1,22 +1,11 @@
 <?php
 
 namespace App;
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use DB;
-class User extends Authenticatable
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
+class Common extends Model
 {
-    use Notifiable;
-    protected $table = 'users';
-    protected $fillable = [
-        'name', 'email', 'password','mobile'];
-
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
-    protected $connection = 'mysql';
-    public $timestamps = false;
-
     //生成5个随机数
     public static function str_rand ()
     {
@@ -28,9 +17,7 @@ class User extends Authenticatable
         }
         return $rand;
     }
-    
 
 
-
-    
 }
+

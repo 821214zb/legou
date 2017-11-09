@@ -72,6 +72,20 @@ Route::get('/index/info',function(){
     return view('Admin/Index/info');
 });
 
+
+/**
+ * 后台登录路由
+ */
+Route::any('/login/login','Admin\LoginController@login');//登录路由
+Route::any('/login/logout','Admin\LoginController@logout');//登录路由
+/*
+ * 后台验证码
+ */
+Route::any('/login/code/{tmp}', 'Admin\LoginController@captcha');
+Route::get('/index/info',function(){
+    return view('Admin/Index/info');
+});
+
 /**
  *用户信息路由
  */

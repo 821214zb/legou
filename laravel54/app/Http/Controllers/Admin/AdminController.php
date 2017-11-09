@@ -7,7 +7,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
 use App\Admin;
 use DB;
-class AdminController extends BaseController{
+class AdminController extends CommonController{
     /**
      * 管理员列表
      */

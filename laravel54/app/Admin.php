@@ -4,7 +4,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use DB;
-class Admin extends Model{
+class Admin extends Common{
     /**
      * 管理员列表
      */
@@ -19,10 +19,11 @@ class Admin extends Model{
     static function addPost(){
         $request=request();
         $password=$request->password;
-        $salt=12345678;
-        $pass=md5($password.$salt);
+        $salt= Common::str_rand();
+        $pass=md5(md5($password).$salt);
         $row=DB::table("admins")->insert(
             array(
+                'salt'=>$salt,
                 'account'=>$request->account,
                 'nickname'=>$request->nickname,
                 'password'=>$pass,
@@ -44,15 +45,22 @@ class Admin extends Model{
     }
     static function editDo($id){
         $request=request();
-        if($request->password==""){
+        if($request->password !=""){
             $password=$request->password;
-            $salt=12345678;
-            $pass=md5($password.$salt);
-            $data["password"]=$pass;
+            $salt= Common::str_rand();
+            $pass=md5(md5($password).$salt);
+        }else{
+            $list=DB::table("admins")->select('password','salt')->where('id',$id)->get();
+            $data = json_decode(json_encode($list),true);
+            //var_dump($data);die;
+            $salt=$data[0]['salt'];
+            $pass = $data[0]['password'];
         }
         $data=array(
+            'salt'=>$salt,
             'account'=>$request->account,
             'nickname'=>$request->nickname,
+            'password'=>$pass,
             'email'=>$request->email,
             'remark'=>$request->remark,
             'status'=>$request->status,

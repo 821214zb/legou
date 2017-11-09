@@ -23,13 +23,16 @@
 </head>
 <body >
 <div class="panel admin-panel" >
-    <div class="border-b border-bno clearfix">
-        <a href="/admin/add" class="button bg-yellow button-small"><span class="icon-plus"></span>添加用户</a>
-        <form action="/admin/show" method="get">
-            关键字：<input type="text" name="keyword" />
-            <input type="submit" value="搜索" />
-        </form>
-    </div><br />
+        <div class="padding border-bottom">
+            <ul class="search" style="padding-left:10px;">
+                <li><a href="/admin/add" class="button bg-yellow button-small"><span class="icon-plus"></span>添加用户</a></li>
+                <form action="/admin/show" method="get">
+                    <li>关键字：<input type="text" name="keyword" class="input" style="width:250px; line-height:17px;display:inline-block"/>
+                    <input class="button border-main icon-search" type="submit" value="搜索" /></li>
+                </form>
+            </ul>
+            </div>
+        <br />
 
     <div >
         <table class="table table-hover text-center" >
@@ -77,7 +80,7 @@
     </div>
 </div>
 <div id="delete"></div>
-<div class="page">
+<div class="pagelist">
     {!!$admin->appends(['keyword'=>$keyword])->render()!!}
 </div>
 </body>

@@ -51,7 +51,7 @@
                 </div>
                 <div class="field">
                     <select  type="text" class="input w50" name="status"  required="required">
-                        <option value="0">--请选择--</option>
+                        <option value="">--请选择--</option>
                         <option value=3
                                 @if($data->status == 3)
                                     selected

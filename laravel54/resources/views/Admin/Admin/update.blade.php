@@ -19,7 +19,7 @@
 <div class="panel admin-panel margin-top">
     <div class="panel-head" id="add"><strong><span class="icon-pencil-square-o"></span> 修改用户</strong></div>
     <div class="body-content">
-        <form method="post" class="form-x" >
+        <form method="post" class="form-x"  >
             {{csrf_field()}}
             <div class="form-group">
                 <div class="label">
@@ -71,12 +71,23 @@
                     <label>状态：</label>
                 </div>
                 <div class="field">
-                    <select name="status">
-                        <option value="-1">请选择</option>
-                        <option value="0">删除</option>
-                        <option value="1">禁用</option>
-                        <option value="2">恢复</option>
-                        <option value="3">正常</option>
+                    <select  type="text" class="input w50" name="status"  required="required">
+                        <option value="0">--请选择--</option>
+                        <option value=3
+                                @if($row->status == 3)
+                                selected
+                                @endif
+                        >显示</option>
+                        <option value=2
+                                @if($row->status == 2)
+                                selected
+                                @endif
+                        >锁定</option>
+                        <option value=0
+                                @if($row->status == 0)
+                                selected
+                                @endif
+                        >禁用</option>
                     </select>
                 </div>
             </div>

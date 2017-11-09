@@ -171,7 +171,13 @@ Route::any('/shop/check/{status}/{id}','Admin\ShopController@check');//审核店
 /*
  * 推荐为管理路由
  */
-Route::any('/posid','Admin\PosidController@show');              //店铺展示
+Route::any('/posid','Admin\PosidController@show');              //推荐为展示
+Route::any('/posid/add','Admin\PosidController@add');           //推荐位添加
+Route::any('/posid/update/{id}','Admin\PosidController@update');//推荐位修改
+Route::any('/posid/list/{id}','Admin\PosidController@getList');  //推荐位数据详情
+Route::any('/posid/status/{id}/{status}','Admin\PosidController@getstatus'); //修改状态
+Route::any('/posid/upload/{goods_id}','Admin\PosidController@getupload'); //给商品添加图片
+Route::any('/posid/sort/{id}/{sort}/{posid_id}','Admin\PosidController@Sort'); //给推荐位商品排序
 
 
 

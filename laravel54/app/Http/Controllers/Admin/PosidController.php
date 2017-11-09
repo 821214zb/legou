@@ -7,8 +7,6 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
 use App\Lunbo;
 use DB;
-use App\shop;
-use App\Cate;
 use App\posid;
 class PosidController extends BaseController
 {
@@ -23,82 +21,101 @@ class PosidController extends BaseController
     }
 
     /**
-     * 添加店铺
+     * 添加推荐位置
      */
     public function add()
     {
         $req = Request();
         if ($_POST) {
-
-           $res =  shop::get_insert($req);
+            $res = posid::insertGetId(['type'=>$req->type,'status'=>$req->status]);
             if($res > 0 ){
-                return redirect("/shop");
+                return redirect("/posid");
             }else{
-                return redirect("/shop/add");
+                return redirect("/posid/add");
             }
-           
         } else {
-            //查询一级商品分类
-            $cate = Cate::where('cate_level','1')->select('cate_title','id')->get();
-            //查询城市列表信息
-            $region = region::get_region();
-            return view("Admin.Dianpu.add",['list'=>$cate,'a'=>$region['a'],'b'=>$region['b'],'c'=>$region['c']]);
+            return view("Admin.posid.add");
         }
     }
 
     /**
-     * 修改店铺
+     * 修改推荐位类型
      */
     public function update($id)
         
     {   $req = Request();
         if ($_POST) {
-            $res = shop::get_update($req,$id);
+            $res = posid::where('id',$id)->update(['type'=>$req->type,'status'=>$req->status]);
             if($res){
-                return redirect("/shop");
+                return redirect("/posid");
             }else{
-                return redirect("/shop");
+                return redirect("/posid");
             }
         } else {
-            //查询一级商品分类
-            $cate = Cate::where('cate_level','1')->select('cate_title','id')->get();
-            $list = shop::where('shop_id',$id)->first();
-            //查询城市列表信息
-            $region = region::get_region();
-            return view("Admin.Dianpu.update",['list'=>$cate,'old_list'=>$list,'a'=>$region['a'],'b'=>$region['b'],'c'=>$region['c']]);
+            //查询修改数据
+            $list = posid::where('id',$id)->first();
+            return view("Admin.posid.update",['list'=>$list]);
         }
     }
 
-    /**
-     * 删除店铺
-     */
-    public function delete()
-    {
 
-        return view("Admin.Dianpu");
+
+    /**
+     * 展示推荐位具体数据
+     */
+    public function getList($id)
+    {
+        $list = DB::table('goods_posids')->where('posids_id',$id)->paginate(5);
+        return view('Admin.Posid.posid_list',['list'=>$list]);
+
+    }
+    
+    /**
+     * 修改推荐位具体数据状态
+     */
+    public function getStatus($id,$status)
+    {
+        $res = DB::table('goods_posids')->where('id',$id)->update(['status'=>$status]);
+        if($res){
+            return redirect("/posid");
+        }else{
+            return redirect("/posid");
+        }
+        
     }
 
     /**
-     * 添加
+     * 给推荐位图片添加图片
      */
-    public function check($status,$id)
-    {
+    public function getupload($goods_id){
 
-        if ($id != 0) {
-
-            if($status == 2){
-               shop::where('shop_id',$id)->update(['shop_status'=>$status]);
-                return redirect('/shop');
+        $req = Request();
+        if($_POST){
+            $filePath = posid::getFilePath($req);//获取上传路径
+            $res = DB::table('goods_posids')->where('goods_id',$goods_id)->update(['goods_img'=> $filePath]);
+            if($res){
+                return redirect("/posid");
             }else{
-                shop::where('shop_id',$id)->update(['shop_status'=>$status]);
-                return redirect('/shop');
+                return redirect("/posid");
             }
-            return view("Admin.Dianpu.show");
-        } else {
-            //查询店铺信息用于视图层展示
-            $shop_data = shop::join('cates', 'id', '=', 'goods_cate')->select('name','shop_id','cate_title','goods_cate','shop_status','shop_notice','zhuce_time')->paginate(5);
-            return view('Admin.Dianpu.check',['list'=>$shop_data]);
+        }else{
+            return view('Admin.Posid.upload',['goods_id'=>$goods_id]);
+        }
+        
+    }
 
+    /**
+     * 商品分类排序
+     *
+     */
+    public function sort($ids,$sort,$posid_id)
+    {
+        $res = posid::getSort($ids,$sort,$posid_id);
+
+        if($res > 0){
+            echo json_encode('商品排序成功！');
+        }else{
+            echo json_encode('商品排序失败！');
         }
     }
 

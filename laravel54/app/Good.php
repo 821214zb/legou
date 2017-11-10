@@ -235,4 +235,49 @@ class Good extends Model{
         return $rows;
     }
 
+    /*
+     * 商品具体列表 通过分类id获取相对应的品牌展示
+     * */
+    public static function getBrand($id){
+
+        $row = DB::table('goods')->select('goods_brand')->where('goods_category',$id)->get();
+        $data = json_decode(json_encode($row),true);
+        $ids = '';
+        $count = count($data);
+        for($i = 0; $i < $count; $i++){
+            $ids .= $data[$i]['goods_brand'].',';
+        }
+        $sum = substr($ids,1);
+        $id1 = rtrim($sum,',');
+        $id2 = ltrim($id1,',');
+        $id3   = array_unique(explode(',',$id2));
+        return DB::table('brands')->select('brand_name')->whereIn('id',$id3)->get();
+
+    }
+
+    /*
+     * 商品具体列表 通过分类id获取相对应的分类 展示
+     * */
+    public static function getCate($id){
+
+        $row = DB::table('cates')->select('cate_pid')->where('id',$id)->first();
+        $pid = $row->cate_pid;
+        return DB::table('cates')->select('cate_title')->where('cate_pid',$pid)->get();
+       
+
+    }
+
+    /*
+    * 商品具体列表 通过分类id获取相对应的属性
+    * */
+    public static function getCate($id){
+
+        $row = DB::table('cates')->select('cate_pid')->where('id',$id)->first();
+        $pid = $row->cate_pid;
+        return DB::table('cates')->select('cate_title')->where('cate_pid',$pid)->get();
+
+
+    }
+
+
 }

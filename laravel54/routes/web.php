@@ -157,6 +157,7 @@ Route::match(["get","post"],'/role/uList/groupId/{id}','Admin\RoleController@uLi
 Route::match(["get","post"],"/role/setUser",'Admin\RoleController@setUser');//给用户分配角色并保存
 Route::match(["get","post"],"/role/app/groupId/{id}",'Admin\RoleController@app');//应用授权
 Route::match(["get","post"],"/role/setApp",'Admin\RoleController@setApp');//保存应用授权
+<<<<<<< Updated upstream
 Route::match(["get","post"],'/role/module/groupId/{id}','Admin\RoleController@module');//模块授权
 
 /*
@@ -184,6 +185,15 @@ Route::any('/posid/sort/{id}/{sort}/{posid_id}','Admin\PosidController@Sort'); /
 
 
 
+=======
+Route::match(["get","post"],'/role/module/groupId/{groupId}','Admin\RoleController@module');//模块授权
+Route::match(["get","post"],'/role/modules/{appId}/{groupId}','Admin\RoleController@module');//模块授权
+Route::match(["get","post"],'/role/setModule','Admin\RoleController@setModule');//保存模块授权
+Route::match(["get","post"],'/role/action/groupId/{groupId}','Admin\RoleController@action');//操作授权
+Route::match(["get","post"],'/role/actions/{appId}/{groupId}','Admin\RoleController@action');//操作授权
+Route::match(["get","post"],'/role/actionss/{appId}/{groupId}/{moduleId}','Admin\RoleController@action');//操作授权
+Route::match(["get","post"],'/role/setAction','Admin\RoleController@setAction');//保存应用授权
+>>>>>>> Stashed changes
 
 /**
  * 用户评论

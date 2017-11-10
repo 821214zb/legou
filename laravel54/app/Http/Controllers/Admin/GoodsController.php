@@ -266,16 +266,30 @@ class GoodsController extends BaseController{
         if($cate_id == 1){
             $box1 = DB::table('cate_box')->where('goods_id',$gid)->get();
             $box = json_decode(json_encode($box1),true);
-//            dump($box);
-            $array=array();
-            foreach ($box as $k => $v){
-//                echo $k;
-                foreach ($v as $v1){
-                    $array[$v["goods_id"]]=$v1;
+            $data=array();
+            //获取属性表字段名称
+            $zd = array_keys($box[0]);
+            foreach ($box as $k => $v) {
+                foreach ($zd as $K=>$kk){
+                    $data[$kk][] = $v[$kk];
                 }
-                dump($v);
             }
-//            dump($array);
+//            die;
+//            foreach ($box as $k => $v){
+//               $data['id'][] = $v['id'];
+//               $data['size'][] = $v['size'];
+//               $data['weight'][] = $v['weight'];
+//               $data['color'][] = $v['color'];
+//               $data['volume'][] = $v['volume'];
+//               $data['style'][] = $v['style'];
+//               $data['material'][] = $v['material'];
+//               $data['crowd'][] = $v['crowd'];
+////                foreach ($v as $vv=>$kk){
+////                  $data[$vv] = $kk;
+////                }
+//              //  dump($v);
+//            }
+//           dump($data);
 
 
 

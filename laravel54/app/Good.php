@@ -267,17 +267,6 @@ class Good extends Model{
 
     }
 
-    /*
-    * 商品具体列表 通过分类id获取相对应的属性
-    * */
-    public static function getCate($id){
-
-        $row = DB::table('cates')->select('cate_pid')->where('id',$id)->first();
-        $pid = $row->cate_pid;
-        return DB::table('cates')->select('cate_title')->where('cate_pid',$pid)->get();
-
-
-    }
-
+   
 
 }

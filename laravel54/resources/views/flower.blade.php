@@ -511,7 +511,7 @@ ad_config = {
                         <div class="gl-i-wrap j-sku-item" data-sku="1000054804" venderid="10271" jdzy_shop_id="10301" data-sku_temp="1000054804" data-i="1" data-soldoversea="-1">
   <div class="p-img">
     <a target="_blank" href="https://item.jd.com/1000054804.html">
-                          <a href='/goodsInfo/0/0'><img data-img="1" src="/images/flower/54fd01dfN91990a8c_003.jpg" title="【19年老品牌 值得信赖! 热销10000束】热卖生日鲜花礼盒 家庭鲜花 送女友大气有面子" width="220" height="220">
+                          <a href='/goodInfo/78/78'><img data-img="1" src="/images/flower/54fd01dfN91990a8c_003.jpg" title="【19年老品牌 值得信赖! 热销10000束】热卖生日鲜花礼盒 家庭鲜花 送女友大气有面子" width="220" height="220">
           </a>
           </div>
   <div class="p-price">

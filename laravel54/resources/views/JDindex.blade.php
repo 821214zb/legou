@@ -540,7 +540,7 @@
             <a href="#">商家入驻</a>|
             <a href="#">营销中心</a>|
             <a href="#">手机京东</a>|
-            <a href="#">友情链接</a>|
+            <a href="/links/show" target="_blank">友情链接</a>|
             <a href="#">销售联盟</a>|
             <a href="#">京东社区</a>|
             <a href="#">京东公益</a>|

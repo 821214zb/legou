@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Cate;
 use App\Lunbo;
+use App\Good;
 use Session;
 class JDController extends Controller
 {
@@ -79,8 +80,9 @@ class JDController extends Controller
      */
     public function goods_list($id){
         
-
-       return view('flower',['id'=>$id]);
+        $brand = Good::getBrand($id);
+        $cate = Good::getCate($id);
+        return view('flower',['brand'=>$brand],['cate'=>$cate]);
     }
     
    

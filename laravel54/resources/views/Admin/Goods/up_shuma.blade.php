@@ -23,7 +23,7 @@
 <body>
 <div class="panel admin-panel">
     <ul class="ul">
-        <li><div class="div_li"><a href="/goods/update/{{$goodsInfo->id}}" class="icon-reorder">修改商品通用信息</a></div></li>
+        <li><div class="div_li"><a href="/goods/update/{{$goods_id}}" class="icon-reorder">修改商品通用信息</a></div></li>
         <li><div class="div_li"><a href="" class="icon-reorder">修改商品属性信息</a></div></li>
     </ul>
     <div class="tab-box">
@@ -33,43 +33,58 @@
                     <form class="form-x" action="update" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
 
-
                         <div id="bel">
-                            <label style="margin-left: 75px;">数码尺寸：</label>
-                            <input type="text"  name="size[]" />
-                            <input type="button" value="+ 添加" id="btn2" ><br />
-                        </div><br />
+                            <div>
+                                <label>屏幕尺码：</label>
+                            </div>
+                            <?php foreach (isset($cate_shuma['size'])?$cate_shuma['size']:["请输入"] as $v){?>
+                            <span>
+                                <input type="text"  name="size[]" value="<?php echo $v; ?>" />
+                                <input type="button" value="-" class="delete" class="sda" /> <br />
+                            </span>
+                            <?php } ?>
+                        </div>
+                        <input type="button" value="+ 添加" id="btn2" style="margin-left: 180px;"/><br />
                         <div class="form-group">
-                            <div class="label">
+                            <div>
                                 <label>重量：</label>
                             </div>
                             <div class="field field-tsa">
-                                <input type="text" class="input" name="weight" />
+                                <input type="text" class="input" name="weight" value="<?php echo isset($cate_shuma['weight']['0']) ? $cate_shuma['weight']['0'] : ""; ?>"/>
                             </div>
                         </div>
+
                         <div id="label">
-                            <label style="margin-left: 100px;">颜色：</label>
-                            <input type="text" name="color[]" />
-                            <input type="button" value="+ 添加" id="yanse" ><br />
-                        </div><br />
+                            <div>
+                                <label>商品颜色：</label>
+                            </div>
+                            <?php foreach (isset($cate_shuma['color'])?$cate_shuma['color']:["请输入"] as $v){?>
+                            <span>
+                                <input type="text" name="color[]" value="<?php echo $v; ?>"/>
+                                <input type="button" value="-" class="delete" /> <br />
+                            </span>
+                            <?php } ?>
+                        </div>
+                        <input type="button" value="+ 添加" id="yanse" style="margin-left: 180px;" /><br />
+
                         <div class="form-group">
-                            <div class="label">
+                            <div>
                                 <label>材料：</label>
                             </div>
                             <div class="field field-tsa">
-                                <input type="text" class="input" name="material" />
+                                <input type="text" class="input" name="material" value="<?php echo isset($cate_shuma['material']['0']) ? $cate_shuma['material']['0'] : ""; ?>"/>
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="label">
+                            <div>
                                 <label>款式：</label>
                             </div>
                             <div class="field field-tsa">
-                                <input type="text" class="input" name="style" />
+                                <input type="text" class="input" name="style" value="<?php echo isset($cate_shuma['style']['0']) ? $cate_shuma['style']['0'] : ""; ?>"/>
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="label">
+                            <div>
                                 <label>系统：</label>
                             </div>
                             <div class="field field-tsa">
@@ -84,31 +99,31 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="label">
+                            <div>
                                 <label>适合人群：</label>
                             </div>
                             <div class="field field-tsa">
-                                <input type="text" class="input" name="crowd" />
+                                <input type="text" class="input" name="crowd" value="<?php echo isset($cate_shuma['crowd']['0']) ? $cate_shuma['crowd']['0'] : ""; ?>"/>
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="label">
+                            <div>
                                 <label>版本：</label>
                             </div>
                             <div class="field field-tsa">
-                                <input type="text" class="input" name="version" />
+                                <input type="text" class="input" name="version" value="<?php echo isset($cate_shuma['version']['0']) ? $cate_shuma['version']['0'] : ""; ?>"/>
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="label">
+                            <div>
                                 <label>操作方式：</label>
                             </div>
                             <div class="field field-tsa">
-                                <input type="text" class="input" name="control_mode" />
+                                <input type="text" class="input" name="control_mode" value="<?php echo isset($cate_shuma['control_mode']['0']) ? $cate_shuma['control_mode']['0'] : ""; ?>"/>
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="label">
+                            <div>
                                 <label>CPU核数：</label>
                             </div>
                             <div class="field field-tsa">
@@ -125,7 +140,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="label">
+                            <div>
                                 <label>网络：</label>
                             </div>
                             <div class="field field-tsa">
@@ -142,23 +157,21 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="label">
+                            <div>
                                 <label>SIM卡尺寸：</label>
                             </div>
                             <div class="field field-tsa">
-                                <input type="text" class="input" name="sim_size" />
+                                <input type="text" class="input" name="sim_size" value="<?php echo isset($cate_shuma['sim_size']['0']) ? $cate_shuma['sim_size']['0'] : ""; ?>"/>
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="label">
+                            <div>
                                 <label>CPU型号：</label>
                             </div>
                             <div class="field field-tsa">
-                                <input type="text" class="input" name="cpu_model" />
+                                <input type="text" class="input" name="cpu_model" value="<?php echo isset($cate_shuma['cpu_mode']['0']) ? $cate_shuma['cpu_mode']['0'] : ""; ?>"/>
                             </div>
                         </div>
-
-
                         <div class="text-center">
                             <div class="field">
                                 <input class="button bg-green" type="submit" name="one" value="提交" >
@@ -175,14 +188,18 @@
 <script>
     $(document).ready(function(){
         $("#btn2").click(function(){
-            $("#bel").append(" <span><input type='text' name='size[]' style='margin-left:143px;margin-top: 10px; '><input type='button' value='-' id='del'><br /></span>");
+            $("#bel").append(" <span><input type='text' name='size[]' /><input type='button' value='-' id='del'><br /></span>");
         });
         $("#yanse").click(function(){
-            $("#label").append(" <span><input type='text' name='color[]' style='margin-left:143px;margin-top: 10px; '><input type='button' value='-' id='del'><br /></span>");
+            $("#label").append(" <span><input type='text' name='color[]' /><input type='button' value='-' id='del'><br /></span>");
         });
         $("div").on("click","#del",function () {
             $(this).parent().remove();
         });
+
+        $(".delete").click(function () {
+            $(this).parent().remove();
+        })
     });
 </script>
 

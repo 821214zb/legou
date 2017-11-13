@@ -24,14 +24,15 @@
 <div class="panel admin-panel">
     <ul class="ul">
         <li><div class="div_li"><a href="" class="icon-reorder">修改商品通用信息</a></div></li>
-        <li><div class="div_li"><a href="/goods/updateTwo/{{$goodsInfo->id}}" class="icon-reorder">修改商品属性信息</a></div></li>
+        <li><div class="div_li"><a href="###" class="icon-reorder">修改商品属性信息</a></div></li>
     </ul>
     <div class="tab-box">
         <div class="tab">
             <div class="tab-panel" id="tab-b">
                 <div class="common-info">
-                    <form class="form-x" action="updateTwo" method="post" enctype="multipart/form-data">
+                    <form class="form-x" action="update" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
+                        <input type="hidden" name="gid" value="{{$goodsInfo->id}}" >
                         <div class="form-group">
                             <div class="label">
                                 <label>商品名称：</label>
@@ -106,6 +107,19 @@
                                                 selected
                                             @endif
                                             >{{$v->brand_name}}</option>
+                                        @endforeach
+                                    </select>
+                                </li>
+                            </div>
+                            <div class="form-group">
+                                <div class="label">
+                                    <label>店铺名称：</label>
+                                </div>
+                                <li>
+                                    <select name="shop_id" id="brand_id" class="input" style="width:100px; line-height:17px;" >
+                                        <option value="" >--请选择--</option>
+                                        @foreach($shop as $v)
+                                            <option value="{{$v->shop_id}}">{{$v->name}}</option>
                                         @endforeach
                                     </select>
                                 </li>
@@ -314,7 +328,6 @@
                                 @endforeach
                             </div>
                         </div>
-
                         <div class="text-center">
                             <div class="field">
                                 <input class="button bg-green" type="submit" name='one' value="确认提交" />
@@ -348,9 +361,8 @@
             id = $("#name2").val();
         }
         $.ajax({
-            url:'add',
+            url:'/goods/linkage/'+id,
             type:'get',
-            data:{"pid":id},
             dataType:'json',
             success:function(json){
                 var $str = '';

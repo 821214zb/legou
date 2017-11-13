@@ -14,11 +14,11 @@
 </style>
 <script type="text/javascript">
     function group(id){
-        location.href="/role/uList/groupId/"+id;
+        location.href="/role/uList/"+id;
     }
 </script>
 <body>
-<form method="post" action="/role/setUser">
+<form method="post" action="/role/uList/0">
     {{csrf_field()}}
     <div class="div1">
         <div class="div2">

@@ -19,7 +19,7 @@
 <div class="panel admin-panel margin-top">
     <div class="panel-head" id="add"><strong><span class="icon-pencil-square-o"></span> 添加用户</strong></div>
     <div class="body-content">
-        <form method="post" class="form-x" action="/admin/addPost">
+        <form method="post" class="form-x" action="/admin/add">
             {{csrf_field()}}
             <div class="form-group">
                 <div class="label">

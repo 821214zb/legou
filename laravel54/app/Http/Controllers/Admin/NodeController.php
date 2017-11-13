@@ -7,7 +7,7 @@ use Illuminate\Contracts\Validation\ValidationException;
 use App\Node;
 use DB;
 
-class NodeController extends BaseController{
+class NodeController extends CommonController{
     /**
      * 添加用户
      */
@@ -15,7 +15,7 @@ class NodeController extends BaseController{
         if($_POST){
             $data = DB::table('nodes')->insert(['name' =>$request->name, 'title' =>$request->title, 'level' => $request->level, 'pid' => $request->pid,'status'=>$request->status]);
             if ($data) {
-                echo "<script>alert('恭喜您添加成功');location.href='/node/index/0'</script>";
+                echo "<script>alert('恭喜您添加成功');location.href='/node/show/0'</script>";
             } else {
                 echo "<script>alert('添加失败');location.href='/node/add'</script>";
             }
@@ -28,7 +28,7 @@ class NodeController extends BaseController{
     /**
      * 用户列表
      */
-    public function index($id){
+    public function index(){
         $request = Request();
         $keywords = $request->input('keywords');
         if(!empty($keywords)){
@@ -50,9 +50,9 @@ class NodeController extends BaseController{
     public function status($id,$status){
         $res = Node::getStatus($id,$status);
         if(!$res){
-            return redirect('/node/index/0');
+            return redirect('/node/show/0');
         }else{
-            return redirect('/node/index/0');
+            return redirect('/node/show/0');
         }
     }
 
@@ -62,7 +62,7 @@ class NodeController extends BaseController{
             $request = Request();
             $data = Node::getUpdate($request);
             if($data){
-                echo "<script>alert('修改权限成功');location.href='/node/index/0'</script>";
+                echo "<script>alert('修改权限成功');location.href='/node/show/0'</script>";
             }else{
                 echo "<script>alert('修改权限失败');location.href='/node/update/0'</script>";
             }

@@ -6,14 +6,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <meta name="renderer" content="webkit">
 <title>店铺列表</title>
-<link rel="stylesheet" href="Admin/css/pintuer.css">
-<link rel="stylesheet" href="Admin/css/admin.css">
-<link rel="stylesheet" href="Admin/css/style.css">
+<link rel="stylesheet" href="http://www.aslegou.com/Admin/css/pintuer.css">
+<link rel="stylesheet" href="http://www.aslegou.com/Admin/css/admin.css">
+<link rel="stylesheet" href="http://www.aslegou.com/Admin/css/style.css">
 <!--<link rel="stylesheet" href="css/ace.min.css">-->
-<script src="Admin/js/jquery.js"></script>
-<script src="Admin/js/pintuer.js"></script>
-<script src="Admin/js/layer/layer.js"></script>
-<script type="text/javascript" src="Admin/jeDate/jedate.js"></script>
+<script src="http://www.aslegou.com/Admin/js/jquery.js"></script>
+<script src="http://www.aslegou.com/Admin/js/pintuer.js"></script>
+<script src="http://www.aslegou.com/Admin/js/layer/layer.js"></script>
+<script type="text/javascript" src="http://www.aslegou.com/Admin/jeDate/jedate.js"></script>
 </head>
 <body>
 <form action="/shop" method="post">

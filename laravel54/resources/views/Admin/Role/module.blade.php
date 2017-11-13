@@ -14,7 +14,7 @@
 </script>
 <script type="text/javascript">
     function group(id){
-        location.href="/role/module/groupId/"+id;
+        location.href="/role/module/"+id;
     }
     function app(id){
         var option = document.getElementsByName("option[]");
@@ -86,9 +86,9 @@
     <div class="title">应用授权 [ <a href="/role/show">返 回</a> ]</div>
     <div class="header">
         <div class="header_1">
-            <a href="/role/app/groupId/{{$id}}">应用授权</a>|
+            <a href="/role/app/{{$id}}">应用授权</a>|
             <a href="">模块授权</a>|
-            <a href="/role/action/groupId/{{$id}}">操作授权</a>
+            <a href="/role/action/{{$id}}">操作授权</a>
         </div>
     </div>
     <div class="user">

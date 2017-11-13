@@ -10,11 +10,11 @@ class CartController extends Controller
         if($uid == 0){
             echo "<script>alert('请先登录账户');location.href='/login'</script>";
         }else{
-            if($_POST){
-                $request = Request();
-                $goods = Cart::addCarts($request,$uid,$gid);
-                return view('cart',['goods'=>$goods]);
-            }
+//            if($_POST){
+//                $request = Request();
+//                $goods = Cart::addCarts($request,$uid,$gid);
+                return view('cart');
+//            }
         }
     }
     

@@ -23,7 +23,7 @@
 <body>
 <div class="panel admin-panel">
     <ul class="ul">
-        <li><div class="div_li"><a href="/goods/update/{{$goodsInfo->id}}" class="icon-reorder">修改商品通用信息</a></div></li>
+        <li><div class="div_li"><a href="/goods/update/{{$goods_id}}" class="icon-reorder">修改商品通用信息</a></div></li>
         <li><div class="div_li"><a href="" class="icon-reorder">修改商品属性信息</a></div></li>
     </ul>
     <div class="tab-box">
@@ -33,35 +33,51 @@
                     <form class="form-x" action="update" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
 
-
                         <div id="bel">
-                            <label style="margin-left: 100px;">尺码：</label>
-                            <input type="text"  name="size[]" />
-                            <input type="button" value="+ 添加" id="btn2" ><br />
-                        </div><br />
+                            <div>
+                                <label>尺码：</label>
+                            </div>
+                            <?php foreach (isset($cate_cloth['size'])?$cate_cloth['size']:["请输入"] as $v){?>
+                            <span>
+                                <input type="text"  name="size[]" value="<?php echo $v; ?>" />
+                                <input type="button" value="-" class="delete" /> <br />
+                            </span>
+                            <?php } ?>
+                        </div>
+                        <input type="button" value="+ 添加" id="btn2" style="margin-left: 180px;"/><br />
+
                         <div class="form-group">
-                            <div class="label">
+                            <div>
                                 <label>服装重量：</label>
                             </div>
                             <div class="field field-tsa">
-                                <input type="text" class="input" name="weight" />
+                                <input type="text" class="input" name="weight" value="<?php echo isset($cate_cloth['weight']['0']) ? $cate_cloth['weight']['0'] : ""; ?>" />
                             </div>
                         </div>
+
                         <div id="label">
-                            <label style="margin-left: 100px;">颜色：</label>
-                            <input type="text" name="color[]" />
-                            <input type="button" value="+ 添加" id="yanse" ><br />
-                        </div><br />
+                            <div>
+                                <label>商品颜色：</label>
+                            </div>
+                            <?php foreach (isset($cate_cloth['color'])?$cate_cloth['color']:["请输入"] as $v){?>
+                            <span>
+                                <input type="text" name="color[]" value="<?php echo $v; ?>"/>
+                                <input type="button" value="-" class="delete" /> <br />
+                            </span>
+                            <?php } ?>
+                        </div>
+                        <input type="button" value="+ 添加" id="yanse" style="margin-left: 180px;" /><br />
+
                         <div class="form-group">
-                            <div class="label">
+                            <div>
                                 <label>服装面料：</label>
                             </div>
                             <div class="field field-tsa">
-                                <input type="text" class="input" name="fabric" />
+                                <input type="text" class="input" name="fabric" value="<?php echo isset($cate_cloth['fabric']['0']) ? $cate_cloth['fabric']['0'] : ""; ?>"/>
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="label">
+                            <div>
                                 <label>版型：</label>
                             </div>
                             <div class="field field-tsa">
@@ -76,7 +92,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="label">
+                            <div>
                                 <label>袖型：</label>
                             </div>
                             <div class="field field-tsa">
@@ -93,7 +109,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="label">
+                            <div>
                                 <label>领型：</label>
                             </div>
                             <div class="field field-tsa">
@@ -112,31 +128,31 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="label">
+                            <div>
                                 <label>裤长：</label>
                             </div>
                             <div class="field field-tsa">
-                                <input type="text" class="input" name="long_pants" />
+                                <input type="text" class="input" name="long_pants" value="<?php echo isset($cate_cloth['long_pants']['0']) ? $cate_cloth['long_pants']['0'] : ""; ?>"/>
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="label">
+                            <div>
                                 <label>服装风格：</label>
                             </div>
                             <div class="field field-tsa">
-                                <input type="text" class="input" name="style" />
+                                <input type="text" class="input" name="style" value="<?php echo isset($cate_cloth['style']['0']) ? $cate_cloth['style']['0'] : ""; ?>"/>
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="label">
+                            <div>
                                 <label>货号：</label>
                             </div>
                             <div class="field field-tsa">
-                                <input type="text" class="input" name="article_number" />
+                                <input type="text" class="input" name="article_number" value="<?php echo isset($cate_cloth['article_number']['0']) ? $cate_cloth['article_number']['0'] : ""; ?>" />
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="label">
+                            <div>
                                 <label>适合季节：</label>
                             </div>
                             <div class="field field-tsa">
@@ -151,7 +167,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="label">
+                            <div>
                                 <label>适合人群：</label>
                             </div>
                             <div class="field field-tsa">
@@ -165,8 +181,6 @@
                                 </select>
                             </div>
                         </div>
-
-
 
                         <div class="text-center">
                             <div class="field">
@@ -184,14 +198,18 @@
 <script>
     $(document).ready(function(){
         $("#btn2").click(function(){
-            $("#bel").append(" <span><input type='text' name='size[]' style='margin-left:143px;margin-top: 10px; '><input type='button' value='-' id='del'><br /></span>");
+            $("#bel").append(" <span><input type='text' name='size[]' /><input type='button' value='-' id='del'><br /></span>");
         });
         $("#yanse").click(function(){
-            $("#label").append(" <span><input type='text' name='color[]' style='margin-left:143px;margin-top: 10px; '><input type='button' value='-' id='del'><br /></span>");
+            $("#label").append(" <span><input type='text' name='color[]' /><input type='button' value='-' id='del'><br /></span>");
         });
         $("div").on("click","#del",function () {
             $(this).parent().remove();
         });
+
+        $(".delete").click(function () {
+            $(this).parent().remove();
+        })
     });
 </script>
 

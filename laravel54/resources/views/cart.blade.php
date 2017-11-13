@@ -239,68 +239,68 @@
 			<!-- 单品-->
 		<!-- 京配 -->
 				<div class="item-single  item-item item-selected  " id="product_3759752" cid="1595" ts="1509299792516" dt="10">
-		{{--<div class="item-form">--}}
-			{{--<div class="cell p-checkbox">--}}
-				{{--<div class="cart-checkbox">--}}
-					{{--<!--单品-->--}}
-						{{--<input p-type="3759752_1" name="checkItem" value="3759752_1" checked="checked" data-bind="cbid" class="jdcheckbox" clstag="clickcart|keycount|xincart|cart_checkOn_sku" type="checkbox">--}}
-										{{--<label for="" class="checked">勾选商品</label>--}}
-					{{--<span class="line-circle"></span>--}}
-				{{--</div>--}}
-			{{--</div>--}}
-			{{--<div class="cell p-goods">--}}
-				{{--<div class="goods-item">--}}
-					{{--<div class="p-img">--}}
-						{{--<a href="https://item.jd.com/3759752.html" target="_blank" class="J_zyyhq_3759752" good-similar="3759752"><img alt="淘豆（TAODO）休闲零食 手撕小糕点蛋糕面包 早餐三明治蛋糕500g" clstag="clickcart|keycount|xincart|cart_sku_pic" src="/images/gouwuche/59bb62e5Nf7ecbf69_003.jpg"></a><div class="cart-similar" name="cs_3759752"><div class="cs-tit">找相似<b></b></div><div class="cs-cont"><div class="cs-empty"></div></div></div>--}}
-					{{--</div>--}}
-					{{--<div class="item-msg">--}}
-						{{--<div class="p-name">--}}
-							{{--<a clstag="clickcart|keycount|xincart|cart_sku_name" href="https://item.jd.com/3759752.html" target="_blank">--}}
-							{{--<em class="selection-icon"></em>淘豆（TAODO）休闲零食 手撕小糕点蛋糕面包 早餐三明治蛋糕500g--}}
-							{{--</a>--}}
-						{{--</div>--}}
-						{{--<div class="p-extend p-extend-new">--}}
-															{{--<span class="promise return-n" title="不支持7天无理由退货"><i class="return-n-icon"></i><a href="#none" class="ftx-03" data-tips="不支持7天无理由退货">不支持7天无理由退货</a></span>--}}
-																																			{{--<span class="promise" _yanbao="yanbao_3759752_">--}}
-								{{--<!--<i class="jd-service-icon"></i>--}}
-								{{--<a href="#none" class="ftx-03 jd-service" clstag="clickcart|keycount|xincart|cart_fuWu" data-tips="购买京东服务">购买京东服务</a>-->--}}
-							{{--</span>--}}
-							{{----}}
-													{{--</div>--}}
-					{{--</div>--}}
-				{{--</div>--}}
-			{{--</div>--}}
-			{{--<div class="cell p-props p-props-new">--}}
-									{{--<div class="props-txt" title="三明治蛋糕500g">颜色：三明治蛋糕500g</div>--}}
-															{{--</div>--}}
-			{{--<div class="cell p-price">--}}
-									{{--<strong>¥16.90</strong>--}}
-																																			                	            										                            				{{--<div class="cuttip" clstag="pageclick|keycount|201508251|1" data-tips="商品比加入购物车降价¥0.60">降价<em class="num">¥0.60</em></div></div>--}}
-			{{--<div class="cell p-quantity">--}}
-				{{--<!--单品-->--}}
-					{{--<div class="quantity-form">--}}
-						{{--<a href="javascript:void(0);" clstag="clickcart|keycount|xincart|cart_num_down" class="decrement disabled" id="decrement_8888_3759752_1_1">-</a>--}}
-						{{--<input autocomplete="off" class="itxt" value="1" id="changeQuantity_8888_3759752_1_1_0" minnum="1" type="text">--}}
-						{{--<a href="javascript:void(0);" clstag="clickcart|keycount|xincart|cart_num_up" class="increment" id="increment_8888_3759752_1_1_0">+</a>--}}
-					{{--</div>--}}
-												{{--<div class="ac ftx-03 quantity-txt" _stock="stock_3759752">有货</div>--}}
-							{{--</div>--}}
-			{{--<div class="cell p-sum">--}}
-									{{--<strong>¥16.90</strong>--}}
-										            	            						            							            {{--<span class="weight" id="weight_3759752" data="0.68" fresh="" skuid="3759752" num="1" afterprice="16.90" category="1320;1583;1595">0.68kg</span>--}}
-							{{--</div>--}}
-			{{--<div class="cell p-ops">--}}
-				{{--<!--单品-->--}}
-					{{--<a id="remove_8888_3759752_1" clstag="clickcart|keycount|xincart|cart_sku_del" data-name="淘豆（TAODO）休闲零食 手撕小糕点蛋糕面包..." data-more="removed_16.90_1" class="cart-remove" href="javascript:void(0);">删除</a>--}}
-											{{--<a href="javascript:void(0);" class="cart-follow" id="follow_8888_3759752_1" clstag="clickcart|keycount|xincart|cart_sku_guanzhu">移到我的关注</a>--}}
-						{{--<a href="javascript:void(0);" class="add-follow" id="add-follow_3759752" clstag="pageclick|keycount|cart_201610202|32">加到我的关注</a>--}}
-																	{{--</div>--}}
-		{{--</div>--}}
-		{{--<div class="item-extra mb10">--}}
-															{{--<!-- 落地配服务 -->--}}
-																	{{--</div>--}}
-		{{--<div class="item-line"></div>--}}
-	{{--</div>--}}
+		<div class="item-form">
+			<div class="cell p-checkbox">
+				<div class="cart-checkbox">
+					<!--单品-->
+						<input p-type="3759752_1" name="checkItem" value="3759752_1" checked="checked" data-bind="cbid" class="jdcheckbox" clstag="clickcart|keycount|xincart|cart_checkOn_sku" type="checkbox">
+										<label for="" class="checked">勾选商品</label>
+					<span class="line-circle"></span>
+				</div>
+			</div>
+			<div class="cell p-goods">
+				<div class="goods-item">
+					<div class="p-img">
+						<a href="https://item.jd.com/3759752.html" target="_blank" class="J_zyyhq_3759752" good-similar="3759752"><img alt="淘豆（TAODO）休闲零食 手撕小糕点蛋糕面包 早餐三明治蛋糕500g" clstag="clickcart|keycount|xincart|cart_sku_pic" src="/images/gouwuche/59bb62e5Nf7ecbf69_003.jpg"></a><div class="cart-similar" name="cs_3759752"><div class="cs-tit">找相似<b></b></div><div class="cs-cont"><div class="cs-empty"></div></div></div>
+					</div>
+					<div class="item-msg">
+						<div class="p-name">
+							<a clstag="clickcart|keycount|xincart|cart_sku_name" href="https://item.jd.com/3759752.html" target="_blank">
+							<em class="selection-icon"></em>淘豆（TAODO）休闲零食 手撕小糕点蛋糕面包 早餐三明治蛋糕500g
+							</a>
+						</div>
+						<div class="p-extend p-extend-new">
+															<span class="promise return-n" title="不支持7天无理由退货"><i class="return-n-icon"></i><a href="#none" class="ftx-03" data-tips="不支持7天无理由退货">不支持7天无理由退货</a></span>
+																																			<span class="promise" _yanbao="yanbao_3759752_">
+								<!--<i class="jd-service-icon"></i>
+								<a href="#none" class="ftx-03 jd-service" clstag="clickcart|keycount|xincart|cart_fuWu" data-tips="购买京东服务">购买京东服务</a>-->
+							</span>
+
+													</div>
+					</div>
+				</div>
+			</div>
+			<div class="cell p-props p-props-new">
+									<div class="props-txt" title="三明治蛋糕500g">颜色：三明治蛋糕500g</div>
+															</div>
+			<div class="cell p-price">
+									<strong>¥16.90</strong>
+																																			                	            										                            				<div class="cuttip" clstag="pageclick|keycount|201508251|1" data-tips="商品比加入购物车降价¥0.60">降价<em class="num">¥0.60</em></div></div>
+			<div class="cell p-quantity">
+				<!--单品-->
+					<div class="quantity-form">
+						<a href="javascript:void(0);" clstag="clickcart|keycount|xincart|cart_num_down" class="decrement disabled" id="decrement_8888_3759752_1_1">-</a>
+						<input autocomplete="off" class="itxt" value="1" id="changeQuantity_8888_3759752_1_1_0" minnum="1" type="text">
+						<a href="javascript:void(0);" clstag="clickcart|keycount|xincart|cart_num_up" class="increment" id="increment_8888_3759752_1_1_0">+</a>
+					</div>
+												<div class="ac ftx-03 quantity-txt" _stock="stock_3759752">有货</div>
+							</div>
+			<div class="cell p-sum">
+									<strong>¥16.90</strong>
+										            	            						            							            <span class="weight" id="weight_3759752" data="0.68" fresh="" skuid="3759752" num="1" afterprice="16.90" category="1320;1583;1595">0.68kg</span>
+							</div>
+			<div class="cell p-ops">
+				<!--单品-->
+					<a id="remove_8888_3759752_1" clstag="clickcart|keycount|xincart|cart_sku_del" data-name="淘豆（TAODO）休闲零食 手撕小糕点蛋糕面包..." data-more="removed_16.90_1" class="cart-remove" href="javascript:void(0);">删除</a>
+											<a href="javascript:void(0);" class="cart-follow" id="follow_8888_3759752_1" clstag="clickcart|keycount|xincart|cart_sku_guanzhu">移到我的关注</a>
+						<a href="javascript:void(0);" class="add-follow" id="add-follow_3759752" clstag="pageclick|keycount|cart_201610202|32">加到我的关注</a>
+																	</div>
+		</div>
+		<div class="item-extra mb10">
+															<!-- 落地配服务 -->
+																	</div>
+		<div class="item-line"></div>
+	</div>
 					 <!-- 满赠 -->
 						<!-- 满赠 -->
 		 	<div class="item-give item-full " id="product_promo_205202644">
@@ -785,15 +785,15 @@
 											                				</div>
 	                			</div>
 	                		</div>
-												        		
+
 	        	</div>
-	        
+
 	        	<div class="op-btns ac">
 											<a href="#none" class="btn-1 select-gift" clstag="clickcart|keycount|xincart|cart_huanGouSet">确定</a>
 						<a href="#none" class="btn-9 ml10 del cancel-gift">取消</a>
 						        	</div>
 	        </div>
-		
+
 		<!--满赠赠品弹层结束-->
 	</div>					 <!-- 满减 -->
 						<!-- 满减 -->
@@ -840,7 +840,7 @@
 								<!--<i class="jd-service-icon"></i>
 								<a href="#none" class="ftx-03 jd-service" clstag="clickcart|keycount|xincart|cart_fuWu" data-tips="购买京东服务">购买京东服务</a>-->
 							</span>
-							
+
 													</div>
 					</div>
 				</div>
@@ -856,8 +856,8 @@
 						<div class="promotion-tit">促销信息<b></b></div>
 						<div class="promotion-cont">
 							<ul>
-                			                				                			              
-  				                			                				                			        
+
+
         					                				<!-- 满减 -->
 									<li><input multipromotion="0" name="radioPromotion_4438311" value="8888_204951811_4438311_11_204951811" title="满99.00减50.00,满199.00减100.00" checked="checked" type="radio">满99.00减50.00,满199.00减100.00</li>
 									                    			                			                					                				<!-- 满减 -->

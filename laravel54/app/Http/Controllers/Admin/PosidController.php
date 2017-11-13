@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Lunbo;
 use DB;
 use App\posid;
-class PosidController extends BaseController
+class PosidController extends CommonController
 {
     /**
      * 推荐位类型列表
@@ -29,7 +29,7 @@ class PosidController extends BaseController
         if ($_POST) {
             $res = posid::insertGetId(['type'=>$req->type,'status'=>$req->status]);
             if($res > 0 ){
-                return redirect("/posid");
+                return redirect("/posid/show");
             }else{
                 return redirect("/posid/add");
             }
@@ -47,9 +47,9 @@ class PosidController extends BaseController
         if ($_POST) {
             $res = posid::where('id',$id)->update(['type'=>$req->type,'status'=>$req->status]);
             if($res){
-                return redirect("/posid");
+                return redirect("/posid/show");
             }else{
-                return redirect("/posid");
+                return redirect("/posid/show");
             }
         } else {
             //查询修改数据
@@ -77,9 +77,9 @@ class PosidController extends BaseController
     {
         $res = DB::table('goods_posids')->where('id',$id)->update(['status'=>$status]);
         if($res){
-            return redirect("/posid");
+            return redirect("/posid/show");
         }else{
-            return redirect("/posid");
+            return redirect("/posid/show");
         }
         
     }
@@ -94,9 +94,9 @@ class PosidController extends BaseController
             $filePath = posid::getFilePath($req);//获取上传路径
             $res = DB::table('goods_posids')->where('goods_id',$goods_id)->update(['goods_img'=> $filePath]);
             if($res){
-                return redirect("/posid");
+                return redirect("/posid/show");
             }else{
-                return redirect("/posid");
+                return redirect("/posid/show");
             }
         }else{
             return view('Admin.Posid.upload',['goods_id'=>$goods_id]);

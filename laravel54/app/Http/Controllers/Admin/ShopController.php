@@ -10,7 +10,7 @@ use DB;
 use App\shop;
 use App\Cate;
 use App\region;
-class ShopController extends BaseController
+class ShopController extends CommonController
 {
     /**
      * 店铺列表
@@ -45,7 +45,7 @@ class ShopController extends BaseController
 
            $res =  shop::get_insert($req);
             if($res > 0 ){
-                return redirect("/shop");
+                return redirect("/shop/show");
             }else{
                 return redirect("/shop/add");
             }
@@ -68,9 +68,9 @@ class ShopController extends BaseController
         if ($_POST) {
             $res = shop::get_update($req,$id);
             if($res){
-                return redirect("/shop");
+                return redirect("/shop/show");
             }else{
-                return redirect("/shop");
+                return redirect("/shop/show");
             }
         } else {
             //查询一级商品分类
@@ -92,7 +92,7 @@ class ShopController extends BaseController
     }
 
     /**
-     * 添加
+     * 店铺审核
      */
     public function check($status,$id)
     {
@@ -101,10 +101,10 @@ class ShopController extends BaseController
 
             if($status == 2){
                shop::where('shop_id',$id)->update(['shop_status'=>$status]);
-                return redirect('/shop');
+                return redirect('/shop/show');
             }else{
                 shop::where('shop_id',$id)->update(['shop_status'=>$status]);
-                return redirect('/shop');
+                return redirect('/shop/show');
             }
             return view("Admin.Dianpu.show");
         } else {

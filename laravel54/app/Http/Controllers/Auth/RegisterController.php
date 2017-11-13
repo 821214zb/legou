@@ -56,6 +56,7 @@ class RegisterController extends Controller
     public function zhuce(Request $request)
     {
         if ($_POST) {
+
             //自动验证注册
             $this->validate($request,
                 [
@@ -83,6 +84,12 @@ class RegisterController extends Controller
                         'required',
                         'regex:/^13\d{9}|15\d{9}|18\d{9}|17\d{9}$/',
                     ],
+                    'verify' => [
+                        'required',
+                    ],
+                    'code' => [
+                        'required',
+                    ],
 
                 ],
                 [
@@ -97,11 +104,21 @@ class RegisterController extends Controller
                     'email.required' => '邮箱不能为空！',
                     'email.regex' => '邮箱格式不对 应***@***.(com|cn|edn|gov)！',
                     'mobile.required' => '手机不能为空！',
+                    'code.required' => '验证码不能为空！',
+                    'verify.required' => '手机验证码不能为空！',
                     'mobile.regex' => '手机格式不对 应13，15，18，17开头的11位数字！',
                 ]
             );
+
+            //验证手机验证码
+            $verify = DB::table('user_verify')->where('username',$request->name)->where('phone',$request->mobile)->select('verify')->first();
+            if($request->verify !== $verify->verify){
+                return "<script>alert('手机验证码填写不正确请重新填写！');location.href='/zhuce';</script>";
+            }
+            
             $code = $request->code;
-            //判断验证码是否一致
+            //判断验证码是
+            //否一致
             if (Session::get('milkcaptcha') != $code) {
                 echo "<script>alert('验证码输入不正确');location.href='/zhuce'</script>";
             } else {

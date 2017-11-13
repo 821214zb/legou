@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Role;
 use DB;
 use phpDocumentor\Reflection\DocBlock\Tags\Var_;
-class RoleController extends BaseController{
+class RoleController extends CommonController{
     /**
      * 角色列表
      */
@@ -16,23 +16,20 @@ class RoleController extends BaseController{
         $list=Role::show();
         return view("Admin.role.show",["role"=>$list]);
     }
-
-    /**
-     * 展示视图
-     */
-    public function add(){
-        return view("Admin.role.add");
-    }
     
     /**
      * 添加角色
      */
-    public function addPost(){
-        $row=Role::addPost();
-        if($row){
-            return redirect('/role/show');
+    public function add(){
+        if($_POST){
+            $row=Role::addPost();
+            if($row){
+                return redirect('/role/show');
+            }else{
+                return "添加失败!";
+            }
         }else{
-            return "添加失败!";
+            return view("Admin.role.add");
         }
     }
     
@@ -69,62 +66,63 @@ class RoleController extends BaseController{
      * 用户列表
      */
     public function uList(){
-        $request=request();
-        $id=$request->id;
-        //获取用户列表
-        $list2=DB::table("admins")->select("id","account","nickname")->get();
-        $userList=array();
-        foreach($list2 as $key=>$vo){
-            $userList[$vo->id]=$vo->account ." ".$vo->nickname;
-        }
-        //获取角色列表
-        $list1=DB::table("roles")->select("id","name")->get();
-        $groupList=array();
-        foreach($list1 as $key=>$vo){
-            $groupList[$vo->id]=$vo->name;
-        }
-        //获取当前用户组信息
-        $groupId=isset($request->id) ? $request->id: "" ;
-        $groupUserList=array();
-        if(!empty($groupId)){
-            //获取当前组的用户列表
-            $list=DB::table("admins")->join('role_admins', 'admins.id', '=', 'role_admins.admin_id')->where("role_id",$groupId)->select("admins.id")->get();
-            foreach($list as $vo){
-                $groupUserList[$vo->id]=$vo->id;
+        
+        if($_POST){
+            $groupId=isset($_POST["groupId"]) ? $_POST["groupId"] : "";
+            if($groupId){
+                $groupList= DB::table("role_admins")->where("role_id",$groupId)->delete();
             }
-        }
-        return view("admin.role.uList",["id"=>$id,"selectGroupId"=>$groupId,"groupList"=>$groupList,"groupUserList"=>$groupUserList,"userList"=>$userList]);
-    }
-
-    //执行用户列表保存操作
-    public function setUser(){
-        $groupId=isset($_POST["groupId"]) ? $_POST["groupId"] : "";
-        if($groupId){
-            $groupList= DB::table("role_admins")->where("role_id",$groupId)->delete();
-        }
-        $id=isset($_POST["groupUserId"])?$_POST["groupUserId"]:"";
-        if($id){
-            foreach($id as $v){
-                $data["role_id"]=$groupId;
-                $data["admin_id"]=$v;
-                $res=DB::table("role_admins")->insert($data);
-            }
-            if($res){
-                return redirect("/role/show");
+            $id=isset($_POST["groupUserId"])?$_POST["groupUserId"]:"";
+            if($id){
+                foreach($id as $v){
+                    $data["role_id"]=$groupId;
+                    $data["admin_id"]=$v;
+                    $res=DB::table("role_admins")->insert($data);
+                }
+                if($res){
+                    return redirect("/role/show");
+                }else{
+                    echo "<script>alert('授权失败').location.href='/role/show'</script>";
+                }
             }else{
-                echo "<script>alert('授权失败').location.href='/role/show'</script>";
+                return redirect("/role/show");
             }
         }else{
-            return redirect("/role/show");
+            $request=request();
+            $id=$request->id;
+            //获取用户列表
+            $list2=DB::table("admins")->select("id","account","nickname")->get();
+            $userList=array();
+            foreach($list2 as $key=>$vo){
+                $userList[$vo->id]=$vo->account ." ".$vo->nickname;
+            }
+            //获取角色列表
+            $list1=DB::table("roles")->select("id","name")->get();
+            $groupList=array();
+            foreach($list1 as $key=>$vo){
+                $groupList[$vo->id]=$vo->name;
+            }
+            //获取当前用户组信息
+            $groupId=isset($request->id) ? $request->id: "" ;
+            $groupUserList=array();
+            if(!empty($groupId)){
+                //获取当前组的用户列表
+                $list=DB::table("admins")->join('role_admins', 'admins.id', '=', 'role_admins.admin_id')->where("role_id",$groupId)->select("admins.id")->get();
+                foreach($list as $vo){
+                    $groupUserList[$vo->id]=$vo->id;
+                }
+            }
+            return view("admin.role.uList",["id"=>$id,"selectGroupId"=>$groupId,"groupList"=>$groupList,"groupUserList"=>$groupUserList,"userList"=>$userList]);
         }
+       
     }
 
     /**
      * 应用授权
      */
     public function app(){
-        $request=request();
-        $id=$request->id;
+        $request = request();
+        $id      = $request->id;
         //读取系统项目列表
         $list1=DB::table("nodes")->where(["level"=>1])->select("id","title")->get();
         $appList=array();
@@ -154,13 +152,15 @@ class RoleController extends BaseController{
      * 保存应用授权
      */
     public function setApp(){
-        $groupId=isset($_POST["groupId"]) ? $_POST["groupId"] : "";//角色id
-        $id=isset($_POST["groupAppId"]) ? $_POST["groupAppId"] : "";//项目的id
+
+        $groupId = isset($_POST["groupId"]) ? $_POST["groupId"] : "";           //角色id
+        $appId   = isset($_POST["groupAppId"]) ? $_POST["groupAppId"] : array();//应用id
+
         if($groupId){
-            $appList=DB::table("accesss")->where(["level"=>1])->where("role_id",$groupId)->delete();
+            DB::table("accesss")->where(["level"=>1])->where("role_id",$groupId)->delete(); //删除当前角色组下的所有权限
         }
-        if($id){
-            foreach($id as $v){
+        if($appId){
+            foreach($appId as $v){
                 $data["role_id"]=$groupId;
                 $data["node_id"]=$v;
                 $data["pid"]=0;
@@ -181,14 +181,16 @@ class RoleController extends BaseController{
      * 模块授权
      */
     public function module(){
-        $request=request();
-        $groupId=isset($request->groupId) ? $request->groupId: "" ;
-        $appId=isset($request->appId) ? $request->appId: "";
-        //读取系统组列表(角色列表)
+        
+        $request = request();
+        $groupId = isset($request->groupId) ? $request->groupId: "" ;   //获取角色id
+        $appId   = isset($request->appId) ? $request->appId: "";        //获取应用id      
+        
+        //读取角色列表
         $list=DB::table("roles")->select("id","name")->get();
         $groupList=array();
         foreach($list as $vo){
-            $groupList[$vo->id]=$vo->name;
+            $groupList[$vo->id]=$vo->name; 
         }
         //var_dump($groupList);die;
         $appList=array();
@@ -199,7 +201,6 @@ class RoleController extends BaseController{
                 $appList[$vo->id]=$vo->title;
             }
         }
-
 //        var_dump($appList);die;
         $moduleList=array();
         if(!empty($appId)){
@@ -209,7 +210,6 @@ class RoleController extends BaseController{
                 $moduleList[$vo->id]=$vo->title;
             }
         }
-
 //        var_dump($moduleList);die;
         //获取当前项目的模块授权信息
         $groupModuleList=array();
@@ -227,16 +227,18 @@ class RoleController extends BaseController{
      * 保存模块授权
      */
     public function setModule(){
-        $id=isset($_POST["groupModuleId"]) ? $_POST["groupModuleId"] : "";
-        $groupId=isset($_POST["groupId"]) ? $_POST["groupId"] : "";
-        $appId=isset($_POST["appId"]) ? $_POST["appId"] : "";
+        
+        $moduleId = isset($_POST["groupModuleId"]) ? $_POST["groupModuleId"] : array();       //获取模块id
+        $groupId  = isset($_POST["groupId"]) ? $_POST["groupId"] : "";                        //获取角色组id
+        $appId    = isset($_POST["appId"]) ? $_POST["appId"] : "";                            //获取应用id
+        
         //删除当前组的模块列表
         if($groupId && $appId){
             $moduleList=DB::table("accesss")->where(["pid"=>$appId,"role_id"=>$groupId,"level"=>2])->delete();
         }
         //保存模块授权
-        if($id){
-            foreach($id as $v){
+        if($moduleId){
+            foreach($moduleId as $v){
                 $data["role_id"]=$groupId;
                 $data["node_id"]=$v;
                 $data["pid"]=$appId;

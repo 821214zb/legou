@@ -15,7 +15,7 @@
 <div class="panel admin-panel">
     <div class="panel-head">
         <strong><span class="icon-key"></span> 添加权限</strong>
-        <strong  style="float: right"><span class="icon-paper-plane-o"></span> <a href="/node/index/0">【返回权限列表】</a></strong></strong>
+        <strong  style="float: right"><span class="icon-paper-plane-o"></span> <a href="/node/show/0">【返回权限列表】</a></strong></strong>
     </div>
     <div class="body-content">
         <form method="post" class="form-x" action="/node/add">
@@ -81,7 +81,7 @@
                 <div class="field">
                     <select  type="text" class="input w50" name="status"  required="required">
                         <option value="0">--请选择--</option>
-                        <option value=1 >显示</option>
+                        <option value=3 >显示</option>
                         <option value=0 >禁用</option>
                     </select>
                 </div>

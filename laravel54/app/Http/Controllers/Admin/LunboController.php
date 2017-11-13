@@ -7,7 +7,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
 use App\Lunbo;
 use DB;
-class LunboController extends BaseController{
+class LunboController extends CommonController{
     /**
      * 轮播图列表
      */
@@ -15,23 +15,21 @@ class LunboController extends BaseController{
         $list=Lunbo::show();
         return view('Admin.lunbo.show',['lunbo'=>$list]);
     }
-
-    /**
-     * 添加展示表单
-     */
-    public function add(){
-        return view ("Admin.Lunbo.add");
-    }
-
+    
     /**
      * 添加
      */
-    public function addPost(){
-        $res=Lunbo::addPost();
-        if($res){
-            return redirect('/lunbo/show');
+    public function add(){
+       
+        if($_POST){
+            $res=Lunbo::addPost();
+            if($res){
+                return redirect('/lunbo/show');
+            }else{
+                return "添加失败!";
+            } 
         }else{
-            return "添加失败!";
+            return view ("Admin.Lunbo.add");
         }
     }
     

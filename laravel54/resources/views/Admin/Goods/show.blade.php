@@ -15,7 +15,7 @@
     <script src="/Admin/js/layer/layer.js"></script>
 </head>
 <body>
-<form method="post" action="show" id="listform">
+<form method="get" action="show" id="listform">
     {{ csrf_field() }}
     <div class="panel admin-panel">
         <div class="panel-head"><strong class="icon-reorder"> 商品列表</strong> <a href="" style="float:right; display:none;">添加字段</a></div>
@@ -24,14 +24,13 @@
         </div>
         <div class="padding border-bottom">
             <ul class="search" style="padding-left:10px;">
-                <!--<li> <a class="button border-main icon-plus-square-o" href="add.blade.php"> 发布文章</a> </li>-->
                 <if condition="$iscid eq 1">
                     <li>
                         <select name="cate_id" class="input" style="width:150px; line-height:17px;" onchange="changesearch()">
                             <option value="">所有分类</option>
-                            <?php foreach ($cateList as $v){?>
-                            <option value="<?php echo $v["id"]; ?>" style="width:150px; line-height:17px;"><?php echo $v["s"];?><?php echo $v["cate_title"];?></option>
-                            <?php } ?>
+                            @foreach($data as $v)
+                                <option value="{{$v->id}}">{{$v->cate_title}}</option>
+                            @endforeach
                         </select>
                     </li>
                 </if>
@@ -47,19 +46,11 @@
                 </if>
                 <if condition="$iscid eq 1">
                     <li>
-                        <select name="cid" class="input" style="width:100px; line-height:17px;" onchange="changesearch()">
-                            <option value="">推荐位</option>
-                            <option value="">特价</option>
-                            <option value="">热销</option>
-                        </select>
-                    </li>
-                </if>
-                <if condition="$iscid eq 1">
-                    <li>
-                        <select name="cid" class="input" style="width:100px; line-height:17px;" onchange="changesearch()">
-                            <option value="">供货商</option>
-                            <option value="">供货商</option>
-                            <option value="">供货商</option>
+                        <select name="shop_id" class="input" style="width:100px; line-height:17px;" onchange="changesearch()">
+                            <option value="">店铺</option>
+                            @foreach($shops as $v)
+                                <option value="{{$v->uid}}">{{$v->name}}</option>
+                            @endforeach
                         </select>
                     </li>
                 </if>
@@ -74,10 +65,11 @@
                     </li>
                 </if>
                 <li>
-                    <input type="text" placeholder=""  class="input" style="width:250px; line-height:17px;display:inline-block" />
+                    <input type="text" placeholder=""  class="input" name="keywords" style="width:250px; line-height:17px;display:inline-block" />
                     <input class="button border-main icon-search" type="submit" value="查询" >
             </ul>
         </div>
+</form>
         <table class="table table-hover text-center">
             <tr>
                 <th width="100" style="text-align:left; padding-left:20px;">编号</th>
@@ -124,10 +116,9 @@
                     <td colspan="10" style="text-align:left;padding-left:20px;"><a href="javascript:void(0)" class="button border-red icon-trash-o" style="padding:5px 15px;" onclick="DelSelect()" id="del" >删除</a>
                 </tr>
         </table>
-        <div class="pagelist">  {{ $goods->links() }}</div>
-
+        <div class="pagelist">{{$goods->appends(['keywords'=>$keywords,'cate_id'=>$cate_id,'brand_id'=>$brand_id,'shop_id'=>$shop_id,'status'=>$status])->links() }}</div>
     </div>
-</form>
+
 <script  type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
 //删除

@@ -14,8 +14,9 @@ class GoodController extends Controller{
      * $goods 展示商品详情
      */
     public function goods_list($id){
-        if($_GET){
-            $keyword=isset($_GET["keyword"]) ? $_GET["keyword"] : "";
+        $request=request();
+        $keyword=isset($request["keyword"]) ?$request["keyword"] : "";
+        if($keyword){
             $list=DB::table("goods")->where('goods_name','like','%'.$keyword.'%')->paginate(4);
             return view("flower_k",["list"=>$list,'keyword'=>$keyword]);
         }else{

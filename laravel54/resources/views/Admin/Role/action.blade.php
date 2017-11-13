@@ -15,7 +15,7 @@
 <script type="text/javascript">
     function group(id){
 //        alert(id);
-        location.href="/role/action/groupId/"+id;
+        location.href="/role/action/"+id;
     }
     function app(id){
         var option = document.getElementsByName("option[]");

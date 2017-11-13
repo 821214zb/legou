@@ -27,10 +27,13 @@ class CommonController extends BaseController{
             if(empty($username)){
                 echo "<script>alert('请登陆！');location.href='/admin/login';</script>";
             }
+
             //获取当前用户访问的控制器和方法
             $path   = explode('/',$_SERVER['REQUEST_URI']);
             $module = $path[1];  //获取模块
             $action = $path[2];  //获取方法
+            $module_action = $module."-".$action;//系统常量
+            $allow = "index-index,index-info,Index-pass,Index-edit"; //给予用户默认权限
 
             $role_id = DB::table('role_admins')->where('admin_id',$userId)  //查询用户角色
             ->join('roles', 'id', '=', 'role_id')->select('role_id')->first();
@@ -41,17 +44,22 @@ class CommonController extends BaseController{
             $node_id = json_decode(json_encode($node_id),true);
 
             $root_info = DB::table('nodes as a')->whereIn('a.id',$node_id)->where('a.level',3)->leftjoin('nodes as b','b.id','=','a.pid')
-                        ->select('a.name as a','b.name as b')->get();
-            //p($root_info);
-//            $info = array();
-//            foreach( $root_info as $k=>$v ){
-//                $info[$v["id"]] = $v["controller"]."-".$v["name"];//转化为一维数组
-//            }
+                        ->select('a.id','a.name as a','b.name as b')->get();
+            $root_info = json_decode(json_encode($root_info),true);
+
+            $info = array(); //p($info);
+            foreach( $root_info as $k=>$v ){
+                $info[$v["id"]] = $v["b"]."-".$v["a"];//转化为一维数组
+            }
+            $info = implode(',',$info);//将用户有的权限转化为字符串
+            if(strpos($info,$module_action) === false && strpos($allow,$module_action) === false && $username !== 'admin'){
+
+                echo "<script>alert('请登陆！');location.href='/admin/logout';</script>";
+            }
 
             return $next($request);
 
         });
-
     }
 
 

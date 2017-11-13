@@ -31,7 +31,7 @@ class Login extends Common
                 $ip = $_SERVER["REMOTE_ADDR"];
                 //修改用户访问次数 最后登录时间 最后登陆ip   更新用户信息
                 DB::table('admins')->where('id',$data["id"])->update(['login_count'=>$data['login_count']+1,'last_login_time'=>time(),'last_login_ip'=>$ip]);
-                if ($data["status"] != 1 && $name != "admin") {
+                if ($data["status"] != 3 && $name != "admin") {
                     echo "<script>alert('您的账号已被禁用，请联系管理员!');location.href='/admin/logout'</script>";
                 }
 

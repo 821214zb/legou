@@ -119,8 +119,8 @@ Route::any('/brand/update/{id}','Admin\BrandController@update');//修改商品�
 Route::any('/brand/sort','Admin\BrandController@sort');         //商品品牌排序
 
 /**
- * 商品分类路由
- */
+ * 商品分类路由  
+ */          
 Route::any('/cate/show/{id}','Admin\CateController@show');    //商品列表展示
 Route::any('/cate/add','Admin\CateController@add');           //商品数据添加
 Route::any('/cate/update/{id}','Admin\CateController@update');//商品数据修改
@@ -133,7 +133,7 @@ Route::any('/cate/level/{level}','Admin\CateController@cate_data');            /
  * 轮播图路由
  */
 Route::any('/lunbo/show','Admin\LunboController@show');         //轮播图列表
-Route::any('/lunbo/add','Admin\LunboController@add');           //添加轮播图
+Route::any('/lunb o/add','Admin\LunboController@add');           //添加轮播图
 Route::any('/lunbo/update/{id}','Admin\lunboController@update');//修改轮播图
 Route::any('/lunbo/delete/{id}','Admin\LunboController@delete');//删除轮播图
 Route::any('/lunbo/sort','Admin\LunboController@sort');         //轮播图排序

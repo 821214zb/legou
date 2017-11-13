@@ -69,20 +69,11 @@
         });
 
         });
-        seajs.off('load')
-        seajs.off('fetch')
+        seajs.off('load');
+        seajs.off('fetch');
         seajs.data.charset = 'gb2312'
     </script>
-    <script>
-        (function uncl (t, e) {
-            t[e] = t[e] || function () {(t[e].q = t[e].q || []).push(arguments)}, t[e].t = 1 * new Date
-            var n = document.createElement('script')
-            n.type = 'text/javascript', n.async = !0, n.src = '//static.queit.in/sdk.js'
-            var a = document.getElementsByTagName('script')[0]
-            a.parentNode.insertBefore(n, a)
-        })(window, 'uncl')
-        uncl('create', 'jd')
-    </script>
+
     <link charset="gb2312" rel="stylesheet" href="css/dialog.css"></head>
 <body>
 <div id="form-header" class="header">
@@ -149,7 +140,7 @@
                 <div class="item-phone-wrap">
                     <div class="form-item form-item-phone">
                         <label class="select-country" id="select-country" country_id="0086">中国 0086<a href="javascript:void(0)" tabindex="-1" class="arrow"></a></label>
-                        <input id="form-phone" name="mobile" class="field" placeholder="请输入11位手机号" autocomplete="off" value="{{old('mobile')}}"maxlength="11" type="text" ><span class="mobile_hint" style="margin-left: 45px;"></span>
+                        <input id="form-phone" name="mobile" class="field"  token="{{csrf_token()}}" placeholder="输入手机号获取注册验证码" autocomplete="off" value="{{old('mobile')}}"maxlength="11" type="text" ><span class="mobile_hint" style="margin-left: 45px;"></span>
                     </div>
                     <div class="input-tip">
                     <span style="color:red;">
@@ -162,25 +153,52 @@
                 </div>
                 <div class="form-item form-item-authcode">
                     <label>验　证　码</label>
-                    <input autocomplete="off" name="code" id="code" maxlength="6" class="field form-authcode" placeholder=" "  type="text">
+                    <input autocomplete="off" name="code" id="code" maxlength="6" class="field form-authcode" placeholder=" 请输入右侧验证码"  type="text">
                     <a onclick="javascript:re_captcha();" ><img src="{{ URL('/zhuce/1') }}"  title="刷新图片" width="80" height="30" id="c2c98f0de5a04167a9e427d883690ff6" border="0"></a>
                 </div>
                 <div class="input-tip">
-                    <span></span>
+                    <span style="color:red;">
+                        @if($errors->has('code'))
+                            {{$errors->first('code')}}
+                        @endif
+                    </span>
                 </div>
                 <div class="form-item form-item-phonecode">
                     <label>手机验证码</label>
-                    <txt style="position: absolute; z-index: 2; line-height: 46px; margin-left: 20px; margin-top: 1px; font-size: 14px; font-family: &quot;Microsoft YaHei&quot;,&quot;Hiragino Sans GB&quot;; color: rgb(204, 204, 204); display: inline;">请输入手机验证码</txt><input name="phone" maxlength="6" id="phoneCode" class="field phonecode" placeholder=" " autocomplete="off" type="text" value="{{old('user_name')}}">
-                    <button id="getPhoneCode" class="btn-phonecode" type="button">获取验证码</button>
+                   <input name="verify"  maxlength="13" type="text" placeholder=" 请填写手机验证码" autocomplete="off" class="field form-authcode" value="{{old('verify')}}">
+                    <button id="btn" class="btn-phonecode" type="button" >获取验证码</button>
                     <i class="i-status"></i>
                 </div>
                 <div class="input-tip">
+<<<<<<< HEAD
+=======
+                     <span style="color:red;">
+                        @if($errors->has('verify'))
+                             {{$errors->first('verify')}}
+                         @endif
+                    </span>
+>>>>>>> e47af635829730e4153d370207ebef555ebc3c22
                 </div>
                 <div>
                     <button type="submit" class="btn-register">立即注册</button>
                 </div>
             </form><div id="country_code_layer" style="display: none;"><iframe scrolling="no" style="background-color:transparent; position: absolute; z-index: -1; width: 100%; height: 100%; top: 0; left:0;" frameborder="0"></iframe><div><a class="arrow"></a><div class="search-bar"><b class="search-icon"></b><input placeholder="搜索您的国家和地区" id="inputSearch" type="text"></div><div id="result"><div class="capital-list"><ul></ul></div><div class="current-capital"><span id="currentCapital">A</span><span class="line"></span></div><div class="country-list"><div id="scrollbar2" class="scrollbar_all"><div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div><div class="viewport"><div class="overview"><ul></ul></div></div></div></div></div><div id="no-result">未找到国家或地区</div></div></div>
         </div>
+        <!--手机验证码-->
+        <script type="text/javascript">
+            $('#btn').click(function(){
+                var tel = $.trim($('#form-phone').val());//获取手机号码
+                var username = $.trim($('#form-account').val());//获取用户名
+                var token = $.trim($('#form-phone').attr('token'));//获取口令牌
+                $.post('/app', {'tel':tel,'username':username,'_token':token},function(res){
+                    if (res) {
+                        alert(res);
+                    } else {
+                        alert('发送失败');
+                    }
+                });
+            });
+        </script>
         <div id="form-company" class="reg-other">
             <div class="company-reg">
                 <a href="https://reg.jd.com/reg/company" target="_blank" clstag="pageclick|keycount|201612011|3">
@@ -219,16 +237,7 @@
 <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
 <script src="/js/JavaScript.js"></script>
 <script type="text/javascript">
-    var localmisc = $('#localmisc')
-    if (1 == localmisc.val()) {
-        seajs.use('/misc2016/js/localRegister', function (reg) {
-            reg.init()
-        })
-    } else {
-        seajs.use('//misc.360buyimg.com/user/reg/1.0.0/js/register-170820', function (reg) {
-            reg.init()
-        })
-    }
+
 
     function re_captcha() {
         $url = "{{ URL('/zhuce') }}";
@@ -239,17 +248,6 @@
 </script>
 <script type="text/javascript" src="%E4%B8%AA%E4%BA%BA%E6%B3%A8%E5%86%8C_files/jseqf.htm"></script>
 <script src="%E4%B8%AA%E4%BA%BA%E6%B3%A8%E5%86%8C_files/td.js"></script><script src="%E4%B8%AA%E4%BA%BA%E6%B3%A8%E5%86%8C_files/y.htm"></script>
-<script type="text/javascript">
-    $(function () {
-        getJdEid(function (eid, fpid) {
-            $('#eid').val(eid)
-            $('#sessionId').val(fpid)
-            uncl('set', 'session-id', $('#uuid').val())
-        })
-    })
-
-
-</script>
 <a target="_blank" href="https://surveys.jd.com/index.php?r=survey/index/sid/447941/lang/zh-Hans" class="feedback" style="margin-top: -85px; position: fixed; right: 0px; bottom: 50%;"></a>
 
 

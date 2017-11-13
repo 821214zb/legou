@@ -18,7 +18,7 @@
                 $('#goods_style').hide();
             }
             $.ajax({
-                url:'cate_data/level/'+level,
+                url:'level/'+level,
                 type:'get',
                 dataType:'json',
                 success:function(data){

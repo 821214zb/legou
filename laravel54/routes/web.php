@@ -107,6 +107,7 @@ Route::any('/goods/add','Admin\GoodsController@add');                  //商品�
 Route::any('/goods/update/{gid}','Admin\GoodsController@update');      //商品数据修改
 Route::any('/goods/delete/{id}','Admin\GoodsController@delete');       //商品数据删除
 Route::any('/goods/addTwo','Admin\GoodsController@addTwo');            //商品属性添加
+Route::any('/goods/updateTwo/{gid}','Admin\GoodsController@updateTwo');//商品属性修改
 Route::any('/goods/linkage/{pid}','Admin\GoodsController@linkage');    //分类三级联动
 /**
  * 商品品牌路由（注意：分类无修改操作）
@@ -118,6 +119,7 @@ Route::any('/brand/update/{id}','Admin\BrandController@update');//修改商品�
 Route::any('/brand/sort','Admin\BrandController@sort');         //商品品牌排序
 
 /**
+<<<<<<< HEAD
  * 商品分类路由
  */
 Route::any('/cate/show/{id}','Admin\CateController@show');    //商品列表展示
@@ -133,6 +135,7 @@ Route::any('/cate/level/{level}','Admin\CateController@cate_data');            /
  */
 Route::any('/lunbo/show','Admin\LunboController@show');         //轮播图列表
 Route::any('/lunbo/add','Admin\LunboController@add');           //添加轮播图
+Route::any('/lunb o/add','Admin\LunboController@add');           //添加轮播图
 Route::any('/lunbo/update/{id}','Admin\lunboController@update');//修改轮播图
 Route::any('/lunbo/delete/{id}','Admin\LunboController@delete');//删除轮播图
 Route::any('/lunbo/sort','Admin\LunboController@sort');         //轮播图排序

@@ -233,6 +233,7 @@ class Good extends Model{
         $rows = DB::table('brands')->select('id','brand_name')->get();
         return $rows;
     }
+<<<<<<< HEAD
     
     //添加商品时公共的方法
     public function publicAdd($size,$color,$table,$goods_id){
@@ -325,4 +326,41 @@ class Good extends Model{
         }
     }
     
+=======
+
+    /*
+     * 商品具体列表 通过分类id获取相对应的品牌展示
+     * */
+    public static function getBrand($id){
+
+        $row = DB::table('goods')->select('goods_brand')->where('goods_category',$id)->get();
+        $data = json_decode(json_encode($row),true);
+        $ids = '';
+        $count = count($data);
+        for($i = 0; $i < $count; $i++){
+            $ids .= $data[$i]['goods_brand'].',';
+        }
+        $sum = substr($ids,1);
+        $id1 = rtrim($sum,',');
+        $id2 = ltrim($id1,',');
+        $id3   = array_unique(explode(',',$id2));
+        return DB::table('brands')->select('brand_name')->whereIn('id',$id3)->get();
+
+    }
+
+    /*
+     * 商品具体列表 通过分类id获取相对应的分类 展示
+     * */
+    public static function getCate($id){
+
+        $row = DB::table('cates')->select('cate_pid')->where('id',$id)->first();
+        $pid = $row->cate_pid;
+        return DB::table('cates')->select('cate_title')->where('cate_pid',$pid)->get();
+       
+
+    }
+
+   
+
+>>>>>>> e47af635829730e4153d370207ebef555ebc3c22
 }

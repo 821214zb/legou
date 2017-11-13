@@ -15,7 +15,7 @@
 <div class="panel admin-panel">
     <div class="panel-head">
         <strong><span class="icon-key"></span> 添加推荐位</strong>
-        <strong  style="float: right"><span class="icon-paper-plane-o"></span> <a href="/posid">【返回推荐位列表】</a></strong></strong>
+        <strong  style="float: right"><span class="icon-paper-plane-o"></span> <a href="/posid/show">【返回推荐位列表】</a></strong></strong>
     </div>
     <div class="body-content">
         <form method="post" class="form-x" action="/posid/add">

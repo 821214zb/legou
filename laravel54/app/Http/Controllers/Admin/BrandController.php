@@ -7,7 +7,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
 use App\Brand;
 use DB;
-class BrandController extends BaseController{
+class BrandController extends CommonController{
     /**
      * 品牌展示
      */
@@ -25,15 +25,15 @@ class BrandController extends BaseController{
      * 添加品牌
      */
     public function add(){
-        return view('Admin.brand.add');
-    }
-    
-    public function addPost(){
-        $res=Brand::addPost();
-        if($res){
-            return redirect('/brand/show');
+        if($_POST){
+            $res=Brand::addPost();
+            if($res){
+                return redirect('/brand/show');
+            }else{
+                return "添加失败!";
+            }
         }else{
-            return "添加失败!";
+            return view('Admin.brand.add');
         }
     }
 

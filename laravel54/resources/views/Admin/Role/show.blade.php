@@ -37,8 +37,6 @@
                 <th>删除？<input type="checkbox" name="box" id="checkAll"></th>
                 <th>角色名称</th>
                 <th>描述</th>
-                <th>创建时间</th>
-                <td>修改时间</td>
                 <th>状态</th>
                 <th width="200">操作</th>
                 <th>授权</th>
@@ -48,8 +46,6 @@
                     <td><input class="input" type="checkbox" value="{{$v->id}}" id="check{{$v->id}}" name="check">{{$v->id}}</td>
                     <td>{{$v->name}}</td>
                     <td>{{$v->remark}}</td>
-                    <td>{{date("y-m-d h:i:s",$v->create_time)}}</td>
-                    <td>{{date("y-m-d h:i:s",$v->update_time)}}</td>
                     <td>
                         @if($v->status == 3 ) <img src="/images/brand/ok.gif" alt="正常" height="20" border="0" width="20" />
                         @elseif($v->status == 0 )<img src="/images/brand/del.gif" alt="删除" height="20" border="0" width="20" />
@@ -62,8 +58,8 @@
                     </td>
                     <td>
                         <div class="button-group">
-                            <a class="button border-main" href="/role/app/groupId/{{$v->id}}" >授权</a>
-                            <a class="button border-main" href="/role/uList/groupId/{{$v->id}}" >用户列表</a>
+                            <a class="button border-main" href="/role/app/{{$v->id}}" >授权</a>
+                            <a class="button border-main" href="/role/uList/{{$v->id}}" >用户列表</a>
                         </div>
                     </td>
                 </tr>

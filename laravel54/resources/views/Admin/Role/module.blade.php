@@ -14,19 +14,16 @@
 </script>
 <script type="text/javascript">
     function group(id){
-        location.href="/role/module/groupId/"+id;
+        location.href="/role/module/"+id;
     }
     function app(id){
         var option = document.getElementsByName("option[]");
-//        alert(option[2].value);return false;
         for(var i=0;i<option.length;i++){
             if(option[i].selected == true){
                 var groupId = option[i].value;
             }
         }
-
-        //alert(groupId);return false;
-        location.href =  "/role/module/appId/"+id+"/groupId/"+groupId;
+        location.href =  "/role/modules/"+id+"/"+groupId;
     }
 </script>
 <style type="text/css">
@@ -84,13 +81,14 @@
     }
 </style>
 <body>
-<form method="post">
+<form method="post" action="/role/setModule">
+    {{csrf_field()}}
     <div class="title">应用授权 [ <a href="/role/show">返 回</a> ]</div>
     <div class="header">
         <div class="header_1">
-            <a href="/role/app/groupId/{{$id}}">应用授权</a>|
+            <a href="/role/app/{{$id}}">应用授权</a>|
             <a href="">模块授权</a>|
-            <a href="/role/action/groupId/{{$id}}">操作授权</a>
+            <a href="/role/action/{{$id}}">操作授权</a>
         </div>
     </div>
     <div class="user">
@@ -99,7 +97,7 @@
                 当前组：
                 <select  id= "groupId" class="input" style="width: auto;" name="groupId" >
                     @foreach($groupList  as  $key=>$val)
-                        <option value="{{$key}}" onclick="group({{$key}})"
+                        <option name="option[]" value="{{$key}}" onclick="group({{$key}})"
                             @if($selectGroupId == $key)
                                 selected
                             @endif
@@ -113,27 +111,30 @@
                 当前应用：
                 <select class="input" id= "appId" style="width: auto;" name="appId">
                     <option value="0">选择应用</option>
-                    @foreach($groupAppList as $key=>$val)
+                    @foreach($appList as $key=>$val)
                         <option value="{{$key}}" onclick="app({{$key}})"
                             @if($selectAppId == $key)
                                 selected
                             @endif
+                                onclick ="app({{$key}})"
                         >{{$val}}</option>
                     @endforeach
                 </select>
-                {{--<table>--}}
-                    {{--<foreach name="moduleList" item="vo" key="k">--}}
-                        {{--<tr>--}}
-                            {{--<td>--}}
-                                {{--<input type="checkbox" name="groupModuleId[]" value="{$k}"--}}
-                                {{--<if condition="$groupModuleList[$k] eq $k">--}}
-                                    {{--checked--}}
-                                {{--</if>--}}
-                                {{--/>{$vo}--}}
-                            {{--</td>--}}
-                        {{--</tr>--}}
-                    {{--</foreach>--}}
-                {{--</table>--}}
+                <table>
+                   @foreach($moduleList as $key=>$val)
+                       <tr>
+                           <td>
+                               <input type="checkbox" name="groupModuleId[]" value="{{$key}}"
+                                    @foreach($groupModuleList as $k=>$v)
+                                        @if($key==$k)
+                                            checked
+                                        @endif
+                                    @endforeach
+                               > {{$val}}
+                           </td>
+                       </tr>
+                   @endforeach
+                </table>
             </div>
         </div>
         <div class="footer">
@@ -141,6 +142,7 @@
                 <input type="button" class="qx" value="全选">
                 <input type="button" class="fx" value="反选">
                 <input type="button" class="xf" value="全否">
+                <button type="submit" class="buttom border-main"><span class="icon-edit"></span>保存</button>
             </div>
         </div>
     </div>

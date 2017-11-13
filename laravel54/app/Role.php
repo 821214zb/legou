@@ -23,7 +23,6 @@ class Role extends Model{
                 'name'=>$request->name,
                 'status'=>$request->status,
                 'remark'=>$request->remark,
-                'create_time'=>time(),
             )
         );
         return $row;
@@ -44,7 +43,6 @@ class Role extends Model{
                 'name'=>$request->name,
                 'remark'=>$request->remark,
                 'status'=>$request->status,
-                'update_time'=>time(),
             )
         );
         return $res;

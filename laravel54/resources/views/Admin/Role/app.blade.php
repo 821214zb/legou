@@ -14,7 +14,7 @@
 </script>
 <script type="text/javascript">
     function group(id){
-        location.href="/role/app/groupId/"+id;
+        location.href="/role/app/"+id;
     }
 </script>
 <style type="text/css">
@@ -83,8 +83,8 @@
     <div class="header">
         <div class="header_1">
             <a href="">应用授权</a>|
-            <a href="/role/module/groupId/{{$id}}">模块授权</a>|
-            <a href="/role/action/groupId/{{$id}}">操作授权</a>
+            <a href="/role/module/{{$id}}">模块授权</a>|
+            <a href="/role/action/{{$id}}">操作授权</a>
         </div>
     </div>
     <div class="user">

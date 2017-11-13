@@ -10,7 +10,7 @@ use App\Cate;
 use Illuminate\Http\Request;
 //use Symfony\Component\HttpFoundation\Request;
 
-class CateController extends BaseController
+class CateController extends CommonController
 {
 
     /**

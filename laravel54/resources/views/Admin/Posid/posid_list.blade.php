@@ -99,7 +99,7 @@
 </head>
 <body>
 <div class="panel admin-panel">
-    <div class="panel-head"><strong class="icon-reorder"> 推荐位详情管理</strong><a style="float: right;font-size: 14px;font-weight: bold;" href="/posid">返回推荐位列表</a></div>
+    <div class="panel-head"><strong class="icon-reorder"> 推荐位详情管理</strong><a style="float: right;font-size: 14px;font-weight: bold;" href="/posid/show">返回推荐位列表</a></div>
     <div class="padding border-bottom">
         <form action="show" method="get">
             <input type="text" placeholder=""  name="cate_title" class="input" style="width:250px; line-height:17px;display:inline-block" />

@@ -14,11 +14,11 @@
 <body>
   <div class="panel admin-panel">
     <div class="panel-head"><strong class="icon-reorder"> 权限列表</strong> <a href="" style="float:right; display:none;">添加字段</a></div>
-  <form method="post" action="/node/index/0" id="listform">
+  <form method="post" action="/node/show/0" id="listform">
 	  {{ csrf_field() }}
     <div class="padding border-bottom">
       <ul class="search" style="padding-left:10px;">
-        <li>关键词：<input type="text" placeholder="输入会员电话、名称、邮箱" name="keywords" id="keywords" class="input" style="width:250px; line-height:17px;display:inline-block" /> <input type="submit" class="button border-main icon-search" value="搜索" /></li>
+        <li>关键词：<input type="text" placeholder="输入会员电话、名称、邮箱" name="keywords" id="keywords" style="width:250px; line-height:17px;display:inline-block" /> <input type="submit" class="button border-main icon-search" value="搜索" /></li>
 		  <li><a class="button border-main" href="/node/add"><span class="icon-plus"></span> 新增</a></li>
       </ul>
     </div>
@@ -98,7 +98,7 @@
 				dataType:'json',
 				success: function(data){
 					alert(data);
-					window.location.reload("Admin/node/index/0");
+					window.location.reload("/node/show/0");
 				},
 				error:function(){
 					alert('error');
@@ -116,12 +116,12 @@
 			});
 			ids = ids.substr(1);
 			$.ajax({
-				url:"/node/del/"+ids,
+				url:"/node/delete/"+ids,
 				type: "get",
 				dataType:'json',
 				success: function(data){
 					alert(data);
-					window.location.reload("Admin/node/index/0");
+					window.location.reload("Admin/node/show/0");
 				},
 				error:function(){
 					alert('error');

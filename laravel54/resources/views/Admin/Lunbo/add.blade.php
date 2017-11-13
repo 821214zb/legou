@@ -21,7 +21,7 @@
             <div class="tab-body">
                 <div class="tab-panel active" id="tab-b">
                     <div class="common-info">
-                        <form class="form-x" action="/lunbo/addPost" method="post" enctype="multipart/form-data">
+                        <form class="form-x" action="/lunbo/add" method="post" enctype="multipart/form-data">
                             {{csrf_field()}}
                             <div class="form-group">
                                 <div class="label">

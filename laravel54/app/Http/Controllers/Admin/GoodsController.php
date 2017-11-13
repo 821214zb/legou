@@ -11,7 +11,7 @@ use Intervention\Image\ImageManager;
 use DB;
 use App\Good;
 
-class GoodsController extends BaseController{
+class GoodsController extends CommonController{
     /**
      * 商品列表
      */

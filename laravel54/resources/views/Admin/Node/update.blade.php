@@ -15,7 +15,7 @@
 <div class="panel admin-panel">
     <div class="panel-head">
         <strong><span class="icon-key"></span> 修改权限</strong>
-        <strong  style="float: right"><span class="icon-paper-plane-o"></span> <a href="/node/index/0">【返回权限列表】</a></strong></strong>
+        <strong  style="float: right"><span class="icon-paper-plane-o"></span> <a href="/node/show/0">【返回权限列表】</a></strong></strong>
     </div>
     <div class="body-content">
         <form method="post" class="form-x" action="/node/update/0">

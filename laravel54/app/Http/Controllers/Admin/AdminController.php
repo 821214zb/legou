@@ -11,7 +11,7 @@ class AdminController extends CommonController{
     /**
      * 管理员列表
      */
-    public function show($keyword=""){
+    public function show($keyword=""){ 
         if($_GET){
             $keyword=$_GET['keyword']?$_GET['keyword']:"";
             $list=DB::table('admins')->where('account','like','%'.$keyword.'%')->paginate(3);
@@ -20,23 +20,20 @@ class AdminController extends CommonController{
         }
         return view('Admin.admin.show',['admin'=>$list,'keyword'=>$keyword]);
     }
-
-    /**
-     * 展示表单
-     */
-    public function add(){
-        return view ("Admin.admin.add");
-    }
     
     /**
      * 添加用户
      */
-    public function addPost(){
-        $row=Admin::addPost();
-        if($row){
-            return redirect("/admin/show");
+    public function add(){
+        if($_POST){
+            $res=Admin::addPost();
+            if($res){
+                return redirect("/admin/show");
+            }else{
+                return "添加失败!";
+            }
         }else{
-            return "添加失败!";
+            return view ("Admin.admin.add");
         }
     }
 

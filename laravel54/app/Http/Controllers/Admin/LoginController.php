@@ -10,8 +10,7 @@ use Illuminate\Support\Facades\URL;
 use Gregwar\Captcha\CaptchaBuilder;
 use App\Login;
 
-class LoginController extends CommonController
-{
+class LoginController {
 
     /**
      * 登录页面
@@ -47,29 +46,28 @@ class LoginController extends CommonController
         $builder->output();
     }
 
-    // 登出
-    public function getLogout()
-    {
-        Auth::logout();
-        return Redirect::to('/');
-    }
-
-
-    /**
-     * 登录验证通过后默认跳转的地址
-     */
-    protected function redirectTo()
-    {
-        return '/';
-    }
+//    // 登出
+//    public function getLogout()
+//    {
+//        Auth::logout();
+//        return Redirect::to('/');
+//    }
+//
+//
+//    /**
+//     * 登录验证通过后默认跳转的地址
+//     */
+//    protected function redirectTo()
+//    {
+//        return '/';
+//    }
 
 
     public function logout()
     {
         //移除session
         Session::flush();
-        return view('Admin.Login.login');
-
+        return redirect('/admin/login');
     }
 
 
@@ -86,9 +84,22 @@ class LoginController extends CommonController
      */
 
 
-    public function __construct()
+//    public function __construct()
+//    {
+//        //dd($this->middleware('guest', ['except' => 'logout']));
+//        $this->middleware('guest', ['except' => 'logout']);
+//    }
+
+
+    //生成5个随机数   供盐值使用
+    public static function str_rand ()
     {
-        //dd($this->middleware('guest', ['except' => 'logout']));
-        $this->middleware('guest', ['except' => 'logout']);
+        $str = "abcdefghijkmnpqrstuvwxyz0123456789ABCDEFGHIGKLMNPQRSTUVWXYZ";//设置被随机采集的字符串
+        $codeLen = '6';//设置生成的随机数个数
+        $rand = "";
+        for ($i = 0; $i < $codeLen - 1; $i++) {
+            $rand .= $str[mt_rand(0, strlen($str) - 1)];  //如：随机数为30  则：$str[30]
+        }
+        return $rand;
     }
 }

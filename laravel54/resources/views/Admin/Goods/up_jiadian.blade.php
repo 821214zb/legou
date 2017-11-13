@@ -23,7 +23,7 @@
 <body>
 <div class="panel admin-panel">
     <ul class="ul">
-        <li><div class="div_li"><a href="/goods/update/{{$goodsInfo->id}}" class="icon-reorder">修改商品通用信息</a></div></li>
+        <li><div class="div_li"><a href="/goods/update/{{$goods_id}}" class="icon-reorder">修改商品通用信息</a></div></li>
         <li><div class="div_li"><a href="" class="icon-reorder">修改商品属性信息</a></div></li>
     </ul>
     <div class="tab-box">
@@ -32,28 +32,43 @@
                 <div class="common-info">
                     <form class="form-x" action="update" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
-
-
                         <div id="bel">
-                            <label style="margin-left: 70px;">电器尺寸：</label>
-                            <input type="text"  name="size[]" />
-                            <input type="button" value="+ 添加" id="btn2" size="sizeInfo"><br />
-                        </div><br />
+                            <div>
+                                <label>电器尺寸：</label>
+                            </div>
+                            <?php foreach (isset($jiadian_arr['size']) ? $jiadian_arr['size']:["请输入"] as $v){?>
+                            <span>
+                                <input type="text"  name="size[]" value="<?php echo $v; ?>" />
+                                <input type="button" value="-" class="delete" /> <br />
+                            </span>
+                            <?php } ?>
+                        </div>
+                        <input type="button" value="+ 添加" id="btn2" style="margin-left: 180px;"/><br />
+
                         <div class="form-group">
-                            <div class="label">
+                            <div >
                                 <label>电器重量：</label>
                             </div>
                             <div class="field field-tsa">
-                                <input type="text" class="input" name="weight" />
+                                <input type="text" class="input" name="weight" value="<?php echo isset($jiadian_arr['weight']['0']) ? $jiadian_arr['weight']['0'] : ""; ?>"/>
                             </div>
                         </div>
+
                         <div id="label">
-                            <label style="margin-left: 70px;">商品颜色：</label>
-                            <input type="text" name="color[]" />
-                            <input type="button" value="+ 添加" id="yanse" ><br />
-                        </div><br />
+                            <div>
+                                <label>颜色：</label>
+                            </div>
+                            <?php foreach (isset($jiadian_arr['color'])?$jiadian_arr['color']:["请输入"] as $v){?>
+                            <span>
+                                <input type="text" name="color[]" value="<?php echo $v; ?>"/>
+                                <input type="button" value="-" class="delete" /> <br />
+                            </span>
+                            <?php } ?>
+                        </div>
+                        <input type="button" value="+ 添加" id="yanse" style="margin-left: 180px;" /><br />
+
                         <div class="form-group">
-                            <div class="label">
+                            <div >
                                 <label>容量：</label>
                             </div>
                             <div class="field field-tsa">
@@ -70,70 +85,75 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="label">
+                            <div>
                                 <label>电器风格：</label>
                             </div>
                             <div class="field field-tsa">
-                                <input type="text" class="input" name="style" />
+                                <input type="text" class="input" name="style" value="<?php echo isset($jiadian_arr['style']['0']) ? $jiadian_arr['style']['0'] : ""; ?>"/>
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="label">
+                            <div>
                                 <label>电器材质：</label>
                             </div>
                             <div class="field field-tsa">
-                                <input type="text" class="input" name="material" />
+                                <input type="text" class="input" name="material" value="<?php echo isset($jiadian_arr['material']['0']) ? $jiadian_arr['material']['0'] : ""; ?>"/>
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="label">
+                            <div>
                                 <label>电器型号：</label>
                             </div>
                             <div class="field field-tsa">
-                                <input type="text" class="input" name="model" />
+                                <input type="text" class="input" name="model" value="<?php echo isset($jiadian_arr['model']['0']) ? $jiadian_arr['model']['0'] : ""; ?>"/>
                             </div>
                         </div>
 
                         <div id="chi">
-                            <label style="margin-left: 70px;">屏幕尺寸：</label>
-                            <input type="text" name="screen_size[]" />
-                            <input type="button" value="+ 添加" id="pingmu" ><br />
-                        </div><br />
+                            <div>
+                                <label>屏幕尺寸：</label>
+                            </div>
+                            <?php foreach (isset($jiadian_arr['screen_size'])?$jiadian_arr['screen_size']:["请输入"] as $v){?>
+                            <input type="text" name="screen_size[]" value="<?php echo $v; ?>"/>
+                            <input type="button" value="-" id="dell" /> <br />
+                            <?php } ?>
+                        </div>
+                        <input type="button" value="+ 添加" id="pingmu" style="margin-left: 180px;" /><br />
 
                         <div class="form-group">
-                            <div class="label">
+                            <div>
                                 <label>系列：</label>
                             </div>
                             <div class="field field-tsa">
-                                <input type="text" class="input" name="series" />
+                                <input type="text" class="input" name="series" value="<?php echo isset($jiadian_arr['series']['0']) ? $jiadian_arr['series']['0'] : ""; ?>"/>
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="label">
+                            <div >
                                 <label>直径：</label>
                             </div>
                             <div class="field field-tsa">
-                                <input type="text" class="input" name="diameter" />
+                                <input type="text" class="input" name="diameter" value="<?php echo isset($jiadian_arr['diameter']['0']) ? $jiadian_arr['diameter']['0'] : ""; ?>"/>
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="label">
+                            <div>
                                 <label>显示屏：</label>
                             </div>
                             <div class="field field-tsa">
-                                <input type="text" class="input" name="display" />
+                                <input type="text" class="input" name="display" value="<?php echo isset($jiadian_arr['display']['0']) ? $jiadian_arr['display']['0'] : ""; ?>"/>
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="label">
+                            <div>
                                 <label>屏幕比例：</label>
                             </div>
                             <div class="field field-tsa">
-                                <input type="text" class="input" name="screen_scale" />
+                                <input type="text" class="input" name="screen_scale" value="<?php echo isset($jiadian_arr['screen_scale']['0']) ? $jiadian_arr['screen_scale']['0'] : ""; ?>"/>
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="label">
+                            <div>
                                 <label>电视类型：</label>
                             </div>
                             <div class="field field-tsa">
@@ -151,7 +171,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="label">
+                            <div>
                                 <label>分辨率：</label>
                             </div>
                             <div class="field field-tsa">
@@ -164,15 +184,15 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="label">
+                            <div>
                                 <label>电压/频率：</label>
                             </div>
                             <div class="field field-tsa">
-                                <input type="text" class="input" name="Voltage" />
+                                <input type="text" class="input" name="Voltage" value="<?php echo isset($jiadian_arr['Voltage_frequency']['0']) ? $jiadian_arr['Voltage_frequency']['0'] : ""; ?>"/>
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="label">
+                            <div>
                                 <label>国家能效等级：</label>
                             </div>
                             <div class="field field-tsa">
@@ -185,15 +205,15 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="label">
+                            <div>
                                 <label>面板类型：</label>
                             </div>
                             <div class="field field-tsa">
-                                <input type="text" class="input" name="panel_type" />
+                                <input type="text" class="input" name="panel_type" value="<?php echo isset($jiadian_arr['Panel_type']['0']) ? $jiadian_arr['Panel_type']['0'] : ""; ?>"/>
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="label">
+                            <div>
                                 <label>箱门结构：</label>
                             </div>
                             <div class="field field-tsa">
@@ -207,7 +227,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="label">
+                            <div>
                                 <label>制冷方式：</label>
                             </div>
                             <div class="field field-tsa">
@@ -219,8 +239,6 @@
                                 </select>
                             </div>
                         </div>
-
-
 
                         <div class="text-center">
                             <div class="field">
@@ -239,17 +257,21 @@
     $(document).ready(function(){
         $("#btn2").click(function(){
 //            var sizeInfo = $('#btn2').attr('sizeInfo');
-            $("#bel").append(" <span><input type='text' name='size[]' style='margin-left:138px;margin-top: 10px; '><input type='button' value='-' id='del'><br /></span>");
+            $("#bel").append(" <span><input type='text' name='size[]' /><input type='button' value='-' id='del'><br /></span>");
         });
         $("#yanse").click(function(){
-            $("#label").append(" <span><input type='text' name='color[]' style='margin-left:138px;margin-top: 10px; '><input type='button' value='-' id='del'><br /></span>");
+            $("#label").append(" <span><input type='text' name='color[]' /><input type='button' value='-' id='del'><br /></span>");
         });
         $("#pingmu").click(function(){
-            $("#chi").append(" <span><input type='text' name='screen_size[]' style='margin-left:138px;margin-top: 10px; '><input type='button' value='-' id='del'><br /></span>");
+            $("#chi").append(" <span><input type='text' name='screen_size[]' /><input type='button' value='-' id='del'><br /></span>");
         });
         $("div").on("click","#del",function () {
             $(this).parent().remove();
         });
+
+        $(".delete").click(function () {
+            $(this).parent().remove();
+        })
     });
 </script>
 

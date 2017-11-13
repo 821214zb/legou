@@ -175,14 +175,10 @@
                     <i class="i-status"></i>
                 </div>
                 <div class="input-tip">
-
                 </div>
-
-
                 <div>
                     <button type="submit" class="btn-register">立即注册</button>
                 </div>
-
             </form><div id="country_code_layer" style="display: none;"><iframe scrolling="no" style="background-color:transparent; position: absolute; z-index: -1; width: 100%; height: 100%; top: 0; left:0;" frameborder="0"></iframe><div><a class="arrow"></a><div class="search-bar"><b class="search-icon"></b><input placeholder="搜索您的国家和地区" id="inputSearch" type="text"></div><div id="result"><div class="capital-list"><ul></ul></div><div class="current-capital"><span id="currentCapital">A</span><span class="line"></span></div><div class="country-list"><div id="scrollbar2" class="scrollbar_all"><div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div><div class="viewport"><div class="overview"><ul></ul></div></div></div></div></div><div id="no-result">未找到国家或地区</div></div></div>
         </div>
         <div id="form-company" class="reg-other">

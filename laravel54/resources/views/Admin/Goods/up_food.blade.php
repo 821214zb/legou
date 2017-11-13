@@ -23,7 +23,7 @@
 <body>
 <div class="panel admin-panel">
     <ul class="ul">
-        <li><div class="div_li"><a href="/goods/update/{{$goodsInfo->id}}" class="icon-reorder">修改商品通用信息</a></div></li>
+        <li><div class="div_li"><a href="/goods/update/{{$goods_id}}" class="icon-reorder">修改商品通用信息</a></div></li>
         <li><div class="div_li"><a href="" class="icon-reorder">修改商品属性信息</a></div></li>
     </ul>
     <div class="tab-box">
@@ -32,10 +32,8 @@
                 <div class="common-info">
                     <form class="form-x" action="update" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
-
-
                         <div class="form-group">
-                            <div class="label">
+                            <div>
                                 <label>国产/进口：</label>
                             </div>
                             <div class="field field-tsa">
@@ -48,23 +46,23 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="label">
+                            <div>
                                 <label>重量：</label>
                             </div>
                             <div class="field field-tsa">
-                                <input type="text" class="input" name="weight" />
+                                <input type="text" class="input" name="weight" value="<?php echo isset($cate_food['weight']['0']) ? $cate_food['weight']['0'] : ""; ?>"/>
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="label">
+                            <div>
                                 <label>酒精度：</label>
                             </div>
                             <div class="field field-tsa">
-                                <input type="text" class="input" name="alcohol_content" />
+                                <input type="text" class="input" name="alcohol_content" value="<?php echo isset($cate_food['Alcohol_content']['0']) ? $cate_food['Alcohol_content']['0'] : ""; ?>"/>
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="label">
+                            <div>
                                 <label>包装：</label>
                             </div>
                             <div class="field field-tsa">
@@ -77,23 +75,23 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="label">
+                            <div>
                                 <label>香型：</label>
                             </div>
                             <div class="field field-tsa">
-                                <input type="text" class="input" name="liquor" />
+                                <input type="text" class="input" name="liquor" value="<?php echo isset($cate_food['Liquor_flavor_type']['0']) ? $cate_food['Liquor_flavor_type']['0'] : ""; ?>"/>
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="label">
+                            <div>
                                 <label>保质期：</label>
                             </div>
                             <div class="field field-tsa">
-                                <input type="text" class="input" name="shelf_time" />
+                                <input type="text" class="input" name="shelf_time" value="<?php echo isset($cate_food['shelf_time']['0']) ? $cate_food['shelf_time']['0'] : ""; ?>"/>
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="label">
+                            <div>
                                 <label>适用人群：</label>
                             </div>
                             <div class="field field-tsa">
@@ -108,68 +106,83 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="label">
+                            <div>
                                 <label>产地：</label>
                             </div>
                             <div class="field field-tsa">
-                                <input type="text" class="input" name="origin" />
+                                <input type="text" class="input" name="origin" value="<?php echo isset($cate_food['origin']['0']) ? $cate_food['origin']['0'] : ""; ?>"/>
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="label">
+                            <div>
                                 <label>功效：</label>
                             </div>
                             <div class="field field-tsa">
-                                <input type="text" class="input" name="efficacy" />
+                                <input type="text" class="input" name="efficacy" value="<?php echo isset($cate_food['Efficacy']['0']) ? $cate_food['Efficacy']['0'] : ""; ?>"/>
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="label">
+                            <div>
                                 <label>净含量：</label>
                             </div>
                             <div class="field field-tsa">
-                                <input type="text" class="input" name="net" />
+                                <input type="text" class="input" name="net" value="<?php echo isset($cate_food['Net_content']['0']) ? $cate_food['Net_content']['0'] : ""; ?>"/>
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="label">
+                            <div>
                                 <label>包装件数：</label>
                             </div>
                             <div class="field field-tsa">
-                                <input type="text" class="input" name="num" />
+                                <input type="text" class="input" name="num" value="<?php echo isset($cate_food['number_of_packages']['0']) ? $cate_food['number_of_packages']['0'] : ""; ?>" />
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="label">
+                            <div>
                                 <label>食品添加剂：</label>
                             </div>
                             <div class="field field-tsa">
-                                <input type="text" class="input" name="food_addi" />
+                                <input type="text" class="input" name="food_addi" value="<?php echo isset($cate_food['food_additives']['0']) ? $cate_food['food_additives']['0'] : ""; ?>" />
                             </div>
                         </div>
 
                         <div id="la">
-                            <label style="margin-left: 100px;">口味：</label>
-                            <input type="text" name="flavor[]" />
-                            <input type="button" value="+ 添加" id="kou" ><br />
-                        </div><br />
+                            <div>
+                            <label>口味：</label>
+                            </div>
+                            <?php foreach (isset($cate_food['Flavor'])?$cate_food['Flavor']:["请输入"] as $v){?>
+                            <span>
+                            <input type="text" name="flavor[]" value="<?php echo $v; ?>" />
+                            <input type="button" value="-" class="delete" ><br />
+                            </span>
+                            <?php } ?>
+                        </div>
+                        <input type="button" value="+ 添加" id="kou" style="margin-left: 180px;" /><br />
 
                         <div class="form-group">
-                            <div class="label">
+                            <div>
                                 <label>存储方式：</label>
                             </div>
                             <div class="field field-tsa">
-                                <input type="text" class="input" name="sto" />
+                                <input type="text" class="input" name="sto" value="<?php echo isset($cate_food['Storage method']['0']) ? $cate_food['Storage method']['0'] : ""; ?>"/>
                             </div>
                         </div>
 
                         <div id="label">
-                            <label style="margin-left: 100px;">颜色：</label>
-                            <input type="text" name="color[]" />
-                            <input type="button" value="+ 添加" id="yanse" ><br />
-                        </div><br />
+                            <div>
+                                <label>颜色：</label>
+                            </div>
+                            <?php foreach (isset($cate_food['color'])?$cate_food['color']:["请输入"] as $v){?>
+                            <span>
+                            <input type="text" name="color[]" value="<?php echo $v; ?>"/>
+                            <input type="button" value="-" class="delete" /> <br />
+                            </span>
+                            <?php } ?>
+                        </div>
+                        <input type="button" value="+ 添加" id="yanse" style="margin-left: 180px;" /><br />
+
                         <div class="form-group">
-                            <div class="label">
+                            <div>
                                 <label>适用场景：</label>
                             </div>
                             <div class="field field-tsa">
@@ -184,8 +197,6 @@
                                 </select>
                             </div>
                         </div>
-
-
                         <div class="text-center">
                             <div class="field">
                                 <input class="button bg-green" type="submit" name="one" value="提交" >
@@ -202,15 +213,19 @@
 <script>
     $(document).ready(function(){
         $("#kou").click(function(){
-            $("#la").append(" <span><input type='text' name='flavor[]' style='margin-left:143px;margin-top: 10px; '><input type='button' value='-' id='del'><br /></span>");
+            $("#la").append(" <span><input type='text' name='flavor[]' ><input type='button' value='-' id='del'><br /></span>");
         });
 
         $("#yanse").click(function(){
-            $("#label").append(" <span><input type='text' name='color[]' style='margin-left:143px;margin-top: 10px; '><input type='button' value='-' id='del'><br /></span>");
+            $("#label").append(" <span><input type='text' name='color[]' ><input type='button' value='-' id='del'><br /></span>");
         });
         $("div").on("click","#del",function () {
             $(this).parent().remove();
         });
+        $(".delete").click(function () {
+           $(this).parent().remove();
+        })
+
     });
 </script>
 

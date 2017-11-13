@@ -23,7 +23,7 @@
 <body>
 <div class="panel admin-panel">
     <ul class="ul">
-        <li><div class="div_li"><a href="/goods/update/{{$goodsInfo->id}}" class="icon-reorder">修改商品通用信息</a></div></li>
+        <li><div class="div_li"><a href="/goods/update/{{$goods_id}}" class="icon-reorder">修改商品通用信息</a></div></li>
         <li><div class="div_li"><a href="" class="icon-reorder">修改商品属性信息</a></div></li>
     </ul>
     <div class="tab-box">
@@ -34,42 +34,58 @@
                         {{ csrf_field() }}
 
                         <div id="bel">
-                            <label style="margin-left: 95px;">尺码：</label>
-                            <input type="text"  name="size[]" value="<?php echo $arrData['size']; ?>" />
-                            <input type="button" value="+ 添加" id="btn2" ><br />
-                        </div><br />
+                            <div>
+                            <label>尺码：</label>
+                                </div>
+                            <?php foreach (isset($box_arr['size'])?$box_arr['size']:["请输入"] as $v){?>
+                            <span>
+                                <input type="text"  name="size[]" value="<?php echo $v; ?>" />
+                                <input type="button" value="-" class="delete" /> <br />
+                            </span>
+                            <?php } ?>
+                        </div>
+                        <input type="button" value="+ 添加" id="btn2" style="margin-left: 180px;"/><br />
 
                         <div class="form-group">
-                            <div class="label">
+                            <div >
                                 <label>商品重量：</label>
                             </div>
                             <div class="field field-tsa">
-                                <input type="text" class="input" name="weight" />
+                                <input type="text" class="input" name="weight" value="<?php echo isset($box_arr['weight']['0']) ? $box_arr['weight']['0'] : ""; ?>" />
                             </div>
                         </div>
+
                         <div id="label">
-                            <label style="margin-left: 70px;">商品颜色：</label>
-                            <input type="text" name="color[]" />
-                            <input type="button" value="+ 添加" id="yanse" ><br />
-                        </div><br />
+                            <div>
+                            <label>商品颜色：</label>
+                                </div>
+                            <?php foreach (isset($box_arr['color'])?$box_arr['color']:["请输入"] as $v){?>
+                            <span>
+                                <input type="text" name="color[]" value="<?php echo $v; ?>"/>
+                                <input type="button" value="-" class="delete" /> <br />
+                            </span>
+                            <?php } ?>
+                        </div>
+                        <input type="button" value="+ 添加" id="yanse" style="margin-left: 180px;" /><br />
+
                         <div class="form-group">
-                            <div class="label">
+                            <div >
                                 <label>箱包容积：</label>
                             </div>
                             <div class="field field-tsa">
-                                <input type="text" class="input" name="volume" />
+                                <input type="text" class="input" name="volume" value="<?php echo isset($box_arr['volume']['0']) ? $box_arr['volume']['0'] : ""; ?>" />
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="label">
+                            <div >
                                 <label>商品风格：</label>
                             </div>
                             <div class="field field-tsa">
-                                <input type="text" class="input" name="style" />
+                                <input type="text" class="input" name="style" value="<?php echo isset($box_arr['style']['0']) ? $box_arr['style']['0'] : "" ; ?>" />
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="label">
+                            <div >
                                 <label>材料：</label>
                             </div>
                             <div class="field field-tsa">
@@ -89,7 +105,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="label">
+                            <div >
                                 <label>人群：</label>
                             </div>
                             <div class="field field-tsa">
@@ -103,15 +119,13 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="label">
+                            <div >
                                 <label>拉杆分类：</label>
                             </div>
                             <div class="field field-tsa">
-                                <input type="text" class="input" name="draw_bar" />
+                                <input type="text" class="input" name="draw_bar" value="<?php echo isset($box_arr['draw-bar_box']['0']) ? $box_arr['draw-bar_box']['0'] : ""; ?>" />
                             </div>
                         </div>
-
-
                         <div class="text-center">
                             <div class="field">
                                 <input class="button bg-green" type="submit" name="one" value="提交" >
@@ -128,14 +142,18 @@
 <script>
     $(document).ready(function(){
         $("#btn2").click(function(){
-            $("#bel").append(" <span><input type='text' name='size[]' style='margin-left:138px;margin-top: 10px; '><input type='button' value='-' id='del'><br /></span>");
+            $("#bel").append(" <span><input type='text' name='size[]' ><input type='button' value='-' id='del'><br /></span>");
         });
         $("#yanse").click(function(){
-            $("#label").append(" <span><input type='text' name='color[]' style='margin-left:138px;margin-top: 10px; '><input type='button' value='-' id='del'><br /></span>");
+            $("#label").append(" <span><input type='text' name='color[]' ><input type='button' value='-' id='del'><br /></span>");
         });
         $("div").on("click","#del",function () {
             $(this).parent().remove();
         });
+
+        $(".delete").click(function () {
+            $(this).parent().remove();
+        })
     });
 </script>
 

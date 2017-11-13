@@ -26,12 +26,16 @@ class GoodsController extends BaseController{
         $cateList = getTreeData($sellers,0);
         //搜索品牌
         $cate = $goods->brand();
+        //搜索推荐位
+        $posids = DB::table('posids')->get();
+        //搜索店铺
+        $shops = DB::table('shops')->get();
 
         if($_POST){
             //var_dump($_POST);
         }
         $lists = DB::table('goods')->paginate(5);
-        return view('Admin.goods.show',['goods'=>$lists,'cateList'=>$cateList,'cate'=>$cate]);
+        return view('Admin.goods.show',['goods'=>$lists,'cateList'=>$cateList,'cate'=>$cate,'posids'=>$posids,'shops'=>$shops]);
     }
     
     /**
@@ -52,8 +56,8 @@ class GoodsController extends BaseController{
                     $filePath = $file->move('uploads',$fileName);
                     $goodsId = $goods->goodsAdd($filePath);
                     //添加推荐位
-                    if(!empty($_POST['Posid'])){
-                        $sid = $_POST['Posid'];
+                    if(!empty($_POST['posid'])){
+                        $sid = $_POST['posid'];
                         foreach ($sid as $v){
                             DB::table("goods_posids")->insert(['goods_id'=>$goodsId,'posids_id'=>$v]);
                         }
@@ -69,13 +73,10 @@ class GoodsController extends BaseController{
                     if ($_POST) {
                         $goods->cate_box($goods_id);
                         $size = $_POST['size'];
-                        foreach ($size as $v) {
-                            $data = DB::table('cate_box')->insert(['size' => $v, 'goods_id' => $goods_id]);
-                        }
                         $color = $_POST['color'];
-                        foreach ($color as $v) {
-                            $data = DB::table('cate_box')->insert(['color' => $v, 'goods_id' => $goods_id]);
-                        }
+                        $table = "cate_box";
+                        $data = $goods->publicAdd($size,$color,$table,$goods_id);
+
                         DB::table('goods')->where('id',$goods_id)->update(['cate_id'=>$status]);
                         if ($data) {
                             return redirect('goods/show');
@@ -85,18 +86,12 @@ class GoodsController extends BaseController{
                     //家电表
                     if ($_POST) {
                         $goods->cate_jiadian($goods_id);
+                        $table = "cate_jiadian";
                         $size = $_POST['size'];
-                        foreach ($size as $v) {
-                            $data = DB::table('cate_jiadian')->insert(['size' => $v, 'goods_id' => $goods_id]);
-                        }
                         $color = $_POST['color'];
-                        foreach ($color as $v) {
-                            $data = DB::table('cate_jiadian')->insert(['color' => $v, 'goods_id' => $goods_id]);
-                        }
                         $screen_size = $_POST['screen_size'];
-                        foreach ($screen_size as $v) {
-                            $data = DB::table('cate_jiadian')->insert(['screen_size' => $v, 'goods_id' => $goods_id]);
-                        }
+                        $data = $goods->publicJiadian($size,$color,$table,$goods_id,$screen_size);
+
                         DB::table('goods')->where('id',$goods_id)->update(['cate_id'=>$status]);
                         if ($data) {
                             return redirect('goods/show');
@@ -107,13 +102,10 @@ class GoodsController extends BaseController{
                     if ($_POST) {
                         $goods->cate_cloth($goods_id);
                         $size = $_POST['size'];
-                        foreach ($size as $v) {
-                            $data = DB::table('cate_cloth')->insert(['size' => $v, 'goods_id' => $goods_id]);
-                        }
                         $color = $_POST['color'];
-                        foreach ($color as $v) {
-                            $data = DB::table('cate_cloth')->insert(['color' => $v, 'goods_id' => $goods_id]);
-                        }
+                        $table = "cate_cloth";
+                        $data = $goods->publicAdd($size,$color,$table,$goods_id);
+
                         DB::table('goods')->where('id',$goods_id)->update(['cate_id'=>$status]);
                         if ($data) {
                             return redirect('goods/show');
@@ -124,13 +116,10 @@ class GoodsController extends BaseController{
                     if ($_POST) {
                         $goods->cate_shoes($goods_id);
                         $size = $_POST['size'];
-                        foreach ($size as $v) {
-                            $data = DB::table('cate_shoes')->insert(['size' => $v, 'goods_id' => $goods_id]);
-                        }
                         $color = $_POST['color'];
-                        foreach ($color as $v) {
-                            $data = DB::table('cate_shoes')->insert(['color' => $v, 'goods_id' => $goods_id]);
-                        }
+                        $table = "cate_shoes";
+                        $data = $goods->publicAdd($size,$color,$table,$goods_id);
+
                         DB::table('goods')->where('id',$goods_id)->update(['cate_id'=>$status]);
                         if ($data) {
                             return redirect('goods/show');
@@ -141,13 +130,10 @@ class GoodsController extends BaseController{
                     if ($_POST) {
                         $goods->cate_hufu($goods_id);
                         $size = $_POST['size'];
-                        foreach ($size as $v) {
-                            $data = DB::table('cate_hufu')->insert(['size' => $v, 'goods_id' => $goods_id]);
-                        }
                         $color = $_POST['color'];
-                        foreach ($color as $v) {
-                            $data = DB::table('cate_hufu')->insert(['color' => $v, 'goods_id' => $goods_id]);
-                        }
+                        $table = "cate_hufu";
+                        $data = $goods->publicAdd($size,$color,$table,$goods_id);
+
                         DB::table('goods')->where('id',$goods_id)->update(['cate_id'=>$status]);
                         if ($data) {
                             return redirect('goods/show');
@@ -158,13 +144,10 @@ class GoodsController extends BaseController{
                     if ($_POST) {
                         $goods->cate_shuma($goods_id);
                         $size = $_POST['size'];
-                        foreach ($size as $v) {
-                            $data = DB::table('cate_shuma')->insert(['size' => $v, 'goods_id' => $goods_id]);
-                        }
                         $color = $_POST['color'];
-                        foreach ($color as $v) {
-                            $data = DB::table('cate_shuma')->insert(['color' => $v, 'goods_id' => $goods_id]);
-                        }
+                        $table = "cate_shuma";
+                        $data = $goods->publicAdd($size,$color,$table,$goods_id);
+
                         DB::table('goods')->where('id',$goods_id)->update(['cate_id'=>$status]);
                         if ($data) {
                             return redirect('goods/show');
@@ -175,13 +158,10 @@ class GoodsController extends BaseController{
                     if ($_POST) {
                         $goods->cate_food($goods_id);
                         $flavor = $_POST['flavor'];
-                        foreach ($flavor as $v) {
-                            $data = DB::table('cate_food')->insert(['Flavor' => $v, 'goods_id' => $goods_id]);
-                        }
                         $color = $_POST['color'];
-                        foreach ($color as $v) {
-                            $data = DB::table('cate_food')->insert(['color' => $v, 'goods_id' => $goods_id]);
-                        }
+                        $table = 'cate_food';
+                        $data = $goods->publicFood($flavor,$color,$table,$goods_id);
+
                         DB::table('goods')->where('id',$goods_id)->update(['cate_id'=>$status]);
                         if ($data) {
                             return redirect('goods/show');
@@ -215,119 +195,217 @@ class GoodsController extends BaseController{
     public function update($gid){
         $req = request();
         $goods = new \App\Good();
-        if($_POST){
 
-        }else{
+        if($_POST) {
+            if ($_POST['one'] == '确认提交') {
+                $goods_id = $_POST['gid'];
+                $goods->upGoods($goods_id);
+                $file = $req->file('img');
+                if ($file) {
+                    $extension = $file->getClientOriginalExtension();
+                    $fileName = str_random(8) . "." . $extension;
+                    $filePath = $file->move('uploads', $fileName);
+                    //添加的同时删除之前的图片
+                    $img = DB::table("goods")->where('id',$goods_id)->update(['goods_img'=>$filePath]);
+                    if($img){
+                        $goods_img = session('goods_img');
+                        if (!empty($goods_img)) {
+                            unlink($goods_img);
+                        }
+                    }
+                }
+                //修改推荐位
+                if (!empty($_POST['posid'])) {
+                    $sid = $_POST['posid'];
+                    DB::table("goods_posids")->where('goods_id', $goods_id)->delete();
+                    foreach ($sid as $v) {
+                        DB::table("goods_posids")->insert(['goods_id' => $goods_id, 'posids_id' => $v]);
+                    }
+                }
+            }
+            $cate_id = session('cate_id');
+            $goods_id = session('id');
+            //判断视图，修改属性
+            if ($cate_id == 1) {
+                $table = "cate_box";
+                $box_arr = $goods->public_method($table,$goods_id);
+                //修改箱包属性
+                if ($_POST) {
+                    if(!empty($_POST['size'])){
+                        DB::table("cate_box")->where('goods_id', $goods_id)->delete();
+                        $goods->cate_box($goods_id);
+
+                        $size = $_POST['size'];
+                        $color = $_POST['color'];
+                        $table = "cate_box";
+                        $data = $goods->publicAdd($size,$color,$table,$goods_id);
+                        if ($data) {
+                            return redirect('goods/show');
+                        }
+                    }
+                }
+                return view('Admin.goods.up_box', ['goods_id' => $goods_id, 'box_arr' => $box_arr]);
+            } elseif ($cate_id == 2) {
+                $table = "cate_jiadian";
+                $jiadian_arr = $goods->public_method($table,$goods_id);
+                //修改家电属性
+                if ($_POST) {
+                    if(!empty($_POST['size'])){
+                        DB::table("cate_jiadian")->where('goods_id', $goods_id)->delete();
+                        $goods->cate_jiadian($goods_id);
+
+                        $table = "cate_jiadian";
+                        $size = $_POST['size'];
+                        $color = $_POST['color'];
+                        $screen_size = $_POST['screen_size'];
+                        $data = $goods->publicJiadian($size,$color,$table,$goods_id,$screen_size);
+                        if ($data) {
+                            return redirect('goods/show');
+                        }
+                    }
+                }
+                return view('Admin.goods.up_jiadian', ['goods_id' => $goods_id,'jiadian_arr'=>$jiadian_arr]);
+            } elseif ($cate_id == 3) {
+                $table = "cate_cloth";
+                $cate_cloth = $goods->public_method($table,$goods_id);
+
+                //修改服装属性
+                if ($_POST) {
+                    if(!empty($_POST['size'])){
+                        DB::table("cate_cloth")->where('goods_id', $goods_id)->delete();
+                        $goods->cate_cloth($goods_id);
+
+                        $size = $_POST['size'];
+                        $color = $_POST['color'];
+                        $table = "cate_cloth";
+                        $data = $goods->publicAdd($size,$color,$table,$goods_id);
+                        if ($data) {
+                            return redirect('goods/show');
+                        }
+                    }
+                }
+                return view('Admin.goods.up_cloth', ['goods_id' => $goods_id,'cate_cloth'=>$cate_cloth]);
+            } elseif ($cate_id == 4) {
+                $table = "cate_shoes";
+                $cate_shoes = $goods->public_method($table,$goods_id);
+                //修改服装属性
+                if ($_POST) {
+                    if(!empty($_POST['size'])){
+                        DB::table("cate_shoes")->where('goods_id', $goods_id)->delete();
+                        $goods->cate_shoes($goods_id);
+
+                        $size = $_POST['size'];
+                        $color = $_POST['color'];
+                        $table = "cate_shoes";
+                        $data = $goods->publicAdd($size,$color,$table,$goods_id);
+                        if ($data) {
+                            return redirect('goods/show');
+                        }
+                    }
+                }
+                return view('Admin.goods.up_shoes', ['goods_id' => $goods_id,'cate_shoes'=>$cate_shoes]);
+            } elseif ($cate_id == 5) {
+                $table = "cate_hufu";
+                $cate_hufu = $goods->public_method($table,$goods_id);
+                //修改护肤品属性
+                if ($_POST) {
+                    if(!empty($_POST['size'])){
+                        DB::table("cate_hufu")->where('goods_id', $goods_id)->delete();
+                        $goods->cate_hufu($goods_id);
+
+                        $size = $_POST['size'];
+                        $color = $_POST['color'];
+                        $table = "cate_hufu";
+                        $data = $goods->publicAdd($size,$color,$table,$goods_id);
+                        if ($data) {
+                            return redirect('goods/show');
+                        }
+                    }
+                }
+                return view('Admin.goods.up_hufu', ['goods_id' => $goods_id,'cate_hufu'=>$cate_hufu]);
+            } elseif ($cate_id == 6) {
+                $table = "cate_shuma";
+                $cate_shuma = $goods->public_method($table,$goods_id);
+                //修改数码属性
+                if ($_POST) {
+                    if(!empty($_POST['size'])){
+                        DB::table("cate_shuma")->where('goods_id', $goods_id)->delete();
+                        $goods->cate_shuma($goods_id);
+
+                        $size = $_POST['size'];
+                        $color = $_POST['color'];
+                        $data = $goods->publicAdd($size,$color,$table,$goods_id);
+                        if ($data) {
+                            return redirect('goods/show');
+                        }
+                    }
+                }
+                return view('Admin.goods.up_shuma', ['goods_id' => $goods_id,'cate_shuma'=>$cate_shuma]);
+            } elseif ($cate_id == 7) {
+                $table = "cate_food";
+                $cate_food = $goods->public_method($table,$goods_id);
+                //修改商品属性
+                if($_POST){
+                    if(!empty($_POST['flavor'])) {
+                        DB::table("cate_food")->where('goods_id', $goods_id)->delete();
+                        $goods->cate_food($goods_id);
+
+                        $flavor = $_POST['flavor'];
+                        $color = $_POST['color'];
+                        $data = $goods->publicFood($flavor, $color, $table, $goods_id);
+                        if ($data) {
+                            return redirect('goods/show');
+                        }
+
+                    }
+                }
+                return view('Admin.goods.up_food', ['goods_id' => $goods_id,'cate_food'=>$cate_food]);
+            }
+        }else {
             //分类默认选中
-            $cateThree = DB::table('cates')->where('cate_level','3')->select('id','cate_pid','cate_title')->get();
-
-            $cateTwo = DB::table('cates')->where('cate_level','2')->select('id','cate_pid','cate_title')->get();
-            //var_dump($cateTwo);
-
-            $cateOne = DB::table('cates')->where('cate_level','1')->select('id','cate_pid','cate_title')->get();
+            $cateThree = DB::table('cates')->where('cate_level', '3')->select('id', 'cate_pid', 'cate_title')->get();
+            $cateTwo = DB::table('cates')->where('cate_level', '2')->select('id', 'cate_pid', 'cate_title')->get();
+            $cateOne = DB::table('cates')->where('cate_level', '1')->select('id', 'cate_pid', 'cate_title')->get();
             //商品查询
-            $goodsInfo = DB::table('goods')->where('id',$gid)->first();
-//            var_dump($goodsInfo);
-            //默认选中
-            $g_p = DB::table('goods_posids')->where('goods_id',$gid)->get();
+            $goodsInfo = DB::table('goods')->where('id', $gid)->first();
+            $goods_img = $goodsInfo->goods_img;
+            $cate_id = $goodsInfo->cate_id;
+            $id = $goodsInfo->id;
+            session(['goods_img' => $goods_img]);
+            session(['cate_id' => $cate_id]);
+            session(['id' => $id]);
+
+            //查询店铺
+            $shop = DB::table('shops')->get();
+            //推荐位默认选中
+            $g_p = DB::table('goods_posids')->where('goods_id', $gid)->get();
             $arrGp = array();
-            foreach($g_p as $k=>$v){
+            foreach ($g_p as $k => $v) {
                 $arrGp[$v->posids_id] = $v->posids_id;
             }
             //推荐位查询
             $res = DB::table('posids')->get();
             $arrPosids = array();
-            foreach($res as $k=>$v){
+            foreach ($res as $k => $v) {
                 $arrPosids[$v->id] = $v->type;
             }
-            //分类表查询
-            $data = DB::table('cates')->where('cate_pid','0')->select('id','cate_pid','cate_title')->get();
+            //分类顶级查询
+            $data = DB::table('cates')->where('cate_pid', '0')->select('id', 'cate_pid', 'cate_title')->get();
             //品牌查询
             $row = $goods->brand();
-            //分类联动
-            if(!empty($_GET['pid'])){
-                $id = $_GET['pid'];
-                $res = DB::table('cates')->where('cate_pid',$id)->select('id','cate_pid','cate_title')->get();
-                echo json_encode($res);
-            }else{
-                return view('Admin.goods.update',['cate'=>$data,'row'=>$row,'res'=>$arrPosids,'goodsInfo'=>$goodsInfo,'g_p'=>$arrGp,'cateThree'=>$cateThree,'cateTwo'=>$cateTwo,'cateOne'=>$cateOne]);
-            }
+            return view('Admin.goods.update', ['cate' => $data, 'row' => $row, 'res' => $arrPosids, 'goodsInfo' => $goodsInfo, 'g_p' => $arrGp, 'cateThree' => $cateThree, 'cateTwo' => $cateTwo, 'cateOne' => $cateOne,'shop'=>$shop]);
         }
     }
-
+    
     /*
-     * 商品属性修改
+     * 分类三级联动
      * */
-    public function updateTwo($gid){
-        //商品查询
-        $goodsInfo = DB::table('goods')->where('id',$gid)->first();
-        $cate_id = $goodsInfo->cate_id;
-        $data = array();
-        if($cate_id == 1){
-            $box1 = DB::table('cate_box')->where('goods_id',$gid)->get();
-            $box = json_decode(json_encode($box1),true);
-            $data=array();
-            //获取属性表字段名称
-            $zd = array_keys($box[0]);
-            foreach ($box as $k => $v) {
-                foreach ($zd as $K=>$kk){
-                    $data[$kk][] = $v[$kk];
-                }
-            }
-//            die;
-//            foreach ($box as $k => $v){
-//               $data['id'][] = $v['id'];
-//               $data['size'][] = $v['size'];
-//               $data['weight'][] = $v['weight'];
-//               $data['color'][] = $v['color'];
-//               $data['volume'][] = $v['volume'];
-//               $data['style'][] = $v['style'];
-//               $data['material'][] = $v['material'];
-//               $data['crowd'][] = $v['crowd'];
-////                foreach ($v as $vv=>$kk){
-////                  $data[$vv] = $kk;
-////                }
-//              //  dump($v);
-//            }
-//           dump($data);
-
-
-
-//            $array = array();
-//            foreach ($box as $k=>$v){
-//                $arrData = array_filter($v);
-//                var_dump($arrData);
-//                $array[] = $arrData;
-//                var_dump($array);
-//            }
-
-            die;
-//           //var_dump($box);die;
-//            $box_arr = "";
-//            for($i=0 ; $i<count($box[0]) ; $i++){
-//                for($j=0 ; $j<count($box) ; $j++){
-//                    $box_arr[$i][$j] = $box[$j][$i];
-//                }
-//            }
-//            var_dump($box_arr);die;
-            return view('Admin.goods.up_box',['goodsInfo'=>$goodsInfo,'arrData'=>$arrData]);
-        }elseif ($cate_id == 2){
-            return view('Admin.goods.up_jiadian',['goodsInfo'=>$goodsInfo]);
-        }elseif ($cate_id == 3){
-            return view('Admin.goods.up_cloth',['goodsInfo'=>$goodsInfo]);
-        }elseif ($cate_id == 4){
-            return view('Admin.goods.up_shoes',['goodsInfo'=>$goodsInfo]);
-        }elseif ($cate_id == 5){
-            return view('Admin.goods.up_hufu',['goodsInfo'=>$goodsInfo]);
-        }elseif ($cate_id == 6){
-            return view('Admin.goods.up_shuma',['goodsInfo'=>$goodsInfo]);
-        }elseif ($cate_id == 7){
-            return view('Admin.goods.up_food',['goodsInfo'=>$goodsInfo]);
+    public function linkage($pid){
+        if(!empty($pid)){
+            $res = DB::table('cates')->where('cate_pid',$pid)->select('id','cate_pid','cate_title')->get();
+            echo json_encode($res);
         }
-
-
     }
-
 
     /**
      * 删除商品

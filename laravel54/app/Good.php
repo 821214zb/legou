@@ -71,6 +71,7 @@ class Good extends Model{
                 'weight'=>$req->weight,
                 'volume'=>$req->volume,
                 'style'=>$req->style,
+                'model'=>$req->model,
                 'material'=>$req->material,
                 'series'=>$req->series,
                 'diameter'=>$req->diameter,
@@ -201,8 +202,6 @@ class Good extends Model{
         return $goodsInfo;
     }
 
-
-
     /*
      * 商品添加时验证
      * */
@@ -234,5 +233,96 @@ class Good extends Model{
         $rows = DB::table('brands')->select('id','brand_name')->get();
         return $rows;
     }
-
+    
+    //添加商品时公共的方法
+    public function publicAdd($size,$color,$table,$goods_id){
+        foreach ($size as $v) {
+            $data = DB::table($table)->insert(['size' => $v, 'goods_id' => $goods_id]);
+        }
+        foreach ($color as $v) {
+            $data = DB::table($table)->insert(['color' => $v, 'goods_id' => $goods_id]);
+        }
+        return $data;
+    }
+    //添加家电时公共方法
+    public function publicJiadian($size,$color,$table,$goods_id,$screen_size){
+        foreach ($size as $v) {
+            if(!empty($size)){
+                $data = DB::table($table)->insert(['size' => $v, 'goods_id' => $goods_id]);
+            }
+        }
+        foreach ($color as $v) {
+            if(!empty($color)){
+                $data = DB::table($table)->insert(['color' => $v, 'goods_id' => $goods_id]);
+            }
+        }
+        foreach ($screen_size as $v) {
+            if($screen_size){
+                $data = DB::table($table)->insert(['screen_size' => $v, 'goods_id' => $goods_id]);
+            }
+        }
+        return $data;
+    }
+    //食品属性公共方法
+    public function publicFood($flavor,$color,$table,$goods_id){
+        foreach ($flavor as $v) {
+            $data = DB::table($table)->insert(['Flavor' => $v, 'goods_id' => $goods_id]);
+        }
+        foreach ($color as $v) {
+            $data = DB::table($table)->insert(['color' => $v, 'goods_id' => $goods_id]);
+        }
+        return $data;
+    }
+    
+    //修改商品基本信息
+    public function upGoods($goods_id){
+        $req = request();
+        $goodsList = DB::table('goods')->where('id',$goods_id)->update(
+            [
+                'goods_name'    => $req->goods_name,
+                'goods_count'   => $req->goods_count,
+                'goods_category'=> $req->pid3,
+                'goods_brand'   => $req->brand_id,
+                'new_price'     => $req->new_price,
+                'old_price'     => $req->old_price,
+                'goods_sort'    => $req->sort,
+                'up_time'       => strtotime($req->up_time),
+                'down_time'     => strtotime($req->end_time),
+                'promotion_date'=> strtotime($req->promotion_date),
+                'supplier'      => $req->supplier,
+                'integral'      => $req->integral,
+                'integral_moeny'=> $req->integral_moeny,
+                'Member_price'  => $req->member_price,
+                'preferential_price' => $req->pre_price,
+                'market_price'       => $req->market_price,
+                'Promotional_Pricing'=>$req->chuxiao,
+                'status'        => $req->status,
+                'style'         => $req->style,
+                'goods_text'    => $req->goods_text,
+                'Postage'       => $req->Postage,
+                'shop_id'       => $req->shop_id,
+            ]
+        );
+        return $goodsList;
+    }
+    
+    //属性修改  公共的方法
+    public function public_method($table,$goods_id){
+        $box1 = DB::table($table)->where('goods_id', $goods_id)->get();
+        if(!empty($box1)){
+            $box = json_decode(json_encode($box1), true);
+            $box_arr = array();
+            //获取属性表字段名称
+            $zd = array_keys($box[0]);
+            foreach ($box as $k => $v) {
+                foreach ($zd as $K => $kk) {
+                    if ($v[$kk] !== '0' && $v[$kk] !== null && $v[$kk] !== "") {
+                        $box_arr[$kk][] = $v[$kk];
+                    }
+                }
+            }
+            return $box_arr;
+        }
+    }
+    
 }

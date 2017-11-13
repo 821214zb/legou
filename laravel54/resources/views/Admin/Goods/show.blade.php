@@ -24,7 +24,6 @@
         </div>
         <div class="padding border-bottom">
             <ul class="search" style="padding-left:10px;">
-                <!--<li> <a class="button border-main icon-plus-square-o" href="add.blade.php"> 发布文章</a> </li>-->
                 <if condition="$iscid eq 1">
                     <li>
                         <select name="cate_id" class="input" style="width:150px; line-height:17px;" onchange="changesearch()">
@@ -49,17 +48,19 @@
                     <li>
                         <select name="cid" class="input" style="width:100px; line-height:17px;" onchange="changesearch()">
                             <option value="">推荐位</option>
-                            <option value="">特价</option>
-                            <option value="">热销</option>
+                            @foreach($posids as $v)
+                                <option value="{{$v->id}}">{{$v->type}}</option>
+                            @endforeach
                         </select>
                     </li>
                 </if>
                 <if condition="$iscid eq 1">
                     <li>
                         <select name="cid" class="input" style="width:100px; line-height:17px;" onchange="changesearch()">
-                            <option value="">供货商</option>
-                            <option value="">供货商</option>
-                            <option value="">供货商</option>
+                            <option value="">店铺</option>
+                            @foreach($shops as $v)
+                                <option value="{{$v->shop_id}}">{{$v->name}}</option>
+                            @endforeach
                         </select>
                     </li>
                 </if>

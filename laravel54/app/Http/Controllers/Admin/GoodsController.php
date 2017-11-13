@@ -15,27 +15,42 @@ class GoodsController extends CommonController{
     /**
      * 商品列表
      */
-    public function show(){
+    public function show($keywords="",$cate_id="",$brand_id="",$shop_id="",$status=""){
         $goods = new \App\Good();
+        $lists = DB::table('goods')->paginate(5);
         //搜索分类
-        $sellers = array();
-        $data = DB::table('cates')->get();
-        foreach($data as $k=>$v){
-            $sellers[$k] = (array)$v;
-        }
-        $cateList = getTreeData($sellers,0);
+        $data = DB::table('cates')->where('cate_level','3')->get();
         //搜索品牌
         $cate = $goods->brand();
         //搜索推荐位
         $posids = DB::table('posids')->get();
         //搜索店铺
         $shops = DB::table('shops')->get();
-
-        if($_POST){
-            //var_dump($_POST);
+        if($_GET){
+            $cate_id = $_GET['cate_id'] ? $_GET['cate_id'] : "";
+            $brand_id = $_GET['brand_id'] ? $_GET['brand_id'] : "";
+            $shop_id = $_GET['shop_id'] ? $_GET['shop_id'] : "";
+            $status = $_GET['status'] ? $_GET['status'] : "";
+            $keywords = $_GET['keywords'] ? $_GET['keywords'] : "";
+            $where = array();
+            if(!empty($cate_id)){
+                $where[] = ['goods_category',$cate_id];
+            }
+            if(!empty($brand_id)){
+                $where[] = ['goods_brand',$brand_id];
+            }
+            if(!empty($shop_id)){
+                $where[] = ['shop_id',$shop_id];
+            }
+            if(!empty($status)){
+                $where[] = ['status',$status];
+            }
+            if(!empty($keywords)){
+                $where[] = ['goods_name','like','%'.$keywords.'%'];
+            }
+            $lists = DB::table('goods')->where($where)->paginate(5);
         }
-        $lists = DB::table('goods')->paginate(5);
-        return view('Admin.goods.show',['goods'=>$lists,'cateList'=>$cateList,'cate'=>$cate,'posids'=>$posids,'shops'=>$shops]);
+        return view('Admin.goods.show',['goods'=>$lists,'data'=>$data,'cate'=>$cate,'posids'=>$posids,'shops'=>$shops,'keywords'=>$keywords,'cate_id'=>$cate_id,'brand_id'=>$brand_id,'shop_id'=>$shop_id,'status'=>$status]);
     }
     
     /**

@@ -40,7 +40,8 @@ Route::get('/cate_goods/{id}', 'GoodController@goods_list');
 /**
  * 展示前台商品详情
  */
-Route::get('/goodInfo/{id}/{did}', 'GoodController@goodInfo');//(id 商品ID did是店铺)
+Route::any('/goodInfo/{id}/{did}', 'GoodController@goodInfo');//(id 商品ID did是店铺)
+
 
 /**
  * 友情链接
@@ -61,7 +62,7 @@ Route::any('/zhuce/{tmp}', 'Auth\RegisterController@captcha');
 /**
  * 购物车路由
  */
-Route::get('/cart','CartController@show');//注册页面展示
+Route::any('/cart/{uid}/{gid}','CartController@show');//注册页面展示
 
 /**
  * 订单路由

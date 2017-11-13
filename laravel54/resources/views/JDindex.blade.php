@@ -155,7 +155,11 @@
         <button>搜索</button>
     </div>
     <div class="car">
-        <a href="cart">我的购物车</a>
+        @if (Auth::guest())
+            <a href="/cart/0/0">我的购物车</a>
+        @else
+            <a href="/cart/{{Auth::user()->id}}/0">我的购物车</a>
+        @endif
         <span class="icon1"></span>
         <span class="icon2">></span>
         <span class="icon3">8</span>

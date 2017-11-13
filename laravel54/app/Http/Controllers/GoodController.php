@@ -3,43 +3,36 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Cate;
-use App\Lunbo;
 use App\Good;
 use Session;
 use DB;
 class GoodController extends Controller{
     /*
-     * 展示前台商品列表
+     * $brand 品牌详情
+     * $cate 分类详情
+     * $attr   具体属性表信息
+     * $goods 展示商品详情
      */
     public function goods_list($id){
         $brand = Good::getBrand($id);
         $cate = Good::getCate($id);
-        //$attr = Good::getAttr($id);
-        return view('flower',['brand'=>$brand],['cate'=>$cate]);
+        $attr = Good::getAttr($id);
+        $goods = Good::getGoods($id);
+        return view('flower',['brand'=>$brand,'cate'=>$cate,'attr'=>$attr[0],'attr1'=>$attr[1],'goods'=>$goods]);
     }
 
     /**
-     * 展示商品详情
+     * $goodInfoList展示商品详情
+     * $cat_id 通过分类顶级id判断属性表
+     * $attr   具体属性表信息
+     * $ShopList 商铺信息
      */
     public function goodInfo($id,$did){
-        $goodInfoList=DB::table("goods")->where(["id"=>$id])->get();//商品
-        $cat_id=$goodInfoList[0]->cate_id;
-        if($cat_id == 1){
-            $cat_list=DB::table("cate_box")->where("goods_id",$id)->get();
-        }elseif($cat_id == 2){
-            $cat_list=DB::table("cate_jiadian")->where("goods_id",$id)->get();
-        }elseif($cat_id == 3){
-            $cat_list=DB::table("cate_cloth")->where("goods_id",$id)->get();
-        }elseif($cat_id == 4){
-            $cat_list=DB::table("cate_shoes")->where("goods_id",$id)->get();
-        }elseif($cat_id == 5){
-            $cat_list=DB::table("cate_hufu")->where("goods_id",$id)->get();
-        }elseif($cat_id == 6){
-            $cat_list=DB::table("cate_shuma")->where("goods_id",$id)->get();
-        }else{
-            $cat_list=DB::table("cate_food")->where("goods_id",$id)->get();
-        }
-        return view('goodInfo',["goodInfoList"=>$goodInfoList,"cat_id"=>$cat_id],["cat_list"=>$cat_list]);
+        $goodInfoList=DB::table("goods")->where("id",$id)->first();//商品
+        $cat_id=$goodInfoList->cate_id;
+        $attr = Good::getGoodsList($id,$cat_id);
+        $ShopList = Good::getShopList($did);
+        return view('goodInfo',['goodInfoList'=>$goodInfoList,'cat_id'=>$cat_id,'cat_list'=>$attr,'ShopList'=>$ShopList]);
     }
-    
+
 }

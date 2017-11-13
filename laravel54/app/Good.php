@@ -255,18 +255,157 @@ class Good extends Model{
 
     }
 
-    /*
-     * 商品具体列表 通过分类id获取相对应的分类 展示
-     * */
-    public static function getCate($id){
 
+    /*
+    * 商品具体列表 通过分类id获取相对应的属性
+    * */
+    public static function getCate($id){
         $row = DB::table('cates')->select('cate_pid')->where('id',$id)->first();
         $pid = $row->cate_pid;
         return DB::table('cates')->select('cate_title')->where('cate_pid',$pid)->get();
-       
+
 
     }
 
-   
+
+    /*
+     * *********************
+     * ********
+     **  商品具体列表 通过分类id获取相对应的pid
+     *   pid 找到所有子id分类
+     *   用所有分类id去商品表找到其对应的商品id去重复
+     *   拿到商品id去对应的属性表里查到其所有属性值
+     *
+     * *******
+     * *******************
+     * */
+    public static function getAttr($id){
+
+        $row = DB::table('cates')->select('cate_pid')->where('id',$id)->first();
+        $pid = $row->cate_pid;
+        $row = DB::table('cates')->select('id')->where('cate_pid',$pid)->get();
+        $data = json_decode(json_encode($row),true);
+        $ids = '';
+        $count = count($data);
+        for($i = 0; $i < $count; $i++){
+            $ids .= $data[$i]['id'].',';
+        }
+        $sum = substr($ids,1);
+        $id1 = rtrim($sum,',');
+        $id2 = ltrim($id1,',');
+        $id3   = array_unique(explode(',',$id2));
+        $goods = DB::table('goods')->select('id','cate_id')->whereIn('goods_category',$id3)->get();
+        $shu = json_decode(json_encode($goods),true);
+        $idsx = '';
+        $cat_ids = '';
+        $count = count($shu);
+        for($i = 0; $i < $count; $i++){
+            $idsx .= $shu[$i]['id'].',';
+            $cat_ids .= $shu[$i]['cate_id'].',';
+        }
+        $sum1 = substr($idsx,1);
+        $idsx1 = rtrim($sum1,',');
+        $idsx2 = ltrim($idsx1,',');
+        $idsx3   = array_unique(explode(',',$idsx2));
+        $sum2 = substr($cat_ids,1);
+        $cat_id1 = rtrim($sum2,',');
+        $cat_id2 = ltrim($cat_id1,',');
+        $cat_id3   = array_unique(explode(',',$cat_id2));
+        $cat_id3=$cat_id3[0];
+        //var_dump($cat_id3[0]);die;
+        if($cat_id3 == 1){
+             return array(DB::table('cate_box')->select('style')->whereIn('goods_id',$idsx3)->get(),1);
+        }elseif ($cat_id3 == 2){
+            return array(DB::table('cate_jiadian')->select('style')->whereIn('goods_id',$idsx3)->get(),2);
+        }elseif ($cat_id3 == 3){
+            return array(DB::table('cate_cloth')->select('style')->whereIn('goods_id',$idsx3)->get(),3);
+        }elseif ($cat_id3 == 4){
+            return array(DB::table('cate_shoes')->select('fabric')->whereIn('goods_id',$idsx3)->get(),4);
+        }elseif ($cat_id3 == 5){
+            return array(DB::table('cate_hufu')->select('Efficacy')->whereIn('goods_id',$idsx3)->get(),5);
+        }elseif ($cat_id3 == 6){
+            return array(DB::table('cate_shuma')->select('style')->whereIn('goods_id',$idsx3)->get(),6);
+        }elseif ($cat_id3 == 7){
+            return array(DB::table( 'cate_food')->select('crowd')->whereIn('goods_id',$idsx3)->get(),7);
+        }else{
+            return false;
+        }
+    }
+
+    /*
+     * *********************
+     * ********
+     **  商品具体列表 通过分类id获取相对应的pid
+     *   pid 找到所有子id分类
+     *   用所有分类id去重复后去商品表找到其对应的商品
+     *
+     * *******
+     * *******************
+     * */
+    public static function getGoods($id){
+
+        $row = DB::table('cates')->select('cate_pid')->where('id',$id)->first();
+        $pid = $row->cate_pid;
+        $row = DB::table('cates')->select('id')->where('cate_pid',$pid)->get();
+        $data = json_decode(json_encode($row),true);
+        $ids = '';
+        $count = count($data);
+        for($i = 0; $i < $count; $i++){
+            $ids .= $data[$i]['id'].',';
+        }
+        $sum = substr($ids,1);
+        $id1 = rtrim($sum,',');
+        $id2 = ltrim($id1,',');
+        $id3   = array_unique(explode(',',$id2));
+        return DB::table('goods')->select('id','goods_name','goods_text','new_price','goods_img','shop_id')->whereIn('goods_category',$id3)->paginate(10);
+
+    }
+
+
+
+    /*
+    * *********************
+    * ********
+     * $id 商品id  $cat_id 验证属性
+    **  属性详情页展示
+    * *******
+    * *******************
+    * */
+    public static function getGoodsList($id,$cat_id){
+        if($cat_id == 1){
+            return DB::table('cate_box')->where('goods_id',$id)->get();
+        }elseif ($cat_id == 2){
+            return DB::table('cate_jiadian')->where('goods_id',$id)->get();
+        }elseif ($cat_id == 3){
+            return DB::table('cate_cloth')->where('goods_id',$id)->get();
+        }elseif ($cat_id == 4){
+            return DB::table('cate_shoes')->where('goods_id',$id)->get();
+        }elseif ($cat_id == 5){
+            return DB::table('cate_hufu')->where('goods_id',$id)->get();
+        }elseif ($cat_id == 6){
+            return DB::table('cate_shuma')->where('goods_id',$id)->get();
+        }elseif ($cat_id == 7){
+            return DB::table( 'cate_food')->where('goods_id',$id)->get();
+        }else{
+            return false;
+        }
+
+    }
+
+
+    /*
+   * *********************
+   * ********
+   **  商铺详情页展示
+   * *******
+   * *******************
+   * */
+    public static function getShopList($did){
+         return DB::table("shops")->where(["shop_id"=>$did])->first();//商品
+
+    }
+
+
+
 
 }

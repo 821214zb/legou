@@ -5,30 +5,6 @@
         <title> 鲜花 鲜花速递 礼品箱包【行情 价格 评价 图片】- 京东</title>
         <link type="text/css" rel="stylesheet" href="http://www.aslegou.com/css/flower/a.css">
                   <link type="text/css" rel="stylesheet" href="http://www.aslegou.com/css/flower/list.css" media="all">
-        
-                <script type="text/javascript">
-            var baseURL = 'cat=1672,14227,14234&sort=sort%5Ftotalsales15%5Fdesc&trans=1';
-            var params = {"isLogo":false,"ev":"","istsyx":false,"isdjd":false,"delivery_211":"0","car_type":"","isbook":false,"multipleSort_view":false,"global":"0","jth":"","abTestFlag":"A","serverTime":"20171030205445","secondCatId":"14227","delivery_jzun":"0","page":"1","area":"1,72,4137,0","mallpro":"0","isjd":false,"is_ebook":false,"version":"1.0.3","newpro":"0","paragraph_tpl_type":0,"pageNo":"1","listck":"10a292c0ad0241a723dff0c68dc49a94","ms":"0","area_id":"1","c":"","delivery":"0","plist":"2","api_id":"14234","exp_publishers":"","multicid3":"","thirdCatName":"鲜花","icon2":"","is_tid":false,"id2":"14227","is3c":false,"delivery_glb":"0","firstCatId":"1672","id1":"1672","id3":"14234","icon_up":false,"delivery_daofu":"0","ver":"a","cat":"1672,14227,14234","md":"0","sort":"sort_totalsales15_desc","icon":"","trans":"1","exp_price":"","stock":"0","abTempFlag":"A","icon3":"","exp_brand":"","pubsLen":0,"rid":"58f83bc3-922c-3fb8-b039-bb97e8a2fa6a","s_type":"0","show_jzun":true,"debug":"","thirdCatId":"14234","is_book":false,"brandsLen":210};
-            var sortConfig = {"left_bottom":true,"areasale":false,"hotsale":false};
-            var baseConf = {"version":"1.0.3","main_es_pro":true,"alad_es_pro":true,"dianpu":true,"chuxiaobq":true,"guanggaoc":true,"yushou":true,"kucun":true,"maidian":true,"areaparam":false,"areaparam_djd":false,"cache":true,"save_index":true,"save_page":true,"show_index":false,"show_page":false,"googletag":true,"listPV":true,"show_ad":true,"price_pdos_off":false,"all_cache_index":false,"youhuiquan":true,"isloadarea":false,"plus_price":true,"tid":true,"check_id":true,"noprice_skuids":true,"no_price":true,"local_icon":true,"slave_ad":true,"slave_com":true,"fixpos":true,"gexinghua":true,"spu_hover":true,"yunfeix_icon":true,"hand2":true,"baoyou":true,"luodipei":true,"xuangouzs":true,"shouquanqiu":false,"price17618":true,"filter_list":false,"filter_caller":false,"timer":true,"delivery_jzun":true, "seo":true,"jzun_box":true,"market_icon":false,"ziqu_icon":false,"min_count":1,"beltEnable":true,"tag_423979":true};
-            var newConf = {"ad_set":"0","baoyou":"0","fixpos":"0","gexinghua":"0","hand2":"0","listaos":"1","luodipei":"0","spuHover":"1","spureplace":"0","unit_name":"0","unit_price":"0","xuangouzs":"0","yunfeix_icon":"0"};
-
-             window.SEARCH=window.SEARCH || {};
-             var domainName = '.jd.com'
-             window.is3c = false;
-             window.isbook = false;
-             window.isjd = false;
-             window.noleft = false;
-             window.serverTime = 20171030205445;
-             window.pageConfig = { jdfVersion:'2.0.0',version : "1.0.0",compatible: false,searchType:0,queryParam : {c1: params.id1, c2: params.id2,c3:params.id3,brand: params.exp_brand !="" ?params.exp_brand.split(',')[0]:"", price: params.exp_price,page: params.pageNo }, pSource:"list_pc_front"};
-             SEARCH.adv_param={page:params.pageNo,cid1:params.id1,cid2:params.id2,cid3:params.id3,multicid3:params.multicid3};
-             var slaveWareList ={  };
-//             var aosList ={ 1000054804:[{"n":"鲜花速递","v":"1107_11300"},{"n":"33朵","v":"6366_94799"},{"n":"红玫瑰","v":"4844_23351"}],10701807297:[{"n":"鲜花速递","v":"1107_11300"},{"n":"99朵","v":"6366_94800"},{"n":"红玫瑰","v":"4844_23351"}],1051977178:[{"n":"鲜花速递","v":"1107_11300"},{"n":"19朵","v":"6366_94797"},{"n":"红玫瑰","v":"4844_23351"}],1021581878:[{"n":"鲜花速递","v":"1107_11300"},{"n":"19朵","v":"6366_94797"},{"n":"香槟玫瑰","v":"4844_81731"}],10248231486:[{"n":"鲜花速递","v":"1107_11300"},{"n":"99朵","v":"6366_94800"},{"n":"红玫瑰","v":"4844_23351"}],1091311542:[{"n":"鲜花速递","v":"1107_11300"},{"n":"19朵","v":"6366_94797"},{"n":"红玫瑰","v":"4844_23351"}],1322517876:[{"n":"鲜花速递","v":"1107_11300"},{"n":"19朵","v":"6366_94797"},{"n":"红玫瑰","v":"4844_23351"}],1384105927:[{"n":"鲜花速递","v":"1107_11300"},{"n":"33朵","v":"6366_94799"},{"n":"红玫瑰","v":"4844_23351"}],1026488782:[{"n":"鲜花速递","v":"1107_11300"},{"n":"33朵","v":"6366_94799"},{"n":"香槟玫瑰","v":"4844_81731"}],10280881124:[{"n":"鲜花速递","v":"1107_11300"},{"n":"19朵","v":"6366_94797"},{"n":"红玫瑰","v":"4844_23351"}],1067114999:[{"n":"鲜花速递","v":"1107_11300"},{"n":"11朵","v":"6366_94798"},{"n":"红玫瑰","v":"4844_23351"}],10148727141:[{"n":"鲜花速递","v":"1107_11300"},{"n":"33朵","v":"6366_94799"},{"n":"红玫瑰","v":"4844_23351"}],12061628169:[{"n":"花篮","v":"1107_11301"},{"n":"其它　","v":"6366_67309"},{"n":"混搭花束","v":"4844_94815"}],1349472723:[{"n":"鲜花速递","v":"1107_11300"},{"n":"19朵","v":"6366_94797"},{"n":"红玫瑰","v":"4844_23351"}],5059556:[{"n":"鲜花速递","v":"1107_11300"},{"n":"19朵","v":"6366_94797"},{"n":"红玫瑰","v":"4844_23351"}],10462024168:[{"n":"鲜花速递","v":"1107_11300"},{"n":"19朵","v":"6366_94797"},{"n":"红玫瑰","v":"4844_23351"}],10209919687:[{"n":"鲜花速递","v":"1107_11300"},{"n":"33朵","v":"6366_94799"}],1188055473:[{"n":"鲜花速递","v":"1107_11300"},{"n":"19朵","v":"6366_94797"},{"n":"红玫瑰","v":"4844_23351"}],10057059042:[{"n":"鲜花速递","v":"1107_11300"},{"n":"19朵","v":"6366_94797"},{"n":"红玫瑰","v":"4844_23351"}],1012538748:[{"n":"鲜花速递","v":"1107_11300"},{"n":"99朵","v":"6366_94800"},{"n":"红玫瑰","v":"4844_23351"}],10448615077:[{"n":"鲜花速递","v":"1107_11300"},{"n":"33朵","v":"6366_94799"},{"n":"香槟玫瑰","v":"4844_81731"}],1517855398:[{"n":"鲜花速递","v":"1107_11300"},{"n":"19朵","v":"6366_94797"},{"n":"蓝色妖姬","v":"4844_94811"}],10000681418:[{"n":"鲜花速递","v":"1107_11300"},{"n":"99朵","v":"6366_94800"},{"n":"红玫瑰","v":"4844_23351"}],1303101286:[{"n":"鲜花速递","v":"1107_11300"},{"n":"33朵","v":"6366_94799"},{"n":"红玫瑰","v":"4844_23351"}],11265164606:[{"n":"鲜花速递","v":"1107_11300"},{"n":"33朵","v":"6366_94799"},{"n":"红玫瑰","v":"4844_23351"}],10185282612:[{"n":"鲜花速递","v":"1107_11300"},{"n":"33朵","v":"6366_94799"},{"n":"红玫瑰","v":"4844_23351"}],1015171199:[{"n":"鲜花速递","v":"1107_11300"},{"n":"19朵","v":"6366_94797"},{"n":"红玫瑰","v":"4844_23351"}],11268902173:[{"n":"鲜花速递","v":"1107_11300"},{"n":"其它　","v":"6366_67309"},{"n":"红玫瑰","v":"4844_23351"}],10193702284:[{"n":"花篮","v":"1107_11301"},{"n":"其它　","v":"6366_67309"}],14680941828:[{"n":"鲜花速递","v":"1107_11300"},{"n":"33朵","v":"6366_94799"},{"n":"红玫瑰","v":"4844_23351"}],1763925832:[{"n":"鲜花速递","v":"1107_11300"},{"n":"19朵","v":"6366_94797"},{"n":"红玫瑰","v":"4844_23351"}],1321469299:[{"n":"鲜花速递","v":"1107_11300"},{"n":"19朵","v":"6366_94797"},{"n":"香槟玫瑰","v":"4844_81731"}],13439864904:[{"n":"鲜花速递","v":"1107_11300"},{"n":"33朵","v":"6366_94799"},{"n":"绣球","v":"4844_94816"}],10512214566:[{"n":"鲜花速递","v":"1107_11300"},{"n":"11朵","v":"6366_94798"},{"n":"红玫瑰","v":"4844_23351"}],1076693203:[{"n":"鲜花速递","v":"1107_11300"},{"n":"33朵","v":"6366_94799"},{"n":"红玫瑰","v":"4844_23351"}],10701807300:[{"n":"鲜花速递","v":"1107_11300"},{"n":"99朵","v":"6366_94800"},{"n":"红玫瑰","v":"4844_23351"}],11281454540:[{"n":"玫瑰花束","v":"1107_94796"},{"n":"99朵","v":"6366_94800"},{"n":"红玫瑰","v":"4844_23351"}],11381596963:[{"n":"鲜花速递","v":"1107_11300"},{"n":"33朵","v":"6366_94799"},{"n":"红玫瑰","v":"4844_23351"}],1672745683:[{"n":"鲜花速递","v":"1107_11300"},{"n":"其它　","v":"6366_67309"},{"n":"红玫瑰","v":"4844_23351"}],10436399879:[{"n":"鲜花速递","v":"1107_11300"},{"n":"19朵","v":"6366_94797"},{"n":"香水百合","v":"4844_94812"}],12052583586:[{"n":"鲜花速递","v":"1107_11300"},{"n":"33朵","v":"6366_94799"},{"n":"红玫瑰","v":"4844_23351"}],11675366617:[{"n":"鲜花速递","v":"1107_11300"},{"n":"11朵","v":"6366_94798"},{"n":"粉色康乃馨","v":"4844_94814"}],4180965:[{"n":"鲜花速递","v":"1107_11300"},{"n":"19朵","v":"6366_94797"},{"n":"香槟玫瑰","v":"4844_81731"}],15766798071:[{"n":"花篮","v":"1107_11301"},{"n":"其它　","v":"6366_67309"}],1065851476:[{"n":"鲜花速递","v":"1107_11300"},{"n":"99朵","v":"6366_94800"},{"n":"红玫瑰","v":"4844_23351"}],10515850780:[{"n":"鲜花速递","v":"1107_11300"},{"n":"33朵","v":"6366_94799"},{"n":"红玫瑰","v":"4844_23351"}],1645674174:[{"n":"鲜花速递","v":"1107_11300"},{"n":"33朵","v":"6366_94799"},{"n":"香槟玫瑰","v":"4844_81731"}],1643382198:[{"n":"鲜花礼盒","v":"1107_94768"},{"n":"19朵","v":"6366_94797"},{"n":"红玫瑰","v":"4844_23351"}],11825427768:[{"n":"鲜花速递","v":"1107_11300"},{"n":"其它　","v":"6366_67309"}],1017343961:[{"n":"鲜花速递","v":"1107_11300"},{"n":"33朵","v":"6366_94799"},{"n":"红玫瑰","v":"4844_23351"}],1378387964:[{"n":"鲜花速递","v":"1107_11300"},{"n":"33朵","v":"6366_94799"},{"n":"蓝色妖姬","v":"4844_94811"}],10163606877:[{"n":"鲜花速递","v":"1107_11300"},{"n":"33朵","v":"6366_94799"},{"n":"红玫瑰","v":"4844_23351"}],10831856022:[{"n":"鲜花速递","v":"1107_11300"},{"n":"19朵","v":"6366_94797"},{"n":"红玫瑰","v":"4844_23351"}],1057407140:[{"n":"鲜花速递","v":"1107_11300"},{"n":"19朵","v":"6366_94797"},{"n":"香槟玫瑰","v":"4844_81731"}],1187109335:[{"n":"鲜花速递","v":"1107_11300"},{"n":"99朵","v":"6366_94800"},{"n":"红玫瑰","v":"4844_23351"}],1057707680:[{"n":"鲜花速递","v":"1107_11300"},{"n":"19朵","v":"6366_94797"},{"n":"香槟玫瑰","v":"4844_81731"}],10949795189:[{"n":"鲜花速递","v":"1107_11300"},{"n":"19朵","v":"6366_94797"},{"n":"香槟玫瑰","v":"4844_81731"}],10044448943:[{"n":"鲜花速递","v":"1107_11300"},{"n":"33朵","v":"6366_94799"}],10179146924:[{"n":"鲜花速递","v":"1107_11300"},{"n":"99朵","v":"6366_94800"},{"n":"蓝色妖姬","v":"4844_94811"}],10502535115:[{"n":"鲜花速递","v":"1107_11300"},{"n":"99朵","v":"6366_94800"},{"n":"红玫瑰","v":"4844_23351"}] };
-//             var attrList = { 1000054804:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":0,"soldOS":-1,"tssp":0,"venderType":"0"},10701807297:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":0,"soldOS":-1,"tssp":0,"venderType":"0"},1051977178:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":0,"soldOS":-1,"tssp":0,"venderType":"0"},1021581878:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":0,"soldOS":-1,"tssp":0,"venderType":"0"},10248231486:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":756170,"soldOS":-1,"tssp":0,"venderType":"0"},1091311542:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":0,"soldOS":-1,"tssp":0,"venderType":"0"},1322517876:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":0,"soldOS":-1,"tssp":0,"venderType":"0"},1384105927:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":0,"soldOS":-1,"tssp":0,"venderType":"0"},1026488782:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":0,"soldOS":-1,"tssp":0,"venderType":"0"},10280881124:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":0,"soldOS":-1,"tssp":0,"venderType":"0"},1067114999:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":0,"soldOS":-1,"tssp":0,"venderType":"0"},10148727141:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":0,"soldOS":-1,"tssp":0,"venderType":"0"},12061628169:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":0,"soldOS":-1,"tssp":0,"venderType":"0"},1349472723:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":0,"soldOS":-1,"tssp":0,"venderType":"0"},5059556:{"IsSam":0,"cw":1,"factoryShip":1,"isJDexpress":0,"mcat3Id":14234,"soldOS":-1,"tssp":0,"venderType":"0"},10462024168:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":0,"soldOS":-1,"tssp":0,"venderType":"0"},10209919687:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":0,"soldOS":-1,"tssp":0,"venderType":"0"},1188055473:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":0,"soldOS":-1,"tssp":0,"venderType":"0"},10057059042:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":0,"soldOS":-1,"tssp":0,"venderType":"0"},1012538748:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":0,"soldOS":-1,"tssp":0,"venderType":"0"},10448615077:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":0,"soldOS":-1,"tssp":0,"venderType":"0"},1517855398:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":0,"soldOS":-1,"tssp":0,"venderType":"0"},10000681418:{"IsSam":0,"cw":1,"isJDexpress":1,"mcat3Id":14234,"shipFareTmplId":589897,"soldOS":-1,"tssp":0,"venderType":"0"},1303101286:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":0,"soldOS":-1,"tssp":0,"venderType":"0"},11265164606:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":0,"soldOS":-1,"tssp":0,"venderType":"0"},10185282612:{"IsSam":0,"cw":1,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":0,"soldOS":-1,"tssp":0,"venderType":"1"},1015171199:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":0,"soldOS":-1,"tssp":0,"venderType":"0"},11268902173:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":994720,"soldOS":-1,"tssp":0,"venderType":"0"},10193702284:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":0,"soldOS":-1,"tssp":0,"venderType":"0"},14680941828:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":0,"soldOS":-1,"tssp":0,"venderType":"0"},1763925832:{"IsSam":0,"cw":1,"isJDexpress":1,"mcat3Id":14234,"shipFareTmplId":156444,"soldOS":-1,"tssp":0,"venderType":"0"},1321469299:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":148820,"soldOS":-1,"tssp":0,"venderType":"0"},13439864904:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":756170,"soldOS":-1,"tssp":0,"venderType":"0"},10512214566:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":0,"soldOS":-1,"tssp":0,"venderType":"0"},1076693203:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":837339,"soldOS":-1,"tssp":0,"venderType":"0"},10701807300:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":0,"soldOS":-1,"tssp":0,"venderType":"0"},11281454540:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":836996,"soldOS":-1,"tssp":0,"venderType":"0"},11381596963:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":0,"soldOS":-1,"tssp":0,"venderType":"0"},1672745683:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":0,"soldOS":-1,"tssp":0,"venderType":"0"},10436399879:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":815132,"soldOS":-1,"tssp":0,"venderType":"0"},12052583586:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":0,"soldOS":-1,"tssp":0,"venderType":"0"},11675366617:{"IsSam":0,"cw":1,"isJDexpress":1,"mcat3Id":14234,"shipFareTmplId":0,"soldOS":-1,"tssp":0,"venderType":"0"},4180965:{"IsSam":0,"cw":1,"factoryShip":1,"isJDexpress":0,"mcat3Id":14234,"soldOS":-1,"tssp":0,"venderType":"0"},15766798071:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":1182335,"soldOS":-1,"tssp":0,"venderType":"0"},1065851476:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":837339,"soldOS":-1,"tssp":0,"venderType":"0"},10515850780:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":0,"soldOS":-1,"tssp":0,"venderType":"0"},1645674174:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":0,"soldOS":-1,"tssp":0,"venderType":"0"},1643382198:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":973058,"soldOS":-1,"tssp":0,"venderType":"0"},11825427768:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":941422,"soldOS":-1,"tssp":0,"venderType":"0"},1017343961:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":0,"soldOS":-1,"tssp":0,"venderType":"0"},1378387964:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":837339,"soldOS":-1,"tssp":0,"venderType":"0"},10163606877:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":740994,"soldOS":-1,"tssp":0,"venderType":"0"},10831856022:{"IsSam":0,"cw":1,"isJDexpress":1,"mcat3Id":14234,"shipFareTmplId":886291,"soldOS":-1,"tssp":0,"venderType":"0"},1057407140:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":0,"soldOS":-1,"tssp":0,"venderType":"0"},1187109335:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":0,"soldOS":-1,"tssp":0,"venderType":"0"},1057707680:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":0,"soldOS":-1,"tssp":0,"venderType":"0"},10949795189:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":0,"soldOS":-1,"tssp":0,"venderType":"0"},10044448943:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":0,"soldOS":-1,"tssp":0,"venderType":"0"},10179146924:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":744052,"soldOS":-1,"tssp":0,"venderType":"0"},10502535115:{"IsSam":0,"isJDexpress":0,"mcat3Id":14234,"shipFareTmplId":0,"soldOS":-1,"tssp":0,"venderType":"0"} };
-//             var other_exts =[{"name":"鲜花朵数","id":6366,"value_icon":";;;;;;;;;","attr_infos":null,"value_id":"94797;94798;94799;94800;94801;94802;94803;94804;94806;67309","value_name":"19朵;11朵;33朵;99朵;12朵;9朵;10朵;520朵;3朵;其它　"},{"name":"适合节日","id":6367,"value_icon":";;;;;;;;;","attr_infos":null,"value_id":"11327;11326;83616;11329;94809;94807;11328;11330;94808;99155","value_name":"七夕;情人节;圣诞节;母亲节;白色情人节;女人节;感恩节;教师节;520情人节;结婚纪念日"},{"name":"适用对象","id":3820,"value_icon":";;;;;","attr_infos":null,"value_id":"94095;94817;11323;70337;94818;11325","value_name":"爱人;朋友\/同事;老师;客户;领导\/长辈;病人"},{"name":"大家说","id":1000000000,"value_icon":";;;;;;;;;;;;;;;;;;;","attr_infos":null,"value_id":"1733;1741;1743;1931;1932;1933;1934;1935;1936;1937;1938;1939;10994;10995;11006;28943;28946;29030;29031;29032","value_name":"创意不错;包装不错;外观漂亮;花很漂亮;花质量不错;服务态度好;送花速度快;小熊很可爱;花瓶也好看;花朵很新鲜;包装很好;送货速度;还可以;质量一般;还可以;服务不错;值得推荐;物美价廉;价格实惠;值得推荐"}];
-             var pay_after = [];
-             var limit_ids = [];
-        </script>
 
         <script type="text/javascript" src="js/flower/a"> </script>
 
@@ -56,7 +32,51 @@
         <link rel="dns-prefetch" href="https://x.jd.com/">
         <link rel="dns-prefetch" href="https://wl.jd.com/">
         <link rel="dns-prefetch" href="https://item.jd.com/">
-        <link rel="dns-prefetch" href="https://search.jd.com/">
+        {{--<link rel="dns-prefetch" href="https://search.jd.com/">--}}
+    {{--<link rel="stylesheet" href="/css/pintuer.css">--}}
+       <style>
+
+           .pagination{list-style:none;margin:0;padding:0;display:inline-block;vertical-align:bottom;}
+           .pagination li{display:inline-block;border:solid 1px #ddd;border-radius:4px;}
+           .pagination a{color:#333;padding:8px 12px;line-height:18px;display:block;transition:all 1s cubic-bezier(0.175, 0.885, 0.32, 1) 0s;}
+           .pagination .disabled a:link, .pagination .disabled a:visited, .pagination .disabled a:hover{cursor:not-allowed;pointer-events:none;color:#ddd;}
+           .pagination .active{pointer-events:none;}
+           .pagination .active,.pagination a:hover{background:#f5f5f5;border-radius:4px;transition:all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1) 0s;}
+           .pagination-group{border-right:solid 1px #ddd;border-radius:4px;}
+           .pagination-group li{float:left;border-right:none;border-radius:0;}
+           .pagination-group li:not(:first-child):not(:last-child){border-radius:0;}
+           .pagination-group li:first-child{border-radius:4px 0 0 4px;}
+           .pagination-group li:last-child{border-radius:0 4px 4px 0;}
+           .pagination-group .active,.pagination-group a:hover{background:#f5f5f5;border-radius:0;}
+           .pagination-big a{padding:10px 16px;font-size:16px;}
+           .pagination-small a{padding:5px 10px;font-size:12px;}
+           .pagination.border-main .active a, .pagination.border-sub .active a, .pagination.border-dot .active a,
+           .pagination.border-black .active a, .pagination.border-gray .active a, .pagination.border-red .active a,
+           .pagination.border-yellow .active a, .pagination.border-blue .active a, .pagination.border-green .active a{color:#fff;}
+           .pager{list-style:none;padding:0;text-align:center;clear:both;}
+           .pager li{display:inline-block;}
+           .pager li a{color:#333;border:solid 1px #ddd;border-radius:15px;padding:5px 15px;transition:all 1s cubic-bezier(0.175, 0.885, 0.32, 1) 0s;}
+           .pager li a:hover{background-color:#f5f5f5;transition:all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1) 0s;}
+           .pager-prev, .pager .pager-prev, .pager-next, .pager .pager-next{font-size:36px;padding:0;color:#ddd;border:solid 1px #ddd;background-color:rgba(255, 255, 255, .2);width:50px;height:50px;line-height:45px;display:inline-block;border-radius:50%;text-align:center;cursor:pointer;}
+           .pager-prev:hover, .pager-next:hover{background-color:rgba(0, 0, 0, .2);}
+           .pager-group li{float:left;display:inline-block;}
+           .pager-group li:not(:first-child):not(:last-child){border-radius:0;}
+           .pager-group li a:first-child{border-radius:4px 0 0 4px;}
+           .pager-group li a:last-child{border-radius:0 4px 4px 0;}
+
+
+           .pagelist {padding:10px 0; text-align:center;}
+           .pagelist span,.pagelist a{ border-radius:3px; border:1px solid #dfdfdf;display:inline-block; padding:5px 12px;}
+           .pagelist a{ margin:0 3px;}
+           .pagelist span.current{ background:#09F; color:#FFF; border-color:#09F; margin:0 2px;}
+           .pagelist a:hover{background:#09F; color:#FFF; border-color:#09F; }
+           .pagelist label{ padding-left:15px; color:#999;}
+           .pagelist label b{color:red; font-weight:normal; margin:0 3px;}
+           .banner .pager-prev, .banner .pager-next{position:absolute;display:none;top:50%;margin-top:-25px;}
+           .banner .pager-prev{left:20px;}
+           .banner .pager-next{right:20px;}
+           .banner:hover .pager-prev,.banner:hover .pager-next{display:block;}
+       </style>
     <link charset="utf-8" rel="stylesheet" href="http://www.aslegou.com/css/flower/a_002.css"><link charset="utf-8" rel="stylesheet" href="http://www.aslegou.com/css/flower/tips.css"><script src="js/flower/a_003"></script></head>
           <body data-lazy-img-install="1">
              <!--shortcut start-->
@@ -193,57 +213,7 @@
     </div>
 </div>
 <!--nav end-->                  <div id="J-global-toolbar">            <div class="jdm-toolbar-wrap J-wrap">                <div class="jdm-toolbar J-toolbar">                    <div class="jdm-toolbar-panels J-panel">                    <div data-name="ad" class="J-content jdm-toolbar-panel jdm-tbar-panel-ad">                        <h3 class="jdm-tbar-panel-header J-panel-header">                            <a>                            <i></i>                            <em class="title"></em>                            </a>                            <span class="close-panel J-close"></span>                        </h3>                        <div class="jdm-tbar-panel-main">                            <div class="jdm-tbar-panel-content J-panel-content">                            </div>                        </div>                    </div>                         <div data-name="shopingassistant" class="J-content jdm-toolbar-panel jdm-tbar-panel-shopingassistant">                            <h3 class="jdm-tbar-panel-header J-panel-header">                                <span class="title" clstag="thirdtype|keycount|cebianlan_thirdtype_shopingassistant|title">                                <i></i>                                <em class="title">购物助手</em>                                </span>                                <span class="close-panel J-close"></span>                            </h3>                            <div class="jdm-tbar-panel-main">                                <div class="jdm-tbar-panel-content J-panel-content" style="overflow:hidden;">                                <div class="jdm-tbar-tipbox2">                                    <div class="tip-inner">                                        <i class="i-loading"></i>                                    </div>                                </div>                                </div>                            </div>                            <div class="jdm-tbar-panel-footer J-panel-footer"></div>                        </div>                          <div data-name="jdvip" class="J-content jdm-toolbar-panel jdm-tbar-panel-jdvip">                            <h3 class="jdm-tbar-panel-header J-panel-header">                                <span class="title" clstag="thirdtype|keycount|cebianlan_thirdtype_jdvip|title">                                <i></i>                                <em class="title">京东会员</em>                                </span>                                <span class="close-panel J-close"></span>                            </h3>                            <div class="jdm-tbar-panel-main">                                <div class="jdm-tbar-panel-content J-panel-content" style="overflow:hidden;">                                <div class="jdm-tbar-tipbox2">                                    <div class="tip-inner">                                        <i class="i-loading"></i>                                    </div>                                </div>                                </div>                            </div>                            <div class="jdm-tbar-panel-footer J-panel-footer"></div>                        </div>                          <div data-name="cart" class="J-content jdm-toolbar-panel jdm-tbar-panel-cart">                            <h3 class="jdm-tbar-panel-header J-panel-header">                                <a href="https://cart.jd.com/cart.action?r=0.11918754463509229" target="_blank" class="title" clstag="thirdtype|keycount|cebianlan_thirdtype_cart|title">                                <i></i>                                <em class="title">购物车</em>                                </a>                                <span class="close-panel J-close"></span>                            </h3>                            <div class="jdm-tbar-panel-main">                                <div class="jdm-tbar-panel-content J-panel-content">                                <div class="jdm-tbar-tipbox2">                                    <div class="tip-inner">                                        <i class="i-loading"></i>                                    </div>                                </div>                                </div>                            </div>                            <div class="jdm-tbar-panel-footer J-panel-footer"></div>                        </div>                          <div data-name="follow" class="J-content jdm-toolbar-panel jdm-tbar-panel-follow">                            <h3 class="jdm-tbar-panel-header J-panel-header">                                <a href="https://t.jd.com/home/follow" target="_blank" class="title" clstag="thirdtype|keycount|cebianlan_thirdtype_follow|title">                                <i></i>                                <em class="title">我的关注</em>                                </a>                                <span class="close-panel J-close"></span>                            </h3>                            <div class="jdm-tbar-panel-main">                                <div class="jdm-tbar-panel-content J-panel-content">                                <div class="jdm-tbar-tipbox2">                                    <div class="tip-inner">                                        <i class="i-loading"></i>                                    </div>                                </div>                                </div>                            </div>                            <div class="jdm-tbar-panel-footer J-panel-footer"></div>                        </div>                          <div data-name="history" class="J-content jdm-toolbar-panel jdm-tbar-panel-history">                            <h3 class="jdm-tbar-panel-header J-panel-header">                                <a href="https://my.jd.com/history/list.html" target="_blank" class="title" clstag="thirdtype|keycount|cebianlan_thirdtype_history|title">                                <i></i>                                <em class="title">我的足迹</em>                                </a>                                <span class="close-panel J-close"></span>                            </h3>                            <div class="jdm-tbar-panel-main">                                <div class="jdm-tbar-panel-content J-panel-content">                                <div class="jdm-tbar-tipbox2">                                    <div class="tip-inner">                                        <i class="i-loading"></i>                                    </div>                                </div>                                </div>                            </div>                            <div class="jdm-tbar-panel-footer J-panel-footer"></div>                        </div>                            <div data-name="jimi" class="J-content jdm-toolbar-panel jdm-tbar-panel-jimi">                            <h3 class="jdm-tbar-panel-header J-panel-header">                                <span class="title" clstag="thirdtype|keycount|cebianlan_thirdtype_jimi|title">                                <i></i>                                <em class="title">咨询JIMI</em>                                </span>                                <span class="close-panel J-close"></span>                            </h3>                            <div class="jdm-tbar-panel-main">                                <div class="jdm-tbar-panel-content J-panel-content" style="overflow:hidden;">                                <div class="jdm-tbar-tipbox2">                                    <div class="tip-inner">                                        <i class="i-loading"></i>                                    </div>                                </div>                                </div>                            </div>                            <div class="jdm-tbar-panel-footer J-panel-footer"></div>                        </div>                     </div>                    <div class="jdm-toolbar-header">                        <div class="jdm-tbar-act J-trigger" data-type="bar" data-name="ad" data-iframe="true" clstag="thirdtype|keycount|cebianlan_thirdtype_header|">                        </div>                    </div>                    <div class="jdm-toolbar-tabs J-tab">                         <div data-type="bar" clstag="thirdtype|keycount|cebianlan_thirdtype_shopingassistant|btn" class="J-trigger jdm-toolbar-tab jdm-tbar-tab-shopingassistant" data-name="shopingassistant" data-login="true" data-iframe="//notice.jd.com/notice/userFlyOrder">                                 <i class="tab-ico"></i>                                <em class="tab-text">                                    购物助手                                </em>                             <span class="tab-sub J-count hide">0</span>                            <div class="tabs-tip hide">                                <span class="ico"></span>                                <span class="text">成功加入购物车!</span>                                <b></b>                            </div>                        </div>                          <div data-type="bar" clstag="thirdtype|keycount|cebianlan_thirdtype_jdvip|btn" class="J-trigger jdm-toolbar-tab jdm-tbar-tab-jdvip" data-name="jdvip" data-login="true" data-iframe="//vip.jd.com/sideBar/index.html"> <i class="tab-tip"></i>                                <i class="tab-ico"></i>                                <em class="tab-text">                                    京东会员                                </em>                             <span class="tab-sub J-count hide">0</span>                            <div class="tabs-tip hide">                                <span class="ico"></span>                                <span class="text">成功加入购物车!</span>                                <b></b>                            </div>                        </div>                          <div data-type="bar" clstag="thirdtype|keycount|cebianlan_thirdtype_cart|btn" class="J-trigger jdm-toolbar-tab jdm-tbar-tab-cart" data-name="cart">                                 <i class="tab-ico"></i>                                <em class="tab-text">                                    购物车                                </em>                             <span class="tab-sub J-count hide" style="display: inline;">4</span>                            <div class="tabs-tip hide">                                <span class="ico"></span>                                <span class="text">成功加入购物车!</span>                                <b></b>                            </div>                        </div>                          <div data-type="bar" clstag="thirdtype|keycount|cebianlan_thirdtype_follow|btn" class="J-trigger jdm-toolbar-tab jdm-tbar-tab-follow" data-name="follow" data-login="true">                                 <i class="tab-ico"></i>                                <em class="tab-text">                                    我的关注                                </em>                             <span class="tab-sub J-count hide">0</span>                            <div class="tabs-tip hide">                                <span class="ico"></span>                                <span class="text">成功加入购物车!</span>                                <b></b>                            </div>                        </div>                          <div data-type="bar" clstag="thirdtype|keycount|cebianlan_thirdtype_history|btn" class="J-trigger jdm-toolbar-tab jdm-tbar-tab-history" data-name="history">                                 <i class="tab-ico"></i>                                <em class="tab-text">                                    我的足迹                                </em>                             <span class="tab-sub J-count hide">0</span>                            <div class="tabs-tip hide">                                <span class="ico"></span>                                <span class="text">成功加入购物车!</span>                                <b></b>                            </div>                        </div>                          <div clstag="thirdtype|keycount|cebianlan_thirdtype_message|btn" class="J-trigger jdm-toolbar-tab jdm-tbar-tab-message" data-name="message"><a target="_blank" href="https://joycenter.jd.com/msgCenter/queryHistoryMessage.action">                                 <i class="tab-ico"></i>                                <em class="tab-text">                                    我的消息                                </em> </a>                            <span class="tab-sub J-count hide">0</span>                            <div class="tabs-tip hide">                                <span class="ico"></span>                                <span class="text">成功加入购物车!</span>                                <b></b>                            </div>                        </div>                          <div data-type="bar" clstag="thirdtype|keycount|cebianlan_thirdtype_jimi|btn" class="J-trigger jdm-toolbar-tab jdm-tbar-tab-jimi" data-name="jimi" data-login="true" data-iframe="//jimi.jd.com/index.action?source=jdhome">                                 <i class="tab-ico"></i>                                <em class="tab-text">                                    咨询JIMI                                </em>                             <span class="tab-sub J-count hide">0</span>                            <div class="tabs-tip hide">                                <span class="ico"></span>                                <span class="text">成功加入购物车!</span>                                <b></b>                            </div>                        </div>                     </div>                    <div class="jdm-toolbar-footer">                        <div data-type="link" class="J-trigger jdm-toolbar-tab jdm-tbar-tab-top">                                <a href="#" clstag="thirdtype|keycount|cebianlan_thirdtype|top">                                    <i class="tab-ico"></i>                                    <em class="tab-text">顶部</em>                                </a>                         </div>                        <div data-type="link" class="J-trigger jdm-toolbar-tab jdm-tbar-tab-feedback">                                 <a href="https://surveys.jd.com/index.php?r=survey/index/sid/73453/lang/zh-Hans" target="_blank" clstag="thirdtype|keycount|cebianlan_thirdtype|feedback">                                    <i class="tab-ico"></i>                                    <em class="tab-text">反馈</em>                                </a>                        </div>                    </div>                    <div class="jdm-toolbar-mini">                    </div>                </div>                <div id="J-toolbar-load-hook" clstag="thirdtype|keycount|cebianlan_thirdtype|load"></div>            </div></div>
-<script>
-       seajs.use(['//static.360buyimg.com/devfe/toolbar/1.0.0/js/main'], function(toolbar) {
 
-var ad_config = {};
-var serverTime = window.serverTime || 0;
-
-var qp;
-
-if (serverTime >= 20170525000000 && serverTime <= 20170620235959) {
-ad_config = {
-    enabled: true,
-    id: "0_0_7860",
-    startTime: +new Date(2017, 4, 24, 0, 0, 1) / 1000,
-    endTime: +new Date(2017, 5, 21, 0, 0, 0) / 1000
-};
-}
-
-
-
-        pageConfig.toolbar = new toolbar({
-            pType: 'list',
-            bars: {
-                shopingassistant: {
-                  index: 0,
-                  login: true,
-                  title: '购物助手',
-                  enabled: true,
-                  iframe: '//notice.jd.com/notice/userFlyOrder'
-                },
-                jimi: {
-                    enabled: true
-                },
-                cart: {
-                    enabled: true
-                },
-                history: {
-                    enabled: true
-                }
-            },
-            links: {
-                feedback: {
-                    href: '//surveys.jd.com/index.php?r=survey/index/sid/73453/lang/zh-Hans'
-                },
-                top:{
-                  anchor:"#"
-                }
-            },
-            ad: ad_config
-        });
-    });
-</script>
                   <div class="w" reco_id="3">
             <div id="J_promHotsaleWrap_46" class="hot-sales">
               <div id="hotsale" class="hot-sales-main">
@@ -342,26 +312,44 @@ ad_config = {
       <div class="sl-wrap">
         <div class="sl-key">
             {{--用途--}}
-          <span>用途：</span>
+            @if ($attr1 == 1 || @$attr1 == 2 || @$attr1 == 3 || @$attr1 == 6)
+                <span>风格：</span>
+            @elseif ($attr1 == 4)
+                <span>材质：</span>
+            @elseif ($attr1 == 5)
+                <span>功效：</span>
+            @elseif ($attr1 == 7)
+                <span>适用人群：</span>
+            @endif
         </div>
         <div class="sl-value">
           <div class="sl-v-list">
             <ul class="J_valueList">
-                              <li>
-                  <a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;ev=3155%5F11316&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;JL=3_%E7%94%A8%E9%80%94_%E7%94%9F%E6%97%A5" rel="nofollow"><i></i>生日                                    </a>
-                </li>
-                              <li>
-                  <a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;ev=3155%5F11318&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;JL=3_%E7%94%A8%E9%80%94_%E5%A9%9A%E5%BA%86" rel="nofollow"><i></i>婚庆                                    </a>
-                </li>
-                              <li>
-                  <a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;ev=3155%5F73758&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;JL=3_%E7%94%A8%E9%80%94_%E5%BC%80%E4%B8%9A" rel="nofollow"><i></i>开业                                    </a>
-                </li>
-                              <li>
-                  <a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;ev=3155%5F11319&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;JL=3_%E7%94%A8%E9%80%94_%E6%8E%A2%E6%9C%9B" rel="nofollow"><i></i>探望                                    </a>
-                </li>
-                              <li>
-                  <a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;ev=3155%5F99154&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;JL=3_%E7%94%A8%E9%80%94_%E7%A4%BC%E4%BB%AA%E5%8F%B0%E8%8A%B1" rel="nofollow"><i></i>礼仪台花                                    </a>
-                </li>
+                @if ($attr1 == 1 || @$attr1 == 2 || @$attr1 == 3 || @$attr1 == 6)
+                    @foreach ($attr as $v)
+                        <li>
+                            <a href="#" title="{{$v->style}}" rel="nofollow"><i></i>{{$v->style}}</a>
+                        </li>
+                    @endforeach
+                @elseif ($attr1 == 4)
+                    @foreach ($attr as $v)
+                        <li>
+                            <a href="#" title="{{$v->fabric}}" rel="nofollow"><i></i>{{$v->fabric}}</a>
+                        </li>
+                    @endforeach
+                @elseif ($attr1 == 5)
+                    @foreach ($attr as $v)
+                        <li>
+                            <a href="#" title="{{$v->Efficacy}}" rel="nofollow"><i></i>{{$v->Efficacy}}</a>
+                        </li>
+                    @endforeach
+                @elseif ($attr1 == 7)
+                    @foreach ($attr as $v)
+                        <li>
+                            <a href="#" title="{{$v->crowd}}" rel="nofollow"><i></i>{{$v->crowd}}</a>
+                        </li>
+                    @endforeach
+                @endif
                           </ul>
                       </div>
                       <div class="sl-btns">
@@ -375,97 +363,7 @@ ad_config = {
           </div>
               </div>
     </div>
-    <div class="J_selectorLine s-line J_selectorFold">
-      <div class="sl-wrap">
-        <div class="sl-key">
-          <span>爱的诺言：</span>
-        </div>
-        <div class="sl-value">
-          <div class="sl-v-list">
-            <ul class="J_valueList">
-                              <li>
-                  <a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;ev=6886%5F98712&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;JL=3_%E7%88%B1%E7%9A%84%E8%AF%BA%E8%A8%80_%E4%B8%80%E7%94%9F%E5%AE%88%E5%80%99" rel="nofollow"><i></i>一生守候                                    </a>
-                </li>
-                              <li>
-                  <a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;ev=6886%5F98713&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;JL=3_%E7%88%B1%E7%9A%84%E8%AF%BA%E8%A8%80_%E4%B8%89%E7%94%9F%E4%B8%89%E4%B8%96" rel="nofollow"><i></i>三生三世                                    </a>
-                </li>
-                              <li>
-                  <a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;ev=6886%5F98716&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;JL=3_%E7%88%B1%E7%9A%84%E8%AF%BA%E8%A8%80_%E6%88%91%E7%88%B1%E4%BD%A0" rel="nofollow"><i></i>我爱你                                    </a>
-                </li>
-                          </ul>
-                      </div>
-                      <div class="sl-btns">
-              <a class="btn btn-primary J_btnsConfirm disabled" href="javascript:;">确定</a>
-              <a class="btn btn-default J_btnsCancel" href="javascript:;"> 取消</a>
-            </div>
-                  </div>
-                  <div class="sl-ext">
-            <a class="sl-e-more J_extMore" href="javascript:;" style="visibility: hidden;">更多<i></i></a>
-            <a class="sl-e-multiple J_extMultiple" href="javascript:;" style="visibility: hidden;"> 多选<i></i></a>
-          </div>
-              </div>
-    </div>
-    <div class="J_selectorLine s-line J_selectorFold">
-      <div class="sl-wrap">
-        <div class="sl-key">
-          <span>鲜花主花材：</span>
-        </div>
-        <div class="sl-value">
-          <div class="sl-v-list">
-            <ul class="J_valueList">
-                              <li>
-                  <a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;ev=4844%5F23351&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;JL=3_%E9%B2%9C%E8%8A%B1%E4%B8%BB%E8%8A%B1%E6%9D%90_%E7%BA%A2%E7%8E%AB%E7%91%B0" rel="nofollow"><i></i>红玫瑰                                    </a>
-                </li>
-                              <li>
-                  <a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;ev=4844%5F81731&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;JL=3_%E9%B2%9C%E8%8A%B1%E4%B8%BB%E8%8A%B1%E6%9D%90_%E9%A6%99%E6%A7%9F%E7%8E%AB%E7%91%B0" rel="nofollow"><i></i>香槟玫瑰                                    </a>
-                </li>
-                              <li>
-                  <a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;ev=4844%5F94811&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;JL=3_%E9%B2%9C%E8%8A%B1%E4%B8%BB%E8%8A%B1%E6%9D%90_%E8%93%9D%E8%89%B2%E5%A6%96%E5%A7%AC" rel="nofollow"><i></i>蓝色妖姬                                    </a>
-                </li>
-                              <li>
-                  <a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;ev=4844%5F94812&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;JL=3_%E9%B2%9C%E8%8A%B1%E4%B8%BB%E8%8A%B1%E6%9D%90_%E9%A6%99%E6%B0%B4%E7%99%BE%E5%90%88" rel="nofollow"><i></i>香水百合                                    </a>
-                </li>
-                              <li>
-                  <a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;ev=4844%5F81733&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;JL=3_%E9%B2%9C%E8%8A%B1%E4%B8%BB%E8%8A%B1%E6%9D%90_%E7%99%BD%E7%99%BE%E5%90%88" rel="nofollow"><i></i>白百合                                    </a>
-                </li>
-                              <li>
-                  <a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;ev=4844%5F94813&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;JL=3_%E9%B2%9C%E8%8A%B1%E4%B8%BB%E8%8A%B1%E6%9D%90_%E7%BA%A2%E8%89%B2%E5%BA%B7%E4%B9%83%E9%A6%A8" rel="nofollow"><i></i>红色康乃馨                                    </a>
-                </li>
-                              <li>
-                  <a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;ev=4844%5F94814&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;JL=3_%E9%B2%9C%E8%8A%B1%E4%B8%BB%E8%8A%B1%E6%9D%90_%E7%B2%89%E8%89%B2%E5%BA%B7%E4%B9%83%E9%A6%A8" rel="nofollow"><i></i>粉色康乃馨                                    </a>
-                </li>
-                              <li>
-                  <a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;ev=4844%5F94815&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;JL=3_%E9%B2%9C%E8%8A%B1%E4%B8%BB%E8%8A%B1%E6%9D%90_%E6%B7%B7%E6%90%AD%E8%8A%B1%E6%9D%9F" rel="nofollow"><i></i>混搭花束                                    </a>
-                </li>
-                              <li>
-                  <a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;ev=4844%5F27331&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;JL=3_%E9%B2%9C%E8%8A%B1%E4%B8%BB%E8%8A%B1%E6%9D%90_%E5%90%91%E6%97%A5%E8%91%B5" rel="nofollow"><i></i>向日葵                                    </a>
-                </li>
-                              <li>
-                  <a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;ev=4844%5F94816&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;JL=3_%E9%B2%9C%E8%8A%B1%E4%B8%BB%E8%8A%B1%E6%9D%90_%E7%BB%A3%E7%90%83" rel="nofollow"><i></i>绣球                                    </a>
-                </li>
-                              <li>
-                  <a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;ev=4844%5F33710&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;JL=3_%E9%B2%9C%E8%8A%B1%E4%B8%BB%E8%8A%B1%E6%9D%90_%E5%85%B6%E5%AE%83" rel="nofollow"><i></i>其它                                    </a>
-                </li>
-                          </ul>
-                      </div>
-                      <div class="sl-btns">
-              <a class="btn btn-primary J_btnsConfirm disabled" href="javascript:;">确定</a>
-              <a class="btn btn-default J_btnsCancel" href="javascript:;"> 取消</a>
-            </div>
-                  </div>
-                  <div class="sl-ext">
-            <a class="sl-e-more J_extMore" href="javascript:;" style="visibility: visible;">更多<i></i></a>
-            <a class="sl-e-multiple J_extMultiple" href="javascript:;"> 多选<i></i></a>
-          </div>
-              </div>
-    </div>
-  <div class="J_selectorLine s-line J_selectorFold hide"><div class="sl-wrap">            			 <div class="sl-key"><span>鲜花朵数：</span></div>            			 <div class="sl-value">            			 <div class="sl-v-list">            			 <ul class="J_valueList"><li><a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;ev=6366_94797&amp;JL=3_%E9%B2%9C%E8%8A%B1%E6%9C%B5%E6%95%B0_19%E6%9C%B5" rel="nofollow"><i></i>19朵</a>                			</li><li><a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;ev=6366_94798&amp;JL=3_%E9%B2%9C%E8%8A%B1%E6%9C%B5%E6%95%B0_11%E6%9C%B5" rel="nofollow"><i></i>11朵</a>                			</li><li><a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;ev=6366_94799&amp;JL=3_%E9%B2%9C%E8%8A%B1%E6%9C%B5%E6%95%B0_33%E6%9C%B5" rel="nofollow"><i></i>33朵</a>                			</li><li><a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;ev=6366_94800&amp;JL=3_%E9%B2%9C%E8%8A%B1%E6%9C%B5%E6%95%B0_99%E6%9C%B5" rel="nofollow"><i></i>99朵</a>                			</li><li><a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;ev=6366_94801&amp;JL=3_%E9%B2%9C%E8%8A%B1%E6%9C%B5%E6%95%B0_12%E6%9C%B5" rel="nofollow"><i></i>12朵</a>                			</li><li><a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;ev=6366_94802&amp;JL=3_%E9%B2%9C%E8%8A%B1%E6%9C%B5%E6%95%B0_9%E6%9C%B5" rel="nofollow"><i></i>9朵</a>                			</li><li><a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;ev=6366_94803&amp;JL=3_%E9%B2%9C%E8%8A%B1%E6%9C%B5%E6%95%B0_10%E6%9C%B5" rel="nofollow"><i></i>10朵</a>                			</li><li><a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;ev=6366_94804&amp;JL=3_%E9%B2%9C%E8%8A%B1%E6%9C%B5%E6%95%B0_520%E6%9C%B5" rel="nofollow"><i></i>520朵</a>                			</li><li><a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;ev=6366_94806&amp;JL=3_%E9%B2%9C%E8%8A%B1%E6%9C%B5%E6%95%B0_3%E6%9C%B5" rel="nofollow"><i></i>3朵</a>                			</li><li><a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;ev=6366_67309&amp;JL=3_%E9%B2%9C%E8%8A%B1%E6%9C%B5%E6%95%B0_%E5%85%B6%E5%AE%83%E3%80%80" rel="nofollow"><i></i>其它　</a>                			</li></ul>			             </div>			             <div class="sl-btns">			             <a class="btn btn-primary J_btnsConfirm disabled" href="javascript:;">确定</a>			             <a class="btn btn-default J_btnsCancel" href="javascript:;"> 取消</a>			             </div>			             </div>			             <div class="sl-ext">							<a class="sl-e-more J_extMore" href="javascript:;" style="visibility: hidden;">更多<i></i></a>							<a class="sl-e-multiple J_extMultiple" href="javascript:;"> 多选<i></i></a>			             </div>			             </div>			             </div><div class="J_selectorLine s-line J_selectorFold hide"><div class="sl-wrap">            			 <div class="sl-key"><span>适合节日：</span></div>            			 <div class="sl-value">            			 <div class="sl-v-list">            			 <ul class="J_valueList"><li><a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;ev=6367_11327&amp;JL=3_%E9%80%82%E5%90%88%E8%8A%82%E6%97%A5_%E4%B8%83%E5%A4%95" rel="nofollow"><i></i>七夕</a>                			</li><li><a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;ev=6367_11326&amp;JL=3_%E9%80%82%E5%90%88%E8%8A%82%E6%97%A5_%E6%83%85%E4%BA%BA%E8%8A%82" rel="nofollow"><i></i>情人节</a>                			</li><li><a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;ev=6367_83616&amp;JL=3_%E9%80%82%E5%90%88%E8%8A%82%E6%97%A5_%E5%9C%A3%E8%AF%9E%E8%8A%82" rel="nofollow"><i></i>圣诞节</a>                			</li><li><a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;ev=6367_11329&amp;JL=3_%E9%80%82%E5%90%88%E8%8A%82%E6%97%A5_%E6%AF%8D%E4%BA%B2%E8%8A%82" rel="nofollow"><i></i>母亲节</a>                			</li><li><a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;ev=6367_94809&amp;JL=3_%E9%80%82%E5%90%88%E8%8A%82%E6%97%A5_%E7%99%BD%E8%89%B2%E6%83%85%E4%BA%BA%E8%8A%82" rel="nofollow"><i></i>白色情人节</a>                			</li><li><a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;ev=6367_94807&amp;JL=3_%E9%80%82%E5%90%88%E8%8A%82%E6%97%A5_%E5%A5%B3%E4%BA%BA%E8%8A%82" rel="nofollow"><i></i>女人节</a>                			</li><li><a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;ev=6367_11328&amp;JL=3_%E9%80%82%E5%90%88%E8%8A%82%E6%97%A5_%E6%84%9F%E6%81%A9%E8%8A%82" rel="nofollow"><i></i>感恩节</a>                			</li><li><a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;ev=6367_11330&amp;JL=3_%E9%80%82%E5%90%88%E8%8A%82%E6%97%A5_%E6%95%99%E5%B8%88%E8%8A%82" rel="nofollow"><i></i>教师节</a>                			</li><li><a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;ev=6367_94808&amp;JL=3_%E9%80%82%E5%90%88%E8%8A%82%E6%97%A5_520%E6%83%85%E4%BA%BA%E8%8A%82" rel="nofollow"><i></i>520情人节</a>                			</li><li><a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;ev=6367_99155&amp;JL=3_%E9%80%82%E5%90%88%E8%8A%82%E6%97%A5_%E7%BB%93%E5%A9%9A%E7%BA%AA%E5%BF%B5%E6%97%A5" rel="nofollow"><i></i>结婚纪念日</a>                			</li></ul>			             </div>			             <div class="sl-btns">			             <a class="btn btn-primary J_btnsConfirm disabled" href="javascript:;">确定</a>			             <a class="btn btn-default J_btnsCancel" href="javascript:;"> 取消</a>			             </div>			             </div>			             <div class="sl-ext">							<a class="sl-e-more J_extMore" href="javascript:;" style="visibility: hidden;">更多<i></i></a>							<a class="sl-e-multiple J_extMultiple" href="javascript:;"> 多选<i></i></a>			             </div>			             </div>			             </div><div class="J_selectorLine s-line J_selectorFold hide"><div class="sl-wrap">            			 <div class="sl-key"><span>适用对象：</span></div>            			 <div class="sl-value">            			 <div class="sl-v-list">            			 <ul class="J_valueList"><li><a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;ev=3820_94095&amp;JL=3_%E9%80%82%E7%94%A8%E5%AF%B9%E8%B1%A1_%E7%88%B1%E4%BA%BA" rel="nofollow"><i></i>爱人</a>                			</li><li><a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;ev=3820_94817&amp;JL=3_%E9%80%82%E7%94%A8%E5%AF%B9%E8%B1%A1_%E6%9C%8B%E5%8F%8B/%E5%90%8C%E4%BA%8B" rel="nofollow"><i></i>朋友/同事</a>                			</li><li><a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;ev=3820_11323&amp;JL=3_%E9%80%82%E7%94%A8%E5%AF%B9%E8%B1%A1_%E8%80%81%E5%B8%88" rel="nofollow"><i></i>老师</a>                			</li><li><a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;ev=3820_70337&amp;JL=3_%E9%80%82%E7%94%A8%E5%AF%B9%E8%B1%A1_%E5%AE%A2%E6%88%B7" rel="nofollow"><i></i>客户</a>                			</li><li><a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;ev=3820_94818&amp;JL=3_%E9%80%82%E7%94%A8%E5%AF%B9%E8%B1%A1_%E9%A2%86%E5%AF%BC/%E9%95%BF%E8%BE%88" rel="nofollow"><i></i>领导/长辈</a>                			</li><li><a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;ev=3820_11325&amp;JL=3_%E9%80%82%E7%94%A8%E5%AF%B9%E8%B1%A1_%E7%97%85%E4%BA%BA" rel="nofollow"><i></i>病人</a>                			</li></ul>			             </div>			             <div class="sl-btns">			             <a class="btn btn-primary J_btnsConfirm disabled" href="javascript:;">确定</a>			             <a class="btn btn-default J_btnsCancel" href="javascript:;"> 取消</a>			             </div>			             </div>			             <div class="sl-ext">							<a class="sl-e-more J_extMore" href="javascript:;" style="visibility: hidden;">更多<i></i></a>							<a class="sl-e-multiple J_extMultiple" href="javascript:;"> 多选<i></i></a>			             </div>			             </div>			             </div><div class="J_selectorLine s-line J_selectorFold hide"><div class="sl-wrap">            			 <div class="sl-key"><span>大家说：</span></div>            			 <div class="sl-value">            			 <div class="sl-v-list">            			 <ul class="J_valueList"><li><a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;ev=1000000000_1733&amp;JL=3_%E5%A4%A7%E5%AE%B6%E8%AF%B4_%E5%88%9B%E6%84%8F%E4%B8%8D%E9%94%99" rel="nofollow"><i></i>创意不错</a>                			</li><li><a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;ev=1000000000_1741&amp;JL=3_%E5%A4%A7%E5%AE%B6%E8%AF%B4_%E5%8C%85%E8%A3%85%E4%B8%8D%E9%94%99" rel="nofollow"><i></i>包装不错</a>                			</li><li><a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;ev=1000000000_1743&amp;JL=3_%E5%A4%A7%E5%AE%B6%E8%AF%B4_%E5%A4%96%E8%A7%82%E6%BC%82%E4%BA%AE" rel="nofollow"><i></i>外观漂亮</a>                			</li><li><a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;ev=1000000000_1931&amp;JL=3_%E5%A4%A7%E5%AE%B6%E8%AF%B4_%E8%8A%B1%E5%BE%88%E6%BC%82%E4%BA%AE" rel="nofollow"><i></i>花很漂亮</a>                			</li><li><a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;ev=1000000000_1932&amp;JL=3_%E5%A4%A7%E5%AE%B6%E8%AF%B4_%E8%8A%B1%E8%B4%A8%E9%87%8F%E4%B8%8D%E9%94%99" rel="nofollow"><i></i>花质量不错</a>                			</li><li><a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;ev=1000000000_1933&amp;JL=3_%E5%A4%A7%E5%AE%B6%E8%AF%B4_%E6%9C%8D%E5%8A%A1%E6%80%81%E5%BA%A6%E5%A5%BD" rel="nofollow"><i></i>服务态度好</a>                			</li><li><a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;ev=1000000000_1934&amp;JL=3_%E5%A4%A7%E5%AE%B6%E8%AF%B4_%E9%80%81%E8%8A%B1%E9%80%9F%E5%BA%A6%E5%BF%AB" rel="nofollow"><i></i>送花速度快</a>                			</li><li><a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;ev=1000000000_1935&amp;JL=3_%E5%A4%A7%E5%AE%B6%E8%AF%B4_%E5%B0%8F%E7%86%8A%E5%BE%88%E5%8F%AF%E7%88%B1" rel="nofollow"><i></i>小熊很可爱</a>                			</li><li><a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;ev=1000000000_1936&amp;JL=3_%E5%A4%A7%E5%AE%B6%E8%AF%B4_%E8%8A%B1%E7%93%B6%E4%B9%9F%E5%A5%BD%E7%9C%8B" rel="nofollow"><i></i>花瓶也好看</a>                			</li><li><a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;ev=1000000000_1937&amp;JL=3_%E5%A4%A7%E5%AE%B6%E8%AF%B4_%E8%8A%B1%E6%9C%B5%E5%BE%88%E6%96%B0%E9%B2%9C" rel="nofollow"><i></i>花朵很新鲜</a>                			</li><li><a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;ev=1000000000_1938&amp;JL=3_%E5%A4%A7%E5%AE%B6%E8%AF%B4_%E5%8C%85%E8%A3%85%E5%BE%88%E5%A5%BD" rel="nofollow"><i></i>包装很好</a>                			</li><li><a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;ev=1000000000_1939&amp;JL=3_%E5%A4%A7%E5%AE%B6%E8%AF%B4_%E9%80%81%E8%B4%A7%E9%80%9F%E5%BA%A6" rel="nofollow"><i></i>送货速度</a>                			</li><li><a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;ev=1000000000_10994&amp;JL=3_%E5%A4%A7%E5%AE%B6%E8%AF%B4_%E8%BF%98%E5%8F%AF%E4%BB%A5" rel="nofollow"><i></i>还可以</a>                			</li><li><a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;ev=1000000000_10995&amp;JL=3_%E5%A4%A7%E5%AE%B6%E8%AF%B4_%E8%B4%A8%E9%87%8F%E4%B8%80%E8%88%AC" rel="nofollow"><i></i>质量一般</a>                			</li><li><a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;ev=1000000000_11006&amp;JL=3_%E5%A4%A7%E5%AE%B6%E8%AF%B4_%E8%BF%98%E5%8F%AF%E4%BB%A5" rel="nofollow"><i></i>还可以</a>                			</li><li><a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;ev=1000000000_28943&amp;JL=3_%E5%A4%A7%E5%AE%B6%E8%AF%B4_%E6%9C%8D%E5%8A%A1%E4%B8%8D%E9%94%99" rel="nofollow"><i></i>服务不错</a>                			</li><li><a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;ev=1000000000_28946&amp;JL=3_%E5%A4%A7%E5%AE%B6%E8%AF%B4_%E5%80%BC%E5%BE%97%E6%8E%A8%E8%8D%90" rel="nofollow"><i></i>值得推荐</a>                			</li><li><a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;ev=1000000000_29030&amp;JL=3_%E5%A4%A7%E5%AE%B6%E8%AF%B4_%E7%89%A9%E7%BE%8E%E4%BB%B7%E5%BB%89" rel="nofollow"><i></i>物美价廉</a>                			</li><li><a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;ev=1000000000_29031&amp;JL=3_%E5%A4%A7%E5%AE%B6%E8%AF%B4_%E4%BB%B7%E6%A0%BC%E5%AE%9E%E6%83%A0" rel="nofollow"><i></i>价格实惠</a>                			</li><li><a href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;sort=sort%5Ftotalsales15%5Fdesc&amp;trans=1&amp;ev=1000000000_29032&amp;JL=3_%E5%A4%A7%E5%AE%B6%E8%AF%B4_%E5%80%BC%E5%BE%97%E6%8E%A8%E8%8D%90" rel="nofollow"><i></i>值得推荐</a>                			</li></ul>			             </div>			             <div class="sl-btns">			             <a class="btn btn-primary J_btnsConfirm disabled" href="javascript:;">确定</a>			             <a class="btn btn-default J_btnsCancel" href="javascript:;"> 取消</a>			             </div>			             </div>			             <div class="sl-ext">							<a class="sl-e-more J_extMore" href="javascript:;" style="visibility: hidden;">更多<i></i></a>							<a class="sl-e-multiple J_extMultiple" href="javascript:;"> 多选<i></i></a>			             </div>			             </div>			             </div><div class="s-more" id="J_selectorMore">
-    <span class="sm-wrap" data-more="鲜花朵数、适合节日、适用对象 等">
-      更多选项（ 鲜花朵数、适合节日、适用对象 等）<i></i>
-    </span>
-  </div>
-            </div>
-            <div style="display:none;"><a href="https://yp.jd.com/737eb5817e89b759169.html">韩电（KEG）全自动洗衣机</a><a href="https://yp.jd.com/7376944a499e0cbf5bc.html">荣事达（Royalstar）下排水洗衣机</a><a href="https://www.jd.com/chanpin/931507.html">心上人女装</a></div>                          <div id="J_main" class="g-main2">
+                         <div id="J_main" class="g-main2">
                         <div class="m-list">
               <div class="ml-wrap">
                 <div class="filter" id="J_filter">
@@ -504,50 +402,50 @@ ad_config = {
     </div>
   </div>
 
-<div class="clr"></div>
                                                       <div id="plist" class="goods-list-v2 J-goods-list gl-type-1 ">
   <ul class="gl-warp clearfix">
-            <li class="gl-item">
-                        <div class="gl-i-wrap j-sku-item" data-sku="1000054804" venderid="10271" jdzy_shop_id="10301" data-sku_temp="1000054804" data-i="1" data-soldoversea="-1">
-  <div class="p-img">
-    <a target="_blank" href="https://item.jd.com/1000054804.html">
-                          <a href='/goodInfo/78/78'><img data-img="1" src="/images/flower/54fd01dfN91990a8c_003.jpg" title="【19年老品牌 值得信赖! 热销10000束】热卖生日鲜花礼盒 家庭鲜花 送女友大气有面子" width="220" height="220">
-          </a>
-          </div>
-  <div class="p-price">
-    <strong class="J_price"><em>¥</em><i>129.00</i></strong>
-    <strong class="J_price js_ys" style="display:none"><em>¥</em><i>129.00</i></strong>
-  </div>
-  <div class="p-name p-name-type3">
-    <a target="_blank" title="【19年老品牌 值得信赖! 热销10000束】热卖生日鲜花礼盒 家庭鲜花 送女友大气有面子" href="https://item.jd.com/1000054804.html">
-      <em>
-                中礼鲜花速递 33枝红玫瑰花束 全国同城鲜花花店送花【指定日期送达】生日鲜花快递配送上门      </em>
-      <i class="promo-words">【19年老品牌 值得信赖! 热销10000束】热卖生日鲜花礼盒 家庭鲜花 送女友大气有面子</i>
-    </a>
-  <span class="p-attribute"><a title="鲜花速递" href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;ev=1107_11300&amp;JL=5_7_0" target="_blank" class="attr"><b>鲜花速递</b></a><a title="33朵" href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;ev=6366_94799&amp;JL=5_7_0" target="_blank" class="attr"><b>33朵</b></a><a title="红玫瑰" href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;ev=4844_23351&amp;JL=5_7_0" target="_blank" class="attr"><b>红玫瑰</b></a></span></div>
-        <div class="p-shop hide" data-score="4" data-reputation="0" data-shopid="" data-done="1"><span><a href="https://mall.jd.com/index-10301.html" target="_blank" title="中礼鲜花官方旗舰店">中礼鲜花官方旗舰店  </a><em class="im-01" title="联系第三方卖家进行咨询" data-shopid="10301" venderid="10271"></em></span></div>
-          <div class="p-commit"><strong>已有<a class="comment" target="_blank" href="https://item.jd.com/1000054804.html#comment">5万+</a>人评价</strong></div>
-              <div class="p-icons J-pro-icons"><i class="icon-group-11 goods-icons4 J-picon-tips" data-tips="该商品参加满减活动">满减</i><i class="icon-group-15 goods-icons4 J-picon-tips" data-tips="优惠券">券</i> </div>
-        <div class="p-operate">
-      <a class="p-o-btn contrast J_contrast" data-sku="1000054804" href="javascript:;">
-        <i></i>对比
-      </a>
-      <a class="p-o-btn focus J_focus" data-sku="1000054804" href="javascript:;">
-        <i></i>关注
-      </a>
-      <a class="p-o-btn addcart" target="_blank" href="https://cart.jd.com/gate.action?pid=1000054804&amp;pcount=1&amp;ptype=1">
-        <i></i>加入购物车
-      </a>
-    </div>
-    <div class="p-stock" data-isdeliveryable="5" style="display: none" data-stock_v="1" data-stock_h="33"></div>
-  </div>
-                  </li>
+      @foreach ($goods as $v)
+          <li class="gl-item">
+              <div class="gl-i-wrap j-sku-item" data-sku="1000054804" venderid="10271" jdzy_shop_id="10301" data-sku_temp="1000054804" data-i="1" data-soldoversea="-1">
+                  <div class="p-img">
+                      <a target="_blank" href="https://item.jd.com/1000054804.html"></a>
+                      <a href='/goodInfo/{{$v->id}}/{{$v->shop_id}}'>
+                          <img data-img="1" src="/{{$v->goods_img}}" title="【19年老品牌 值得信赖! 热销10000束】热卖生日鲜花礼盒 家庭鲜花 送女友大气有面子" width="220" height="220">
+                      </a>
+                  </div>
+                  <div class="p-price">
+                      <strong class="J_price"><em>¥</em><i>{{$v->new_price}}</i></strong>
+                      <strong class="J_price js_ys" style="display:none"><em>¥</em><i>129.00</i></strong>
+                  </div>
+                  <div class="p-name p-name-type3">
+                      <a target="_blank" title="【19年老品牌 值得信赖! 热销10000束】热卖生日鲜花礼盒 家庭鲜花 送女友大气有面子" href="https://item.jd.com/1000054804.html">
+                          <em>
+                              {{$v->goods_text}}      </em>
+                          <i class="promo-words">【19年老品牌 值得信赖! 热销10000束】热卖生日鲜花礼盒 家庭鲜花 送女友大气有面子</i>
+                      </a>
+                      <span class="p-attribute"><a title="鲜花速递" href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;ev=1107_11300&amp;JL=5_7_0" target="_blank" class="attr"><b>鲜花速递</b></a><a title="33朵" href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;ev=6366_94799&amp;JL=5_7_0" target="_blank" class="attr"><b>33朵</b></a><a title="红玫瑰" href="https://list.jd.com/list.html?cat=1672,14227,14234&amp;ev=4844_23351&amp;JL=5_7_0" target="_blank" class="attr"><b>红玫瑰</b></a></span></div>
+                  <div class="p-shop hide" data-score="4" data-reputation="0" data-shopid="" data-done="1"><span><a href="https://mall.jd.com/index-10301.html" target="_blank" title="中礼鲜花官方旗舰店">中礼鲜花官方旗舰店  </a><em class="im-01" title="联系第三方卖家进行咨询" data-shopid="10301" venderid="10271"></em></span></div>
+                  <div class="p-commit"><strong>已有<a class="comment" target="_blank" href="https://item.jd.com/1000054804.html#comment">5万+</a>人评价</strong></div>
+                  <div class="p-icons J-pro-icons"><i class="icon-group-11 goods-icons4 J-picon-tips" data-tips="该商品参加满减活动">满减</i><i class="icon-group-15 goods-icons4 J-picon-tips" data-tips="优惠券">券</i> </div>
+                  <div class="p-operate">
+                      <a class="p-o-btn contrast J_contrast" data-sku="1000054804" href="javascript:;">
+                          <i></i>对比
+                      </a>
+                      <a class="p-o-btn focus J_focus" data-sku="1000054804" href="javascript:;">
+                          <i></i>关注
+                      </a>
+                  </div>
+                  <div class="p-stock" data-isdeliveryable="5" style="display: none" data-stock_v="1" data-stock_h="33"></div>
+                  </div>
+          </li>
+      @endforeach
 
             </ul>
   <div class="clr"></div>
-</div>
+</div><div class="pagelist">{!! $goods->render() !!}</div>
                                                           <div class="page clearfix">
         <div class="p-wrap" id="J_bottomPage">
+
 
         </div>
     </div>

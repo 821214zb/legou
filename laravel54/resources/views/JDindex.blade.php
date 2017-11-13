@@ -151,8 +151,10 @@
     <div class="logo">
     </div>
     <div class="search">
-        <input type="text" name="" id="" value="图书开抢"/>
-        <button>搜索</button>
+        <form method="get" action="/cate_goods/0">
+            <input type="text" name="keyword" />
+            <button>搜索</button>
+        </form>
     </div>
     <div class="car">
         @if (Auth::guest())
@@ -162,7 +164,7 @@
         @endif
         <span class="icon1"></span>
         <span class="icon2">></span>
-        <span class="icon3">8</span>
+        <span class="icon3">8</span >
     </div>
     <div class="hotwords">
         <a href="#" class="col-red">11月11天</a>
@@ -544,7 +546,7 @@
             <a href="#">商家入驻</a>|
             <a href="#">营销中心</a>|
             <a href="#">手机京东</a>|
-            <a href="/links/show" target="_blank">友情链接</a>|
+            <a href="/links/links_show" target="_blank">友情链接</a>|
             <a href="#">销售联盟</a>|
             <a href="#">京东社区</a>|
             <a href="#">京东公益</a>|

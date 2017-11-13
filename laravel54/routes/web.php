@@ -47,6 +47,9 @@ Route::any('/goodInfo/{id}/{did}', 'GoodController@goodInfo');//(id 商品ID did
  */
 Route::any('/links/show','linksController@show');//友情链接展示
 Route::any('/links/add','linksController@add');//申请友情链接
+Route::any('/links/links_show','JDController@links_show');//友情链接展示
+Route::any('/links/links_add','JDController@links_add');//申请友情链接
+
 
 /**
  * 用户注册登录路由
@@ -65,6 +68,7 @@ Route::any('/app','PhpController@add_user_verify');
  */
 
 Route::any('/cart/{uid}/{gid}','CartController@show');//注册页面展示
+Route::any('/cart','CartController@show');//注册页面展示
 
 /**
  * 订单路由
@@ -120,7 +124,6 @@ Route::any('/brand/update/{id}','Admin\BrandController@update');//修改商品�
 Route::any('/brand/sort','Admin\BrandController@sort');         //商品品牌排序
 
 /**
-<<<<<<< HEAD
  * 商品分类路由
  */
 Route::any('/cate/show/{id}','Admin\CateController@show');    //商品列表展示
@@ -209,6 +212,8 @@ Route::any('/posid/sort/{id}/{sort}/{posid_id}','Admin\PosidController@Sort'); /
  */
 Route::any('/links/show','Admin\linksController@show');                    //友情链接展示
 Route::any('/links/check/{id}/{status}','Admin\linksController@check');    //审核状态（通过）
+Route::any('/links/check/{id}/{status}','Admin\linksController@check');    //审核状态
+Route::any('/links/sort','Admin\linksController@sort'); //友情链接排序
 
 /**
  * 用户评论

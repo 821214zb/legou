@@ -7,6 +7,8 @@ use App\Cate;
 use App\Lunbo;
 use App\Good;
 use Session;
+use App\links;
+use DB;
 class JDController extends Controller
 {
     /**
@@ -79,14 +81,31 @@ class JDController extends Controller
      * 展示前台商品列表
      */
     public function goods_list($id){
-        
         $brand = Good::getBrand($id);
         $cate = Good::getCate($id);
         return view('flower',['brand'=>$brand],['cate'=>$cate]);
     }
     
-   
+   /**
+    * 前台友情链接展示
+    */
+    public function links_show(){
+        $list=links::show();
+        return view ('links',["links"=>$list]);
+    }
 
-
-
+    /**
+     * 申请友情链接
+     */
+    public function links_add(){
+        if($_POST){
+            $res=links::add();
+            if($res){
+                echo "<script>alert('申请已提交，请等待管理员审核！');location.href='/links/links_show'</script>";
+            }else{
+                echo "<script>alert('申请失败，请重新申请！');location.href='/links/links_show'</script>";
+            }
+        }
+    }
+    
 }

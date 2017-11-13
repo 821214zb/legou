@@ -85,7 +85,11 @@ class RoleController extends CommonController{
                     echo "<script>alert('授权失败').location.href='/role/show'</script>";
                 }
             }else{
+<<<<<<< Updated upstream
                 return redirect("/role/show");
+=======
+                echo "<script>alert('授权失败');location.href='/role/show'</script>";
+>>>>>>> Stashed changes
             }
         }else{
             $request=request();
@@ -170,7 +174,7 @@ class RoleController extends CommonController{
             if($res){
                 return redirect("/role/show");
             }else{
-                echo "<script>alert('授权失败').location.href='/role/show'</script>";
+                echo "<script>alert('授权失败');location.href='/role/show'</script>";
             }
         }else{
             return redirect("/role/show");
@@ -248,7 +252,7 @@ class RoleController extends CommonController{
             if($res){
                 return redirect("/role/show");
             }else{
-                echo "<script>alert('授权失败').location.href='/role/show'</script>";
+                echo "<script>alert('授权失败');location.href='/role/show'</script>";
             }
         }else{
             return redirect("/role/show");
@@ -336,7 +340,7 @@ class RoleController extends CommonController{
             if($res){
                 return redirect("/role/show");
             }else{
-                echo "<script>alert('授权失败').location.href='/role/show'</script>";
+                echo "<script>alert('授权失败');location.href='/role/show'</script>";
             }
         }else{
             return redirect("/role/show");

@@ -19,6 +19,64 @@
 </div>
 <div class="leftnav">
     <div class="leftnav-title"><strong><span class="icon-list"></span>菜单列表</strong></div>
+<<<<<<< Updated upstream
+=======
+    <h2><span class="icon-home"></span>基本设置</h2>
+    <ul>
+        <li><a href="info.html" target="right"><span class="icon-caret-right"></span>网站设置</a></li>
+        <li><a href="pass.html" target="right"><span class="icon-caret-right"></span>修改密码</a></li>
+        <li><a href="page.html" target="right"><span class="icon-caret-right"></span>单页管理</a></li>
+        <li><a href="/posid" target="right"><span class="icon-caret-right"></span>推荐位管理</a></li>
+        <li><a href="/lunbo/show" target="right"><span class="icon-caret-right"></span>首页轮播</a></li>
+        <li><a href="/links/show" target="right"><span class="icon-caret-right"></span>友情链接</a></li>
+        <li><a href="book.html" target="right"><span class="icon-caret-right"></span>留言管理</a></li>
+        <li><a href="column.html" target="right"><span class="icon-caret-right"></span>栏目管理</a></li>
+    </ul>
+    <h2><span class="icon-pencil-square-o"></span>栏目管理</h2>
+    <ul>
+        <li><a href="list.html" target="right"><span class="icon-caret-right"></span>内容管理</a></li>
+        <li><a href="add.html" target="right"><span class="icon-caret-right"></span>添加内容</a></li>
+        <li><a href="cate.html" target="right"><span class="icon-caret-right"></span>分类管理</a></li>
+    </ul>
+    <h2><span class="icon-pencil"></span>文章发布</h2>
+    <ul>
+        <li><a href="wz-list.html" target="right"><span class="icon-caret-right"></span>文章列表</a></li>
+        <li><a href="cate.html" target="right"><span class="icon-caret-right"></span>分类管理</a></li>
+    </ul>
+    <h2><span class="icon-user"></span>用户管理</h2>
+    <ul>
+        <li><a href="/user/show" target="right"><span class="icon-caret-right"></span>用户列表</a></li>
+        <li><a href="/user/add" target="right"><span class="icon-caret-right"></span>添加会员</a></li>
+        {{--<li><a href="djgl.html" target="right"><span class="icon-caret-right"></span>等级管理</a></li>--}}
+        {{--<li><a href="hyjl-list.html" target="right"><span class="icon-caret-right"></span>会员记录管理</a></li>--}}
+    </ul>
+    <h2><span class="icon-reorder (alias)"></span>交易管理</h2>
+    <ul>
+        <li><a href="/deal/info" target="right"><span class="icon-caret-right"></span>交易信息</a></li>
+        <li><a href="/deal/select" target="right"><span class="icon-caret-right"></span>订单查询</a></li>
+        <li><a href="/deal/hb" target="right"><span class="icon-caret-right"></span>合并订单</a></li>
+        <li><a href="jy-chart.html" target="right"><span class="icon-caret-right"></span>交易订单（图）</a></li>
+        <li><a href="ddgl-list-34.html" target="right"><span class="icon-caret-right"></span>缺货登记</a></li>
+        <li><a href="cateedit-22.html" target="right"><span class="icon-caret-right"></span>添加订单</a></li>
+        <li><a href="ddgl-list-36.html" target="right"><span class="icon-caret-right"></span>发货单列表</a></li>
+        <li><a href="ddgl-list-38.html" target="right"><span class="icon-caret-right"></span>退货单列表</a></li>
+        <li><a href="ddgl-list-43.html" target="right"><span class="icon-caret-right"></span>退货原因列表</a></li>
+        <li><a href="ddgl-list-44.html" target="right"><span class="icon-caret-right"></span>退换货申请列表</a></li>
+        <li><a href="ddgl-list.html" target="right"><span class="icon-caret-right"></span>订单管理</a></li>
+        <li><a href="jyje.html" target="right"><span class="icon-caret-right"></span>交易金额</a></li>
+        <li><a href="ddgl-list-1.html" target="right"><span class="icon-caret-right"></span>订单处理</a></li>
+        <li><a href="ddgl-list-2.html" target="right"><span class="icon-caret-right"></span>退款管理</a></li>
+        <li><a href="ddgl-list-49.html" target="right"><span class="icon-caret-right"></span>商品库存日志</a></li>
+    </ul>
+    <h2><span class="icon-group (alias)"></span>用户管理</h2>
+    <ul>
+        <li><a href="/admin/show" target="right"><span class="icon-caret-right"></span>用户列表</a>
+        <li><a href="/role/show" target="right"><span class="icon-caret-right"></span>角色列表</a></li>
+        <li><a href="/node/index/0" target="right"><span class="icon-caret-right"></span>权限管理</a></li>
+        <li><a href="gly-list.html" target="right"><span class="icon-caret-right"></span>管理员列表</a></li>
+        <li><a href="person-info.html" target="right"><span class="icon-caret-right"></span>个人信息</a></li>
+        <li><a href="qxgl-1.html" target="right"><span class="icon-caret-right"></span>管理员日志</a></li>
+>>>>>>> Stashed changes
 
     @foreach(session('root_info') as $k=>$vv)
         <h2>{{$vv}}</h2>

@@ -233,8 +233,7 @@ class Good extends Model{
         $rows = DB::table('brands')->select('id','brand_name')->get();
         return $rows;
     }
-<<<<<<< HEAD
-    
+
     //添加商品时公共的方法
     public function publicAdd($size,$color,$table,$goods_id){
         foreach ($size as $v) {
@@ -274,7 +273,7 @@ class Good extends Model{
         }
         return $data;
     }
-    
+
     //修改商品基本信息
     public function upGoods($goods_id){
         $req = request();
@@ -306,7 +305,7 @@ class Good extends Model{
         );
         return $goodsList;
     }
-    
+
     //属性修改  公共的方法
     public function public_method($table,$goods_id){
         $box1 = DB::table($table)->where('goods_id', $goods_id)->get();
@@ -325,8 +324,8 @@ class Good extends Model{
             return $box_arr;
         }
     }
-    
-=======
+
+
 
     /*
      * 商品具体列表 通过分类id获取相对应的品牌展示
@@ -497,9 +496,4 @@ class Good extends Model{
          return DB::table("shops")->where(["shop_id"=>$did])->first();//商品
 
     }
-
-
-
-
->>>>>>> e47af635829730e4153d370207ebef555ebc3c22
 }

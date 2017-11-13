@@ -14,11 +14,24 @@ class GoodController extends Controller{
      * $goods 展示商品详情
      */
     public function goods_list($id){
+<<<<<<< Updated upstream
         $brand = Good::getBrand($id);
         $cate = Good::getCate($id);
         $attr = Good::getAttr($id);
         $goods = Good::getGoods($id);
         return view('flower',['brand'=>$brand,'cate'=>$cate,'attr'=>$attr[0],'attr1'=>$attr[1],'goods'=>$goods]);
+=======
+        if($_GET){
+            $keyword=isset($_GET["keyword"]) ? $_GET["keyword"] : "";
+            $list=DB::table("goods")->where('goods_name','like','%'.$keyword.'%')->paginate(5);
+            return view("flower_k",["list"=>$list,'keyword'=>$keyword]);
+        }else{
+            $brand = Good::getBrand($id);
+            $cate = Good::getCate($id);
+            //$attr = Good::getAttr($id);
+            return view('flower',['brand'=>$brand],['cate'=>$cate]);
+        }
+>>>>>>> Stashed changes
     }
 
     /**
@@ -35,4 +48,8 @@ class GoodController extends Controller{
         return view('goodInfo',['goodInfoList'=>$goodInfoList,'cat_id'=>$cat_id,'cat_list'=>$attr,'ShopList'=>$ShopList]);
     }
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 }

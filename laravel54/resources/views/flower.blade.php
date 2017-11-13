@@ -267,6 +267,9 @@
               @endforeach
           </ul>
         </div>
+          {{--<div class="page">--}}
+              {{--{!!$list->appends(['brand'=>$brand,'cate_k'=>$cate_k,'brand_k'=>$brand_k,'good'=>$good])->render()!!}--}}
+          {{--</div>--}}
         <div class="sl-b-selected J_brandSelected" style="display: none;">
           <span class="sl-b-key">已选条件：</span>
           <ul class="sl-v-list brand-selected"></ul>

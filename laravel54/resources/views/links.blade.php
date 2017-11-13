@@ -196,7 +196,7 @@
                         请通过右侧提交申请，注明：友情链接申请。</div>
                 </li>
             </ul>
-            <form id="frm_submit" method="post" action="/links/add" enctype="multipart/form-data">
+            <form id="frm_submit" method="post" action="/links/links_add" enctype="multipart/form-data">
                 {{csrf_field()}}
                 <table class="link_table" width="309" cellspacing="0" cellpadding="0">
                     <tr>
@@ -208,7 +208,7 @@
                             网站名称：
                         </td>
                         <td height="29">
-                            <input id="name" name="link_name" class="w247" type="text">
+                            <input id="name" name="link_name" class="w247" type="text"  required="required" placeholder="请输入网站名称">
                         </td>
                     </tr>
                     <tr>
@@ -216,7 +216,7 @@
                             网&nbsp;&nbsp;&nbsp;&nbsp;址：
                         </td>
                         <td height="29">
-                            <input id="url" name="link_url" class="w247" value="http://" type="text">
+                            <input id="url" name="link_url" class="w247" type="text"  required="required" placeholder="http://">
                         </td>
                     </tr>
                     <tr>
@@ -224,7 +224,7 @@
                             电子邮箱：
                         </td>
                         <td height="29">
-                            <input id="email" name="link_email" class="w247" type="text">
+                            <input id="email" name="link_email" class="w247" type="text" required="required" placeholder="请输入电子邮箱">
                         </td>
                     </tr>
                     <tr>
@@ -232,7 +232,7 @@
                             网站图片：
                         </td>
                         <td height="29">
-                            <input name="link_image" type="file">
+                            <input name="link_image" type="file" required="required" placeholder="请上传图片">
                         </td>
                     </tr>
                     <tr>
@@ -240,13 +240,20 @@
                             网站介绍：
                         </td>
                         <td width="348" valign="top">
-                            <textarea id="intro" name="intro" cols="" rows="" class="w247h60"></textarea>
+                            <textarea id="intro" name="link_remark" cols="" rows="" class="w247h60" required="required" placeholder="请输入网站介绍"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="35">
+                            友情链接排序：
+                        </td>
+                        <td height="29">
+                            <input id="email" name="link_sort" class="w247" type="text" required="required" placeholder="请输入排序">
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2" valign="middle" align="center" height="45">
                             <input type="submit" class="link_button" value="提交申请" />
-                            {{--<input value="提交申请"  class="link_button" type="button">--}}
                         </td>
                     </tr>
                     </table>

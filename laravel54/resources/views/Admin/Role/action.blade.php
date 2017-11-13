@@ -113,7 +113,11 @@
     <div class="header">
         <div class="header_1">
             <a href="/role/app/{{$id}}">应用授权</a>|
+<<<<<<< Updated upstream
             <a href="/role/module/{{$id}}">模块授权</a>|
+=======
+            <a href="/role/module/{$id}}">模块授权</a>|
+>>>>>>> Stashed changes
             <a href="">操作授权</a>
         </div>
     </div>

@@ -901,6 +901,7 @@
                         </div>
                     </div>
 
+<<<<<<< Updated upstream
                     <div id="summary-weight" class="li" style="">
                         <div class="dt">颜　　色</div>
                         <div class="dd">
@@ -1066,14 +1067,45 @@
                     </div>
                 @endif
                 <div class="summary-line"></div>
-
-
-
-
-                {{--<div class="page">--}}
-                    {{--{!!$list->appends(['keyword'=>$keyword])->render()!!}--}}
-                {{--</div>--}}
-
+=======
+                <!--商品属性-->
+                    @if($cat_id == 1)
+                        尺码：<input type="radio" name="size" value="{{$cat_list[0]->size}}" />{{$cat_list[0]->size}}<br />
+                        颜色：<input type="radio" name="color" value="{{$cat_list[0]->color}}" />{$cat_list[0]->color}}<br />
+                        容积：<input type="radio" name="volume" value="{{$cat_list[0]->volume}}">{{$cat_list[0]->volume}}<br />
+                    @elseif($cat_id == 2)
+                        尺码：<input type="radio" name="size" value="{{$cat_list[0]->size}}" />{{$cat_list[0]->size}}<br />
+                        颜色：<input type="radio" name="color" value="{{$cat_list[0]->color}}" />{{$cat_list[0]->color}}<br />
+                        容积：<input type="radio" name="volume" value="{{$cat_list[0]->volume}}">{{$cat_list[0]->volume}}<br />
+                        型号：<input type="radio" name="model" value="{{$cat_list[0]->model}}">{{$cat_list[0]->model}}<br />
+                        屏幕尺寸：<input type="radio" name='screen_size' value="{{$screen_size}}">{{$screen_size}}<br />
+                    @elseif($cat_id == 3 )
+                        尺码：<input type="radio" name="size" value="{{$cat_list[0]->size}}" />{{$cat_list[0]->size}}<br />
+                        颜色：<input type="radio" name="color" value="{{$cat_list[0]->color}}" />{{$cat_list[0]->color}}<br />
+                        款式：<input type="radio" name="style" value="{{$cat_list[0]->style}}">{{$cat_list[0]->style}}<br />
+                    @elseif($cat_id == 4)
+                        尺码：<input type="radio" name="size" value="{{$cat_list[0]->size}}" />{{$cat_list[0]->size}}<br />
+                        颜色：<input type="radio" name="color" value="{{$cat_list[0]->color}}" />{{$cat_list[0]->color}}<br />
+                        款式：<input type="radio" name="style" value="{{$cat_list[0]->style}}">{{$cat_list[0]->style}}<br />
+                        货号：<input type="radio" name="article_number" value="{{$article_number}}">{{$article_number}}<br />
+                    @elseif($cat_id == 5)
+                        尺码：<input type="radio" name="size" value="{{$cat_list[0]->size}}" />{{$cat_list[0]->size}}<br />
+                        颜色：<input type="radio" name="color" value="{{$cat_list[0]->color}}" />{{$cat_list[0]->color}}<br />
+                        款式：<input type="radio" name="style" value="{{$cat_list[0]->style}}">{{$cat_list[0]->style}}<br />
+                        功效：<input type="text" name="Efficacy" value="{{$cat_list[0]->Efficacy}}">{{$cat_list[0]->Efficacy}}<br />
+                    @elseif($cat_id == 6)
+                        尺码：<input type="radio" name="size" value="{{$cat_list[0]->size}}" />{{$cat_list[0]->size}}<br />
+                        颜色：<input type="radio" name="color" value="{{$cat_list[0]->color}}" />{{$cat_list[0]->color}}<br />
+                        款式：<input type="radio" name="style" value="{{$cat_list[0]->style}}">{{$cat_list[0]->style}}<br />
+                        操作系统：<input type="radio" name="system" value="{{$cat_list[0]->system}}">{{$cat_list[0]->system}}<br />
+                    @else
+                        产地：<input type="radio" name="Domestic_import" value="{{$cat_list[0]->Domestic_import}}">{{$cat_list[0]->Domestic_import}}<br />
+                        包装：<input type="radio" name="Packing" value="{{$cat_list[0]->Packing}}">{{$cat_list[0]->Packing}}<br />
+                        保质期：<input type="radio" naem="shelf_time" value="{{$cat_list[0]->shelf_time}}">{{$cat_list[0]->shelf_time}}<br />
+                        颜色：<input type="radio" name="color" value="{{$cat_list[0]->color}}" />{{$cat_list[0]->color}}<br />
+                        口味：<input type="radio" name="Flavor" value="{{$cat_list[0]->Flavor}}">{{$cat_list[0]->Flavor}}<br />
+                    @endif
+>>>>>>> Stashed changes
 
                     {{--<div id="choose-results" class="li" style="display:none"><div class="dt">已选择</div><div class="dd"></div></div>--}}
                 {{--</div>--}}

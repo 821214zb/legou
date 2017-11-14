@@ -23,7 +23,7 @@ class Cate extends Model
                     <label id='".$k['id']."' name='".$k['cate_name']."'>";
             foreach ($data2 as $kk=>$v){
                 if($k['id'] == $v['cate_pid']){
-                    $str .= "<a  style='color:white;margin-left: 3px;' href='/cate_index' target='_blank'>".$v['cate_title']."</a>/";
+                    $str .= "<a  style='color:white;margin-left: 3px;' href='/cate_index/".$v['id']."' target='_blank'>".$v['cate_title']."</a>/";
                 }
             }
             $str = rtrim($str,'/');
@@ -87,6 +87,12 @@ class Cate extends Model
 
     /*
      * 修改商品分类排序
+     *
+     * */
+
+
+    /*
+     * 修改商品分类排序
      *      
      * */
     public static function getSort($ids,$sort){
@@ -128,6 +134,15 @@ class Cate extends Model
         return $p_cate_data = DB::table('cates')->where('cate_level', '=', $p_level)->select('cate_title', 'id')->get();
     }
 
+    /*
+    * 获取楼层分类信息
+    *
+    * */
+    public static function cate_list($id){
+
+        $cate = DB::table('cates')->where('cate_pid',$id)->select('cate_title','id')->get();
+        return $cate;
+    }
 
 }
 

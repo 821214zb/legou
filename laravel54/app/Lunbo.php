@@ -48,7 +48,7 @@ class Lunbo extends Model{
         $extension = $file->getClientOriginalExtension();
         $fileName = str_random(8).".".$extension;
         $filePath = $file->move('uploads',$fileName);
-        $res=DB::table('lunbos')->insert(['alt'=>$req->img_name,'img_url'=>$req->img_url,'img_sort'=>$req->img_sort,'img_status'=>$req->img_status,'img_text'=>$req->img_text,'img'=>$filePath]);
+        $res=DB::table('lunbos')->insert(['alt'=>$req->img_name,'site'=>$req->site,'img_url'=>$req->img_url,'img_sort'=>$req->img_sort,'img_status'=>$req->img_status,'img_text'=>$req->img_text,'img'=>$filePath]);
         return $res;
     }
     
@@ -68,7 +68,8 @@ class Lunbo extends Model{
                 'img_status' => $request->img_status,
                 'img_url' => $request->img_url,
                 'img_text' => $request->img_text,
-                'img' => $filePath
+                'img' => $filePath,
+                'site' => $request->site
             )
         );
         return $res;

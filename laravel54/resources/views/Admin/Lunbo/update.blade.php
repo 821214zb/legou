@@ -41,6 +41,18 @@
                             </div>
                             <div class="form-group">
                                 <div class="label">
+                                    <label>轮播图展示位置：</label>
+                                </div>
+                                <div class="field field-tsa">
+                                    <select name="site">
+                                        <option value="0">请选择</option>
+                                        <option value="1">首页</option>
+                                        <option value="2">二层首页</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="label">
                                     <label>轮播图状态：</label>
                                 </div>
                                 <div class="field">

@@ -15,10 +15,9 @@ class JDController extends Controller
      * 首页
      */
     public function show(){
-        $list = Lunbo::home_Show();
-        return view('JDindex',['list'=>$list]);
-//        $list=Lunbo::show();
-//        return view('JDindex',['lunbo'=>$list]);
+        $list = Lunbo::home_Show();//获取轮播图数据
+        $posid = DB::table('goods_posids')->where('posids_id',1)->select('goods_img')->limit(4)->get();//获取首页推荐位内容
+        return view('JDindex',['list'=>$list,'posid'=>$posid]);
     }
     
     /**
@@ -71,10 +70,16 @@ class JDController extends Controller
     /*
      * 二级首页数据展示
      */
-    public function er_index(){
+    public function er_index($id){
         
-
-       return view('er_index');
+        //获取分类展示列表数据
+        $cate  = Cate::cate_list($id);
+        $title = DB::table('cates')->where('id',$id)->select('cate_title')->first();
+        //p($cate);
+        //获取轮播图
+        $lunbo = DB::table('lunbos')->where('site',2)->get();
+        //p($lunbo);
+       return view('er_index',['cate'=>$cate,'title'=>$title,'list'=>$lunbo]);
     } 
     
     /*

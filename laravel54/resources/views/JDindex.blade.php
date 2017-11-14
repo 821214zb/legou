@@ -456,11 +456,11 @@
                 <img src="images/night.jpg" alt=""/>
             </div>
             <div class="night-r">
+                <!--商品推荐位置-->
                 <ul>
-                    <li><a href="#"><img src="images/1.jpg" alt=""/></a></li>
-                    <li><a href="#"><img src="images/2.jpg" alt=""/></a></li>
-                    <li><a href="#"><img src="images/3.jpg" alt=""/></a></li>
-                    <li><a href="#"><img src="images/4.jpg" alt=""/></a></li>
+                    @foreach($posid as $k=>$v)
+                    <li><a href="#"><img width="240" height="164" src="{{$v->goods_img}}" alt=""/></a></li>
+                    @endforeach
                 </ul>
             </div>
         </div>

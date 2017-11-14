@@ -10,7 +10,7 @@ Route::any('/', 'JDController@show');
 /**
  * 我的爱尚
  */
-Route::any('/user_index/{user_id}', 'JDController@user_index');
+Route::any('/user_indenx/{user_id}', 'JDController@user_index');
 
 /**
  * 我的订单
@@ -30,7 +30,7 @@ Route::any('/dev_cate/{id}/{cate_name}', 'JDController@cate');
 /**
  * 爱尚二级分类首页
  */
-Route::any('/cate_index', 'JDController@er_index');
+Route::any('/cate_index/{id}', 'JDController@er_index');
 
 /**
  * 展示前台商品列表
@@ -139,7 +139,9 @@ Route::any('/cate/level/{level}','Admin\CateController@cate_data');            /
  */
 Route::any('/lunbo/show','Admin\LunboController@show');         //轮播图列表
 Route::any('/lunbo/add','Admin\LunboController@add');           //添加轮播图
-Route::any('/lunb o/add','Admin\LunboController@add');           //添加轮播图
+Route::any('/lunbo/add','Admin\LunboController@add');           //添加轮播图
+
+
 Route::any('/lunbo/update/{id}','Admin\lunboController@update');//修改轮播图
 Route::any('/lunbo/delete/{id}','Admin\LunboController@delete');//删除轮播图
 Route::any('/lunbo/sort','Admin\LunboController@sort');         //轮播图排序

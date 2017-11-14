@@ -163,7 +163,7 @@
     </script>
     {{--分类--}}
     <div class="food_banner mod_w clearfix" id="food_banner_2" data-id="food_banner_2" data-tpl="food_banner_tpl"><!-- <athena widget:home/widget/food_nav> -->
-        <div class="food_nav" >
+        <div class="food_nav" style="overflow:auto">
             <div class="food_nav_header">{{ $title->cate_title }}</div>
             <div class="food_nav_body" >
 

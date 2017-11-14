@@ -23,7 +23,7 @@
 </style>
 
 <body>
-<!--京东的头部导航开始-->
+<!--爱尚的头部导航开始-->
 <div id="mask"></div>
 <div id="box">
     <span id="close_all">×</span>
@@ -119,8 +119,8 @@
     </div>
 
 </div>
-<!--京东头部导航结束-->
-<!--京东的topbanner部分-->
+<!--爱尚头部导航结束-->
+<!--爱尚的topbanner部分-->
 <script src="/js/jquery-3.2.1.min.js"></script>
 <script>
     $(document).ready(function(){
@@ -145,7 +145,7 @@
         topBanner.style.display = "none";
     }
 </script>
-<!--京东的topbanner部分 end-->
+<!--爱尚的topbanner部分 end-->
 
 <div class="w clearfix">
     <div class="logo">
@@ -352,15 +352,15 @@
         <div class="news">
             <div class="jd-news">
                 <div class="dt">
-                    <h3>京东快报</h3>
+                    <h3>爱尚快报</h3>
                     <a href="#">更多></a>
                 </div>
                 <div class="dd">
                     <ul>
                         <li><a href="#"><span>[特惠]</span>1元秒杀</a></li>
-                        <li><a href="#"><span>[公告]</span>母婴类APP【京东宝宝】上线</a></li>
+                        <li><a href="#"><span>[公告]</span>母婴类APP【爱尚宝宝】上线</a></li>
                         <li><a href="#"><span>[特惠]</span>美的品牌日 APP嗨购大放“价”</a></li>
-                        <li><a href="#"><span>[公告]</span>京东深入蒙牛生产基地进行质检</a></li>
+                        <li><a href="#"><span>[公告]</span>爱尚深入蒙牛生产基地进行质检</a></li>
                         <li><a href="#"><span>[特惠]</span>白条购家电 24期免息！</a></li>
                     </ul>
                 </div>
@@ -531,9 +531,9 @@
                 <dd><a href="#">联系客服</a></dd>
             </dl>
             <div class="coverage">
-                <div class="dt">京东自营覆盖区县</div>
+                <div class="dt">爱尚自营覆盖区县</div>
                 <div class="dd">
-                   <p> 京东已向全国2357个区县提供自营配送服务，支持货到付款、POS机刷卡和售后上门服务。</p>
+                   <p> 爱尚已向全国2357个区县提供自营配送服务，支持货到付款、POS机刷卡和售后上门服务。</p>
                     <p class="looklook"><a href="#">查看详情 ></a></p>
                 </div>
             </div>
@@ -545,19 +545,19 @@
             <a href="#">联系我们</a>|
             <a href="#">商家入驻</a>|
             <a href="#">营销中心</a>|
-            <a href="#">手机京东</a>|
+            <a href="#">手机爱尚</a>|
             <a href="/links/links_show" target="_blank">友情链接</a>|
             <a href="#">销售联盟</a>|
-            <a href="#">京东社区</a>|
-            <a href="#">京东公益</a>|
+            <a href="#">爱尚社区</a>|
+            <a href="#">爱尚公益</a>|
             <a href="#">English Site</a>|
             <a href="#">Contact Us</a>
         </div>
         <div class="copyright">
             北京市公安局朝阳分局备案编号110105014669  |  京ICP证070359号  |  互联网药品信息服务资格证编号(京)-经营性-2014-0008  |  新出发京零 字第大120007号<br />
             音像制品经营许可证苏宿批005号  |  出版物经营许可证编号新出发(苏)批字第N-012号  |  互联网出版许可证编号新出网证(京)字150号<br />
-            网络文化经营许可证京网文[2014]2148-348号  违法和不良信息举报电话：4006561155  Copyright © 2004-2015  京东JD.com 版权所有<br />
-            京东旗下网站：360TOP  拍拍网  网银在线
+            网络文化经营许可证京网文[2014]2148-348号  违法和不良信息举报电话：4006561155  Copyright © 2004-2015  爱尚JD.com 版权所有<br />
+            爱尚旗下网站：360TOP  拍拍网  网银在线
         </div>
         <div class="message">
             <a href="#"><img src="images/mess.png" alt=""/></a>

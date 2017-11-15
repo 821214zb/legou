@@ -63,17 +63,26 @@ Route::any('/zhuce/{tmp}', 'Auth\RegisterController@captcha');
 //手机验证码
 //Route::any('/app','PhpController@add_user_verify');
 Route::any('/app','PhpController@add_user_verify');
+
 /**
  * 购物车路由
  */
-
-Route::any('/cart/{uid}/{gid}','CartController@show');//注册页面展示
-Route::any('/cart','CartController@show');//注册页面展示
+Route::any('/cart/{uid}','CartController@show');//注册页面展示
+//Route::any('/cart','CartController@show');//注册页面展示
 
 /**
  * 订单路由
  */
 Route::any('/dingdan','IndentController@show');//注册页面展示
+
+
+/**
+ * 我的爱尚路由
+ */
+Route::any('/userinfo','JDController@userinfo');//我的爱尚
+Route::any('/userUpdate','UserController@update');//修改前台用户信息
+Route::any('/userAddress','UserController@userAddress');//修改前台用户地址信息
+
 
 
 

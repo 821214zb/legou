@@ -150,9 +150,11 @@
     margin: 10px 0 28px 0;
 }
 .night-r {
-    width:1000px;
-    height: 160px;
+    width:1210px;
+    margin-left: 220px;
+    height: 200px;
     float: right;
+    border:2px dashed grey;
 }
 .night-r ul {
     width: 500%;

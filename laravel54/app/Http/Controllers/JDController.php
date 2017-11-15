@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Cate;
 use App\Lunbo;
 use App\Good;
+use Illuminate\Support\Facades\Auth;
+use phpDocumentor\Reflection\Types\This;
 use Session;
 use App\links;
 use DB;
@@ -15,8 +17,18 @@ class JDController extends Controller
      * 首页
      */
     public function show(){
+
         $list = Lunbo::home_Show();//获取轮播图数据
-        $posid = DB::table('goods_posids')->where('posids_id',1)->select('goods_img')->limit(4)->get();//获取首页推荐位内容
+        $posid = DB::table('goods_posids')->where('posids_id',1)->select('goods_img')->limit(5)->get();//获取首页推荐位内容
+
+        if(!empty(Auth::user()->id)){
+            $carts = DB::table('carts')->where('uid',Auth::user()->id)->sum('goods_count');//获取当前用户购物车数量
+            $carts = isset($carts)?$carts:0;
+            session(['carts'=>$carts]);//将购物车商品数量存入session;
+        }else{
+            session(['carts'=>0]);
+        }
+
         return view('JDindex',['list'=>$list,'posid'=>$posid]);
     }
     
@@ -111,6 +123,14 @@ class JDController extends Controller
                 echo "<script>alert('申请失败，请重新申请！');location.href='/links/links_show'</script>";
             }
         }
+    }
+    
+    /**
+     * 我的爱尚
+     */
+    public function userinfo(){
+        $list = DB::table('users')->where('id',Auth::user()->id)->first();//获取当前用户信息
+        return view('userinfo',['list'=>$list]);
     }
     
 }

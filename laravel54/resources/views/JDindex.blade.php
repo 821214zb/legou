@@ -37,9 +37,6 @@
 <div class="shortcut">
     <div class="w">
         <div class="fl">
-           <div class="dt"> 送至：北京
-               <i><s>◇</s></i>
-           </div>
         </div>
         <div class="fr">
             <ul>
@@ -75,8 +72,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
-
                                     </div>
                                 </a>
                             </div>
@@ -132,18 +127,7 @@
             $("#login").removeClass("login");
             $(".login1").slideUp("fast");
         });
-
     });
-    /*事件源： a
-    事件  点击
-    事件处理程序   topbanner 这个隐藏的意思*/
-    /*要做事，先找人*/
-    var jd_close = document.getElementById("jd_close"); // 得到a
-    var topBanner = document.getElementById("top_banner"); // 得到大的
-    //事件源.事件 = function(){}
-    jd_close.onclick = function(){
-        topBanner.style.display = "none";
-    }
 </script>
 <!--爱尚的topbanner部分 end-->
 
@@ -158,24 +142,13 @@
     </div>
     <div class="car">
         @if (Auth::guest())
-            <a href="/cart/0/0">我的购物车</a>
+            <a href="/cart/0">我的购物车</a>
         @else
-            <a href="/cart/{{Auth::user()->id}}/0">我的购物车</a>
+            <a href="/cart/{{Auth::user()->id}}">我的购物车</a>
         @endif
         <span class="icon1"></span>
         <span class="icon2">></span>
-        <span class="icon3">8</span >
-    </div>
-    <div class="hotwords">
-        <a href="#" class="col-red">11月11天</a>
-        <a href="#">11.11秒杀</a>
-        <a href="#">买2免1</a>
-        <a href="#">Note5 黑</a>
-        <a href="#">12期免息</a>
-        <a href="#">智能科技</a>
-        <a href="#">清仓</a>
-        <a href="#">国际服饰</a>
-        <a href="#">优惠券</a>
+        <span class="icon3">{{session('carts')}}</span>
     </div>
 </div>
 
@@ -249,9 +222,6 @@
                     <li><a href="#">金融</a></li>
                     <li><a href="#">智能</a></li>
                 </ul>
-            </div>
-            <div class="bike">
-                <a href="#"></a>
             </div>
         </div>
     </div>
@@ -452,14 +422,12 @@
     <!--双11 的某个活动-->
     <div class="w todays clearfix">
         <div class="night">
-            <div class="night-l fl">
-                <img src="images/night.jpg" alt=""/>
-            </div>
             <div class="night-r">
+                <div style="margin:10px 0 0 5px;"><font size="5px">热销产品！</font></div>
                 <!--商品推荐位置-->
                 <ul>
                     @foreach($posid as $k=>$v)
-                    <li><a href="#"><img width="240" height="164" src="{{$v->goods_img}}" alt=""/></a></li>
+                    <li ><a href="#"><img width="240" height="150" src="{{$v->goods_img}}" alt=""/></a></li>
                     @endforeach
                 </ul>
             </div>

@@ -331,7 +331,11 @@
     </div>
 </div><!-- #shortcut-2014 --><div class="w">
     <div id="logo-2014">
+<<<<<<< Updated upstream
         <a href="/" clstag="shangpin|keycount|topitemnormal|b01" class="logo">爱尚</a>
+=======
+        <a href="https://www.jd.com/" clstag="shangpin|keycount|topitemnormal|b01" class="logo">爱尚</a>
+>>>>>>> Stashed changes
     </div>
     <div id="search-2014">
         <ul id="shelper" class="hide" style="display: none;"></ul>
@@ -345,8 +349,13 @@
     <div id="settleup-2014" class="dorpdown">
         <div class="cw-icon">
             <i class="ci-left"></i>
-            <i class="ci-right">&gt;</i><i class="ci-count" id="shopping-amount">0</i>
-            <a target="_blank" clstag="shangpin|keycount|topitemnormal|b05" href="https://cart.jd.com/cart.action">我的购物车</a>
+            @if (Auth::guest())
+                <i class="ci-right">&gt;</i><i class="ci-count" id="shopping-amount">0</i>
+                <a href="/cart/0">我的购物车</a>
+            @else
+                <i class="ci-right">&gt;</i><i class="ci-count" id="shopping-amount">{{session('carts')}}</i>
+                <a href="/cart/{{Auth::user()->id}}">我的购物车</a>
+            @endif
         </div>
         <div class="dorpdown-layer"><div class="spacer"></div><div id="settleup-content"><span class="loading"></span></div></div>
     </div>
@@ -502,6 +511,7 @@
     })(pageConfig.product);
 </script>
 
+<<<<<<< Updated upstream
 {{--<div class="crumb-wrap" id="crumb-wrap">--}}
     {{--<div class="w">--}}
         {{--<div class="crumb fl clearfix">--}}
@@ -572,48 +582,23 @@
                                 {{--<div class="hide J-jimi-item" style="display: block;">--}}
                                     {{--<div class="J-jimi-btn clearfix">            <div class="jimi">                <a href="https://jimi.jd.com/index.action?productId=5181406&amp;source=productself" target="_blank">                    <i class="sprite-jimi"></i>JIMI智能机器人                </a>            </div></div>--}}
                                 {{--</div>--}}
+=======
+<div class="crumb-wrap" id="crumb-wrap">
+>>>>>>> Stashed changes
 
-                            {{--</div>--}}
-                            {{--<div class="pop-shop-qr-code J-contact-qrcode clearfix">--}}
-                                {{--<div class="qr-code hide J-wd-qrcode">--}}
-                                    {{--<img src="/images/shouji/blank.gif" alt="关注微店" width="78" height="78">--}}
-                                    {{--<p>关注微店</p>--}}
-                                {{--</div>--}}
-                                {{--<div class="qr-code J-m-qrcode" data-url="https://cd.jd.com/qrcode?skuId=5181406&amp;location=3&amp;isWeChatStock=2">--}}
-                                    {{--<div class="J-m-wrap"></div>--}}
-                                    {{--<p>手机下单</p>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                            {{--<div class="btns">--}}
-                                {{--<a href="https://honor.jd.com/" target="_blank" class="btn-def enter-shop J-enter-shop" clstag="shangpin|keycount|product|jindian1">--}}
-                                    {{--<i class="sprite-enter"></i><span>进店逛逛</span>--}}
-                                {{--</a>--}}
-                                {{--<span class="separator">|</span>--}}
-                                {{--<a href="#none" class="btn-def follow-shop J-follow-shop" data-vid="1000000904" clstag="shangpin|keycount|product|guanzhu1">--}}
-                                    {{--<i class="sprite-follow"></i><span>关注店铺</span>--}}
-                                {{--</a>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-        {{--</div><!-- .contact -->--}}
-
-        {{--<div class="clr"></div>--}}
-    {{--</div>--}}
-{{--</div>--}}
 
 <div class="w">
     @if (Auth::guest())
-        <form method="post" class="form-x" action="/cart/0/0">
+        <form method="post" class="form-x" action="/cart/0/0" onsubmit="return false">
             @else
-                <form method="post" class="form-x" action="/cart/{{Auth::user()->id}}/{{$goodInfoList->id}}">
+                <form method="post" class="form-x" action="/cart/{{Auth::user()->id}}/{{$goodInfoList->id}}"  onsubmit="return false">
                     @endif
     {{ csrf_field() }}
-                    <input type="hidden" name="goods_name" value="{{$goodInfoList->goods_name}}" />
-                    <input type="hidden" name="goods_price" value="{{$goodInfoList->new_price}}" />
-                    <input type="hidden" name="img" value="{{$goodInfoList->goods_img}}" />
-                    <input type="hidden" name="shop_name" value="{{$ShopList->name}}" />
+                    <input type="hidden" id="goods_name" name="goods_name" value="{{$goodInfoList->goods_name}}" />
+                    <input type="hidden" id="img" name="img" value="{{$goodInfoList->goods_img}}" />
+                    <input type="hidden" id ="shop_name" name="shop_name" value="{{$ShopList->name}}" />
+                    <input type="hidden" id="shop_id" name="shop_id" value="{{$ShopList->shop_id}}" />
+                    <input type="hidden" id="goods_text" name="goods_text" value="{{$goodInfoList->goods_text}}" />
     <div class="product-intro clearfix">
         <div class="preview-wrap">
             <div class="preview" id="preview">
@@ -836,7 +821,8 @@
                 </div>
                 <!--商品属性-->
                 @if($cat_id == 1)
-                    <input type="hidden" name="goods_weight" value="{{$cat_list[0]->weight}}" />
+                    <input type="hidden" id='all_count' name="all_count" value="{{$goodInfoList->goods_count}}" />
+                    <input type="hidden" id="goods_weight" name="goods_weight" value="{{$cat_list[0]->weight}}" />
                     <div id="summary-weight" class="li" style="">
                         <div class="dt">库　　存</div>
                         <div class="dd">
@@ -847,7 +833,7 @@
                         <div class="dt">颜　　色</div>
                         <div class="dd">
                             @foreach ($cat_list as $v)
-                            <input type="radio" name="color" value="{{$v->color}}" />{{$v->color}}
+                            <input type="radio" class="color" name="color" value="{{$v->color}}" />{{$v->color}}
                             @endforeach
                         </div>
                     </div>
@@ -863,12 +849,13 @@
                         <div class="dt">大　　小</div>
                         <div class="dd">
                             @foreach ($cat_list as $v)
-                                <input type="radio" name="attr" value="{{$v->size}}" />{{$v->size}}
+                                <input type="radio" class="attr" name="attr" value="{{$v->size}}" />{{$v->size}}
                             @endforeach
                         </div>
                     </div>
                 @elseif($cat_id == 2)
-                    <input type="hidden" name="goods_weight" value="{{$cat_list[0]->weight}}" />
+                    <input type="hidden" id='all_count' name="all_count" value="{{$goodInfoList->goods_count}}" />
+                    <input type="hidden" id="goods_weight" name="goods_weight" value="{{$cat_list[0]->weight}}" />
                     <div id="summary-weight" class="li" style="">
                         <div class="dt">库　　存</div>
                         <div class="dd">
@@ -880,7 +867,7 @@
                         <div class="dt">颜　　色</div>
                         <div class="dd">
                             @foreach ($cat_list as $v)
-                                <input type="radio" name="color" value="{{$v->color}}" />{{$v->color}}
+                                <input type="radio" class="color" name="color" value="{{$v->color}}" />{{$v->color}}
                             @endforeach
                         </div>
                     </div>
@@ -888,12 +875,13 @@
                         <div class="dt">尺　　寸</div>
                         <div class="dd">
                             @foreach ($cat_list as $v)
-                                <input type="radio" name="attr" value="{{$v->screen_size}}" />{{$v->screen_size}}
+                                <input type="radio" class="attr" name="attr" value="{{$v->screen_size}}" />{{$v->screen_size}}
                             @endforeach
                         </div>
                     </div>
                 @elseif($cat_id == 3)
-                    <input type="hidden" name="goods_weight" value="{{$cat_list[0]->weight}}" />
+                    <input type="hidden" id='all_count' name="all_count" value="{{$goodInfoList->goods_count}}" />
+                    <input type="hidden"id="goods_weight" name="goods_weight" value="{{$cat_list[0]->weight}}" />
                     <div id="summary-weight" class="li" style="">
                         <div class="dt">库　　存</div>
                         <div class="dd">
@@ -904,7 +892,7 @@
                         <div class="dt">颜　　色</div>
                         <div class="dd">
                             @foreach ($cat_list as $v)
-                                <input type="radio" name="color" value="{{$v->color}}" />{{$v->color}}
+                                <input type="radio" class="color" name="color" value="{{$v->color}}" />{{$v->color}}
                             @endforeach
                         </div>
                     </div>
@@ -912,12 +900,13 @@
                         <div class="dt">尺　　寸</div>
                         <div class="dd">
                             @foreach ($cat_list as $v)
-                                <input type="radio" name="attr" value="{{$v->size}}" />{{$v->size}}
+                                <input type="radio" class="attr" name="attr" value="{{$v->size}}" />{{$v->size}}
                             @endforeach
                         </div>
                     </div>
                 @elseif($cat_id == 4)
-                    <input type="hidden" name="goods_weight" value="{{$cat_list[0]->weight}}" />
+                    <input type="hidden" id='all_count' name="all_count" value="{{$goodInfoList->goods_count}}" />
+                    <input type="hidden" id="goods_weight" name="goods_weight" value="{{$cat_list[0]->weight}}" />
                     <div id="summary-weight" class="li" style="">
                         <div class="dt">库　　存</div>
                         <div class="dd">
@@ -929,7 +918,7 @@
                         <div class="dt">颜　　色</div>
                         <div class="dd">
                             @foreach ($cat_list as $v)
-                                <input type="radio" name="color" value="{{$v->color}}" />{{$v->color}}
+                                <input type="radio" class="color" name="color" value="{{$v->color}}" />{{$v->color}}
                             @endforeach
                         </div>
                     </div>
@@ -937,12 +926,13 @@
                         <div class="dt">尺　　寸</div>
                         <div class="dd">
                             @foreach ($cat_list as $v)
-                                <input type="radio" name="attr" value="{{$v->size}}" />{{$v->size}}
+                                <input type="radio" class="attr" name="attr" value="{{$v->size}}" />{{$v->size}}
                             @endforeach
                         </div>
                     </div>
                 @elseif($cat_id == 5)
-                    <input type="hidden" name="goods_weight" value="{{$cat_list[0]->weight}}" />
+                    <input type="hidden" id='all_count' name="all_count" value="{{$goodInfoList->goods_count}}" />
+                    <input type="hidden" id="goods_weight" name="goods_weight" value="{{$cat_list[0]->weight}}" />
                     <div id="summary-weight" class="li" style="">
                         <div class="dt">库　　存</div>
                         <div class="dd">
@@ -971,7 +961,7 @@
                         <div class="dt">规　　格</div>
                         <div class="dd">
                             @foreach ($cat_list as $v)
-                                <input type="radio" name="attr" value="{{$v->size}}" />{{$v->size}}
+                                <input type="radio" class="attr" name="attr" value="{{$v->size}}" />{{$v->size}}
                             @endforeach
                         </div>
                     </div>
@@ -979,12 +969,13 @@
                         <div class="dt">颜　　色</div>
                         <div class="dd">
                             @foreach ($cat_list as $v)
-                                <input type="radio" name="color" value="{{$v->color}}" />{{$v->color}}
+                                <input type="radio" class="color" name="color" value="{{$v->color}}" />{{$v->color}}
                             @endforeach
                         </div>
                     </div>
                 @elseif($cat_id == 6)
-                    <input type="hidden" name="goods_weight" value="{{$cat_list[0]->weight}}" />
+                    <input type="hidden" id='all_count' name="all_count" value="{{$goodInfoList->goods_count}}" />
+                    <input type="hidden" id="goods_weight" name="goods_weight" value="{{$cat_list[0]->weight}}" />
                     <div id="summary-weight" class="li" style="">
                         <div class="dt">库　　存</div>
                         <div class="dd">
@@ -1007,7 +998,7 @@
                         <div class="dt">颜　　色</div>
                         <div class="dd">
                             @foreach ($cat_list as $v)
-                                <input type="radio" name="color" value="{{$v->color}}" />{{$v->color}}
+                                <input type="radio" class="color" name="color" value="{{$v->color}}" />{{$v->color}}
                             @endforeach
                         </div>
                     </div>
@@ -1015,7 +1006,7 @@
                         <div class="dt">网　　络</div>
                         <div class="dd">
                             @foreach ($cat_list as $v)
-                                <input type="radio" name="attr" value="{{$v->network}}" />{{$v->network}}
+                                <input type="radio" class="attr" name="attr" value="{{$v->network}}" />{{$v->network}}
                             @endforeach
                         </div>
                     </div>
@@ -1028,7 +1019,8 @@
                         </div>
                     </div>
                 @elseif($cat_id == 7)
-                    <input type="hidden" name="goods_weight" value="{{$cat_list[0]->weight}}" />
+                    <input type="hidden" id='all_count' name="all_count" value="{{$goodInfoList->goods_count}}" />
+                    <input type="hidden"  id="goods_weight" name="goods_weight" value="{{$cat_list[0]->weight}}" />
                     <div id="summary-weight" class="li" style="">
                         <div class="dt">库　　存</div>
                         <div class="dd">
@@ -1051,7 +1043,7 @@
                         <div class="dt">口　　味</div>
                         <div class="dd">
                             @foreach ($cat_list as $v)
-                                <input type="radio" name="attr" value="{{$v->Flavor}}" />{{$v->Flavor}}
+                                <input type="radio" class="attr" name="attr" value="{{$v->Flavor}}" />{{$v->Flavor}}
                             @endforeach
                         </div>
                     </div>
@@ -1059,12 +1051,13 @@
                         <div class="dt">颜　　色</div>
                         <div class="dd">
                             @foreach ($cat_list as $v)
-                                <input type="radio" name="color" value="{{$v->color}}" />{{$v->color}}
+                                <input type="radio" class="color" name="color" value="{{$v->color}}" />{{$v->color}}
                             @endforeach
                         </div>
                     </div>
                 @endif
                 <div class="summary-line"></div>
+<<<<<<< Updated upstream
                 <!--商品属性-->
                     @if($cat_id == 1)
                         尺码：<input type="radio" name="size" value="{{$cat_list[0]->size}}" />{{$cat_list[0]->size}}<br />
@@ -1146,6 +1139,8 @@
 
                 {{--<div id="choose-service" class="li" data-hook="hide" style="">    <div class="dt" data-yb="new_yb_server">增值保障</div>    <div class="dd">        <div class="service-type-yb clearfix">                <div class="yb-item-cat">                    <div class="yb-item">                        <img class="icon" src="/images/shouji/590c0c85N460e4552.png">                        <span class="name">全保修2年</span>                        <span class="price">￥159</span>                        <i class="arrow-icon"></i>                    </div>                    <div class="more-item">                        <ul>                            <li data-sku="16641813164">                                <div class="title" title="性能故障意外故障全面保修">                                     <span class="choose-btn" clstag="shangpin|keycount|product|jingdongfuwu_16641813164">                                        <i class="sprite-checkbox"></i><span class="name">全保修2年</span><span class="price">￥159</span>                                    </span>                                    <a href="https://item.jd.com/16641813164.html" target="_blank" class="detail-more" clstag="shangpin|keycount|product|jingdongfuwu_xiangqing">详情<s class="s-arrow">&gt;&gt;</s></a>                                </div>                            </li>                            <li data-sku="15278150249">                                <div class="title" title="性能故障意外故障全面保修">                                     <span class="choose-btn" clstag="shangpin|keycount|product|jingdongfuwu_15278150249">                                        <i class="sprite-checkbox"></i><span class="tips">优惠</span><span class="name">全保修3年</span><span class="price">￥179</span>                                    </span>                                    <a href="https://item.jd.com/15278150249.html" target="_blank" class="detail-more" clstag="shangpin|keycount|product|jingdongfuwu_xiangqing">详情<s class="s-arrow">&gt;&gt;</s></a>                                </div>                            </li>                        </ul>                    </div>                </div>                <div class="yb-item-cat">                    <div class="yb-item">                        <img class="icon" src="/images/shouji/5992a59bNd253524f.png">                        <span class="name">自营碎屏保</span>                        <span class="price">￥99</span>                        <i class="arrow-icon"></i>                    </div>                    <div class="more-item">                        <ul>                            <li data-sku="15278006428">                                <div class="title" title="屏碎不心碎 爱尚快递 取送全免费">                                     <span class="choose-btn" clstag="shangpin|keycount|product|jingdongfuwu_15278006428">                                        <i class="sprite-checkbox"></i><span class="name">自营碎屏保</span><span class="price">￥99</span>                                    </span>                                    <a href="https://item.jd.com/15278006428.html" target="_blank" class="detail-more" clstag="shangpin|keycount|product|jingdongfuwu_xiangqing">详情<s class="s-arrow">&gt;&gt;</s></a>                                </div>                            </li>                            <li data-sku="16643080044">                                <div class="title" title="意外屏碎免费换屏">                                     <span class="choose-btn" clstag="shangpin|keycount|product|jingdongfuwu_16643080044">                                        <i class="sprite-checkbox"></i><span class="name">屏碎保1年</span><span class="price">￥89</span>                                    </span>                                    <a href="https://item.jd.com/16643080044.html" target="_blank" class="detail-more" clstag="shangpin|keycount|product|jingdongfuwu_xiangqing">详情<s class="s-arrow">&gt;&gt;</s></a>                                </div>                            </li>                            <li data-sku="16643315020">                                <div class="title" title="意外屏碎免费换屏">                                     <span class="choose-btn" clstag="shangpin|keycount|product|jingdongfuwu_16643315020">                                        <i class="sprite-checkbox"></i><span class="tips">优惠</span><span class="name">屏碎保2年</span><span class="price">￥139</span>                                    </span>                                    <a href="https://item.jd.com/16643315020.html" target="_blank" class="detail-more" clstag="shangpin|keycount|product|jingdongfuwu_xiangqing">详情<s class="s-arrow">&gt;&gt;</s></a>                                </div>                            </li>                            <li data-sku="16056659201">                                <div class="title" title="屏碎溅液等意外故障免费维修">                                     <span class="choose-btn" clstag="shangpin|keycount|product|jingdongfuwu_16056659201">                                        <i class="sprite-checkbox"></i><span class="name">意外保2年</span><span class="price">￥129</span>                                    </span>                                    <a href="https://item.jd.com/16056659201.html" target="_blank" class="detail-more" clstag="shangpin|keycount|product|jingdongfuwu_xiangqing">详情<s class="s-arrow">&gt;&gt;</s></a>                                </div>                            </li>                            <li data-sku="10189885450">                                <div class="title" title="意外故障免费维修或550元换新">                                     <span class="choose-btn" clstag="shangpin|keycount|product|jingdongfuwu_10189885450">                                        <i class="sprite-checkbox"></i><span class="name">修换随心</span><span class="price">￥249</span>                                    </span>                                    <a href="https://item.jd.com/10189885450.html" target="_blank" class="detail-more" clstag="shangpin|keycount|product|jingdongfuwu_xiangqing">详情<s class="s-arrow">&gt;&gt;</s></a>                                </div>                            </li>                        </ul>                    </div>                </div>                <div class="yb-item-cat">                    <div class="yb-item">                        <img class="icon" src="/images/shouji/567cb046Ncc8f504a.png">                        <span class="name">换新保2年</span>                        <span class="price">￥159</span>                        <i class="arrow-icon"></i>                    </div>                    <div class="more-item">                        <ul>                            <li data-sku="16642813622">                                <div class="title" title="性能故障免费换新或折旧换新机型">                                     <span class="choose-btn" clstag="shangpin|keycount|product|jingdongfuwu_16642813622">                                        <i class="sprite-checkbox"></i><span class="name">换新保2年</span><span class="price">￥159</span>                                    </span>                                    <a href="https://item.jd.com/16642813622.html" target="_blank" class="detail-more" clstag="shangpin|keycount|product|jingdongfuwu_xiangqing">详情<s class="s-arrow">&gt;&gt;</s></a>                                </div>                            </li>                            <li data-sku="16098944804">                                <div class="title" title="续航不足6小时免费换新电池">                                     <span class="choose-btn" clstag="shangpin|keycount|product|jingdongfuwu_16098944804">                                        <i class="sprite-checkbox"></i><span class="name">电池换2年</span><span class="price">￥39</span>                                    </span>                                    <a href="https://item.jd.com/16098944804.html" target="_blank" class="detail-more" clstag="shangpin|keycount|product|jingdongfuwu_xiangqing">详情<s class="s-arrow">&gt;&gt;</s></a>                                </div>                            </li>                            <li data-sku="16056872489">                                <div class="title" title="延长厂家保修期">                                     <span class="choose-btn" clstag="shangpin|keycount|product|jingdongfuwu_16056872489">                                        <i class="sprite-checkbox"></i><span class="name">延长保1年</span><span class="price">￥69</span>                                    </span>                                    <a href="https://item.jd.com/16056872489.html" target="_blank" class="detail-more" clstag="shangpin|keycount|product|jingdongfuwu_xiangqing">详情<s class="s-arrow">&gt;&gt;</s></a>                                </div>                            </li>                            <li data-sku="16057099021">                                <div class="title" title="延长厂家保修期">                                     <span class="choose-btn" clstag="shangpin|keycount|product|jingdongfuwu_16057099021">                                        <i class="sprite-checkbox"></i><span class="name">延长保2年</span><span class="price">￥99</span>                                    </span>                                    <a href="https://item.jd.com/16057099021.html" target="_blank" class="detail-more" clstag="shangpin|keycount|product|jingdongfuwu_xiangqing">详情<s class="s-arrow">&gt;&gt;</s></a>                                </div>                            </li>                        </ul>                    </div>                </div>            <div class="service-tips">                <a href="#none"><i class="sprite-question"></i></a>                <div class="tips">                    <div class="sprite-arrow"></div>                    <div class="content">                    <dl>                        <dd>增值保障是指凡在爱尚购买商品或服务的消费者，在保障期间内遇到无论是正常使用中的问题还是意外事故，即可享受增值保障服务。保障内容包括：延长保修、只换不修、意外保护、服务保障。覆盖家电、手机数码、电脑办公、汽车用品、服饰家居等商品。</dd>                    </dl>                    <p>增值保障服务，只能提供增值税普通电子发票，如有疑问，请与<a href="https://chat.jd.com/pop/chat?shopId=162403" target="_blank">在线客服</a>联系</p>                </div>            </div>        </div>    </div></div></div>--}}
                 {{--<div id="choose-baitiao" class="li choose-baitiao" style="">    <div class="dt">白条分期</div>    <div class="dd">        <div class="baitiao-list J-baitiao-list">            <div class="item" clstag="shangpin|keycount|product|baitiaofenqi_1_9987_653_655" data-snum="1">                <b></b>                <a href="#none">                    <strong>                         不分期                    </strong>                    <span style="display:none;"><em>惠</em> 0手续费                    </span>                </a>                <div class="baitiao-tips hide">                    <ul>                        <li>                            无手续费                        </li>                    </ul>                </div>            </div>            <div class="item" clstag="shangpin|keycount|product|baitiaofenqi_3_9987_653_655" data-snum="3">                <b></b>                <a href="#none">                    <strong>                        ￥777.83×3期                    </strong>                    <span style="display:none;"><em>惠</em> 含手续费                    </span>                </a>                <div class="baitiao-tips hide">                    <ul>                        <li>                            含手续费：费率0.5%，￥11.5×3期                        </li>                    </ul>                </div>            </div>            <div class="item" clstag="shangpin|keycount|product|baitiaofenqi_6_9987_653_655" data-snum="6">                <b></b>                <a href="#none">                    <strong>                        ￥394.66×6期                    </strong>                    <span style="display:none;"><em>惠</em> 含手续费                    </span>                </a>                <div class="baitiao-tips hide">                    <ul>                        <li>                            含手续费：费率0.5%，￥11.5×6期                        </li>                    </ul>                </div>            </div>            <div class="item" clstag="shangpin|keycount|product|baitiaofenqi_12_9987_653_655" data-snum="12">                <b></b>                <a href="#none">                    <strong>                        ￥203.08×12期                    </strong>                    <span style="display:none;"><em>惠</em> 含手续费                    </span>                </a>                <div class="baitiao-tips hide">                    <ul>                        <li>                            含手续费：费率0.5%，￥11.5×12期                        </li>                    </ul>                </div>            </div>            <div class="item" clstag="shangpin|keycount|product|baitiaofenqi_24_9987_653_655" data-snum="24">                <b></b>                <a href="#none">                    <strong>                        ￥107.29×24期                    </strong>                    <span style="display:none;"><em>惠</em> 含手续费                    </span>                </a>                <div class="baitiao-tips hide">                    <ul>                        <li>                            含手续费：费率0.5%，￥11.5×24期                        </li>                    </ul>                </div>            </div>             <div class="bt-info-tips">                <a class="J-icon-hui prom icon fl" href="#none">　</a>            </div>            <div class="bt-info-tips">                <a class="J-bt-tips question icon fl" href="#none">　</a>            </div>        </div>        <div class="baitiao-text J-baitiao-text"></div>    </div></div>--}}
+=======
+>>>>>>> Stashed changes
                 <div id="choose-jincai" class="li choose-jincai" style="display:none">
                     <div class="dt">企业金采</div>
                     <div class="dd">
@@ -1162,16 +1157,20 @@
 
                 <div class="summary-line"></div>
                 {{--商品数量添加--}}
+                <input type="hidden" name="goods_id" id="goods_id" value="{{$goodInfoList->id}}">
                 <div id="choose-btns" class="choose-btns clearfix">
                     <div class="choose-amount " clstag="shangpin|keycount|product|goumaishuliang_1">
                         <div class="wrap-input">
                             <input class="text buy-num"  id="num" value="1" name="num">
                             <a class="btn-add" id="jia" href="#none" >+</a>
-                            <a class="btn-reduce disabled" id="jian" href="#none" >-</a>
+                            <a class="btn-reduce" id="jian" href="#none" >-</a>
                         </div>
                     </div>
+                    <input type="hidden" id='price' name="goods_price" value="{{$goodInfoList->new_price}}" />
+                    <input type="hidden" id='one_price' name="one_price" value="{{$goodInfoList->new_price}}" />
                     <script>
                         $(function(){
+                            var price = $('#price').val();
                             $('#jia').click(function(){
                                 var num = $('#num').val();
                                 var count = $('#count').html();
@@ -1181,6 +1180,7 @@
                                     ++num;
                                     $('#num').val(num);
                                 }
+                                $('#price').val(price * num);
                             });
                             $('#jian').click(function(){
                                 var num = $('#num').val();
@@ -1190,16 +1190,90 @@
                                     var n = num-1;
                                     $('#num').val(n);
                                 }
-                            })
-                        })
+                                $('#price').val(price * num);
+                            });
+
+
+                            //添加商品到购物车
+                                $('#submit').click(function(){
+
+                                    var val=$('input:radio[name="attr"]:checked').val();
+                                    if(val==null){
+                                        alert("请选中商品属性!");
+                                        return false;
+                                    }else{
+                                        var attr = val;                             //获取商品属性value值
+                                    }
+                                    var val=$('input:radio[name="color"]:checked').val();
+                                    if(val==null){
+                                        alert("请选中颜色!");
+                                        return false;
+                                    }else{
+                                        var color = val;                            //获取商品颜色value值
+                                    }
+                                    var goods_weight = $('#goods_weight').val();    //获取商品重量value值
+                                    var img = $('#img').val();                      //获取商品图片value值
+                                    var shop_name = $('#shop_name').val();          //获取商铺名称value值
+                                    var goods_name = $('#goods_name').val();        //获取商品名称value值
+                                    var shop_id = $('#shop_id').val();              //获取商铺id value值
+                                    var goods_text = $('#goods_text').val();        //获取商品简介value值
+                                    var price = $('#price').val();                  //获取商品总价
+                                    var num = $('#num').val();                      //获取商品个数
+                                    var goods_id = $('#goods_id').val();            //获取商品id值
+                                    var one_price = $('#one_price').val();          //获取商品单价
+                                    var all_count = $('#all_count').val();          //获取商品单总数
+                                        $.ajax({
+                                            url: "/cart",
+                                            type: "post",
+                                            data: {
+                                                "color": color,
+                                                "attr": attr,
+                                                "goods_weight": goods_weight,
+                                                "img": img,
+                                                "shop_name": shop_name,
+                                                "goods_name": goods_name,
+                                                "shop_id": shop_id,
+                                                "goods_text": goods_text,
+                                                "price": price,
+                                                "num": num,
+                                                "goods_id": goods_id,
+                                                "one_price":one_price,
+                                                "all_count":all_count
+                                            },
+                                            headers: {'X-CSRF-TOKEN': '{{ csrf_token() }}'},
+                                            dataType: 'json',
+                                            success: function (data) {
+                                                alert(data);
+                                                window.location.reload("/cart/{{$goodInfoList->id}}/{{$ShopList->shop_id}}");
+                                            },
+                                            error: function () {
+                                                alert('error');
+                                            }
+                                        })
+                                });
+                             })
                     </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                     <!--<a id="choose-btn-gift" class="btn-special1 btn-lg" style="display:none;" href="//cart.gift.jd.com/cart/addGiftToCart.action?pid=5181406&pcount=1&ptype=1" class="btn-gift" clstag="shangpin|keycount|product|选作礼物购买_1"><b></b>选作礼物购买</a>-->
 
 
 
                     <a href="https://eve.jd.com/redirect.action?wid=5181406&amp;btype=100&amp;pid=1&amp;cid=72&amp;r=0.8162883530358511" id="btn-heyue" class="btn-special1 btn-lg" style="display:none;" clstag="shangpin|keycount|product|选择号码和套餐_1">选择号码和套餐</a>
 
-                    <button style='background-color: #df3134'><a class="btn-special1 btn-lg">加入购物车</a></button>
+                   <a class="btn-special1 btn-lg" id="submit">加入购物车</a>
 
 
                     <a href="#none" id="btn-baitiao" class="btn-special2 btn-lg" style="display:none;" clstag="shangpin|keycount|product|dabaitiaobutton_9987_653_655">打白条</a>
@@ -1224,9 +1298,9 @@
             </div>
         </div>
     </div>
-    </form>
+                </form>
 </div>
-
+</div>
 
 {{--<div class="w">--}}
     {{--<div id="shopRecSuit" class="ETab hide">--}}

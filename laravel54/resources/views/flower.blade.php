@@ -157,7 +157,7 @@
     <div id="settleup-2014" class="dorpdown">
 		<div class="cw-icon">
 			<i class="ci-left"></i>
-			<i class="ci-right">&gt;</i><i class="ci-count" id="shopping-amount">4</i>
+			<i class="ci-right">&gt;</i><i class="ci-count" id="shopping-amount">{{session('carts')}}</i>
 			<a target="_blank" href="https://cart.jd.com/cart.action" clstag="shangpin|keycount|toplist1|b05">我的购物车</a>
 		</div>
 		<div class="dorpdown-layer"><div class="spacer"></div><div id="settleup-content"><span class="loading"></span></div></div>

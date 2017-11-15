@@ -158,13 +158,17 @@
     </div>
     <div class="car">
         @if (Auth::guest())
-            <a href="/cart/0/0">我的购物车</a>
+            <a href="/cart/0">我的购物车</a>
         @else
-            <a href="/cart/{{Auth::user()->id}}/0">我的购物车</a>
+            <a href="/cart/{{Auth::user()->id}}">我的购物车</a>
         @endif
         <span class="icon1"></span>
         <span class="icon2">></span>
+<<<<<<< Updated upstream
         <span class="icon3">8</span >
+=======
+        <span class="icon3">{{session('carts')}}</span>
+>>>>>>> Stashed changes
     </div>
     <div class="hotwords">
         <a href="#" class="col-red">11月11天</a>

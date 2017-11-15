@@ -3,11 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Cate;
 use App\Lunbo;
 use App\Good;
 use Session;
+<<<<<<< Updated upstream
 use App\links;
+=======
+>>>>>>> Stashed changes
 use DB;
 class JDController extends Controller
 {
@@ -15,11 +19,27 @@ class JDController extends Controller
      * 首页
      */
     public function show(){
+<<<<<<< Updated upstream
         $list = Lunbo::home_Show();//获取轮播图数据
         $posid = DB::table('goods_posids')->where('posids_id',1)->select('goods_img')->limit(4)->get();//获取首页推荐位内容
+=======
+
+        $list = Lunbo::home_Show();//获取轮播图数据
+        $posid = DB::table('goods_posids')->where('posids_id',1)->select('goods_img')->limit(5)->get();//获取首页推荐位内容
+
+        if(!empty(Auth::user()->id)){
+            $carts = DB::table('carts')->where('uid',Auth::user()->id)->sum('goods_count');//获取当前用户购物车数量
+            $carts = isset($carts)?$carts:0;
+            session(['carts'=>$carts]);//将购物车商品数量存入session;
+        }else{
+            session(['carts'=>0]);
+        }
+
+>>>>>>> Stashed changes
         return view('JDindex',['list'=>$list,'posid'=>$posid]);
     }
-    
+
+
     /**
      * 用户信息（我的爱尚）
      */

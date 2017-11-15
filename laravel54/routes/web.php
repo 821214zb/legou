@@ -46,18 +46,22 @@ Route::any('/goodInfo/{id}/{did}', 'GoodController@goodInfo');//(id 商品ID did
  * 友情链接
  */
 Route::any('/links/show','linksController@show');//友情链接展示
+<<<<<<< Updated upstream
 Route::any('/links/add','linksController@add');//申请友情链接
 Route::any('/links/links_show','JDController@links_show');//友情链接展示
 Route::any('/links/links_add','JDController@links_add');//申请友情链接
 
+=======
+Route::any('/links/add','linksController@add');  //申请友情链接
+>>>>>>> Stashed changes
 
 /**
  * 用户注册登录路由
  */
-Route::any('/zhuce','Auth\RegisterController@zhuce');//注册页面展示
-Route::any('/login','Auth\LoginController@showLoginForm');//登录页面展示
-Route::any('/login','Auth\LoginController@Login');//检测用户登录
-Route::any('/logout','Auth\LoginController@Logout');//检测用户登录
+Route::any('/zhuce','Auth\RegisterController@zhuce');      //注册页面展示
+Route::any('/login','Auth\LoginController@showLoginForm'); //登录页面展示
+Route::any('/login','Auth\LoginController@Login');         //检测用户登录
+Route::any('/logout','Auth\LoginController@Logout');       //检测用户登录
 //生成验证码
 Route::any('/zhuce/{tmp}', 'Auth\RegisterController@captcha');
 //手机验证码
@@ -67,21 +71,36 @@ Route::any('/app','PhpController@add_user_verify');
  * 购物车路由
  */
 
+<<<<<<< Updated upstream
 Route::any('/cart/{uid}/{gid}','CartController@show');//注册页面展示
 Route::any('/cart','CartController@show');//注册页面展示
+=======
+Route::get('/cart/{uid}','CartController@show');   //购物车页面展示
+Route::any('/cart','CartController@ajax');         //添加购物车路由
+Route::any('/cart/del','CartController@del');      //删除购物车路由
+Route::any('/cart/update','CartController@update');//删除购物车路由
+>>>>>>> Stashed changes
 
 /**
  * 订单路由
  */
-Route::any('/dingdan','IndentController@show');//注册页面展示
+Route::any('/dingdan','IndentController@show'); //注册页面展示
 
 /*
  * 结算页
  * */
+<<<<<<< Updated upstream
 Route::any('/settle','SettleController@settle');//新增收货人地址
 Route::any('/update/{id}','SettleController@update');//修改收货人地址
 Route::any('/updateTwo','SettleController@updateTwo');//修改更多收货人地址
 Route::any('/delete/{id}','SettleController@delete');//删除更多收货人地址
+=======
+Route::any('/settle','SettleController@settle');      //新增收货人地址
+Route::any('/update/{id}','SettleController@update'); //修改收货人地址
+Route::any('/updateTwo','SettleController@updateTwo');//修改更多收货人地址
+Route::any('/delete/{id}','SettleController@delete'); //删除更多收货人地址
+
+>>>>>>> Stashed changes
 
 //后台路由===================================================================================================
 

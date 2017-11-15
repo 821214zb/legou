@@ -30,8 +30,11 @@ class GoodsController extends CommonController{
             $cate_id = $_GET['cate_id'] ? $_GET['cate_id'] : "";
             $brand_id = $_GET['brand_id'] ? $_GET['brand_id'] : "";
             $shop_id = $_GET['shop_id'] ? $_GET['shop_id'] : "";
-            $status = $_GET['status'] ? $_GET['status'] : "";
+            if(isset($status)){
+                $status = $_GET['status'];
+            }
             $keywords = $_GET['keywords'] ? $_GET['keywords'] : "";
+
             $where = array();
             if(!empty($cate_id)){
                 $where[] = ['goods_category',$cate_id];

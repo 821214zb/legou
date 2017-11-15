@@ -325,8 +325,6 @@ class Good extends Model{
         }
     }
 
-
-
     /*
      * 商品具体列表 通过分类id获取相对应的品牌展示
      * */
@@ -453,8 +451,6 @@ class Good extends Model{
 
     }
 
-
-
     /*
     * *********************
     * ********
@@ -496,4 +492,5 @@ class Good extends Model{
          return DB::table("shops")->where(["shop_id"=>$did])->first();//商品
 
     }
+    
 }

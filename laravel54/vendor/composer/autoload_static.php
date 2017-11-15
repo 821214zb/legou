@@ -305,7 +305,7 @@ class ComposerStaticInit7b20e4d61e2f88170fbbc44c70d38a1f
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Admin\\BrandController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/BrandController.php',
         'App\\Http\\Controllers\\Admin\\CateController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/CateController.php',
-        'App\\Http\\Controllers\\Admin\\DealController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/DealController.php',
+        'App\\Http\\Controllers\\Admin\\DealController' => __DIR__ . '/../..',
         'App\\Http\\Controllers\\Admin\\GoodsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/GoodsController.php',
         'App\\Http\\Controllers\\Admin\\IndexController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/IndexController.php',
 

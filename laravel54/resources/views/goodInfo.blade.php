@@ -900,8 +900,6 @@
                             <p id="count">{{$goodInfoList->goods_count}}</p>件
                         </div>
                     </div>
-
-<<<<<<< Updated upstream
                     <div id="summary-weight" class="li" style="">
                         <div class="dt">颜　　色</div>
                         <div class="dd">
@@ -1067,7 +1065,6 @@
                     </div>
                 @endif
                 <div class="summary-line"></div>
-=======
                 <!--商品属性-->
                     @if($cat_id == 1)
                         尺码：<input type="radio" name="size" value="{{$cat_list[0]->size}}" />{{$cat_list[0]->size}}<br />
@@ -1105,7 +1102,6 @@
                         颜色：<input type="radio" name="color" value="{{$cat_list[0]->color}}" />{{$cat_list[0]->color}}<br />
                         口味：<input type="radio" name="Flavor" value="{{$cat_list[0]->Flavor}}">{{$cat_list[0]->Flavor}}<br />
                     @endif
->>>>>>> Stashed changes
 
                     {{--<div id="choose-results" class="li" style="display:none"><div class="dt">已选择</div><div class="dd"></div></div>--}}
                 {{--</div>--}}

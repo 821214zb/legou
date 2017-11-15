@@ -75,7 +75,13 @@ Route::any('/cart','CartController@show');//注册页面展示
  */
 Route::any('/dingdan','IndentController@show');//注册页面展示
 
-
+/*
+ * 结算页
+ * */
+Route::any('/settle','SettleController@settle');//新增收货人地址
+Route::any('/update/{id}','SettleController@update');//修改收货人地址
+Route::any('/updateTwo','SettleController@updateTwo');//修改更多收货人地址
+Route::any('/delete/{id}','SettleController@delete');//删除更多收货人地址
 
 //后台路由===================================================================================================
 
@@ -147,7 +153,6 @@ Route::any('/lunbo/delete/{id}','Admin\LunboController@delete');//删除轮播�
 Route::any('/lunbo/sort','Admin\LunboController@sort');         //轮播图排序
 
 /**
-
  * 用户路由 
  */
 Route::any('/admin/show','Admin\AdminController@show');         //管理员列表
@@ -225,7 +230,7 @@ Route::get('/goods/pinglun','Admin\GoodsController@pinglun');
 /**
  * 交易信息
  */
-Route::get('/deal/info','Admin\DealController@info');
+Route::any('/indent/show','Admin\IndentController@show');//订单列表
 /**
  * 订单查询
  */

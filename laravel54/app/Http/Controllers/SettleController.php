@@ -9,41 +9,55 @@ class SettleController extends Controller{
      * 
      *用户收货地址
      *  */
-    public function settle(){
+    public function settle($gid){
         $useraddr = new \App\Useraddr();
         $uid = Auth::user()->id;
-        $userInfo = DB::table('useraddrs')->where('uid',$uid)->first();
-        if($userInfo){
-            $id = $userInfo->id;
-            session(['id'=>$id]);
-            $userList = DB::table('useraddrs')->where('uid',$uid)->get();
-        }
-        isset($userInfo) ? $userInfo : "";
+
         //新增收货人信息
         if($_POST){
             $info = $useraddr->addRegion($uid);
             if($info){
-                return redirect('settle');
+                return redirect('/settle/0');
             }
+        }else{//查询当前用户地址信息
+            $userInfo = DB::table('useraddrs')->where('uid',$uid)->first();
+            if(!empty($userInfo)){
+                $ID = $userInfo->id;
+                session(['id'=>$ID]);
+                $userList = DB::table('useraddrs')->where('uid',$uid)->get();
+            }
+            isset($userList) ? $userList : "";
+            isset($userInfo) ? $userInfo : "";
         }
-        return view('settle',['userInfo'=>$userInfo,'userList'=>$userList]);
+        //获取购物车信息
+        if(!empty($gid)){
+            $gid = explode(",",$gid);
+            $cartList = DB::table('carts')->whereIn('id',$gid)->get();
+            dump($cartList);
+        }
+        return view('settle',['userInfo'=>$userInfo,'userList'=>$userList,'cartList'=>$cartList]);
     }
 
     /*
-     * 编辑收货人地址
+     * 编辑页面上一条地址
      * */
-    public function update($id){
+    public function up(){
         $useraddr = new \App\Useraddr();
         $aid = session('id');
         if($_POST){
             $info = $useraddr->updateRegion($aid);
-            if($info){
-                return redirect('settle');
+            if($info !== false){
+                return redirect('/settle/0');
             }
-        }else{
-            $data = DB::table('useraddrs')->where('id',$id)->first();
-            echo json_encode($data);
         }
+    }
+
+    /*
+     * 修改更多地址时展示  异步
+     * */
+    public function update($id){
+        $data = DB::table('useraddrs')->where('id',$id)->first();
+        echo json_encode($data);
     }
 
     /*
@@ -54,7 +68,7 @@ class SettleController extends Controller{
         if($_POST){
             $info = $useraddr->updateTwo();
             if($info){
-                return redirect('settle');
+                return redirect('/settle/0');
             }
         }
     }

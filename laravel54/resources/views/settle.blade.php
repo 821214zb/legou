@@ -245,7 +245,7 @@
                         <div class="extra-r">
 
 							<div id="timeoutBox" style="display: none" class="checkout-steps">
-								<form action="settle" method="post">
+								<form action="/settle/0" method="post">
 									{{ csrf_field() }}
 									收货人：<input type="text" name="username" style="width:180px;"/><br />
 									详细地址：<input type="text" name="dizhi" style="width:180px;"/><br />
@@ -270,16 +270,16 @@
 		})
 	});
 </script>
-                            <input id="del_consignee_type" value="0" type="hidden">
-                        </div>
-                    </div>
-                    <div class="step-cont">
-                        <div id="consignee-addr" class="consignee-content">
-                        	<div class="consignee-scrollbar">
-								<div class="ui-scrollbar-main">
-									<div class="consignee-scroll">
-			                            <div class="consignee-cont" id="consignee1" style="height: 42px;">
-			                                			                                <ul id="consignee-list">
+		<input id="del_consignee_type" value="0" type="hidden">
+	</div>
+</div>
+<div class="step-cont">
+	<div id="consignee-addr" class="consignee-content">
+		<div class="consignee-scrollbar">
+			<div class="ui-scrollbar-main">
+				<div class="consignee-scroll">
+					<div class="consignee-cont" id="consignee1" style="height: 42px;">
+																	<ul id="consignee-list">
 
 <li class="ui-switchable-panel ui-switchable-panel-selected" style="display: list-item;" id="consignee_index_304105697" selected="selected" c_li_custom_label="consignee_li" >
 	<div class="addr-detail" style="overflow:hidden;border:0px solid gray;width:600px;height:30px;" >
@@ -295,7 +295,7 @@
 			</div>
 
 	<div id="timeoutBox2" style="display: none" class="checkout-steps">
-		<form action="update" method="post">
+		<form action="/up" method="post">
 			{{ csrf_field() }}
 			收货人：<input type="text" name="username" value="{{$userInfo->user_name}}" style="width:180px;margin-bottom: 20px;" /><br />
 			详细地址：<input type="text" name="dizhi" value="{{$userInfo->address}}" style="width:180px;margin-bottom: 20px;"/><br />
@@ -304,7 +304,7 @@
 			<input type="submit" value="保存收货人信息" />
 		</form>
 	</div>
-	<a href="###" id="tan2" class="ftx-05 J_consignee_global" style="margin-left:260px">编辑</a><div class="timeoutrighttxt"></div>
+	<a href="javascript:viod(0)" id="tan2" class="ftx-05 J_consignee_global" style="margin-left:260px">编辑</a><div class="timeoutrighttxt"></div>
 </li>
 	<script type="text/javascript">
 		$(document).ready(function(){
@@ -320,85 +320,89 @@
 		});
 	</script>
   </ul>
-			                            </div>
-		                            </div>
-	                            </div>
-                            </div>
-                        </div>
-						<div>
-						<div id="cons" style="margin-left:20px;" >
-							@foreach($userList as $v)
-								@if($v->id !== $userInfo->id)
-								<div  class="addr-detail"  >
-								<input type="radio" name="xx">
-								<span class="addr-name" limit="6" title="{{$v->user_name}}">{{$v->user_name}}</span>
-								<span class="addr-info" limit="45" title="">{{$v->address}}</span>
-								<span class="addr-tel">{{$v->user_phone}}</span>
-									<a href="###" id="{{$v->id}}" class="global" style="margin-left:850px">删除</a>
-									<a href="###" id="edita{{$v->id}}" onclick="getInfo({{$v->id}})" class="ftx-05 J_consignee_global" style="margin-left:850px">编辑</a>
-									<a href="###" id="" class="ftx-05 J_consignee_global" style="margin-left:850px">设为默认地址</a>
-								</div>
-								@endif
-							@endforeach
-						</div><br />
-						<span id="sp" >更多地址...</span><b></b>
-								</div>
-						<div id="timeoutBox3" style="display: none" class="checkout-steps">
-							<form action="updateTwo" method="post" >
-								{{ csrf_field() }}
-								<input type="hidden" name="regId" value="" id="regId">
-								收货人：<input type="text" name="username" value="" id="name" style="width:180px;margin-bottom: 20px;" /><br />
-								详细地址：<input type="text" name="dizhi" value="" id="dizhi" style="width:180px;margin-bottom: 20px;"/><br />
-								手机号码：<input type="text" name="phone" value="" id="phone" style="width:180px;margin-bottom: 20px;"/><br />
-								邮箱地址：<input type="text" name="email" value="" id="email" style="width:180px;margin-bottom: 20px;"/><br />
-								<input type="submit" value="保存收货人信息" />
-							</form>
-						</div>
-						<script type="text/javascript">
-							//修改更多地址
-							function getInfo(id){
-								$(document).ready(function(){
-									$('#edita'+id).on('click', function(){
-										layer.open({
-											type: 1,
-											title:'编辑收货人信息',
-											area: ['500px','310px'],
-											shadeClose: false,
-											content: $('#timeoutBox3')
-										});
-									});
-									$.ajax({
-										url:'update/'+id,
-										type:'get',
-										dataType:'json',
-										success:function(json){
-											$("#name").val(json['user_name']);
-											$("#dizhi").val(json['address']);
-											$("#phone").val(json['user_phone']);
-											$("#email").val(json['email']);
-											$("#regId").val(json['id']);
-										}
-									});
-								});
-							}
-							//删除
-							$(document).ready(function() {
-								$("#cons").on("click", ".global", function () {
-									var id = $(this).attr("id");
-									if(confirm("确认删除？")) {
-										$.ajax({
-											type: "get",
-											url: "delete/"+id,
-											dataType:'json',
-											success(){
-												alert('删除成功！');
-												window.location.reload("settle");
-											}
-										});
-									}
-								});
-							});
-						</script>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div>
+<div id="cons" style="margin-left:20px;" >
+	@if(!empty($userList))
+	@foreach($userList as $v)
+		@if($v->id !== $userInfo->id)
+		<div  class="addr-detail"  >
+		<input type="radio" name="xx">
+		<span class="addr-name" limit="6" title="{{$v->user_name}}">{{$v->user_name}}</span>
+		<span class="addr-info" limit="45" title="">{{$v->address}}</span>
+		<span class="addr-tel">{{$v->user_phone}}</span>
+		<a href="###" id="{{$v->id}}" class="global" style="margin-left:850px">删除</a>
+		<a href="###" id="edita{{$v->id}}" onclick="getInfo({{$v->id}})" class="ftx-05 J_consignee_global" style="margin-left:850px">编辑</a>
+			<a href="###" id="" class="ftx-05 J_consignee_global" style="margin-left:850px">设为默认地址</a>
+		</div>
+		@endif
+	@endforeach
+		@else
+		<script>alert('请填写收货地址')</script>
+		@endif
+</div><br />
+<span id="sp" >更多地址...</span><b></b>
+		</div>
+<div id="timeoutBox3" style="display: none" class="checkout-steps">
+	<form action="/updateTwo" method="post" >
+		{{ csrf_field() }}
+		<input type="hidden" name="regId" value="" id="regId">
+		收货人：<input type="text" name="username" value="" id="name" style="width:180px;margin-bottom: 20px;" /><br />
+		详细地址：<input type="text" name="dizhi" value="" id="dizhi" style="width:180px;margin-bottom: 20px;"/><br />
+		手机号码：<input type="text" name="phone" value="" id="phone" style="width:180px;margin-bottom: 20px;"/><br />
+		邮箱地址：<input type="text" name="email" value="" id="email" style="width:180px;margin-bottom: 20px;"/><br />
+		<input type="submit" value="保存收货人信息" />
+	</form>
+</div>
+<script type="text/javascript">
+	//修改更多地址
+	function getInfo(id){
+		$(document).ready(function(){
+			$('#edita'+id).on('click', function(){
+				layer.open({
+					type: 1,
+					title:'编辑收货人信息',
+					area: ['500px','310px'],
+					shadeClose: false,
+					content: $('#timeoutBox3')
+				});
+			});
+			$.ajax({
+				url:'/update/'+id,
+				type:'get',
+				dataType:'json',
+				success:function(json){
+					$("#name").val(json['user_name']);
+					$("#dizhi").val(json['address']);
+					$("#phone").val(json['user_phone']);
+					$("#email").val(json['email']);
+					$("#regId").val(json['id']);
+				}
+			});
+		});
+	}
+	//删除
+	$(document).ready(function() {
+		$("#cons").on("click", ".global", function () {
+			var id = $(this).attr("id");
+			if(confirm("确认删除？")) {
+				$.ajax({
+					type: "get",
+					url: "delete/"+id,
+					dataType:'json',
+					success(){
+						alert('删除成功！');
+						window.location.reload("settle");
+					}
+				});
+			}
+		});
+	});
+</script>
 <script>
 	$(document).ready(function(){
 		$("#cons").toggle();
@@ -407,76 +411,6 @@
 		});
 	});
 </script>
-                        <div id="selfPickArea" class="consignee-scroll mt10 hide">
-                        	<div class="consignee-cont">
-                        		<div class="hr" id="selfPickLine"></div>
-                        		<div class="picksite-lead hide" id="firstAccessTip">
-									<i class="pl-joy"></i>
-									<span class="pl-info">自提地址挪位置啦~根据您的配送习惯，<br>我们为您新增了京东自提点</span>
-									<span class="pl-btn" onclick="doHandleFirstAccess()">我知道了</span>
-									<i class="pl-cls" onclick="doHandleFirstAccess()"></i>
-                					<i class="pl-arrow"></i>
-								</div>
-                        		<ul id="selfPickInfo">
-                        			                        			                        		<li id="defaultSelfPick" defaultselfpick="1">
-	                     				<div id="selfPickSiteName" class="consignee-item" clstag="pageclick|keycount|trade_201602181|40" onclick='doSelectSelfPickSite("899","昌平站")'>
-											<span id="pickName" pickid="899" limit="8">京东自提点</span>
-												<b></b>
-										</div>
-										<div class="addr-detail">
-											<span class="addr-name" limit="6" title="张亚宁">
-											张亚宁
-											</span>
-											<span class="addr-info" limit="45" title="昌平站 北京市昌平区城区火炬街18号对面">
-												 昌平站 北京市昌平区城区火炬街18号对面
-											</span>
-											<span class="addr-tel">
-												130****2115
-											</span>
-										</div>
-										<div class="addr-ops">
-											<a id="selfPickEdit" href="#none" onclick="openEditSelfPickConsigneeDialog()" clstag="pageclick|keycount|trade_201602181|41" class="ftx-05 mr10 edit-selfconsignee hide" fid="899">更换自提地址</a>
-											<i class="pick-err-icon noPickChoose hide"></i><span class="ftx-01 mr10 noPickChoose hide">部分商品不支持</span>
-											<a class="ftx-05 selfpick-edit selfPickChoose hide" href="#none" onclick="openEditSelfPickConsigneeDialog()">重新选择</a>
-										</div>
-	                        		</li>
-	                        		                        		</ul>
-                        		                        	</div>
-                        </div>
-                        <!--end-->
-                         <div class="picksite-scroll mt10">
-                        	<div class="picksite-cont">
-                        		<div class="hr hide" id="zitihr"></div>
-                        		<div id="zititype1" class="consignee-picksite-info mb10 mt10 hide">
-                        			<span class="c-picksite-logo">京东自提</span>
-                        			<span class="ftx-03 ml5">省运费·无续重·随时取</span>
-                        			<a target="_blank" href="http://help.jd.com/user/issue/100-965.html" class="ftx-05 ml10 J_picksite_desc_btn">详情</a>
-                        		</div>
-                        		<div id="zititype2" class="consignee-picksite-info mb10 mt10 hide">
-                        			<span class="c-picksite-logo">京东自提</span>
-                        			<span class="ftx-01 ml5" id="absMoney">选择京东自提，立省运费</span>
-                        			<a target="_blank" href="http://help.jd.com/user/issue/100-965.html" class="ftx-05 ml10 J_picksite_desc_btn">详情</a>
-                        		</div>
-                        		<div id="zititype3" class="consignee-picksite-info mb10 mt10 hide">
-                        			<span class="c-picksite-logo">京东自提</span>
-                        			<span class="ftx-01 ml5">周末没人？使用京东自提 省运费·无续重·随时取</span>
-                        			<a target="_blank" href="http://help.jd.com/user/issue/100-965.html" class="ftx-05 ml10 J_picksite_desc_btn">详情</a>
-                        		</div>
-                        		<ul id="selfPickOptimizeUl">
-                        		</ul>
-                        	</div>
-                        </div>
-                        
-                        <div id="zititype4" class="picksite-nosuport-cont hide">
-                        			<span class="tips-cont ml10"><b></b>订单中部分商品不支持自提，暂无法使用京东自提</span>                       
-                        			<a href="#none" class="ftx05 J_picksite_disable_info ml30">详情&nbsp;&gt;</a>
-                        			<div class="picksite-nosuport-box">
-                        			  <i class="arrow-up"></i>
-                        			  <strong>以下商品不支持自提</strong>
-                        			  <ul id="unSupportSelfPickSkuList">
-                        			  </ul>
-                        			</div>
-                       </div>
 
 
                                                     <input id="consigneeList_giftSenderConsigneeMobile" value="" type="hidden">
@@ -500,43 +434,10 @@
   <div class="payment-list" id="">
     <div class="list-cont">
           <ul id="payment-list">
-        <input id="instalmentPlan" value="false" type="hidden">
-		
-													
-		      
-        			<li style="cursor: pointer;" onclick="
-									 save_Pay(1,0,1); 				" clstag="pageclick|keycount|trade_201602181|8">
-
-				<div class=" payment-item  online-payment " for="pay-method-1" payname="货到付款" payid="1" onlinepaytype="0"><b></b>
-					    					货到付款<span class="qmark-icon qmark-tip" data-tips="送货上门后再收款，支持现金、POS机刷卡、支票支付 &lt;a href='//help.jd.com/user/issue/103-983.html' target='_blank' class='ftx-05'&gt;查看服务及配送范围&lt;/a&gt;"></span>					                    													                                																</div>
-			</li>
-			
-            
-					<li style="cursor: pointer;" onclick="
-				save_Pay(4,0,1);" clstag="pageclick|keycount|trade_201602181|7">
-
-				<div class="payment-item item-selected online-payment" for="pay-method-4" payname="在线支付" payid="4" onlinepaytype="0"><b></b>
-																	<em class="payment-promo">惠</em> 
-												在线支付                    													                <span id="cod" class="qmark-icon qmark-tip" data-tips="即时到账，支持绝大数银行借记卡及部分银行信用卡 &lt;a href='//help.jd.com/user/issue/223-562.html' target='_blank' class='ftx-05'&gt; 查看银行及限额&lt;/a&gt;"></span>                 																</div>
-			</li>
-			
-            
-					<li style="cursor: pointer;" onclick="
-				save_Pay(5,0,1);" clstag="pageclick|keycount|trade_201602181|9">
-
-				<div class="hide payment-item  online-payment " for="pay-method-5" payname="公司转账" payid="5" onlinepaytype="0"><b></b>
-																	公司转账                    													                                												<span class="qmark-icon qmark-tip" data-tips="通过快钱平台转账 转账后1-3个工作日内到账 &lt;a href='//help.jd.com/user/issue/list-175.html' target='_blank' class='ftx-05'&gt;查看账户信息&lt;/a&gt;"></span> 				</div>
-			</li>
-			
-            
-					<li style="cursor: pointer;" onclick="
-				save_Pay(2,0,1);" clstag="pageclick|keycount|trade_201602181|10">
-
-				<div class="hide payment-item  online-payment " for="pay-method-2" payname="邮局汇款" payid="2" onlinepaytype="0"><b></b>
-																	邮局汇款                    													<span class="qmark-icon qmark-tip" data-tips="通过快钱平台收款 汇款后1-3个工作日到账 &lt;a href='//help.jd.com/user/issue/list-174.html' target='_blank' class='ftx-05'&gt;查看帮助&lt;/a&gt;"></span>                                																</div>
-			</li>
-			
-            
+			  <input type="radio" name="zhifu" >货到付款
+			  <input type="radio" name="zhifu" >在线付款
+			  <input type="radio" name="zhifu" >公司转账
+			  <input type="radio" name="zhifu" >邮局汇款
 				<li id="payment-less" class="hide">
           <div class="payment-item-on" clstag="pageclick|keycount|PaymentLead__2016030411|10">
             <span>收起</span><b></b>
@@ -599,7 +500,7 @@ $('.payment-item-off').click(function(){
   	<a class="price-desc" id="price-desc" href="#none" data-tips="因可能存在系统缓存、页面更新导致价格变动异常等不确定性情况出现，商品售价以本结算页商品价格为准；如有疑问，请您立即联系销售商咨询。">
   		<i></i>&nbsp;价格说明
   	</a>
-          <a href="https://cart.jd.com/" id="cartRetureUrl" class="return-edit ftx-05" clstag="pageclick|keycount|trade_201602181|15">返回修改购物车</a>
+          <a href="/cart/{{Auth::user()->id}}" id="cartRetureUrl" class="return-edit ftx-05" clstag="pageclick|keycount|trade_201602181|15">返回修改购物车</a>
       </div>
 </div>
 <div class="step-cont" id="skuPayAndShipment-cont">
@@ -628,77 +529,55 @@ $('.payment-item-off').click(function(){
                        <div class="goods-items">
                         <div class="goods-suit goods-last">
                           <div class="goods-suit-tit">
-                                    <span class="sales-icon">满赠</span>
-                                <strong>
-                
-                                      已购满19.00元
-                  
-                                    ，您可以返回购物车领取赠品
-                  
-                
-                                </strong>
+
               </div>
-                      						        <div class="goods-item goods-item-extra" goods-id="5181398" sx-type="0">
-    
-				<div class="p-img">
-					<a target="_blank" href="http://item.jd.com/5181398.html?dist="><img src="/images/jiesuanye/593e4f06N4b38b001_002.jpg" alt=""></a>
+							<div class="goods-item goods-item-extra" goods-id="5181398" sx-type="0">
+
+	@foreach($cartList as $v)
+	<div class="p-img">
+		<a target="_blank" href="http://item.jd.com/5181398.html?dist="><img src="{{"/".$v->goods_img}}" alt=""></a>
+	</div>
+	<div class="goods-msg">
+	  <div class="goods-msg-gel">
+				<div class="p-name">
+					 <a href="http://item.jd.com/5181398.html?dist=" target="_blank">
+						  {{$v->goods_text}}
+					 </a>
 				</div>
-				<div class="goods-msg">
-		          <div class="goods-msg-gel">			
-		  					<div class="p-name">
-		  					<!-- 京东精选 begin -->
-		  					                                <!-- 生鲜 begin -->
-                                                                 <!-- 生鲜 end -->
-		  					     <a href="http://item.jd.com/5181398.html?dist=" target="_blank">
-		  					           荣耀9 全网通 高配版 6GB+64GB 琥珀金 移动联通电信4G手机 双卡双待					     
-		  					     </a>
-		  					</div>
-                                                                    <div class="p-price">
-                                				      			  <!--增加预售金额显示 begin   预售分阶段支付类型（1：一阶梯全款支付；2：一阶梯定金支付(全款或定金可选)；3：三阶梯(仅定金)；4：三阶梯(全款或定金可选)；5：一阶梯仅定金支付） -->
-				      			  
-								  									 									  <strong class="jd-price">
-                                          ￥ 2699.00
-                                                                                </strong>
-									 				      			  				      			  <!--增加预售金额显示 end-->
-				              <span class="p-num">
-																      				                x1
-    				              												              </span>
-				                <span id="pre-state" class="p-state" skuid="5181398">有货</span>
-                                                                    <span class="p-weight">0.440kg</span>
-                                				                				                  				                
-				                  				                  				                  					  </div>
-           		 </div>  
-								</div>
-        <div>
-                              <i class="p-icon p-icon-w sevenicon"></i><span class="ftx-07 withouthk seven">支持7天无理由退货</span>
-    
-		  		   <!-- 京尊达 begin -->
-  			  			<!-- 京尊达 end -->
-        </div>
-        
-				<div class="clr"></div>
-								    			    			    <!-- 山姆会员专享价 begin -->
-								<!-- 山姆会员专享价 end -->
-			      <!-- 京券和东券显示 -->
-				 				 
-				  <!-- 延保显示 -->
-				  					 				  				  				  <!-- 京东礼品购礼品盒展示 -->
-				  				  
-				  <!-- 京东loc门店展示 -->
-				  				  
-				 </div>
-			               </div>
-          </div>
-                              <!--满赠套装结束-->
- 						<!-- 买家版运费险 -->
-        <div class="hide service-items ml20 mr20" style="display: block;">
-            <div class="hide service-item" id="vender_freight_insurance_0" style="display: block;">
-                <div class="hr"></div>
-                <span class="service-desc">退换无忧</span>
-                <strong class="service-price">￥0.00</strong>
-            </div>
-        </div>
-      </div><!--goods-list 结束-->
+					<div class="p-price">
+						<strong class="jd-price">
+							  {{$v->one_price}}
+						</strong>
+				  <span class="p-num">×{{$v->goods_count}}
+																				  </span>
+					<span id="pre-state" class="p-state" skuid="5181398">
+						@if($v->all_count > 0)
+							有货
+						@endif
+					</span>
+														<span class="p-weight">{{$v->goods_weight}}</span>
+
+																										  </div>
+	 </div>
+					</div>
+	@endforeach
+<div>
+				  <i class="p-icon p-icon-w sevenicon"></i><span class="ftx-07 withouthk seven">支持7天无理由退货</span>
+</div>
+
+
+	<div class="clr"></div>
+	 </div>
+			   </div>
+</div>
+<div class="hide service-items ml20 mr20" style="display: block;">
+<div class="hide service-item" id="vender_freight_insurance_0" style="display: block;">
+	<div class="hr"></div>
+	{{--<span class="service-desc">退换无忧</span>--}}
+	{{--<strong class="service-price">￥0.00</strong>--}}
+</div>
+</div>
+</div><!--goods-list 结束-->
       <div class="dis-modes" id="11">
 		      <!--购物车单品商品-->
 		              <!--一般套装商品-->
@@ -1901,13 +1780,6 @@ $(".J-mode-infor-tips").hover(
     </div>
 
 </div>
-
-
-<!-- /main -->
-
-<!--  /widget/footer/footer.tpl -->
-<!-- footer -->
-<!--service start-->
 <div id="service-2017">
 	<div class="w">
 		<ol class="slogen">
@@ -1928,23 +1800,6 @@ $(".J-mode-infor-tips").hover(
 	<div class="jd-help">
 		<div class="w">
 			<div class="wrap">
-				<dl class="fore1">
-					<dt>购物指南</dt>
-					<dd><a rel="nofollow" target="_blank" href="https://help.jd.com/user/issue/list-29.html">购物流程</a></dd>
-					<dd><a rel="nofollow" target="_blank" href="https://help.jd.com/user/issue/list-151.html">会员介绍</a></dd>
-					<dd><a rel="nofollow" target="_blank" href="https://help.jd.com/user/issue/list-297.html">生活旅行/团购</a></dd>
-					<dd><a rel="nofollow" target="_blank" href="https://help.jd.com/user/issue.html">常见问题</a></dd>
-					<dd><a rel="nofollow" target="_blank" href="https://help.jd.com/user/issue/list-136.html">大家电</a></dd>
-					<dd><a rel="nofollow" target="_blank" href="https://help.jd.com/user/index.html">联系客服</a></dd>
-				</dl>
-				<dl class="fore2">		
-					<dt>配送方式</dt>
-					<dd><a rel="nofollow" target="_blank" href="https://help.jd.com/user/issue/list-81-100.html">上门自提</a></dd>
-					<dd><a rel="nofollow" target="_blank" href="https://help.jd.com/user/issue/list-81.html">211限时达</a></dd>
-					<dd><a rel="nofollow" target="_blank" href="https://help.jd.com/user/issue/103-983.html">配送服务查询</a></dd>
-					<dd><a rel="nofollow" target="_blank" href="https://help.jd.com/user/issue/109-188.html">配送费收取标准</a></dd>				
-					<dd><a target="_blank" href="https://en.jd.com/chinese.html">海外配送</a></dd>
-				</dl>
 				<dl class="fore3">
 					<dt>支付方式</dt>
 					<dd><a rel="nofollow" target="_blank" href="https://help.jd.com/user/issue/list-172.html">货到付款</a></dd>

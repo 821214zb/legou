@@ -234,6 +234,10 @@ class Good extends Model{
         return $rows;
     }
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
     //添加商品时公共的方法
     public function publicAdd($size,$color,$table,$goods_id){
         foreach ($size as $v) {
@@ -324,7 +328,10 @@ class Good extends Model{
             return $box_arr;
         }
     }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 
     /*
      * 商品具体列表 通过分类id获取相对应的品牌展示
@@ -493,4 +500,8 @@ class Good extends Model{
          return DB::table("shops")->where(["shop_id"=>$did])->first();//商品
 
     }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 }

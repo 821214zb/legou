@@ -164,11 +164,7 @@
         @endif
         <span class="icon1"></span>
         <span class="icon2">></span>
-<<<<<<< Updated upstream
-        <span class="icon3">8</span >
-=======
         <span class="icon3">{{session('carts')}}</span>
->>>>>>> Stashed changes
     </div>
     <div class="hotwords">
         <a href="#" class="col-red">11月11天</a>

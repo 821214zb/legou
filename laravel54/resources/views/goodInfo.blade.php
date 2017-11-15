@@ -136,7 +136,18 @@
         }
         .sh-brand-wrap-633464 .userDefinedArea {
             margin: 0 auto;
-        }</style>
+        }
+         .topbanner{
+             height:60px; ;
+         }
+        .login{
+            background-color: white;
+            border: 1px solid lightgrey;border-bottom: none;
+        }
+        .red {
+            background-color: red;
+        }
+    </style>
     <link rel="stylesheet" type="text/css" href="/css/shouji/a_007.css">
     {{--<script charset="gbk">--}}
         {{--var pageConfig = {--}}
@@ -265,26 +276,64 @@
 
     <script src="/images/shouji/a"></script><link charset="utf-8" rel="stylesheet" href="/css/shouji/gift.css"><link charset="utf-8" rel="stylesheet" href="/css/shouji/a_005.css"><link charset="utf-8" rel="stylesheet" href="/css/shouji/a_004.css"><link charset="utf-8" rel="stylesheet" href="/css/shouji/a_002.css"><link charset="utf-8" rel="stylesheet" href="/css/shouji/a.css"><style type="text/css">.p-parameter ul li .detail { min-height: 0px; }body .track .extra {z-index:4}</style><style type="text/css">.crumb-wrap {z-index:5}.loc-map{ padding-bottom: 8px; }</style><link charset="utf-8" rel="stylesheet" href="/css/shouji/a_003.css"></head>
 <body version="140120" class="cat-1-9987 cat-2-653 cat-3-655 item-5181406 JD JD-1">
-<div id="shortcut-2014">
+
+<div id="shortcut-2014" >
     <div class="w">
-        <ul class="fl" clstag="shangpin|keycount|topitemnormal|a01">
+        <ul class="fl" clstag="shangpin|keycount|topitemnormal|a01" >
             <li class="dorpdown" id="ttbar-mycity">			<div class="dt cw-icon ui-areamini-text-wrap" style="">				<i class="ci-right"><s>◇</s></i>				送至：<span class="ui-areamini-text" data-id="1" title="北京">北京</span> 			</div>			<div class="dd dorpdown-layer">				<div class="dd-spacer"></div>				<div class="ui-areamini-content-wrap"> 					<div class="ui-areamini-content"><div class="ui-areamini-content-list"><div class="item"><a data-id="1" href="javascript:void(0)" class="selected">北京</a></div><div class="item"><a data-id="2" href="javascript:void(0)">上海</a></div><div class="item"><a data-id="3" href="javascript:void(0)">天津</a></div><div class="item"><a data-id="4" href="javascript:void(0)">重庆</a></div><div class="item"><a data-id="5" href="javascript:void(0)">河北</a></div><div class="item"><a data-id="6" href="javascript:void(0)">山西</a></div><div class="item"><a data-id="7" href="javascript:void(0)">河南</a></div><div class="item"><a data-id="8" href="javascript:void(0)">辽宁</a></div><div class="item"><a data-id="9" href="javascript:void(0)">吉林</a></div><div class="item"><a data-id="10" href="javascript:void(0)">黑龙江</a></div><div class="item"><a data-id="11" href="javascript:void(0)">内蒙古</a></div><div class="item"><a data-id="12" href="javascript:void(0)">江苏</a></div><div class="item"><a data-id="13" href="javascript:void(0)">山东</a></div><div class="item"><a data-id="14" href="javascript:void(0)">安徽</a></div><div class="item"><a data-id="15" href="javascript:void(0)">浙江</a></div><div class="item"><a data-id="16" href="javascript:void(0)">福建</a></div><div class="item"><a data-id="17" href="javascript:void(0)">湖北</a></div><div class="item"><a data-id="18" href="javascript:void(0)">湖南</a></div><div class="item"><a data-id="19" href="javascript:void(0)">广东</a></div><div class="item"><a data-id="20" href="javascript:void(0)">广西</a></div><div class="item"><a data-id="21" href="javascript:void(0)">江西</a></div><div class="item"><a data-id="22" href="javascript:void(0)">四川</a></div><div class="item"><a data-id="23" href="javascript:void(0)">海南</a></div><div class="item"><a data-id="24" href="javascript:void(0)">贵州</a></div><div class="item"><a data-id="25" href="javascript:void(0)">云南</a></div><div class="item"><a data-id="26" href="javascript:void(0)">西藏</a></div><div class="item"><a data-id="27" href="javascript:void(0)">陕西</a></div><div class="item"><a data-id="28" href="javascript:void(0)">甘肃</a></div><div class="item"><a data-id="29" href="javascript:void(0)">青海</a></div><div class="item"><a data-id="30" href="javascript:void(0)">宁夏</a></div><div class="item"><a data-id="31" href="javascript:void(0)">新疆</a></div><div class="item"><a data-id="52993" href="javascript:void(0)">港澳</a></div><div class="item"><a data-id="32" href="javascript:void(0)">台湾</a></div><div class="item"><a data-id="84" href="javascript:void(0)">钓鱼岛</a></div><div class="item"><a data-id="53283" href="javascript:void(0)">海外</a></div></div></div> 				</div> 			</div>		</li>
         </ul>
         <ul class="fr">
-            <li class="fore1" id="ttbar-login" clstag="shangpin|keycount|topitemnormal|a02"><a href="javascript:login();" class="link-login">你好，请登录</a>&nbsp;&nbsp;<a href="javascript:regist();" class="link-regist style-red">免费注册</a></li>
+            <li class="fore1" id="ttbar-login" clstag="shangpin|keycount|topitemnormal|a02">
+                @if (Auth::guest())
+                    <a href="/login" id="login">你好，请登录</a> &nbsp;&nbsp;
+                    <a href="/zhuce" class="col-red">免费注册</a>
+                @else
+                    <div class="login2">
+                        <div id="login" style="position:relative;width: 115px;margin-left: 5px;">
+                            <a >欢迎您！{{ Auth::user()->name }}
+                                <img src="/images/pl1.jpg" width="30px" style="position: absolute;top:8px; filter:alpha(Opacity=80);-moz-opacity:0.4;opacity: 0.4;">
+                                <div class='login1' style="border: 1px solid lightgrey;border-top: none; width:235px;height:160px;top:27px;left:-1px;position: absolute; background-color: white;display:none;">
+                                    <div style="border-bottom:1px solid lightgrey;height:80px;">
+                                        <div style="float: left;margin:11px 0px 0px 15px;">
+                                            <img class="J_upic_img" src="/images/11.png" width="57" height="57">
+                                        </div>
+                                        <div style="width:145px;height:50px;float: right;margin:10px 8px 0px 8px;">
+                                            <img src="/images/pl1.jpg" width="38px;height:15px;" style="filter:alpha(Opacity=80);-moz-opacity:0.4;opacity: 0.4;">
+                                            <div style="float: right;font-size: 13px">
+                                                <a href="{{ route('logout') }}"
+                                                   onclick="event.preventDefault();
+                                                                 document.getElementById('logout-form').submit();">
+                                                    退出
+                                                </a>
+
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                    {{ csrf_field() }}
+                                                </form>
+                                            </div>
+                                            <div style="font-size: 11px;margin-bottom: 10px;">
+                                                <a href="//plus.jd.com" target="_blank">试用PLUS会员领免运费券&gt;</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                @endif
+            </li>
             <li class="spacer"></li>
             <li class="fore2" clstag="shangpin|keycount|topitemnormal|a03">
                 <div class="dt">
-                    <a target="_blank" href="https://order.jd.com/center/list.action">我的订单</a>
+                    <a   @if (Auth::guest()) href="login"  @else href="/user_indent/{{ Auth::user()->id }}" @endif  target="_blank">我的订单</a>
                 </div>
             </li>
             <li class="spacer"></li>
             <li class="fore3 dorpdown" id="ttbar-myjd" clstag="shangpin|keycount|topitemnormal|b04">
                 <div class="dt cw-icon">
-                    <i class="ci-right"><s>◇</s></i>
-                    <a target="_blank" href="https://home.jd.com/">我的爱尚</a>
+                    <a  @if (Auth::guest()) href="login"  @else href="/user_indenx/{{ Auth::user()->id }}" @endif  target="_blank">我的爱尚</a>
                 </div>
-                <div class="dd dorpdown-layer"><div class="dd-spacer"></div><div class="dd-inner"><span class="loading"></span></div></div>
             </li>
             <li class="spacer"></li>
             <li class="fore4" clstag="shangpin|keycount|topitemnormal|a04">
@@ -305,37 +354,31 @@
                     <i class="ci-right"><s>◇</s></i>
                     <a target="_blank" href="https://app.jd.com/">手机爱尚</a>
                 </div>
-                <div class="dd dorpdown-layer">				<div class="dd-spacer"></div>				<div class="dd-inner" id="ttbar-apps-main"><div class="dd-spacer"></div><div class="dd-inner"><span class="loading"></span></div>				</div>			</div>		</li>
+                </li>
             <li class="spacer"></li>
             <li class="fore7 dorpdown" id="ttbar-atte" clstag="shangpin|keycount|topitemnormal|a09" aid="2_955_6494">
                 <div class="dt cw-icon">
                     <i class="ci-right"><s>◇</s></i>关注爱尚
                 </div>
-                <div class="dd dorpdown-layer">				<div class="dd-spacer"></div>				<div class="dd-inner" id="ttbar-atte-main"><div class="dd-spacer"></div><div class="dd-inner"><span class="loading"></span></div>				</div>			</div>		</li>
+               </li>
             <li class="spacer"></li>
             <li class="fore8 dorpdown" id="ttbar-serv" clstag="shangpin|keycount|topitemnormal|a07">
                 <div class="dt cw-icon">
                     <i class="ci-right"><s>◇</s></i>客户服务
                 </div>
-                <div class="dd dorpdown-layer"><div class="dd-spacer"></div><div class="dd-inner"><span class="loading"></span></div></div>
             </li>
             <li class="spacer"></li>
             <li class="fore9 dorpdown" id="ttbar-navs" clstag="shangpin|keycount|topitemnormal|a08">
                 <div class="dt cw-icon">
                     <i class="ci-right"><s>◇</s></i>网站导航
                 </div>
-                <div class="dd dorpdown-layer"><div class="dd-spacer"></div><div class="dd-inner"><span class="loading"></span></div></div>
             </li>
         </ul>
         <span class="clr"></span>
     </div>
 </div><!-- #shortcut-2014 --><div class="w">
     <div id="logo-2014">
-<<<<<<< Updated upstream
-        <a href="/" clstag="shangpin|keycount|topitemnormal|b01" class="logo">爱尚</a>
-=======
-        <a href="https://www.jd.com/" clstag="shangpin|keycount|topitemnormal|b01" class="logo">爱尚</a>
->>>>>>> Stashed changes
+        <a href="" class=""><img src="/images/denglu/logo44.jpg"></a>
     </div>
     <div id="search-2014">
         <ul id="shelper" class="hide" style="display: none;"></ul>
@@ -357,7 +400,6 @@
                 <a href="/cart/{{Auth::user()->id}}">我的购物车</a>
             @endif
         </div>
-        <div class="dorpdown-layer"><div class="spacer"></div><div id="settleup-content"><span class="loading"></span></div></div>
     </div>
     <div id="hotwords"><a target="_blank" data-gid="1929" data-id="4743" href="https://jdhome.jd.com/">爱尚之家</a><a target="_blank" data-gid="1929" data-id="4547" href="https://jdhome.jd.com/">爱尚专卖店</a><a target="_blank" data-gid="1929" data-id="4744" href="https://search.jd.com/Search?keyword=%E5%B9%B3%E6%9D%BF&amp;enc=utf-8&amp;spm=2.1.1">平板</a><a target="_blank" data-gid="1929" data-id="4745" href="https://search.jd.com/Search?keyword=%E7%94%B5%E8%84%91&amp;enc=utf-8&amp;spm=2.1.1">电脑</a><a target="_blank" data-gid="1929" data-id="4746" href="https://search.jd.com/Search?keyword=ipad&amp;enc=utf-8&amp;spm=2.1.1">ipad</a></div>
     <span class="clr"></span>
@@ -382,6 +424,7 @@
 </div><!-- #nav-2014 -->
 
 <script>
+
     (function(cfg) {
         if (cfg.specialAttrs) {
             cfg.isFlimPrint = ('-' + cfg.specialAttrs.join('-') + '-').indexOf('-isFlimPrint-') > -1
@@ -511,80 +554,6 @@
     })(pageConfig.product);
 </script>
 
-<<<<<<< Updated upstream
-{{--<div class="crumb-wrap" id="crumb-wrap">--}}
-    {{--<div class="w">--}}
-        {{--<div class="crumb fl clearfix">--}}
-            {{--<div class="item first"><a href="https://shouji.jd.com/" clstag="shangpin|keycount|product|mbNav-1">手机</a></div>--}}
-            {{--<div class="item sep">&gt;</div>--}}
-            {{--<div class="item"><a href="https://shouji.jd.com/" clstag="shangpin|keycount|product|mbNav-2">手机通讯</a></div>--}}
-            {{--<div class="item sep">&gt;</div>--}}
-            {{--<div class="item"><a href="https://list.jd.com/list.html?cat=9987,653,655" clstag="shangpin|keycount|product|mbNav-3">手机</a></div>--}}
-            {{--<div class="item sep">&gt;</div>--}}
-            {{--<div class="item">--}}
-                {{--<div class="J-crumb-br crumb-br EDropdown" data-role="drop">--}}
-                    {{--<div class="inner border">--}}
-                        {{--<div class="head" data-drop="head">--}}
-                            {{--<a href="https://list.jd.com/list.html?cat=9987,653,655&amp;ev=exbrand_8557" clstag="shangpin|keycount|product|mbNav-4">华为（HUAWEI）</a>--}}
-                            {{--<span class="arrow arr-close"></span>--}}
-                        {{--</div>--}}
-                        {{--<div class="content hide" data-drop="content">--}}
-                            {{--<ul class="br-reco plist-1 lh clearfix" clstag="shangpin|keycount|product|mbTJ-1"></ul>--}}
-                            {{--<ul class="br-list" clstag="shangpin|keycount|product|mbTJ-2">--}}
-                                {{--<li><a href="https://list.jd.com/list.html?cat=9987,653,655&amp;ev=exbrand_8557" target="_blank" title="华为（HUAWEI）">华为（HUAWEI）</a></li>--}}
-                                {{--<li><a href="https://list.jd.com/list.html?cat=9987,653,655&amp;ev=exbrand_14026" target="_blank" title="Apple">Apple</a></li>--}}
-                                {{--<li><a href="https://list.jd.com/list.html?cat=9987,653,655&amp;ev=exbrand_18374" target="_blank" title="小米（MI）">小米（MI）</a></li>--}}
-                                {{--<li><a href="https://list.jd.com/list.html?cat=9987,653,655&amp;ev=exbrand_12669" target="_blank" title="魅族（MEIZU）">魅族（MEIZU）</a></li>--}}
-                                {{--<li><a href="https://list.jd.com/list.html?cat=9987,653,655&amp;ev=exbrand_27306" target="_blank" title="360">360</a></li>--}}
-                                {{--<li><a href="https://list.jd.com/list.html?cat=9987,653,655&amp;ev=exbrand_91515" target="_blank" title="锤子（smartisan）">锤子（smartisan）</a></li>--}}
-                                {{--<li><a href="https://list.jd.com/list.html?cat=9987,653,655&amp;ev=exbrand_15127" target="_blank" title="三星（SAMSUNG）">三星（SAMSUNG）</a></li>--}}
-                                {{--<li><a href="https://list.jd.com/list.html?cat=9987,653,655&amp;ev=exbrand_25591" target="_blank" title="vivo">vivo</a></li>--}}
-                                {{--<li><a href="https://list.jd.com/list.html?cat=9987,653,655&amp;ev=exbrand_6742" target="_blank" title="飞利浦（PHILIPS）">飞利浦（PHILIPS）</a></li>--}}
-                                {{--<li><a href="https://list.jd.com/list.html?cat=9987,653,655" target="_blank" title="更多">更多&gt;&gt;</a></li>--}}
-                            {{--</ul>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-            {{--<div class="item sep">&gt;</div>--}}
-            {{--<div class="item ellipsis" title="华为荣耀9">华为荣耀9</div>--}}
-        {{--</div><!-- .crumb -->--}}
-
-        {{--<div class="contact fr clearfix">--}}
-            {{--<div class="J-hove-wrap EDropdown fr" data-role="drop">--}}
-                {{--<div class="item">--}}
-                    {{--<div class="name">--}}
-                        {{--<a href="https://honor.jd.com/" target="_blank" title="荣耀爱尚自营旗舰店" clstag="shangpin|keycount|product|dianpuname1">荣耀爱尚自营旗舰店</a>--}}
-                        {{--<em class="u-jd">--}}
-                            {{--<span>JD</span>自营--}}
-                        {{--</em>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-                {{--<div class="item hide J-im-item" style="display: block;">--}}
-                    {{--<div class="J-im-btn" clstag="shangpin|keycount|product|dongdong_1"><div class="im gys-im" title="联系供应商" data-seller="荣耀爱尚自营旗舰店" data-code="1" data-domain="chat.jd.com"><i class="sprite-im"></i>联系供应商</div></div>--}}
-                {{--</div>--}}
-                {{--<div class="item hide J-jimi-item" style="display: block;">--}}
-                    {{--<div class="J-jimi-btn" clstag="shangpin|keycount|product|jimi_1">            <div class="jimi">                <a href="https://jimi.jd.com/index.action?productId=5181406&amp;source=productself" target="_blank">                    <i class="sprite-jimi"></i>JIMI                </a>            </div></div>--}}
-                {{--</div>--}}
-                {{--<div class="item">--}}
-                    {{--<div class="follow J-follow-shop" data-vid="1000000904" clstag="shangpin|keycount|product|guanzhu">--}}
-                        {{--<i class="sprite-follow"></i><span>关注店铺</span>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-                {{--<div class="contact-layer ">--}}
-                    {{--<div class="content " data-drop="content">--}}
-                        {{--<div class="score-body">--}}
-                            {{--<div class="pop-shop-im">--}}
-                                {{--<div class="hide J-contact-text" style="display: block;">客服</div>--}}
-                                {{--<div class="hide J-im-item" style="display: block;">--}}
-                                    {{--<div class="J-im-btn clearfix"><div class="im gys-im" title="联系供应商" data-seller="荣耀爱尚自营旗舰店" data-code="1" data-domain="chat.jd.com"><i class="sprite-im"></i>联系供应商</div></div>--}}
-                                {{--</div>--}}
-                                {{--<div class="hide J-jimi-item" style="display: block;">--}}
-                                    {{--<div class="J-jimi-btn clearfix">            <div class="jimi">                <a href="https://jimi.jd.com/index.action?productId=5181406&amp;source=productself" target="_blank">                    <i class="sprite-jimi"></i>JIMI智能机器人                </a>            </div></div>--}}
-                                {{--</div>--}}
-=======
-<div class="crumb-wrap" id="crumb-wrap">
->>>>>>> Stashed changes
 
 
 <div class="w">
@@ -1057,44 +1026,6 @@
                     </div>
                 @endif
                 <div class="summary-line"></div>
-<<<<<<< Updated upstream
-                <!--商品属性-->
-                    @if($cat_id == 1)
-                        尺码：<input type="radio" name="size" value="{{$cat_list[0]->size}}" />{{$cat_list[0]->size}}<br />
-                        颜色：<input type="radio" name="color" value="{{$cat_list[0]->color}}" />{$cat_list[0]->color}}<br />
-                        容积：<input type="radio" name="volume" value="{{$cat_list[0]->volume}}">{{$cat_list[0]->volume}}<br />
-                    @elseif($cat_id == 2)
-                        尺码：<input type="radio" name="size" value="{{$cat_list[0]->size}}" />{{$cat_list[0]->size}}<br />
-                        颜色：<input type="radio" name="color" value="{{$cat_list[0]->color}}" />{{$cat_list[0]->color}}<br />
-                        容积：<input type="radio" name="volume" value="{{$cat_list[0]->volume}}">{{$cat_list[0]->volume}}<br />
-                        型号：<input type="radio" name="model" value="{{$cat_list[0]->model}}">{{$cat_list[0]->model}}<br />
-                        屏幕尺寸：<input type="radio" name='screen_size' value="{{$screen_size}}">{{$screen_size}}<br />
-                    @elseif($cat_id == 3 )
-                        尺码：<input type="radio" name="size" value="{{$cat_list[0]->size}}" />{{$cat_list[0]->size}}<br />
-                        颜色：<input type="radio" name="color" value="{{$cat_list[0]->color}}" />{{$cat_list[0]->color}}<br />
-                        款式：<input type="radio" name="style" value="{{$cat_list[0]->style}}">{{$cat_list[0]->style}}<br />
-                    @elseif($cat_id == 4)
-                        尺码：<input type="radio" name="size" value="{{$cat_list[0]->size}}" />{{$cat_list[0]->size}}<br />
-                        颜色：<input type="radio" name="color" value="{{$cat_list[0]->color}}" />{{$cat_list[0]->color}}<br />
-                        款式：<input type="radio" name="style" value="{{$cat_list[0]->style}}">{{$cat_list[0]->style}}<br />
-                        货号：<input type="radio" name="article_number" value="{{$article_number}}">{{$article_number}}<br />
-                    @elseif($cat_id == 5)
-                        尺码：<input type="radio" name="size" value="{{$cat_list[0]->size}}" />{{$cat_list[0]->size}}<br />
-                        颜色：<input type="radio" name="color" value="{{$cat_list[0]->color}}" />{{$cat_list[0]->color}}<br />
-                        款式：<input type="radio" name="style" value="{{$cat_list[0]->style}}">{{$cat_list[0]->style}}<br />
-                        功效：<input type="text" name="Efficacy" value="{{$cat_list[0]->Efficacy}}">{{$cat_list[0]->Efficacy}}<br />
-                    @elseif($cat_id == 6)
-                        尺码：<input type="radio" name="size" value="{{$cat_list[0]->size}}" />{{$cat_list[0]->size}}<br />
-                        颜色：<input type="radio" name="color" value="{{$cat_list[0]->color}}" />{{$cat_list[0]->color}}<br />
-                        款式：<input type="radio" name="style" value="{{$cat_list[0]->style}}">{{$cat_list[0]->style}}<br />
-                        操作系统：<input type="radio" name="system" value="{{$cat_list[0]->system}}">{{$cat_list[0]->system}}<br />
-                    @else
-                        产地：<input type="radio" name="Domestic_import" value="{{$cat_list[0]->Domestic_import}}">{{$cat_list[0]->Domestic_import}}<br />
-                        包装：<input type="radio" name="Packing" value="{{$cat_list[0]->Packing}}">{{$cat_list[0]->Packing}}<br />
-                        保质期：<input type="radio" naem="shelf_time" value="{{$cat_list[0]->shelf_time}}">{{$cat_list[0]->shelf_time}}<br />
-                        颜色：<input type="radio" name="color" value="{{$cat_list[0]->color}}" />{{$cat_list[0]->color}}<br />
-                        口味：<input type="radio" name="Flavor" value="{{$cat_list[0]->Flavor}}">{{$cat_list[0]->Flavor}}<br />
-                    @endif
 
                     {{--<div id="choose-results" class="li" style="display:none"><div class="dt">已选择</div><div class="dd"></div></div>--}}
                 {{--</div>--}}
@@ -1139,8 +1070,6 @@
 
                 {{--<div id="choose-service" class="li" data-hook="hide" style="">    <div class="dt" data-yb="new_yb_server">增值保障</div>    <div class="dd">        <div class="service-type-yb clearfix">                <div class="yb-item-cat">                    <div class="yb-item">                        <img class="icon" src="/images/shouji/590c0c85N460e4552.png">                        <span class="name">全保修2年</span>                        <span class="price">￥159</span>                        <i class="arrow-icon"></i>                    </div>                    <div class="more-item">                        <ul>                            <li data-sku="16641813164">                                <div class="title" title="性能故障意外故障全面保修">                                     <span class="choose-btn" clstag="shangpin|keycount|product|jingdongfuwu_16641813164">                                        <i class="sprite-checkbox"></i><span class="name">全保修2年</span><span class="price">￥159</span>                                    </span>                                    <a href="https://item.jd.com/16641813164.html" target="_blank" class="detail-more" clstag="shangpin|keycount|product|jingdongfuwu_xiangqing">详情<s class="s-arrow">&gt;&gt;</s></a>                                </div>                            </li>                            <li data-sku="15278150249">                                <div class="title" title="性能故障意外故障全面保修">                                     <span class="choose-btn" clstag="shangpin|keycount|product|jingdongfuwu_15278150249">                                        <i class="sprite-checkbox"></i><span class="tips">优惠</span><span class="name">全保修3年</span><span class="price">￥179</span>                                    </span>                                    <a href="https://item.jd.com/15278150249.html" target="_blank" class="detail-more" clstag="shangpin|keycount|product|jingdongfuwu_xiangqing">详情<s class="s-arrow">&gt;&gt;</s></a>                                </div>                            </li>                        </ul>                    </div>                </div>                <div class="yb-item-cat">                    <div class="yb-item">                        <img class="icon" src="/images/shouji/5992a59bNd253524f.png">                        <span class="name">自营碎屏保</span>                        <span class="price">￥99</span>                        <i class="arrow-icon"></i>                    </div>                    <div class="more-item">                        <ul>                            <li data-sku="15278006428">                                <div class="title" title="屏碎不心碎 爱尚快递 取送全免费">                                     <span class="choose-btn" clstag="shangpin|keycount|product|jingdongfuwu_15278006428">                                        <i class="sprite-checkbox"></i><span class="name">自营碎屏保</span><span class="price">￥99</span>                                    </span>                                    <a href="https://item.jd.com/15278006428.html" target="_blank" class="detail-more" clstag="shangpin|keycount|product|jingdongfuwu_xiangqing">详情<s class="s-arrow">&gt;&gt;</s></a>                                </div>                            </li>                            <li data-sku="16643080044">                                <div class="title" title="意外屏碎免费换屏">                                     <span class="choose-btn" clstag="shangpin|keycount|product|jingdongfuwu_16643080044">                                        <i class="sprite-checkbox"></i><span class="name">屏碎保1年</span><span class="price">￥89</span>                                    </span>                                    <a href="https://item.jd.com/16643080044.html" target="_blank" class="detail-more" clstag="shangpin|keycount|product|jingdongfuwu_xiangqing">详情<s class="s-arrow">&gt;&gt;</s></a>                                </div>                            </li>                            <li data-sku="16643315020">                                <div class="title" title="意外屏碎免费换屏">                                     <span class="choose-btn" clstag="shangpin|keycount|product|jingdongfuwu_16643315020">                                        <i class="sprite-checkbox"></i><span class="tips">优惠</span><span class="name">屏碎保2年</span><span class="price">￥139</span>                                    </span>                                    <a href="https://item.jd.com/16643315020.html" target="_blank" class="detail-more" clstag="shangpin|keycount|product|jingdongfuwu_xiangqing">详情<s class="s-arrow">&gt;&gt;</s></a>                                </div>                            </li>                            <li data-sku="16056659201">                                <div class="title" title="屏碎溅液等意外故障免费维修">                                     <span class="choose-btn" clstag="shangpin|keycount|product|jingdongfuwu_16056659201">                                        <i class="sprite-checkbox"></i><span class="name">意外保2年</span><span class="price">￥129</span>                                    </span>                                    <a href="https://item.jd.com/16056659201.html" target="_blank" class="detail-more" clstag="shangpin|keycount|product|jingdongfuwu_xiangqing">详情<s class="s-arrow">&gt;&gt;</s></a>                                </div>                            </li>                            <li data-sku="10189885450">                                <div class="title" title="意外故障免费维修或550元换新">                                     <span class="choose-btn" clstag="shangpin|keycount|product|jingdongfuwu_10189885450">                                        <i class="sprite-checkbox"></i><span class="name">修换随心</span><span class="price">￥249</span>                                    </span>                                    <a href="https://item.jd.com/10189885450.html" target="_blank" class="detail-more" clstag="shangpin|keycount|product|jingdongfuwu_xiangqing">详情<s class="s-arrow">&gt;&gt;</s></a>                                </div>                            </li>                        </ul>                    </div>                </div>                <div class="yb-item-cat">                    <div class="yb-item">                        <img class="icon" src="/images/shouji/567cb046Ncc8f504a.png">                        <span class="name">换新保2年</span>                        <span class="price">￥159</span>                        <i class="arrow-icon"></i>                    </div>                    <div class="more-item">                        <ul>                            <li data-sku="16642813622">                                <div class="title" title="性能故障免费换新或折旧换新机型">                                     <span class="choose-btn" clstag="shangpin|keycount|product|jingdongfuwu_16642813622">                                        <i class="sprite-checkbox"></i><span class="name">换新保2年</span><span class="price">￥159</span>                                    </span>                                    <a href="https://item.jd.com/16642813622.html" target="_blank" class="detail-more" clstag="shangpin|keycount|product|jingdongfuwu_xiangqing">详情<s class="s-arrow">&gt;&gt;</s></a>                                </div>                            </li>                            <li data-sku="16098944804">                                <div class="title" title="续航不足6小时免费换新电池">                                     <span class="choose-btn" clstag="shangpin|keycount|product|jingdongfuwu_16098944804">                                        <i class="sprite-checkbox"></i><span class="name">电池换2年</span><span class="price">￥39</span>                                    </span>                                    <a href="https://item.jd.com/16098944804.html" target="_blank" class="detail-more" clstag="shangpin|keycount|product|jingdongfuwu_xiangqing">详情<s class="s-arrow">&gt;&gt;</s></a>                                </div>                            </li>                            <li data-sku="16056872489">                                <div class="title" title="延长厂家保修期">                                     <span class="choose-btn" clstag="shangpin|keycount|product|jingdongfuwu_16056872489">                                        <i class="sprite-checkbox"></i><span class="name">延长保1年</span><span class="price">￥69</span>                                    </span>                                    <a href="https://item.jd.com/16056872489.html" target="_blank" class="detail-more" clstag="shangpin|keycount|product|jingdongfuwu_xiangqing">详情<s class="s-arrow">&gt;&gt;</s></a>                                </div>                            </li>                            <li data-sku="16057099021">                                <div class="title" title="延长厂家保修期">                                     <span class="choose-btn" clstag="shangpin|keycount|product|jingdongfuwu_16057099021">                                        <i class="sprite-checkbox"></i><span class="name">延长保2年</span><span class="price">￥99</span>                                    </span>                                    <a href="https://item.jd.com/16057099021.html" target="_blank" class="detail-more" clstag="shangpin|keycount|product|jingdongfuwu_xiangqing">详情<s class="s-arrow">&gt;&gt;</s></a>                                </div>                            </li>                        </ul>                    </div>                </div>            <div class="service-tips">                <a href="#none"><i class="sprite-question"></i></a>                <div class="tips">                    <div class="sprite-arrow"></div>                    <div class="content">                    <dl>                        <dd>增值保障是指凡在爱尚购买商品或服务的消费者，在保障期间内遇到无论是正常使用中的问题还是意外事故，即可享受增值保障服务。保障内容包括：延长保修、只换不修、意外保护、服务保障。覆盖家电、手机数码、电脑办公、汽车用品、服饰家居等商品。</dd>                    </dl>                    <p>增值保障服务，只能提供增值税普通电子发票，如有疑问，请与<a href="https://chat.jd.com/pop/chat?shopId=162403" target="_blank">在线客服</a>联系</p>                </div>            </div>        </div>    </div></div></div>--}}
                 {{--<div id="choose-baitiao" class="li choose-baitiao" style="">    <div class="dt">白条分期</div>    <div class="dd">        <div class="baitiao-list J-baitiao-list">            <div class="item" clstag="shangpin|keycount|product|baitiaofenqi_1_9987_653_655" data-snum="1">                <b></b>                <a href="#none">                    <strong>                         不分期                    </strong>                    <span style="display:none;"><em>惠</em> 0手续费                    </span>                </a>                <div class="baitiao-tips hide">                    <ul>                        <li>                            无手续费                        </li>                    </ul>                </div>            </div>            <div class="item" clstag="shangpin|keycount|product|baitiaofenqi_3_9987_653_655" data-snum="3">                <b></b>                <a href="#none">                    <strong>                        ￥777.83×3期                    </strong>                    <span style="display:none;"><em>惠</em> 含手续费                    </span>                </a>                <div class="baitiao-tips hide">                    <ul>                        <li>                            含手续费：费率0.5%，￥11.5×3期                        </li>                    </ul>                </div>            </div>            <div class="item" clstag="shangpin|keycount|product|baitiaofenqi_6_9987_653_655" data-snum="6">                <b></b>                <a href="#none">                    <strong>                        ￥394.66×6期                    </strong>                    <span style="display:none;"><em>惠</em> 含手续费                    </span>                </a>                <div class="baitiao-tips hide">                    <ul>                        <li>                            含手续费：费率0.5%，￥11.5×6期                        </li>                    </ul>                </div>            </div>            <div class="item" clstag="shangpin|keycount|product|baitiaofenqi_12_9987_653_655" data-snum="12">                <b></b>                <a href="#none">                    <strong>                        ￥203.08×12期                    </strong>                    <span style="display:none;"><em>惠</em> 含手续费                    </span>                </a>                <div class="baitiao-tips hide">                    <ul>                        <li>                            含手续费：费率0.5%，￥11.5×12期                        </li>                    </ul>                </div>            </div>            <div class="item" clstag="shangpin|keycount|product|baitiaofenqi_24_9987_653_655" data-snum="24">                <b></b>                <a href="#none">                    <strong>                        ￥107.29×24期                    </strong>                    <span style="display:none;"><em>惠</em> 含手续费                    </span>                </a>                <div class="baitiao-tips hide">                    <ul>                        <li>                            含手续费：费率0.5%，￥11.5×24期                        </li>                    </ul>                </div>            </div>             <div class="bt-info-tips">                <a class="J-icon-hui prom icon fl" href="#none">　</a>            </div>            <div class="bt-info-tips">                <a class="J-bt-tips question icon fl" href="#none">　</a>            </div>        </div>        <div class="baitiao-text J-baitiao-text"></div>    </div></div>--}}
-=======
->>>>>>> Stashed changes
                 <div id="choose-jincai" class="li choose-jincai" style="display:none">
                     <div class="dt">企业金采</div>
                     <div class="dd">
@@ -1251,6 +1180,10 @@
                                             }
                                         })
                                 });
+                            //添加商品到购物车
+                            $('#submit1').click(function(){
+                                    alert('请先登录账户!');
+                                })
                              })
                     </script>
 
@@ -1272,10 +1205,11 @@
 
 
                     <a href="https://eve.jd.com/redirect.action?wid=5181406&amp;btype=100&amp;pid=1&amp;cid=72&amp;r=0.8162883530358511" id="btn-heyue" class="btn-special1 btn-lg" style="display:none;" clstag="shangpin|keycount|product|选择号码和套餐_1">选择号码和套餐</a>
-
-                   <a class="btn-special1 btn-lg" id="submit">加入购物车</a>
-
-
+                    @if (Auth::guest())
+                        <a class="btn-special1 btn-lg" id="submit1">加入购物车</a>
+                    @else
+                        <a class="btn-special1 btn-lg" id="submit">加入购物车</a>
+                    @endif
                     <a href="#none" id="btn-baitiao" class="btn-special2 btn-lg" style="display:none;" clstag="shangpin|keycount|product|dabaitiaobutton_9987_653_655">打白条</a>
                     <a href="https://jc.jd.com/" target="_blank" id="btn-jincai" class="btn-special2 btn-lg" style="display: none;" clstag="shangpin|keycount|product|jincai_1">使用金采</a>
 
@@ -1748,5 +1682,6 @@
         {{--</div>--}}
     {{--</div>--}}
     {{--<div class="clb"></div>--}}
-{{--</div>--}}
+</div>
+</div>
 </body></html>

@@ -14,7 +14,7 @@ class Cart extends Common{
         return $res = DB::table('carts')->insert(['uid' =>$uid, 'goods_id' =>$_POST["goods_id"], 'goods_price' => $_POST["price"], 'goods_count' => $_POST["num"],'goods_img'=>$_POST["img"],'goods_weight'=>$_POST["goods_weight"],'goods_attr'=>$_POST["attr"],'goods_color'=>$_POST["color"],'shop_id'=>$_POST["shop_id"],'shop_name'=>$_POST["shop_name"],'goods_text'=>$_POST["goods_text"],'goods_name'=>$_POST["goods_name"],'one_price'=>$_POST["one_price"],'all_count'=>$_POST["all_count"]]);
     }
 
-    static function getCart(){
-        return DB::table('carts')->paginate(4);
+    static function getCart($uid){
+        return DB::table('carts')->where('uid',$uid)->paginate(4);
     }
 }

@@ -145,7 +145,7 @@
 <div id="o-header-2013"><div id="header-2013" style="display:none;"></div></div>
 <!--shortcut end-->         <div class="w">
     <div id="logo-2014">
-    	<a href="https://www.jd.com/" class="logo" clstag="shangpin|keycount|toplist1|b01"></a>
+        <a href="" class=""><img src="/images/denglu/logo44.jpg"></a>
     </div>
     <div id="search-2014">
 		<ul id="shelper" class="hide" style="display: none;"></ul>

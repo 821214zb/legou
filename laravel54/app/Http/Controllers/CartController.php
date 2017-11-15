@@ -11,16 +11,18 @@ class CartController extends Controller
         if($uid == 0){
             echo "<script>alert('请先登录账户');location.href='/login'</script>";
         }else{
-            $goods = Cart::getCart();
+            $goods = Cart::getCart($uid);
             return view('cart',['goods'=>$goods]);
         }
     }
 
     public function ajax()
     {
-        $uid = Auth::user()->id;
+        $uid = isset(Auth::user()->id)?(Auth::user()->id):0;
+        if($uid == 0){
+            echo json_encode('请先登录账户！');
+        }
         $res = Cart::add($uid);
-
         if($res){
             echo json_encode("　添加购物车成功!\n 请尽快去购物车结算");
         }else{

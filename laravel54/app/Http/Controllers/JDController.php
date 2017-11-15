@@ -8,10 +8,7 @@ use App\Cate;
 use App\Lunbo;
 use App\Good;
 use Session;
-<<<<<<< Updated upstream
 use App\links;
-=======
->>>>>>> Stashed changes
 use DB;
 class JDController extends Controller
 {
@@ -19,10 +16,8 @@ class JDController extends Controller
      * 首页
      */
     public function show(){
-<<<<<<< Updated upstream
         $list = Lunbo::home_Show();//获取轮播图数据
         $posid = DB::table('goods_posids')->where('posids_id',1)->select('goods_img')->limit(4)->get();//获取首页推荐位内容
-=======
 
         $list = Lunbo::home_Show();//获取轮播图数据
         $posid = DB::table('goods_posids')->where('posids_id',1)->select('goods_img')->limit(5)->get();//获取首页推荐位内容
@@ -34,8 +29,6 @@ class JDController extends Controller
         }else{
             session(['carts'=>0]);
         }
-
->>>>>>> Stashed changes
         return view('JDindex',['list'=>$list,'posid'=>$posid]);
     }
 

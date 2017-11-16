@@ -54,27 +54,39 @@ Route::any('/links/links_add','JDController@links_add');//申请友情链接
 /**
  * 用户注册登录路由
  */
-Route::any('/zhuce','Auth\RegisterController@zhuce');//注册页面展示
-Route::any('/login','Auth\LoginController@showLoginForm');//登录页面展示
-Route::any('/login','Auth\LoginController@Login');//检测用户登录
-Route::any('/logout','Auth\LoginController@Logout');//检测用户登录
+Route::any('/zhuce','Auth\RegisterController@zhuce');      //注册页面展示
+Route::any('/login','Auth\LoginController@showLoginForm'); //登录页面展示
+Route::any('/login','Auth\LoginController@Login');         //检测用户登录
+Route::any('/logout','Auth\LoginController@Logout');       //检测用户登录
 //生成验证码
 Route::any('/zhuce/{tmp}', 'Auth\RegisterController@captcha');
 //手机验证码
 //Route::any('/app','PhpController@add_user_verify');
 Route::any('/app','PhpController@add_user_verify');
-
 /**
  * 购物车路由
  */
-Route::any('/cart/{uid}','CartController@show');//注册页面展示
-//Route::any('/cart','CartController@show');//注册页面展示
+
+
+Route::get('/cart/{uid}','CartController@show');   //购物车页面展示
+Route::any('/cart','CartController@ajax');         //添加购物车路由
+Route::any('/cart/del','CartController@del');      //删除购物车路由
+Route::any('/cart/update','CartController@update');//删除购物车路由
+
 
 /**
  * 订单路由
  */
-Route::any('/dingdan','IndentController@show');//注册页面展示
+Route::any('/dingdan','IndentController@show'); //注册页面展示
 
+/*
+ * 结算页
+ * */
+
+Route::any('/settle','SettleController@settle');//新增收货人地址
+Route::any('/update/{id}','SettleController@update');//修改收货人地址
+Route::any('/updateTwo','SettleController@updateTwo');//修改更多收货人地址
+Route::any('/delete/{id}','SettleController@delete');//删除更多收货人地址
 
 /**
  * 我的爱尚路由
@@ -82,7 +94,6 @@ Route::any('/dingdan','IndentController@show');//注册页面展示
 Route::any('/userinfo','JDController@userinfo');//我的爱尚
 Route::any('/userUpdate','UserController@update');//修改前台用户信息
 Route::any('/userAddress','UserController@userAddress');//修改前台用户地址信息
-
 
 
 
@@ -121,7 +132,6 @@ Route::any('/goods/add','Admin\GoodsController@add');                  //商品�
 Route::any('/goods/update/{gid}','Admin\GoodsController@update');      //商品数据修改
 Route::any('/goods/delete/{id}','Admin\GoodsController@delete');       //商品数据删除
 Route::any('/goods/addTwo','Admin\GoodsController@addTwo');            //商品属性添加
-Route::any('/goods/updateTwo/{gid}','Admin\GoodsController@updateTwo');//商品属性修改
 Route::any('/goods/linkage/{pid}','Admin\GoodsController@linkage');    //分类三级联动
 /**
  * 商品品牌路由（注意：分类无修改操作）
@@ -156,7 +166,6 @@ Route::any('/lunbo/delete/{id}','Admin\LunboController@delete');//删除轮播�
 Route::any('/lunbo/sort','Admin\LunboController@sort');         //轮播图排序
 
 /**
-
  * 用户路由 
  */
 Route::any('/admin/show','Admin\AdminController@show');         //管理员列表
@@ -234,7 +243,7 @@ Route::get('/goods/pinglun','Admin\GoodsController@pinglun');
 /**
  * 交易信息
  */
-Route::get('/deal/info','Admin\DealController@info');
+Route::any('/indent/show','Admin\IndentController@show');//订单列表
 /**
  * 订单查询
  */

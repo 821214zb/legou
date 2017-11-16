@@ -19,6 +19,7 @@
 </div>
 <div class="leftnav">
     <div class="leftnav-title"><strong><span class="icon-list"></span>菜单列表</strong></div>
+
     @foreach(session('root_info') as $k=>$vv)
         <h2>{{$vv}}</h2>
         <ul>

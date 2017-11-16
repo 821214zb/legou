@@ -136,7 +136,18 @@
         }
         .sh-brand-wrap-633464 .userDefinedArea {
             margin: 0 auto;
-        }</style>
+        }
+         .topbanner{
+             height:60px; ;
+         }
+        .login{
+            background-color: white;
+            border: 1px solid lightgrey;border-bottom: none;
+        }
+        .red {
+            background-color: red;
+        }
+    </style>
     <link rel="stylesheet" type="text/css" href="/css/shouji/a_007.css">
     {{--<script charset="gbk">--}}
         {{--var pageConfig = {--}}
@@ -265,26 +276,64 @@
 
     <script src="/images/shouji/a"></script><link charset="utf-8" rel="stylesheet" href="/css/shouji/gift.css"><link charset="utf-8" rel="stylesheet" href="/css/shouji/a_005.css"><link charset="utf-8" rel="stylesheet" href="/css/shouji/a_004.css"><link charset="utf-8" rel="stylesheet" href="/css/shouji/a_002.css"><link charset="utf-8" rel="stylesheet" href="/css/shouji/a.css"><style type="text/css">.p-parameter ul li .detail { min-height: 0px; }body .track .extra {z-index:4}</style><style type="text/css">.crumb-wrap {z-index:5}.loc-map{ padding-bottom: 8px; }</style><link charset="utf-8" rel="stylesheet" href="/css/shouji/a_003.css"></head>
 <body version="140120" class="cat-1-9987 cat-2-653 cat-3-655 item-5181406 JD JD-1">
-<div id="shortcut-2014">
+
+<div id="shortcut-2014" >
     <div class="w">
-        <ul class="fl" clstag="shangpin|keycount|topitemnormal|a01">
+        <ul class="fl" clstag="shangpin|keycount|topitemnormal|a01" >
             <li class="dorpdown" id="ttbar-mycity">			<div class="dt cw-icon ui-areamini-text-wrap" style="">				<i class="ci-right"><s>◇</s></i>				送至：<span class="ui-areamini-text" data-id="1" title="北京">北京</span> 			</div>			<div class="dd dorpdown-layer">				<div class="dd-spacer"></div>				<div class="ui-areamini-content-wrap"> 					<div class="ui-areamini-content"><div class="ui-areamini-content-list"><div class="item"><a data-id="1" href="javascript:void(0)" class="selected">北京</a></div><div class="item"><a data-id="2" href="javascript:void(0)">上海</a></div><div class="item"><a data-id="3" href="javascript:void(0)">天津</a></div><div class="item"><a data-id="4" href="javascript:void(0)">重庆</a></div><div class="item"><a data-id="5" href="javascript:void(0)">河北</a></div><div class="item"><a data-id="6" href="javascript:void(0)">山西</a></div><div class="item"><a data-id="7" href="javascript:void(0)">河南</a></div><div class="item"><a data-id="8" href="javascript:void(0)">辽宁</a></div><div class="item"><a data-id="9" href="javascript:void(0)">吉林</a></div><div class="item"><a data-id="10" href="javascript:void(0)">黑龙江</a></div><div class="item"><a data-id="11" href="javascript:void(0)">内蒙古</a></div><div class="item"><a data-id="12" href="javascript:void(0)">江苏</a></div><div class="item"><a data-id="13" href="javascript:void(0)">山东</a></div><div class="item"><a data-id="14" href="javascript:void(0)">安徽</a></div><div class="item"><a data-id="15" href="javascript:void(0)">浙江</a></div><div class="item"><a data-id="16" href="javascript:void(0)">福建</a></div><div class="item"><a data-id="17" href="javascript:void(0)">湖北</a></div><div class="item"><a data-id="18" href="javascript:void(0)">湖南</a></div><div class="item"><a data-id="19" href="javascript:void(0)">广东</a></div><div class="item"><a data-id="20" href="javascript:void(0)">广西</a></div><div class="item"><a data-id="21" href="javascript:void(0)">江西</a></div><div class="item"><a data-id="22" href="javascript:void(0)">四川</a></div><div class="item"><a data-id="23" href="javascript:void(0)">海南</a></div><div class="item"><a data-id="24" href="javascript:void(0)">贵州</a></div><div class="item"><a data-id="25" href="javascript:void(0)">云南</a></div><div class="item"><a data-id="26" href="javascript:void(0)">西藏</a></div><div class="item"><a data-id="27" href="javascript:void(0)">陕西</a></div><div class="item"><a data-id="28" href="javascript:void(0)">甘肃</a></div><div class="item"><a data-id="29" href="javascript:void(0)">青海</a></div><div class="item"><a data-id="30" href="javascript:void(0)">宁夏</a></div><div class="item"><a data-id="31" href="javascript:void(0)">新疆</a></div><div class="item"><a data-id="52993" href="javascript:void(0)">港澳</a></div><div class="item"><a data-id="32" href="javascript:void(0)">台湾</a></div><div class="item"><a data-id="84" href="javascript:void(0)">钓鱼岛</a></div><div class="item"><a data-id="53283" href="javascript:void(0)">海外</a></div></div></div> 				</div> 			</div>		</li>
         </ul>
         <ul class="fr">
-            <li class="fore1" id="ttbar-login" clstag="shangpin|keycount|topitemnormal|a02"><a href="javascript:login();" class="link-login">你好，请登录</a>&nbsp;&nbsp;<a href="javascript:regist();" class="link-regist style-red">免费注册</a></li>
+            <li class="fore1" id="ttbar-login" clstag="shangpin|keycount|topitemnormal|a02">
+                @if (Auth::guest())
+                    <a href="/login" id="login">你好，请登录</a> &nbsp;&nbsp;
+                    <a href="/zhuce" class="col-red">免费注册</a>
+                @else
+                    <div class="login2">
+                        <div id="login" style="position:relative;width: 115px;margin-left: 5px;">
+                            <a >欢迎您！{{ Auth::user()->name }}
+                                <img src="/images/pl1.jpg" width="30px" style="position: absolute;top:8px; filter:alpha(Opacity=80);-moz-opacity:0.4;opacity: 0.4;">
+                                <div class='login1' style="border: 1px solid lightgrey;border-top: none; width:235px;height:160px;top:27px;left:-1px;position: absolute; background-color: white;display:none;">
+                                    <div style="border-bottom:1px solid lightgrey;height:80px;">
+                                        <div style="float: left;margin:11px 0px 0px 15px;">
+                                            <img class="J_upic_img" src="/images/11.png" width="57" height="57">
+                                        </div>
+                                        <div style="width:145px;height:50px;float: right;margin:10px 8px 0px 8px;">
+                                            <img src="/images/pl1.jpg" width="38px;height:15px;" style="filter:alpha(Opacity=80);-moz-opacity:0.4;opacity: 0.4;">
+                                            <div style="float: right;font-size: 13px">
+                                                <a href="{{ route('logout') }}"
+                                                   onclick="event.preventDefault();
+                                                                 document.getElementById('logout-form').submit();">
+                                                    退出
+                                                </a>
+
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                    {{ csrf_field() }}
+                                                </form>
+                                            </div>
+                                            <div style="font-size: 11px;margin-bottom: 10px;">
+                                                <a href="//plus.jd.com" target="_blank">试用PLUS会员领免运费券&gt;</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                @endif
+            </li>
             <li class="spacer"></li>
             <li class="fore2" clstag="shangpin|keycount|topitemnormal|a03">
                 <div class="dt">
-                    <a target="_blank" href="https://order.jd.com/center/list.action">我的订单</a>
+                    <a   @if (Auth::guest()) href="login"  @else href="/user_indent/{{ Auth::user()->id }}" @endif  target="_blank">我的订单</a>
                 </div>
             </li>
             <li class="spacer"></li>
             <li class="fore3 dorpdown" id="ttbar-myjd" clstag="shangpin|keycount|topitemnormal|b04">
                 <div class="dt cw-icon">
-                    <i class="ci-right"><s>◇</s></i>
-                    <a target="_blank" href="https://home.jd.com/">我的爱尚</a>
+                    <a  @if (Auth::guest()) href="login"  @else href="/user_indenx/{{ Auth::user()->id }}" @endif  target="_blank">我的爱尚</a>
                 </div>
-                <div class="dd dorpdown-layer"><div class="dd-spacer"></div><div class="dd-inner"><span class="loading"></span></div></div>
             </li>
             <li class="spacer"></li>
             <li class="fore4" clstag="shangpin|keycount|topitemnormal|a04">
@@ -305,33 +354,31 @@
                     <i class="ci-right"><s>◇</s></i>
                     <a target="_blank" href="https://app.jd.com/">手机爱尚</a>
                 </div>
-                <div class="dd dorpdown-layer">				<div class="dd-spacer"></div>				<div class="dd-inner" id="ttbar-apps-main"><div class="dd-spacer"></div><div class="dd-inner"><span class="loading"></span></div>				</div>			</div>		</li>
+                </li>
             <li class="spacer"></li>
             <li class="fore7 dorpdown" id="ttbar-atte" clstag="shangpin|keycount|topitemnormal|a09" aid="2_955_6494">
                 <div class="dt cw-icon">
                     <i class="ci-right"><s>◇</s></i>关注爱尚
                 </div>
-                <div class="dd dorpdown-layer">				<div class="dd-spacer"></div>				<div class="dd-inner" id="ttbar-atte-main"><div class="dd-spacer"></div><div class="dd-inner"><span class="loading"></span></div>				</div>			</div>		</li>
+               </li>
             <li class="spacer"></li>
             <li class="fore8 dorpdown" id="ttbar-serv" clstag="shangpin|keycount|topitemnormal|a07">
                 <div class="dt cw-icon">
                     <i class="ci-right"><s>◇</s></i>客户服务
                 </div>
-                <div class="dd dorpdown-layer"><div class="dd-spacer"></div><div class="dd-inner"><span class="loading"></span></div></div>
             </li>
             <li class="spacer"></li>
             <li class="fore9 dorpdown" id="ttbar-navs" clstag="shangpin|keycount|topitemnormal|a08">
                 <div class="dt cw-icon">
                     <i class="ci-right"><s>◇</s></i>网站导航
                 </div>
-                <div class="dd dorpdown-layer"><div class="dd-spacer"></div><div class="dd-inner"><span class="loading"></span></div></div>
             </li>
         </ul>
         <span class="clr"></span>
     </div>
 </div><!-- #shortcut-2014 --><div class="w">
     <div id="logo-2014">
-        <a href="/" clstag="shangpin|keycount|topitemnormal|b01" class="logo">爱尚</a>
+        <a href="" class=""><img src="/images/denglu/logo44.jpg"></a>
     </div>
     <div id="search-2014">
         <ul id="shelper" class="hide" style="display: none;"></ul>
@@ -345,10 +392,14 @@
     <div id="settleup-2014" class="dorpdown">
         <div class="cw-icon">
             <i class="ci-left"></i>
-            <i class="ci-right">&gt;</i><i class="ci-count" id="shopping-amount">0</i>
-            <a target="_blank" clstag="shangpin|keycount|topitemnormal|b05" href="https://cart.jd.com/cart.action">我的购物车</a>
+            @if (Auth::guest())
+                <i class="ci-right">&gt;</i><i class="ci-count" id="shopping-amount">0</i>
+                <a href="/cart/0">我的购物车</a>
+            @else
+                <i class="ci-right">&gt;</i><i class="ci-count" id="shopping-amount">{{session('carts')}}</i>
+                <a href="/cart/{{Auth::user()->id}}">我的购物车</a>
+            @endif
         </div>
-        <div class="dorpdown-layer"><div class="spacer"></div><div id="settleup-content"><span class="loading"></span></div></div>
     </div>
     <div id="hotwords"><a target="_blank" data-gid="1929" data-id="4743" href="https://jdhome.jd.com/">爱尚之家</a><a target="_blank" data-gid="1929" data-id="4547" href="https://jdhome.jd.com/">爱尚专卖店</a><a target="_blank" data-gid="1929" data-id="4744" href="https://search.jd.com/Search?keyword=%E5%B9%B3%E6%9D%BF&amp;enc=utf-8&amp;spm=2.1.1">平板</a><a target="_blank" data-gid="1929" data-id="4745" href="https://search.jd.com/Search?keyword=%E7%94%B5%E8%84%91&amp;enc=utf-8&amp;spm=2.1.1">电脑</a><a target="_blank" data-gid="1929" data-id="4746" href="https://search.jd.com/Search?keyword=ipad&amp;enc=utf-8&amp;spm=2.1.1">ipad</a></div>
     <span class="clr"></span>
@@ -373,6 +424,7 @@
 </div><!-- #nav-2014 -->
 
 <script>
+
     (function(cfg) {
         if (cfg.specialAttrs) {
             cfg.isFlimPrint = ('-' + cfg.specialAttrs.join('-') + '-').indexOf('-isFlimPrint-') > -1
@@ -502,118 +554,20 @@
     })(pageConfig.product);
 </script>
 
-{{--<div class="crumb-wrap" id="crumb-wrap">--}}
-    {{--<div class="w">--}}
-        {{--<div class="crumb fl clearfix">--}}
-            {{--<div class="item first"><a href="https://shouji.jd.com/" clstag="shangpin|keycount|product|mbNav-1">手机</a></div>--}}
-            {{--<div class="item sep">&gt;</div>--}}
-            {{--<div class="item"><a href="https://shouji.jd.com/" clstag="shangpin|keycount|product|mbNav-2">手机通讯</a></div>--}}
-            {{--<div class="item sep">&gt;</div>--}}
-            {{--<div class="item"><a href="https://list.jd.com/list.html?cat=9987,653,655" clstag="shangpin|keycount|product|mbNav-3">手机</a></div>--}}
-            {{--<div class="item sep">&gt;</div>--}}
-            {{--<div class="item">--}}
-                {{--<div class="J-crumb-br crumb-br EDropdown" data-role="drop">--}}
-                    {{--<div class="inner border">--}}
-                        {{--<div class="head" data-drop="head">--}}
-                            {{--<a href="https://list.jd.com/list.html?cat=9987,653,655&amp;ev=exbrand_8557" clstag="shangpin|keycount|product|mbNav-4">华为（HUAWEI）</a>--}}
-                            {{--<span class="arrow arr-close"></span>--}}
-                        {{--</div>--}}
-                        {{--<div class="content hide" data-drop="content">--}}
-                            {{--<ul class="br-reco plist-1 lh clearfix" clstag="shangpin|keycount|product|mbTJ-1"></ul>--}}
-                            {{--<ul class="br-list" clstag="shangpin|keycount|product|mbTJ-2">--}}
-                                {{--<li><a href="https://list.jd.com/list.html?cat=9987,653,655&amp;ev=exbrand_8557" target="_blank" title="华为（HUAWEI）">华为（HUAWEI）</a></li>--}}
-                                {{--<li><a href="https://list.jd.com/list.html?cat=9987,653,655&amp;ev=exbrand_14026" target="_blank" title="Apple">Apple</a></li>--}}
-                                {{--<li><a href="https://list.jd.com/list.html?cat=9987,653,655&amp;ev=exbrand_18374" target="_blank" title="小米（MI）">小米（MI）</a></li>--}}
-                                {{--<li><a href="https://list.jd.com/list.html?cat=9987,653,655&amp;ev=exbrand_12669" target="_blank" title="魅族（MEIZU）">魅族（MEIZU）</a></li>--}}
-                                {{--<li><a href="https://list.jd.com/list.html?cat=9987,653,655&amp;ev=exbrand_27306" target="_blank" title="360">360</a></li>--}}
-                                {{--<li><a href="https://list.jd.com/list.html?cat=9987,653,655&amp;ev=exbrand_91515" target="_blank" title="锤子（smartisan）">锤子（smartisan）</a></li>--}}
-                                {{--<li><a href="https://list.jd.com/list.html?cat=9987,653,655&amp;ev=exbrand_15127" target="_blank" title="三星（SAMSUNG）">三星（SAMSUNG）</a></li>--}}
-                                {{--<li><a href="https://list.jd.com/list.html?cat=9987,653,655&amp;ev=exbrand_25591" target="_blank" title="vivo">vivo</a></li>--}}
-                                {{--<li><a href="https://list.jd.com/list.html?cat=9987,653,655&amp;ev=exbrand_6742" target="_blank" title="飞利浦（PHILIPS）">飞利浦（PHILIPS）</a></li>--}}
-                                {{--<li><a href="https://list.jd.com/list.html?cat=9987,653,655" target="_blank" title="更多">更多&gt;&gt;</a></li>--}}
-                            {{--</ul>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-            {{--<div class="item sep">&gt;</div>--}}
-            {{--<div class="item ellipsis" title="华为荣耀9">华为荣耀9</div>--}}
-        {{--</div><!-- .crumb -->--}}
 
-        {{--<div class="contact fr clearfix">--}}
-            {{--<div class="J-hove-wrap EDropdown fr" data-role="drop">--}}
-                {{--<div class="item">--}}
-                    {{--<div class="name">--}}
-                        {{--<a href="https://honor.jd.com/" target="_blank" title="荣耀爱尚自营旗舰店" clstag="shangpin|keycount|product|dianpuname1">荣耀爱尚自营旗舰店</a>--}}
-                        {{--<em class="u-jd">--}}
-                            {{--<span>JD</span>自营--}}
-                        {{--</em>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-                {{--<div class="item hide J-im-item" style="display: block;">--}}
-                    {{--<div class="J-im-btn" clstag="shangpin|keycount|product|dongdong_1"><div class="im gys-im" title="联系供应商" data-seller="荣耀爱尚自营旗舰店" data-code="1" data-domain="chat.jd.com"><i class="sprite-im"></i>联系供应商</div></div>--}}
-                {{--</div>--}}
-                {{--<div class="item hide J-jimi-item" style="display: block;">--}}
-                    {{--<div class="J-jimi-btn" clstag="shangpin|keycount|product|jimi_1">            <div class="jimi">                <a href="https://jimi.jd.com/index.action?productId=5181406&amp;source=productself" target="_blank">                    <i class="sprite-jimi"></i>JIMI                </a>            </div></div>--}}
-                {{--</div>--}}
-                {{--<div class="item">--}}
-                    {{--<div class="follow J-follow-shop" data-vid="1000000904" clstag="shangpin|keycount|product|guanzhu">--}}
-                        {{--<i class="sprite-follow"></i><span>关注店铺</span>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-                {{--<div class="contact-layer ">--}}
-                    {{--<div class="content " data-drop="content">--}}
-                        {{--<div class="score-body">--}}
-                            {{--<div class="pop-shop-im">--}}
-                                {{--<div class="hide J-contact-text" style="display: block;">客服</div>--}}
-                                {{--<div class="hide J-im-item" style="display: block;">--}}
-                                    {{--<div class="J-im-btn clearfix"><div class="im gys-im" title="联系供应商" data-seller="荣耀爱尚自营旗舰店" data-code="1" data-domain="chat.jd.com"><i class="sprite-im"></i>联系供应商</div></div>--}}
-                                {{--</div>--}}
-                                {{--<div class="hide J-jimi-item" style="display: block;">--}}
-                                    {{--<div class="J-jimi-btn clearfix">            <div class="jimi">                <a href="https://jimi.jd.com/index.action?productId=5181406&amp;source=productself" target="_blank">                    <i class="sprite-jimi"></i>JIMI智能机器人                </a>            </div></div>--}}
-                                {{--</div>--}}
-
-                            {{--</div>--}}
-                            {{--<div class="pop-shop-qr-code J-contact-qrcode clearfix">--}}
-                                {{--<div class="qr-code hide J-wd-qrcode">--}}
-                                    {{--<img src="/images/shouji/blank.gif" alt="关注微店" width="78" height="78">--}}
-                                    {{--<p>关注微店</p>--}}
-                                {{--</div>--}}
-                                {{--<div class="qr-code J-m-qrcode" data-url="https://cd.jd.com/qrcode?skuId=5181406&amp;location=3&amp;isWeChatStock=2">--}}
-                                    {{--<div class="J-m-wrap"></div>--}}
-                                    {{--<p>手机下单</p>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                            {{--<div class="btns">--}}
-                                {{--<a href="https://honor.jd.com/" target="_blank" class="btn-def enter-shop J-enter-shop" clstag="shangpin|keycount|product|jindian1">--}}
-                                    {{--<i class="sprite-enter"></i><span>进店逛逛</span>--}}
-                                {{--</a>--}}
-                                {{--<span class="separator">|</span>--}}
-                                {{--<a href="#none" class="btn-def follow-shop J-follow-shop" data-vid="1000000904" clstag="shangpin|keycount|product|guanzhu1">--}}
-                                    {{--<i class="sprite-follow"></i><span>关注店铺</span>--}}
-                                {{--</a>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-        {{--</div><!-- .contact -->--}}
-
-        {{--<div class="clr"></div>--}}
-    {{--</div>--}}
-{{--</div>--}}
 
 <div class="w">
     @if (Auth::guest())
-        <form method="post" class="form-x" action="/cart/0/0">
+        <form method="post" class="form-x" action="/cart/0/0" onsubmit="return false">
             @else
-                <form method="post" class="form-x" action="/cart/{{Auth::user()->id}}/{{$goodInfoList->id}}">
+                <form method="post" class="form-x" action="/cart/{{Auth::user()->id}}/{{$goodInfoList->id}}"  onsubmit="return false">
                     @endif
     {{ csrf_field() }}
-                    <input type="hidden" name="goods_name" value="{{$goodInfoList->goods_name}}" />
-                    <input type="hidden" name="goods_price" value="{{$goodInfoList->new_price}}" />
-                    <input type="hidden" name="img" value="{{$goodInfoList->goods_img}}" />
-                    <input type="hidden" name="shop_name" value="{{$ShopList->name}}" />
+                    <input type="hidden" id="goods_name" name="goods_name" value="{{$goodInfoList->goods_name}}" />
+                    <input type="hidden" id="img" name="img" value="{{$goodInfoList->goods_img}}" />
+                    <input type="hidden" id ="shop_name" name="shop_name" value="{{$ShopList->name}}" />
+                    <input type="hidden" id="shop_id" name="shop_id" value="{{$ShopList->shop_id}}" />
+                    <input type="hidden" id="goods_text" name="goods_text" value="{{$goodInfoList->goods_text}}" />
     <div class="product-intro clearfix">
         <div class="preview-wrap">
             <div class="preview" id="preview">
@@ -836,7 +790,8 @@
                 </div>
                 <!--商品属性-->
                 @if($cat_id == 1)
-                    <input type="hidden" name="goods_weight" value="{{$cat_list[0]->weight}}" />
+                    <input type="hidden" id='all_count' name="all_count" value="{{$goodInfoList->goods_count}}" />
+                    <input type="hidden" id="goods_weight" name="goods_weight" value="{{$cat_list[0]->weight}}" />
                     <div id="summary-weight" class="li" style="">
                         <div class="dt">库　　存</div>
                         <div class="dd">
@@ -847,7 +802,7 @@
                         <div class="dt">颜　　色</div>
                         <div class="dd">
                             @foreach ($cat_list as $v)
-                            <input type="radio" name="color" value="{{$v->color}}" />{{$v->color}}
+                            <input type="radio" class="color" name="color" value="{{$v->color}}" />{{$v->color}}
                             @endforeach
                         </div>
                     </div>
@@ -863,12 +818,13 @@
                         <div class="dt">大　　小</div>
                         <div class="dd">
                             @foreach ($cat_list as $v)
-                                <input type="radio" name="attr" value="{{$v->size}}" />{{$v->size}}
+                                <input type="radio" class="attr" name="attr" value="{{$v->size}}" />{{$v->size}}
                             @endforeach
                         </div>
                     </div>
                 @elseif($cat_id == 2)
-                    <input type="hidden" name="goods_weight" value="{{$cat_list[0]->weight}}" />
+                    <input type="hidden" id='all_count' name="all_count" value="{{$goodInfoList->goods_count}}" />
+                    <input type="hidden" id="goods_weight" name="goods_weight" value="{{$cat_list[0]->weight}}" />
                     <div id="summary-weight" class="li" style="">
                         <div class="dt">库　　存</div>
                         <div class="dd">
@@ -880,7 +836,7 @@
                         <div class="dt">颜　　色</div>
                         <div class="dd">
                             @foreach ($cat_list as $v)
-                                <input type="radio" name="color" value="{{$v->color}}" />{{$v->color}}
+                                <input type="radio" class="color" name="color" value="{{$v->color}}" />{{$v->color}}
                             @endforeach
                         </div>
                     </div>
@@ -888,25 +844,24 @@
                         <div class="dt">尺　　寸</div>
                         <div class="dd">
                             @foreach ($cat_list as $v)
-                                <input type="radio" name="attr" value="{{$v->screen_size}}" />{{$v->screen_size}}
+                                <input type="radio" class="attr" name="attr" value="{{$v->screen_size}}" />{{$v->screen_size}}
                             @endforeach
                         </div>
                     </div>
                 @elseif($cat_id == 3)
-                    <input type="hidden" name="goods_weight" value="{{$cat_list[0]->weight}}" />
+                    <input type="hidden" id='all_count' name="all_count" value="{{$goodInfoList->goods_count}}" />
+                    <input type="hidden"id="goods_weight" name="goods_weight" value="{{$cat_list[0]->weight}}" />
                     <div id="summary-weight" class="li" style="">
                         <div class="dt">库　　存</div>
                         <div class="dd">
                             <p id="count">{{$goodInfoList->goods_count}}</p>件
                         </div>
                     </div>
-
-<<<<<<< Updated upstream
                     <div id="summary-weight" class="li" style="">
                         <div class="dt">颜　　色</div>
                         <div class="dd">
                             @foreach ($cat_list as $v)
-                                <input type="radio" name="color" value="{{$v->color}}" />{{$v->color}}
+                                <input type="radio" class="color" name="color" value="{{$v->color}}" />{{$v->color}}
                             @endforeach
                         </div>
                     </div>
@@ -914,12 +869,13 @@
                         <div class="dt">尺　　寸</div>
                         <div class="dd">
                             @foreach ($cat_list as $v)
-                                <input type="radio" name="attr" value="{{$v->size}}" />{{$v->size}}
+                                <input type="radio" class="attr" name="attr" value="{{$v->size}}" />{{$v->size}}
                             @endforeach
                         </div>
                     </div>
                 @elseif($cat_id == 4)
-                    <input type="hidden" name="goods_weight" value="{{$cat_list[0]->weight}}" />
+                    <input type="hidden" id='all_count' name="all_count" value="{{$goodInfoList->goods_count}}" />
+                    <input type="hidden" id="goods_weight" name="goods_weight" value="{{$cat_list[0]->weight}}" />
                     <div id="summary-weight" class="li" style="">
                         <div class="dt">库　　存</div>
                         <div class="dd">
@@ -931,7 +887,7 @@
                         <div class="dt">颜　　色</div>
                         <div class="dd">
                             @foreach ($cat_list as $v)
-                                <input type="radio" name="color" value="{{$v->color}}" />{{$v->color}}
+                                <input type="radio" class="color" name="color" value="{{$v->color}}" />{{$v->color}}
                             @endforeach
                         </div>
                     </div>
@@ -939,12 +895,13 @@
                         <div class="dt">尺　　寸</div>
                         <div class="dd">
                             @foreach ($cat_list as $v)
-                                <input type="radio" name="attr" value="{{$v->size}}" />{{$v->size}}
+                                <input type="radio" class="attr" name="attr" value="{{$v->size}}" />{{$v->size}}
                             @endforeach
                         </div>
                     </div>
                 @elseif($cat_id == 5)
-                    <input type="hidden" name="goods_weight" value="{{$cat_list[0]->weight}}" />
+                    <input type="hidden" id='all_count' name="all_count" value="{{$goodInfoList->goods_count}}" />
+                    <input type="hidden" id="goods_weight" name="goods_weight" value="{{$cat_list[0]->weight}}" />
                     <div id="summary-weight" class="li" style="">
                         <div class="dt">库　　存</div>
                         <div class="dd">
@@ -973,7 +930,7 @@
                         <div class="dt">规　　格</div>
                         <div class="dd">
                             @foreach ($cat_list as $v)
-                                <input type="radio" name="attr" value="{{$v->size}}" />{{$v->size}}
+                                <input type="radio" class="attr" name="attr" value="{{$v->size}}" />{{$v->size}}
                             @endforeach
                         </div>
                     </div>
@@ -981,12 +938,13 @@
                         <div class="dt">颜　　色</div>
                         <div class="dd">
                             @foreach ($cat_list as $v)
-                                <input type="radio" name="color" value="{{$v->color}}" />{{$v->color}}
+                                <input type="radio" class="color" name="color" value="{{$v->color}}" />{{$v->color}}
                             @endforeach
                         </div>
                     </div>
                 @elseif($cat_id == 6)
-                    <input type="hidden" name="goods_weight" value="{{$cat_list[0]->weight}}" />
+                    <input type="hidden" id='all_count' name="all_count" value="{{$goodInfoList->goods_count}}" />
+                    <input type="hidden" id="goods_weight" name="goods_weight" value="{{$cat_list[0]->weight}}" />
                     <div id="summary-weight" class="li" style="">
                         <div class="dt">库　　存</div>
                         <div class="dd">
@@ -1009,7 +967,7 @@
                         <div class="dt">颜　　色</div>
                         <div class="dd">
                             @foreach ($cat_list as $v)
-                                <input type="radio" name="color" value="{{$v->color}}" />{{$v->color}}
+                                <input type="radio" class="color" name="color" value="{{$v->color}}" />{{$v->color}}
                             @endforeach
                         </div>
                     </div>
@@ -1017,7 +975,7 @@
                         <div class="dt">网　　络</div>
                         <div class="dd">
                             @foreach ($cat_list as $v)
-                                <input type="radio" name="attr" value="{{$v->network}}" />{{$v->network}}
+                                <input type="radio" class="attr" name="attr" value="{{$v->network}}" />{{$v->network}}
                             @endforeach
                         </div>
                     </div>
@@ -1030,7 +988,8 @@
                         </div>
                     </div>
                 @elseif($cat_id == 7)
-                    <input type="hidden" name="goods_weight" value="{{$cat_list[0]->weight}}" />
+                    <input type="hidden" id='all_count' name="all_count" value="{{$goodInfoList->goods_count}}" />
+                    <input type="hidden"  id="goods_weight" name="goods_weight" value="{{$cat_list[0]->weight}}" />
                     <div id="summary-weight" class="li" style="">
                         <div class="dt">库　　存</div>
                         <div class="dd">
@@ -1053,7 +1012,7 @@
                         <div class="dt">口　　味</div>
                         <div class="dd">
                             @foreach ($cat_list as $v)
-                                <input type="radio" name="attr" value="{{$v->Flavor}}" />{{$v->Flavor}}
+                                <input type="radio" class="attr" name="attr" value="{{$v->Flavor}}" />{{$v->Flavor}}
                             @endforeach
                         </div>
                     </div>
@@ -1061,51 +1020,12 @@
                         <div class="dt">颜　　色</div>
                         <div class="dd">
                             @foreach ($cat_list as $v)
-                                <input type="radio" name="color" value="{{$v->color}}" />{{$v->color}}
+                                <input type="radio" class="color" name="color" value="{{$v->color}}" />{{$v->color}}
                             @endforeach
                         </div>
                     </div>
                 @endif
                 <div class="summary-line"></div>
-=======
-                <!--商品属性-->
-                    @if($cat_id == 1)
-                        尺码：<input type="radio" name="size" value="{{$cat_list[0]->size}}" />{{$cat_list[0]->size}}<br />
-                        颜色：<input type="radio" name="color" value="{{$cat_list[0]->color}}" />{$cat_list[0]->color}}<br />
-                        容积：<input type="radio" name="volume" value="{{$cat_list[0]->volume}}">{{$cat_list[0]->volume}}<br />
-                    @elseif($cat_id == 2)
-                        尺码：<input type="radio" name="size" value="{{$cat_list[0]->size}}" />{{$cat_list[0]->size}}<br />
-                        颜色：<input type="radio" name="color" value="{{$cat_list[0]->color}}" />{{$cat_list[0]->color}}<br />
-                        容积：<input type="radio" name="volume" value="{{$cat_list[0]->volume}}">{{$cat_list[0]->volume}}<br />
-                        型号：<input type="radio" name="model" value="{{$cat_list[0]->model}}">{{$cat_list[0]->model}}<br />
-                        屏幕尺寸：<input type="radio" name='screen_size' value="{{$screen_size}}">{{$screen_size}}<br />
-                    @elseif($cat_id == 3 )
-                        尺码：<input type="radio" name="size" value="{{$cat_list[0]->size}}" />{{$cat_list[0]->size}}<br />
-                        颜色：<input type="radio" name="color" value="{{$cat_list[0]->color}}" />{{$cat_list[0]->color}}<br />
-                        款式：<input type="radio" name="style" value="{{$cat_list[0]->style}}">{{$cat_list[0]->style}}<br />
-                    @elseif($cat_id == 4)
-                        尺码：<input type="radio" name="size" value="{{$cat_list[0]->size}}" />{{$cat_list[0]->size}}<br />
-                        颜色：<input type="radio" name="color" value="{{$cat_list[0]->color}}" />{{$cat_list[0]->color}}<br />
-                        款式：<input type="radio" name="style" value="{{$cat_list[0]->style}}">{{$cat_list[0]->style}}<br />
-                        货号：<input type="radio" name="article_number" value="{{$article_number}}">{{$article_number}}<br />
-                    @elseif($cat_id == 5)
-                        尺码：<input type="radio" name="size" value="{{$cat_list[0]->size}}" />{{$cat_list[0]->size}}<br />
-                        颜色：<input type="radio" name="color" value="{{$cat_list[0]->color}}" />{{$cat_list[0]->color}}<br />
-                        款式：<input type="radio" name="style" value="{{$cat_list[0]->style}}">{{$cat_list[0]->style}}<br />
-                        功效：<input type="text" name="Efficacy" value="{{$cat_list[0]->Efficacy}}">{{$cat_list[0]->Efficacy}}<br />
-                    @elseif($cat_id == 6)
-                        尺码：<input type="radio" name="size" value="{{$cat_list[0]->size}}" />{{$cat_list[0]->size}}<br />
-                        颜色：<input type="radio" name="color" value="{{$cat_list[0]->color}}" />{{$cat_list[0]->color}}<br />
-                        款式：<input type="radio" name="style" value="{{$cat_list[0]->style}}">{{$cat_list[0]->style}}<br />
-                        操作系统：<input type="radio" name="system" value="{{$cat_list[0]->system}}">{{$cat_list[0]->system}}<br />
-                    @else
-                        产地：<input type="radio" name="Domestic_import" value="{{$cat_list[0]->Domestic_import}}">{{$cat_list[0]->Domestic_import}}<br />
-                        包装：<input type="radio" name="Packing" value="{{$cat_list[0]->Packing}}">{{$cat_list[0]->Packing}}<br />
-                        保质期：<input type="radio" naem="shelf_time" value="{{$cat_list[0]->shelf_time}}">{{$cat_list[0]->shelf_time}}<br />
-                        颜色：<input type="radio" name="color" value="{{$cat_list[0]->color}}" />{{$cat_list[0]->color}}<br />
-                        口味：<input type="radio" name="Flavor" value="{{$cat_list[0]->Flavor}}">{{$cat_list[0]->Flavor}}<br />
-                    @endif
->>>>>>> Stashed changes
 
                     {{--<div id="choose-results" class="li" style="display:none"><div class="dt">已选择</div><div class="dd"></div></div>--}}
                 {{--</div>--}}
@@ -1166,16 +1086,20 @@
 
                 <div class="summary-line"></div>
                 {{--商品数量添加--}}
+                <input type="hidden" name="goods_id" id="goods_id" value="{{$goodInfoList->id}}">
                 <div id="choose-btns" class="choose-btns clearfix">
                     <div class="choose-amount " clstag="shangpin|keycount|product|goumaishuliang_1">
                         <div class="wrap-input">
                             <input class="text buy-num"  id="num" value="1" name="num">
                             <a class="btn-add" id="jia" href="#none" >+</a>
-                            <a class="btn-reduce disabled" id="jian" href="#none" >-</a>
+                            <a class="btn-reduce" id="jian" href="#none" >-</a>
                         </div>
                     </div>
+                    <input type="hidden" id='price' name="goods_price" value="{{$goodInfoList->new_price}}" />
+                    <input type="hidden" id='one_price' name="one_price" value="{{$goodInfoList->new_price}}" />
                     <script>
                         $(function(){
+                            var price = $('#price').val();
                             $('#jia').click(function(){
                                 var num = $('#num').val();
                                 var count = $('#count').html();
@@ -1185,6 +1109,7 @@
                                     ++num;
                                     $('#num').val(num);
                                 }
+                                $('#price').val(price * num);
                             });
                             $('#jian').click(function(){
                                 var num = $('#num').val();
@@ -1194,18 +1119,97 @@
                                     var n = num-1;
                                     $('#num').val(n);
                                 }
-                            })
-                        })
+                                $('#price').val(price * num);
+                            });
+
+
+                            //添加商品到购物车
+                                $('#submit').click(function(){
+
+                                    var val=$('input:radio[name="attr"]:checked').val();
+                                    if(val==null){
+                                        alert("请选中商品属性!");
+                                        return false;
+                                    }else{
+                                        var attr = val;                             //获取商品属性value值
+                                    }
+                                    var val=$('input:radio[name="color"]:checked').val();
+                                    if(val==null){
+                                        alert("请选中颜色!");
+                                        return false;
+                                    }else{
+                                        var color = val;                            //获取商品颜色value值
+                                    }
+                                    var goods_weight = $('#goods_weight').val();    //获取商品重量value值
+                                    var img = $('#img').val();                      //获取商品图片value值
+                                    var shop_name = $('#shop_name').val();          //获取商铺名称value值
+                                    var goods_name = $('#goods_name').val();        //获取商品名称value值
+                                    var shop_id = $('#shop_id').val();              //获取商铺id value值
+                                    var goods_text = $('#goods_text').val();        //获取商品简介value值
+                                    var price = $('#price').val();                  //获取商品总价
+                                    var num = $('#num').val();                      //获取商品个数
+                                    var goods_id = $('#goods_id').val();            //获取商品id值
+                                    var one_price = $('#one_price').val();          //获取商品单价
+                                    var all_count = $('#all_count').val();          //获取商品单总数
+                                        $.ajax({
+                                            url: "/cart",
+                                            type: "post",
+                                            data: {
+                                                "color": color,
+                                                "attr": attr,
+                                                "goods_weight": goods_weight,
+                                                "img": img,
+                                                "shop_name": shop_name,
+                                                "goods_name": goods_name,
+                                                "shop_id": shop_id,
+                                                "goods_text": goods_text,
+                                                "price": price,
+                                                "num": num,
+                                                "goods_id": goods_id,
+                                                "one_price":one_price,
+                                                "all_count":all_count
+                                            },
+                                            headers: {'X-CSRF-TOKEN': '{{ csrf_token() }}'},
+                                            dataType: 'json',
+                                            success: function (data) {
+                                                alert(data);
+                                                window.location.reload("/cart/{{$goodInfoList->id}}/{{$ShopList->shop_id}}");
+                                            },
+                                            error: function () {
+                                                alert('error');
+                                            }
+                                        })
+                                });
+                            //添加商品到购物车
+                            $('#submit1').click(function(){
+                                    alert('请先登录账户!');
+                                })
+                             })
                     </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                     <!--<a id="choose-btn-gift" class="btn-special1 btn-lg" style="display:none;" href="//cart.gift.jd.com/cart/addGiftToCart.action?pid=5181406&pcount=1&ptype=1" class="btn-gift" clstag="shangpin|keycount|product|选作礼物购买_1"><b></b>选作礼物购买</a>-->
 
 
 
                     <a href="https://eve.jd.com/redirect.action?wid=5181406&amp;btype=100&amp;pid=1&amp;cid=72&amp;r=0.8162883530358511" id="btn-heyue" class="btn-special1 btn-lg" style="display:none;" clstag="shangpin|keycount|product|选择号码和套餐_1">选择号码和套餐</a>
-
-                    <button style='background-color: #df3134'><a class="btn-special1 btn-lg">加入购物车</a></button>
-
-
+                    @if (Auth::guest())
+                        <a class="btn-special1 btn-lg" id="submit1">加入购物车</a>
+                    @else
+                        <a class="btn-special1 btn-lg" id="submit">加入购物车</a>
+                    @endif
                     <a href="#none" id="btn-baitiao" class="btn-special2 btn-lg" style="display:none;" clstag="shangpin|keycount|product|dabaitiaobutton_9987_653_655">打白条</a>
                     <a href="https://jc.jd.com/" target="_blank" id="btn-jincai" class="btn-special2 btn-lg" style="display: none;" clstag="shangpin|keycount|product|jincai_1">使用金采</a>
 
@@ -1228,9 +1232,9 @@
             </div>
         </div>
     </div>
-    </form>
+                </form>
 </div>
-
+</div>
 
 {{--<div class="w">--}}
     {{--<div id="shopRecSuit" class="ETab hide">--}}
@@ -1678,5 +1682,6 @@
         {{--</div>--}}
     {{--</div>--}}
     {{--<div class="clb"></div>--}}
-{{--</div>--}}
+</div>
+</div>
 </body></html>

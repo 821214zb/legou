@@ -73,23 +73,17 @@ class RoleController extends CommonController{
                 $groupList= DB::table("role_admins")->where("role_id",$groupId)->delete();
             }
             $id=isset($_POST["groupUserId"])?$_POST["groupUserId"]:"";
-            if($id){
-                foreach($id as $v){
-                    $data["role_id"]=$groupId;
-                    $data["admin_id"]=$v;
-                    $res=DB::table("role_admins")->insert($data);
+            if($id) {
+                foreach ($id as $v) {
+                    $data["role_id"] = $groupId;
+                    $data["admin_id"] = $v;
+                    $res = DB::table("role_admins")->insert($data);
                 }
-                if($res){
+                if ($res) {
                     return redirect("/role/show");
-                }else{
+                } else {
                     echo "<script>alert('授权失败').location.href='/role/show'</script>";
                 }
-            }else{
-<<<<<<< Updated upstream
-                return redirect("/role/show");
-=======
-                echo "<script>alert('授权失败');location.href='/role/show'</script>";
->>>>>>> Stashed changes
             }
         }else{
             $request=request();

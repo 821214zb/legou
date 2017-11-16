@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Cate;
 use App\Lunbo;
 use App\Good;
-use Illuminate\Support\Facades\Auth;
 use phpDocumentor\Reflection\Types\This;
 use Session;
 use App\links;
@@ -31,7 +31,8 @@ class JDController extends Controller
 
         return view('JDindex',['list'=>$list,'posid'=>$posid]);
     }
-    
+
+
     /**
      * 用户信息（我的爱尚）
      */

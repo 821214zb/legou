@@ -234,6 +234,7 @@ class Good extends Model{
         return $rows;
     }
 
+
     //添加商品时公共的方法
     public function publicAdd($size,$color,$table,$goods_id){
         foreach ($size as $v) {
@@ -324,7 +325,6 @@ class Good extends Model{
             return $box_arr;
         }
     }
-
 
 
     /*
@@ -452,8 +452,6 @@ class Good extends Model{
         return DB::table('goods')->select('id','goods_name','goods_text','new_price','goods_img','shop_id')->whereIn('goods_category',$id3)->paginate(10);
 
     }
-
-
 
     /*
     * *********************

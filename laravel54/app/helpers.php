@@ -64,13 +64,13 @@ function p($arr) {
 }
 
 //参数设置
-// $sid      = "ZH000000457";                               // 短信账号
-// $apikey   = "8ea30578-e811-4951-8bf6-bdf157c3ba9c";      // APIKEY
-// $svr_rest = "http://api.rcscloud.cn:8030/rcsapi/rest";   // rest请求地址
+ $sid      = "ZH000000457";                               // 短信账号
+ $apikey   = "8ea30578-e811-4951-8bf6-bdf157c3ba9c";      // APIKEY
+ $svr_rest = "http://api.rcscloud.cn:8030/rcsapi/rest";   // rest请求地址
 
-$sid      = "ZH000000466";                               // �����˺�
-$apikey   = "289f264e-adcf-45eb-a63d-f7a399a025d6";      // APIKEY
-$svr_rest = "http://api.rcscloud.cn:8030/rcsapi/rest";    // rest�����ַ
+//$sid      = "ZH000000466";                               // �����˺�
+//$apikey   = "289f264e-adcf-45eb-a63d-f7a399a025d6";      // APIKEY
+//$svr_rest = "http://api.rcscloud.cn:8030/rcsapi/rest";    // rest�����ַ
 
 // *** 1、账号接口 信息获取
 function queryUser(){

@@ -12,8 +12,8 @@
     <link rel="stylesheet" href="/css/style.css">
     <link type="text/css" rel="stylesheet" href="css/foreign-number-layer-170524.css">
     <link type="text/css" rel="stylesheet" href="css/tinyscrollbar-170524.css">
-    <script type="text/javascript" src="%E4%B8%AA%E4%BA%BA%E6%B3%A8%E5%86%8C_files/a_002"></script>
-    <script type="text/javascript" src="%E4%B8%AA%E4%BA%BA%E6%B3%A8%E5%86%8C_files/a"></script>
+    {{--<script type="text/javascript" src="%E4%B8%AA%E4%BA%BA%E6%B3%A8%E5%86%8C_files/a_002"></script>--}}
+    {{--<script type="text/javascript" src="%E4%B8%AA%E4%BA%BA%E6%B3%A8%E5%86%8C_files/a"></script>--}}
     <script type="text/javascript" src="http://www.aslegou.com/js/underscore-min.js"></script>
     <script src="/js/jquery-3.2.1.min.js"></script>
     <script>
@@ -69,9 +69,6 @@
         });
 
         });
-        seajs.off('load');
-        seajs.off('fetch');
-        seajs.data.charset = 'gb2312'
     </script>
 
     <link charset="gb2312" rel="stylesheet" href="css/dialog.css"></head>
@@ -87,7 +84,7 @@
 
     <div class="main clearfix" id="form-main">
         <div class="reg-form fl">
-            <form action="zhuce" id="register-form" method="post" novalidate="novalidate">
+            <form action="/zhuce" id="register-form" method="post" novalidate="novalidate">
                     {{ csrf_field() }}
                 <div class="form-item form-item-account" id="form-item-account">
                     <label>用　户　名</label>
@@ -166,18 +163,8 @@
                 <div class="form-item form-item-phonecode">
                     <label>手机验证码</label>
                    <input name="verify"  maxlength="13" type="text" placeholder=" 请填写手机验证码" autocomplete="off" class="field form-authcode" value="{{old('verify')}}">
-                    <button id="btn" class="btn-phonecode" type="button" >获取验证码</button>
+                    <button id="btn" class="btn-phonecode" type="button" one="false" onclick="sendCode()">获取验证码</button>
                     <i class="i-status"></i>
-                </div>
-                <div class="input-tip">
-<<<<<<< HEAD
-=======
-                     <span style="color:red;">
-                        @if($errors->has('verify'))
-                             {{$errors->first('verify')}}
-                         @endif
-                    </span>
->>>>>>> e47af635829730e4153d370207ebef555ebc3c22
                 </div>
                 <div>
                     <button type="submit" class="btn-register">立即注册</button>
@@ -186,28 +173,48 @@
         </div>
         <!--手机验证码-->
         <script type="text/javascript">
-            $('#btn').click(function(){
+            var time = 60;
+            function sendCode() {
+                //避免重复发
+                if($("#btn").attr("one")=='true'){
+                    return false;
+                }
+                $('#btn').html("重新获取(" + time + ")");
+                $("#btn").attr("one", true);
                 var tel = $.trim($('#form-phone').val());//获取手机号码
                 var username = $.trim($('#form-account').val());//获取用户名
                 var token = $.trim($('#form-phone').attr('token'));//获取口令牌
                 $.post('/app', {'tel':tel,'username':username,'_token':token},function(res){
                     if (res) {
-                        alert(res);
+                        alert('发生成功！');
                     } else {
-                        alert('发送失败');
+                        alert('error');
                     }
                 });
-            });
+                clock = setInterval(aa, 1000);
+            }
+            function aa(){
+                time--;
+                if(time >0){
+                    $('#btn').html("重新获取("+time+")");
+
+                }else{
+                    clearInterval(clock);
+                    $("#btn").html("获取验证码");
+                    $("#btn").attr("one",false);
+                    time = 60;
+                }
+            }
         </script>
         <div id="form-company" class="reg-other">
             <div class="company-reg">
-                <a href="https://reg.jd.com/reg/company" target="_blank" clstag="pageclick|keycount|201612011|3">
+                <a href="" target="_blank" clstag="pageclick|keycount|201612011|3">
                     <i class="i-company"></i>
                     <span>企业用户注册</span>
                 </a>
             </div>
             <div class="inter-cust">
-                <a href="https://reg.joybuy.com/reg/person.html" target="_blank" clstag="pageclick|keycount|201612011|4">
+                <a href="https:" target="_blank" clstag="pageclick|keycount|201612011|4">
                     <i class="i-global"></i>
                     <span>INTERNATIONAL<br>CUSTOMERS</span>
                 </a>
@@ -218,37 +225,34 @@
 
 <div id="form-footer" class="footer w">
     <div class="links">
-        <a rel="nofollow" target="_blank" href="https://www.jd.com/intro/about.aspx"> 关于我们</a>|
-        <a rel="nofollow" target="_blank" href="https://www.jd.com/contact/">联系我们</a>|
-        <a rel="nofollow" target="_blank" href="https://zhaopin.jd.com/">人才招聘</a>|
-        <a rel="nofollow" target="_blank" href="https://www.jd.com/contact/joinin.aspx">商家入驻</a>|
-        <a rel="no  follow" target="_blank" href="https://www.jd.com/intro/service.aspx">广告服务</a>|
-        <a rel="nofollow" target="_blank" href="https://app.jd.com/">手机京东</a>|
-        <a target="_blank" href="https://club.jd.com/links.aspx">友情链接</a>|
-        <a target="_blank" href="https://media.jd.com/">销售联盟</a>|
-        <a href="https://club.jd.com/" target="_blank">京东社区</a>|
-        <a href="https://gongyi.jd.com/" target="_blank">京东公益</a>|
-        <a target="_blank" href="https://en.jd.com/" clstag="pageclick|keycount|20150112ABD|9">English Site</a>
+        <a rel="nofollow" target="_blank" href="###"> 关于我们</a>|
+        <a rel="nofollow" target="_blank" href="###">联系我们</a>|
+        <a rel="nofollow" target="_blank" href="#">人才招聘</a>|
+        <a rel="nofollow" target="_blank" href="#">商家入驻</a>|
+        <a rel="no  follow" target="_blank" href="">广告服务</a>|
+        <a rel="nofollow" target="_blank" href="">手机京东</a>|
+        <a target="_blank" href="">友情链接</a>|
+        <a target="_blank" href="">销售联盟</a>|
+        <a href="" target="_blank">京东社区</a>|
+        <a href="" target="_blank">京东公益</a>|
+        <a target="_blank" href="" clstag="pageclick|keycount|20150112ABD|9">English Site</a>
     </div>
     <div class="copyright">
         Copyright&#169;2004-2016&nbsp;&nbsp;京东JD.com&nbsp;版权所有
     </div>
 </div>
-<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+{{--<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>--}}
 <script src="/js/JavaScript.js"></script>
 <script type="text/javascript">
-
-
     function re_captcha() {
         $url = "{{ URL('/zhuce') }}";
         $url = $url + "/" + Math.random();
         document.getElementById('c2c98f0de5a04167a9e427d883690ff6').src=$url;
     }
-
 </script>
-<script type="text/javascript" src="%E4%B8%AA%E4%BA%BA%E6%B3%A8%E5%86%8C_files/jseqf.htm"></script>
-<script src="%E4%B8%AA%E4%BA%BA%E6%B3%A8%E5%86%8C_files/td.js"></script><script src="%E4%B8%AA%E4%BA%BA%E6%B3%A8%E5%86%8C_files/y.htm"></script>
-<a target="_blank" href="https://surveys.jd.com/index.php?r=survey/index/sid/447941/lang/zh-Hans" class="feedback" style="margin-top: -85px; position: fixed; right: 0px; bottom: 50%;"></a>
+{{--<script type="text/javascript" src="%E4%B8%AA%E4%BA%BA%E6%B3%A8%E5%86%8C_files/jseqf.htm"></script>--}}
+{{--<script src="%E4%B8%AA%E4%BA%BA%E6%B3%A8%E5%86%8C_files/td.js"></script><script src="%E4%B8%AA%E4%BA%BA%E6%B3%A8%E5%86%8C_files/y.htm"></script>--}}
+<a target="_blank" href="" class="feedback" style="margin-top: -85px; position: fixed; right: 0px; bottom: 50%;"></a>
 
 
 </body>

@@ -372,7 +372,6 @@ class Good extends Model{
      * *******************
      * */
     public static function getAttr($id){
-
         $row = DB::table('cates')->select('cate_pid')->where('id',$id)->first();
         $pid = $row->cate_pid;
         $row = DB::table('cates')->select('id')->where('cate_pid',$pid)->get();
@@ -494,4 +493,25 @@ class Good extends Model{
          return DB::table("shops")->where(["shop_id"=>$did])->first();//商品
 
     }
+
+
+    public static function cate_goods($cate){
+        $data = json_decode(json_encode($cate),true);
+        $ids = '';
+        $count = count($data);
+        for($i = 0; $i < $count; $i++){
+            $ids .= $data[$i]['id'].',';
+        }
+        $id1 = rtrim($ids,',');
+        $id2 = ltrim($id1,',');
+        $id3   = array_unique(explode(',',$id2));
+        //var_dump($id3);die;
+        return DB::table('goods')->select('id','goods_name','goods_text','new_price','goods_img','shop_id')->whereIn('goods_category',$id3)->paginate(10);
+    }
+
+    public static function brand_goods($brands){
+        return DB::table('goods')->select('id','goods_name','goods_text','new_price','goods_img','shop_id')->where('goods_brand',$brands->id)->paginate(10);
+    }
+
+
 }

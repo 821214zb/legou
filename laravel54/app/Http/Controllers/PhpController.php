@@ -43,25 +43,20 @@ class PhpController{
         $data['username'] = $_POST['username'];
         $data['verify']   = $verify;
         $res = DB::table('user_verify')->insertGetId($data);
-        if($res){
-            $result = sendTplSms("a710b37a19a24c97bb8e75210290adfa", "@1@=".$verify,$_POST['tel'], "");
-
+        if($res !== false ){
+            $result = sendTplSms("1ca1eedce6f049dcb77b8bfe91cb8f1b", "@1@=".$verify,$_POST['tel'], "");
             //输出所有返回值
-            if (empty($result))
+            if($result->{'code'} != 1005)
             {
-                echo json_encode('发送失败！');
+                print_r($result);
             }else{
-                //格式化
-                // json_decode();
-                //打印返回值中状态码
                 //print $result->{'code'};
                 echo json_encode('发送成功！');
             }
         }else{
-            echo json_encode('发送失败！');
+            echo json_encode('用户信息添加失败！');
         }
     }
-            //return $result;
 
     /*
      * 发送模板短信

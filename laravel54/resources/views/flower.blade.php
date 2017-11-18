@@ -2,7 +2,7 @@
 <html class="" lang="zh-CN"><head><script type="text/javascript" async="" src="http://www.aslegou.com/js/flower/conversion_async.js"></script><script async="" src="http://www.aslegou.com/js/flower/gtm.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-        <title> 鲜花 鲜花速递 礼品箱包【行情 价格 评价 图片】- 爱尚</title>
+        <title>爱尚</title>
         <link type="text/css" rel="stylesheet" href="http://www.aslegou.com/css/flower/a.css">
                   <link type="text/css" rel="stylesheet" href="http://www.aslegou.com/css/flower/list.css" media="all">
 
@@ -35,7 +35,6 @@
         {{--<link rel="dns-prefetch" href="https://search.jd.com/">--}}
     {{--<link rel="stylesheet" href="/css/pintuer.css">--}}
        <style>
-
            .pagination{list-style:none;margin:0;padding:0;display:inline-block;vertical-align:bottom;}
            .pagination li{display:inline-block;border:solid 1px #ddd;border-radius:4px;}
            .pagination a{color:#333;padding:8px 12px;line-height:18px;display:block;transition:all 1s cubic-bezier(0.175, 0.885, 0.32, 1) 0s;}
@@ -84,61 +83,78 @@
 	<div class="w">
     	<ul class="fl">
     		<li id="ttbar-home"><i class="iconfont"></i><a href="/" target="_blank">爱尚首页</a></li>
-    		<li class="dorpdown" id="ttbar-mycity">			<div class="dt cw-icon ui-areamini-text-wrap" style="">				<i class="iconfont"></i>				<span class="ui-areamini-text" data-id="1" title="北京">北京</span> 			</div>			<div class="dd dorpdown-layer">				<div class="dd-spacer"></div>				<div class="ui-areamini-content-wrap"> 					<div class="ui-areamini-content"><div class="ui-areamini-content-list"><div class="item"><a data-id="1" href="javascript:void(0)" class="selected">北京</a></div><div class="item"><a data-id="2" href="javascript:void(0)">上海</a></div><div class="item"><a data-id="3" href="javascript:void(0)">天津</a></div><div class="item"><a data-id="4" href="javascript:void(0)">重庆</a></div><div class="item"><a data-id="5" href="javascript:void(0)">河北</a></div><div class="item"><a data-id="6" href="javascript:void(0)">山西</a></div><div class="item"><a data-id="7" href="javascript:void(0)">河南</a></div><div class="item"><a data-id="8" href="javascript:void(0)">辽宁</a></div><div class="item"><a data-id="9" href="javascript:void(0)">吉林</a></div><div class="item"><a data-id="10" href="javascript:void(0)">黑龙江</a></div><div class="item"><a data-id="11" href="javascript:void(0)">内蒙古</a></div><div class="item"><a data-id="12" href="javascript:void(0)">江苏</a></div><div class="item"><a data-id="13" href="javascript:void(0)">山东</a></div><div class="item"><a data-id="14" href="javascript:void(0)">安徽</a></div><div class="item"><a data-id="15" href="javascript:void(0)">浙江</a></div><div class="item"><a data-id="16" href="javascript:void(0)">福建</a></div><div class="item"><a data-id="17" href="javascript:void(0)">湖北</a></div><div class="item"><a data-id="18" href="javascript:void(0)">湖南</a></div><div class="item"><a data-id="19" href="javascript:void(0)">广东</a></div><div class="item"><a data-id="20" href="javascript:void(0)">广西</a></div><div class="item"><a data-id="21" href="javascript:void(0)">江西</a></div><div class="item"><a data-id="22" href="javascript:void(0)">四川</a></div><div class="item"><a data-id="23" href="javascript:void(0)">海南</a></div><div class="item"><a data-id="24" href="javascript:void(0)">贵州</a></div><div class="item"><a data-id="25" href="javascript:void(0)">云南</a></div><div class="item"><a data-id="26" href="javascript:void(0)">西藏</a></div><div class="item"><a data-id="27" href="javascript:void(0)">陕西</a></div><div class="item"><a data-id="28" href="javascript:void(0)">甘肃</a></div><div class="item"><a data-id="29" href="javascript:void(0)">青海</a></div><div class="item"><a data-id="30" href="javascript:void(0)">宁夏</a></div><div class="item"><a data-id="31" href="javascript:void(0)">新疆</a></div><div class="item"><a data-id="52993" href="javascript:void(0)">港澳</a></div><div class="item"><a data-id="32" href="javascript:void(0)">台湾</a></div><div class="item"><a data-id="84" href="javascript:void(0)">钓鱼岛</a></div><div class="item"><a data-id="53283" href="javascript:void(0)">海外</a></div></div></div> 				</div> 			</div>		</li>
     	</ul>
-    	<ul class="fr">
-			<li class="fore1 dorpdown" id="ttbar-login"><div class="dt cw-icon">						<i class="icon-plus-nickname"></i>	                    <a class="nickname" target="_blank" href="https://home.jd.com/">jd_7732522cc...</a>	                    <i class="iconfont"></i>		            </div>		            <div class="dd dorpdown-layer">				<div class="dd-spacer"></div>				<div class="userinfo">					<div class="u-pic"><a target="_blank" href="https://home.jd.com/"><img src="http://www.aslegou.com/images/flower/no-img_mid_.jpg" width="60" height="60"></a></div><div class="u-plus"><a href="https://passport.jd.com/uc/login?ltype=logout" class="link-logout">退出</a><a href="https://plus.jd.com/index" target="_blank" class="icon-plus-dropdown"></a></div>					<div class="u-msg"><a href="https://plus.jd.com/index" target="_blank">试用PLUS会员领运费券&gt;</a></div>				</div>			<div class="badge-list">								<a href="javascript:void(0);" class="badge-list-prev">&lt;</a>								<div class="u-badges" style="position: relative;">									<div class="badge-panel-main" style="width: 740px; left: 0px; position: absolute;">										<div class="badge-panel fore1 u-dis ui-switchable-panel-selected" style="float: left; display: block;"><a href="https://plus.jd.com/index" target="_blank"><i></i><p class="u-name">免费试用</p></a></div><div class="badge-panel fore2" style="float: left; display: block;"><a href="https://vip.jd.com/help.html#mypri-01" target="_blank"><i></i><p class="u-name">自营运费补贴</p></a></div>				<div class="badge-panel fore3" style="float: left; display: block;"><a href="https://vip.jd.com/help.html#mypri-02" target="_blank"><i></i><p class="u-name">售后服务</p></a></div>				<div class="badge-panel fore4" style="float: left; display: block;"><a href="https://vip.jd.com/help.html#mypri-03" target="_blank"><i></i><p class="u-name">评价奖励</p></a></div>				<div class="badge-panel fore5" style="float: left; display: block;"><a href="https://vip.jd.com/help.html#mypri-04" target="_blank"><i></i><p class="u-name">会员特价</p></a></div>				<div class="badge-panel fore8" style="float: left; display: block;"><a href="https://vip.jd.com/help.html#mypri-06" target="_blank"><i></i><p class="u-name">装机服务</p></a></div>				<div class="badge-panel fore6 u-dis" style="float: left; display: block;"><a href="https://vip.jd.com/help.html#mypri-05" target="_blank"><i></i><p class="u-name">生日礼包</p></a></div>				<div class="badge-panel fore7 u-dis" style="float: left; display: block;"><a href="https://vip.jd.com/help.html#mypri-07" target="_blank"><i></i><p class="u-name">专享礼包</p></a></div>				<div class="badge-panel fore9 u-dis" style="float: left; display: block;"><a href="https://vip.jd.com/help.html#mypri-08" target="_blank"><i></i><p class="u-name">贵宾专线</p></a></div>				<div class="badge-panel fore10 u-dis" style="float: left; display: block;"><a href="https://vip.jd.com/help.html#mypri-09" target="_blank"><i></i><p class="u-name">运费券</p></a></div></div>								</div>								<a href="javascript:void(0);" class="badge-list-next">&gt;</a>							</div></div></li>
-			<li class="spacer"></li>
-			<li class="fore2">
-				<div class="dt">
-					<a target="_blank" href="https://order.jd.com/center/list.action">我的订单</a>
-				</div>
-			</li>
-			<li class="spacer"></li>
-			<li class="fore3 dorpdown" id="ttbar-myjd">
-				<div class="dt cw-icon">
-					<!-- <i class="ci-right"><s>◇</s></i> -->
-					<a target="_blank" href="https://home.jd.com/">我的爱尚</a><i class="iconfont"></i>
-				</div>
-				<div class="dd dorpdown-layer"><div class="dd-spacer"></div><div class="dd-inner"><span class="loading"></span></div></div>
-			</li>
-			<li class="spacer"></li>
-			<li class="fore4">
-				<div class="dt">
-					<a target="_blank" href="https://vip.jd.com/">爱尚会员</a>
-				</div>
-			</li>
-			<li class="spacer"></li>
-			<li class="fore5">
-				<div class="dt">
-					<a target="_blank" href="https://b.jd.com/">企业采购</a>
-				</div>
-			</li>
-			<li class="spacer"></li>
-			<li class="fore6 dorpdown" id="ttbar-serv">
-				<div class="dt cw-icon">
-					<!-- <i class="ci-right"><s>◇</s></i> -->
-					客户服务<i class="iconfont"></i>
-				</div>
-				<div class="dd dorpdown-layer"><div class="dd-spacer"></div><div class="dd-inner"><span class="loading"></span></div></div>
-			</li>
-			<li class="spacer"></li>
-			<li class="fore7 dorpdown" id="ttbar-navs">
-				<div class="dt cw-icon">
-					<!-- <i class="ci-right"><s>◇</s></i> -->
-					网站导航<i class="iconfont"></i>
-				</div>
-				<div class="dd dorpdown-layer"><div class="dd-spacer"></div><div class="dd-inner"><span class="loading"></span></div></div>
-			</li>
-			<li class="spacer"></li>
-			<li class="fore8 dorpdown" id="ttbar-apps">
-				<div class="dt cw-icon">
-					<!-- <i class="ci-left"></i> -->
-					<!-- <i class="ci-right"><s>◇</s></i> -->
-					<a target="_blank" href="https://app.jd.com/">手机爱尚</a>
-				</div>
-						<div class="dd dorpdown-layer">				<div class="dd-spacer"></div>				<div class="dd-inner" id="ttbar-apps-main"><div class="dd-spacer"></div><div class="dd-inner"><span class="loading"></span></div>				</div>			</div>		</li>
-    	</ul>
+        <ul style="margin-left: 400px;">
+            <li>
+                @if (Auth::guest())
+                    <a href="login" id="login">你好，请登录</a> &nbsp;&nbsp;
+                    <a href="zhuce" class="col-red">免费注册</a>
+                @else
+                    <div class="login2">
+                        <div id="login" style="position:relative;width: 115px;margin-left: 5px;">
+                            <a >欢迎您！{{ Auth::user()->name }}
+                                <img src="images/pl1.jpg" width="30px" style="position: absolute;top:8px; filter:alpha(Opacity=80);-moz-opacity:0.4;opacity: 0.4;">
+                                <div class='login1' style="border: 1px solid lightgrey;border-top: none; width:235px;height:160px;top:27px;left:-1px;position: absolute; background-color: white;display:none;">
+                                    <div style="border-bottom:1px solid lightgrey;height:80px;">
+                                        <div style="float: left;margin:11px 0px 0px 15px;">
+                                            <img class="J_upic_img" src="images/11.png" width="57" height="57">
+                                        </div>
+                                        <div style="width:145px;height:50px;float: right;margin:10px 8px 0px 8px;">
+                                            <img src="/images/pl1.jpg" width="38px;height:15px;" style="filter:alpha(Opacity=80);-moz-opacity:0.4;opacity: 0.4;">
+                                            <div style="float: right;font-size: 13px">
+                                                <a href="{{ route('logout') }}"
+                                                   onclick="event.preventDefault();
+                                                                 document.getElementById('logout-form').submit();">
+                                                    退出
+                                                </a>
+
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                    {{ csrf_field() }}
+                                                </form>
+                                            </div>
+                                            <div style="font-size: 11px;margin-bottom: 10px;">
+                                                <a href="//plus.jd.com" target="_blank">试用PLUS会员领免运费券&gt;</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                @endif
+            </li>
+            <li class="line"></li>
+            <li><a   @if (Auth::guest()) href="login"  @else href="/user_indent/{{ Auth::user()->id }}" @endif  target="_blank">我的订单</a></li>
+            <li class="line"></li>
+            <li class="fore"><a  @if (Auth::guest()) href="login"  @else href="/user_indenx/{{ Auth::user()->id }}" @endif  target="_blank">我的爱尚</a>
+                <i><s>◇</s></i>
+            </li>
+            <li class="line"></li>
+            <li>爱尚会员</li>
+            <li class="line"></li>
+            <li>企业采购</li>
+            <li class="line"></li>
+            <li class="fore tel-jd">
+                <em class="tel"></em>
+                手机爱尚
+                <i><s>◇</s></i>
+            </li>
+            <li class="line"></li>
+            <li class="fore">
+                关注爱尚
+                <i><s>◇</s></i>
+            </li>
+            <li class="line"></li>
+            <li class="fore">
+                客户服务
+                <i><s>◇</s></i>
+            </li>
+            <li class="line"></li>
+            <li class="fore">
+                网站导航
+                <i><s>◇</s></i>
+            </li>
+        </ul>
 		<span class="clr"></span>
     </div>
 </div>

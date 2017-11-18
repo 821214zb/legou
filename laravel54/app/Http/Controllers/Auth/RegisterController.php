@@ -55,9 +55,15 @@ class RegisterController extends Controller
     
     public function zhuce(Request $request)
     {
-        if ($_POST) {
 
-            //自动验证注册
+        if ($_POST) {
+            //验证手机验证码
+            $verify = DB::table('user_verify')->where('username',$request->name)->where('phone',$request->mobile)->select('verify')->first();
+            if($request->verify !== $verify->verify){
+                return "<script>alert('手机验证码填写不正确请重新填写！');location.href='/zhuce';</script>";
+            }
+
+//          自动验证注册
             $this->validate($request,
                 [
                     'name' => [
@@ -96,8 +102,8 @@ class RegisterController extends Controller
                     'name.required' => '用户名不能为空！',
                     'name.regex' => '用户名格式不对，应汉字或6到8位字母！',
                     'name.unique'=>'该用户名已经存在',
-                    'email.unique'=>'该邮箱已被注册',
-                    'mobile.unique'=>'该手机号码已被注册',
+                    'email.unique'=>'该邮箱已被注册，请直接点击登录！',
+                    'mobile.unique'=>'该手机号码已被注册，请直接点击登录！',
                     'password.required' => '密码不能为空！',
                     'password.regex' => '密码必须是由5-16位的数字、字母组成',
                     'password.confirmed' => '两次密码不一致,请重试',
@@ -110,21 +116,15 @@ class RegisterController extends Controller
                 ]
             );
 
-            //验证手机验证码
-            $verify = DB::table('user_verify')->where('username',$request->name)->where('phone',$request->mobile)->select('verify')->first();
-            if($request->verify !== $verify->verify){
-                return "<script>alert('手机验证码填写不正确请重新填写！');location.href='/zhuce';</script>";
-            }
-            
             $code = $request->code;
             //判断验证码是
             //否一致
             if (Session::get('milkcaptcha') != $code) {
                 echo "<script>alert('验证码输入不正确');location.href='/zhuce'</script>";
-            } else {
+            } else {echo 222;
                 $password = md5($request["password"]);
                 $data = DB::table('users')->insert(['name' =>$request->name, 'password' => Hash::make($password), 'email' => $request["email"], 'mobile' => $request["mobile"]]);
-                if ($data) {
+                if ($data) {echo 333;
                     echo "<script>alert('恭喜您注册成功');location.href='/login'</script>";
                 } else {
                     echo "<script>alert('对不起，注册失败');location.href='/zhuce'</script>";

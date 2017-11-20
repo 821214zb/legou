@@ -66,24 +66,25 @@ Route::any('/app','PhpController@add_user_verify');
 /**
  * 购物车路由
  */
+<<<<<<< Updated upstream
 
 
+=======
+>>>>>>> Stashed changes
 Route::get('/cart/{uid}','CartController@show');   //购物车页面展示
 Route::any('/cart','CartController@ajax');         //添加购物车路由
 Route::any('/cart/del','CartController@del');      //删除购物车路由
 Route::any('/cart/update','CartController@update');//删除购物车路由
 
-
-/**
- * 订单路由
- */
-Route::any('/dingdan','IndentController@show'); //注册页面展示
-
 /*
  * 结算页
  * */
+<<<<<<< Updated upstream
 
 Route::any('/settle','SettleController@settle');//新增收货人地址
+=======
+Route::any('/settle/{gid}','SettleController@settle');//新增收货人地址
+>>>>>>> Stashed changes
 Route::any('/update/{id}','SettleController@update');//修改收货人地址
 Route::any('/updateTwo','SettleController@updateTwo');//修改更多收货人地址
 Route::any('/delete/{id}','SettleController@delete');//删除更多收货人地址
@@ -96,6 +97,11 @@ Route::any('/userUpdate','UserController@update');//修改前台用户信息
 Route::any('/userAddress','UserController@userAddress');//修改前台用户地址信息
 
 
+
+/**
+ * 提交订单
+ */
+Route::any('/submitOrder/{gouid}/{price}','IndentController@show'); //注册页面展示
 
 //后台路由===================================================================================================
 

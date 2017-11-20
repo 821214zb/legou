@@ -28,7 +28,10 @@ class JDController extends Controller
         }else{
             session(['carts'=>0]);
         }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
         return view('JDindex',['list'=>$list,'posid'=>$posid]);
     }
 

@@ -12,7 +12,6 @@ class SettleController extends Controller{
     public function settle($gid){
         $useraddr = new \App\Useraddr();
         $uid = Auth::user()->id;
-
         //新增收货人信息
         if($_POST){
             $info = $useraddr->addRegion($uid);
@@ -21,6 +20,9 @@ class SettleController extends Controller{
             }
         }else{//查询当前用户地址信息
             $userInfo = DB::table('useraddrs')->where('uid',$uid)->first();
+            $address = $userInfo->address;
+            session(['address' => $address]);
+            
             if(!empty($userInfo)){
                 $ID = $userInfo->id;
                 session(['id'=>$ID]);
@@ -31,11 +33,18 @@ class SettleController extends Controller{
         }
         //获取购物车信息
         if(!empty($gid)){
-            $gid = explode(",",$gid);
-            $cartList = DB::table('carts')->whereIn('id',$gid)->get();
-            dump($cartList);
+            $gids = explode(",",$gid);
+            $cartList = DB::table('carts')->whereIn('id',$gids)->get();
+            $arr = array();
+            $arr2 = array();
+            foreach ($cartList as $v){
+                $arr[] = $v->goods_price;
+                $arr2[] = $v->goods_count;
+                $price = array_sum($arr);
+                $goods_count = array_sum($arr2);
+            }
         }
-        return view('settle',['userInfo'=>$userInfo,'userList'=>$userList,'cartList'=>$cartList]);
+        return view('settle',['userInfo'=>$userInfo,'userList'=>$userList,'cartList'=>$cartList,'price'=>$price,'goods_count'=>$goods_count,'gouid'=>$gid]);
     }
 
     /*
